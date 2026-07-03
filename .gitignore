@@ -1,0 +1,8 @@
+.DS_Store
+memory/.obsidian/workspace.json
+memory/.obsidian/workspace-mobile.json
+*.mp4
+*.mov
+thumbs/
+.write_test
+*.bak

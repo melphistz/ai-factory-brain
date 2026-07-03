@@ -1,0 +1,68 @@
+# Memory Index
+
+One line per memory, grouped by section. Add new entries under the matching section, newest on top within it. Volatile session-state lives in project files — symlink in, don't duplicate.
+
+## Rules
+
+- [Vault Structure](vault-structure.md) — reorg 2026-07-03: 9-section index + entry rule, rename log (ai-influencer-image-prompt), backup location
+- [Log Updates to Obsidian](log-updates-to-obsidian.md) — RULE: record every new thing/update in the vault, each time
+
+## Active Projects
+
+- [AI UGC Ad Factory Workflow](ai-ugc-ad-factory-workflow.md) — ACTIVE: modular AI ad factory for Fox-Funnels (8 concept × 3 hook, hook-swap, locked architecture + 2 physical risks)
+- [FF Factory — Live Session State](FF_SESSION_STATE.md) — symlink → Desktop/Ads/FF_factory/SESSION_STATE.md (volatile task-state, edit at source)
+- [Valenshield Walking-Pad TIFU (vid02)](valenshield-walkingpad-tifu-vid02.md) — ACTIVE Valenshield campaign 3: cute walking-pad + TIFU-flip (หกใส่ตัว→ผ้าสะท้อนน้ำเซฟ), 20s 9:16 new model; storyboard sheet DONE, next=animate. Has grid direction-lock + sheet-render pipeline
+- [Valenshield Macro ASMR Ad](valenshield-macro-asmr-ad.md) — ACTIVE Valenshield campaign 2: 4-clip no-person WHITE fabric macro ASMR; Clip 2 defined (water-repellent bead demo)
+- [Valenshield Nurse Ad Project](valenshield-nurse-ad-project.md) — ACTIVE project (campaign 1): LAVENDER nurse-uniform HERO ad w/ model, 5 clips, Seedance pipeline
+
+## Session State (volatile — archive when done)
+
+- [YouMind Scrape — DONE](youmind-scrape-session-state.md) — DONE 3 ก.ค.: merged youmind→galleries (img 6877, video 363). optional leftover: 44 img fail + youmind video undercount
+- [MeiGen Library — Session Resume State](meigen-library-session-state.md) — RESUME after restart+FDA: library on /Volumes/PS Catches; test FDA→external, else Terminal sync; delete Desktop+Documents orphans
+
+## Seedance / Video Prompting
+
+- [AI Video Realism Hierarchy](ai-video-realism-hierarchy.md) — motion/แสง/กล้อง = ตัวคูณ realism, skin detail = แค่ gate; QA ข้อ 1 = contact physics (มือแตะของ) + case study MV ไทย AI
+- [Seedance Knowledge](seedance-knowledge.md) — how to write Seedance 2.0 video prompts for cinematic results
+- [Seedance Prompt Repository](seedance-prompt-repository.md) — real Seedance 2.0 prompt examples + reusable style stacks
+- [Seedance UGC Repository](seedance-ugc-repository.md) — Seedance 2.0 prompts for realistic UGC talking-head ads (don't look AI)
+- [Storyboard GPT Image 2 → Seedance](storyboard-gpt-image-to-seedance.md) — make storyboard/keyframes in GPT Image 2, animate in Seedance 2.0
+- [UGC Storyboard Sheet Template](ugc-storyboard-sheet-template.md) — production-ready 3-part@10s UGC storyboard layout that actually feeds Seedance (+ 4 fix-before-use rules)
+- [Veo / Google Flow Knowledge](veo-google-flow-knowledge.md) — SEPARATE model (not Seedance): talking-head UGC master lock-tag template + Thai speech/VO-pacing rules
+- [Director Styles Knowledge](director-styles-knowledge.md) — famous film director visual styles + prompt keywords (Wong Kar-wai, Nolan, Kubrick...)
+- [MV Directors Knowledge](mv-directors-knowledge.md) — drama/storytelling MV directors (intl + Thai) as style refs
+
+## Image Generation & Character
+
+- [AI Influencer Image Prompt](ai-influencer-image-prompt.md) — generate very realistic AI influencer/virtual-model images (don't look AI)
+- [AI Character Identity Lock](ai-character-identity-lock.md) — keep same face across many images/scenes (named reference sheet, GPT Image 2)
+- [Image Prompt Suffixes & Techniques](image-prompt-suffixes-techniques.md) — TVC white-tone suffix, pose-transfer, character-swap, upscale prompts, storyboard tool (from ZenityX)
+- [AI Platform Content Limits](ai-platform-content-limits.md) — revealing/suggestive clothing limits (GPT Image/Nano Banana/Seedance): allowed vs blocked
+
+## Prompt Libraries
+
+- [MeiGen Prompt Dataset](meigen-prompt-dataset.md) — FULL 6,029 prompts pulled via open /api/search (no auth, bypasses CF) → local gallery.html; +1,446 curated open-source JSON; query/filter + ad formulas
+- [MeiGen Top Prompts](meigen-top-prompts.md) — full copy-paste text of top brand-ad/product/editorial/food prompts (Act as + PHASE formula, JSON identity-lock, [BRAND NAME] vars)
+- [YouMind Prompt Pack](youmind-prompt-pack.md) — 8 full copy-paste GPT Image 2 prompts (editorial/UGC/product/food) + {argument} template + 10 restyle presets
+- [YouMind GPT Image 2 Prompt Library](youmind-gpt-image-prompt-library.md) — filterable prompt gallery; use Photography×Influencer/Model / Product / Storyboard filters (skills subsite = academic, skip)
+
+## Ad Knowledge & Research
+
+- [UGC Ad Structure](ugc-ad-structure.md) — UGC ad anatomy (hook/body/CTA) + worked teardowns of real AI UGC ads
+- [Ads 50 Teardown — AI Video Bootcamp](ads-50-teardown-ai-video-bootcamp.md) — 50 competitor ad teardown: 4-beat skeleton, hook formulas, the modular hook-swap scale mechanic
+- [Ads Contact-Sheet Pipeline](ads-contact-sheet-pipeline.md) — competitor ad teardown: _batch.py → sheets/ (30-frame 5x6) + txt/ transcripts in Desktop/Ads/videos
+
+## Skills & Workflows
+
+- [Skills Cheat Sheet](skills-cheatsheet.md) — which installed skill runs for which ad task + how to force-pick / auto-allocate
+- [Seedance 2 Pro Director Skill](seedance-2-pro-director-skill.md) — INSTALLED skill (~/.claude/skills): elite single-shot Seedance prompt director (formula + char-anchor + frame-coords + QA); companion = shotlist-builder
+- [Shotlist Builder Skill](shotlist-builder-skill.md) — INSTALLED skill: stateful 4-phase screenplay→shotlist HTML w/ Chinese Seedance prompts; cinematic-film lane; has claude.ai-env deps to adapt for Claude Code
+- [Video Prompt Builder Framework](video-prompt-builder-framework.md) — 4-section structure for planning whole Seedance ads (skill in ~/.claude/skills/)
+- [Higgsfield 3-Step AI Ad Workflow](higgsfield-3step-ai-ad-workflow.md) — CINEMATIC-COMMERCIAL (not UGC): 2 Higgsfield Seedance 2.0 tutorials (headphones + football/robot) — asset→shotlist→scene + layout-map/erase-face/style-prefix/beat-ramp/physics-weight tricks
+- [Higgsfield Marketing Studio Workflow](higgsfield-marketing-studio-workflow.md) — MS auto ad generator (beauty-brand demo): UGC + Hyper Motion + TV Spot in one tool + 5 luxury location prompts
+
+## Tools & Setup
+
+- [AI Factory Brain Sync](ai-factory-brain-sync.md) — git repo ~/ai-factory-brain: vault/agents/skills ตัวจริง + symlink กลับ; sync ด้วย ./sync.sh ต้น-ท้าย session; Windows setup ใน setup/
+- [Claude Subagents](claude-subagents.md) — MODEL POLICY: Fable=orchestrate เท่านั้น, subagent=Opus/Sonnet ตามความยาก; storyboard-prompter (opus, storyboard→prompt ภาพ+วิดีโอ) + deep-reasoner (opus) + fast-worker (sonnet) ใน ~/.claude/agents/
+- [Exa MCP Setup](exa-mcp-setup.md) — Exa search via curl/MCP (free); Reddit+X unavailable, general web works; read_x.py for single tweets

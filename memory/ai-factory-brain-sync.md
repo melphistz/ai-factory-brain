@@ -1,0 +1,29 @@
+---
+name: ai-factory-brain-sync
+description: "Cross-machine sync repo ~/ai-factory-brain (git) — vault/agents/skills ตัวจริงอยู่ในนี้ + symlink กลับ path เดิม; sync = ./sync.sh ต้นและท้าย session"
+metadata:
+  node_type: memory
+  type: reference
+---
+
+# ai-factory-brain — Cross-machine Sync Repo (2026-07-03)
+
+`~/ai-factory-brain` = git repo เก็บความรู้ทั้งหมดข้ามเครื่อง (mac mini ↔ Windows PC)
+
+## โครง + symlink map (mac mini)
+
+- `memory/` = vault ตัวจริง ← symlink จาก `~/.claude/projects/-Users-working/memory`
+- `agents/` = subagents ตัวจริง ← symlink จาก `~/.claude/agents`
+- `skills/` = skills ตัวจริง ← symlink จาก `~/.claude/skills`
+- `projects/FF_factory/` = **mirror** (canonical = `~/Desktop/Ads/FF_factory/` บน mac)
+- `tools/` = `_ssim_scan.py` ฯลฯ · `setup/` = สคริปต์ตั้งเครื่องใหม่ · README.md = คู่มือเต็ม
+
+## Ritual
+
+**เริ่ม+เลิกงานทุก session: `cd ~/ai-factory-brain && ./sync.sh`** (Windows: `.\sync.ps1`) — pull→commit→push จบในคำสั่งเดียว. Windows ต้องเปิด claude จาก folder repo เสมอ (memory ผูก cwd)
+
+## ค้าง / caveat
+
+- remote GitHub ยังไม่ต่อ — ต้อง `gh auth login` แล้ว `gh repo create ai-factory-brain --private --source ~/ai-factory-brain --push`
+- TCC block กลางเซสชัน 2026-07-03: harness อ่าน Desktop ไม่ได้อีก → avatar PNGs + `_batch.py` ยังไม่เข้า repo (checklist ใน README) — แก้ถาวร = ให้ FDA กับ app ที่รัน Claude Code
+- ไม่เข้า repo: วิดีโอ/ไฟล์หนัก, MeiGen library (external drive), pordee plugin, credentials
