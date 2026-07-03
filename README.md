@@ -43,8 +43,8 @@
 - **pordee plugin** — ติดตั้งแยกต่อเครื่อง
 - Higgsfield/MCP credentials — login ต่อเครื่อง
 
-## Manual checklist (mac mini — ค้างจาก TCC block)
+## Manual checklist (mac mini)
 
-- [ ] ลาก 2 รูป identity ใน Finder: `Desktop/Ads/FF_factory/avatar/{concept1_presenter_anchor,FFCORE01_Ploy_identity_sheet}.png` → `ai-factory-brain/projects/FF_factory/avatar/`
-- [ ] copy `Desktop/Ads/videos/_batch.py` → `ai-factory-brain/tools/`
+- [x] `_batch.py` → `tools/` (uploaded 2026-07-03)
+- [x] avatar identity PNGs — **ข้าม** (Mirko: ไม่ต้อง — รูปอยู่ mac + Higgsfield media library อยู่แล้ว)
 - [ ] System Settings → Privacy & Security → **Full Disk Access** ให้ app ที่รัน Claude Code (Terminal/iTerm) — แก้ทั้งปัญหา Desktop TCC และเปิดทาง external drive (MeiGen sync)
