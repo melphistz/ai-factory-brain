@@ -24,6 +24,6 @@ metadata:
 
 ## ค้าง / caveat
 
-- remote GitHub ยังไม่ต่อ — ต้อง `gh auth login` แล้ว `gh repo create ai-factory-brain --private --source ~/ai-factory-brain --push`
+- remote ✅ ต่อแล้ว: **https://github.com/melphistz/ai-factory-brain** (private, gh auth = melphistz, push แล้ว 2026-07-03)
 - TCC block กลางเซสชัน 2026-07-03: harness อ่าน Desktop ไม่ได้อีก → avatar PNGs + `_batch.py` ยังไม่เข้า repo (checklist ใน README) — แก้ถาวร = ให้ FDA กับ app ที่รัน Claude Code
 - ไม่เข้า repo: วิดีโอ/ไฟล์หนัก, MeiGen library (external drive), pordee plugin, credentials
