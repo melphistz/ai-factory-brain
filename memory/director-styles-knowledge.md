@@ -1,6 +1,6 @@
 ---
 name: director-styles-knowledge
-description: Famous film director visual styles — keyword refs for Style/Camera/Lighting in video prompts
+description: Famous film director visual styles + deadpan visual comedy family (Keaton/Tati/Andersson/…) — keyword refs for Style/Camera/Lighting in video prompts, incl. when director names actually work
 metadata: 
   node_type: memory
   type: reference
@@ -11,6 +11,25 @@ metadata:
 
 > สรุปจากการค้นเว็บ (มิ.ย. 2026) เพื่อใช้เป็น "ภาษากลาง" เวลาพูดถึงสไตล์หนัง — แหล่งที่มาอยู่ท้ายไฟล์
 > ใช้คู่กับ [[seedance-knowledge]] ได้: หยิบคีย์เวิร์ดสไตล์ของแต่ละคนไปใส่ในช่อง Style/Camera/Lighting ของ prompt · MV ดราม่าดู [[mv-directors-knowledge]]
+
+---
+
+## ⭐ ใส่ "ชื่อผู้กำกับ" ลง prompt จำเป็นไหม? (อ่านก่อนใช้)
+
+**สรุป: คีย์เวิร์ดคือตัวที่ทำงานจริง ส่วนชื่อเป็นแค่ "โบนัส"** — เพราะชื่อผู้กำกับคือกล่องดำ เราคุมไม่ได้ว่าโมเดลตีความเป็นอะไร ขณะที่คีย์เวิร์ดรูปธรรม (neon, symmetry, deep focus) คือสิ่งที่โมเดล "ทำตามได้" ไม่ว่าจะรู้จักชื่อหรือไม่
+
+| วิธีใส่ | ผล |
+|--------|-----|
+| ใส่แค่ชื่อ `"Nawapol style"` ลอยๆ | ❌ เสี่ยง คุมไม่ได้ โดยเฉพาะผู้กำกับที่ data น้อย |
+| ใส่แค่คีย์เวิร์ด (ไม่มีชื่อ) | ✅ ปลอดภัย ทำงานจริง |
+| **ชื่อ + คีย์เวิร์ด** | ✅✅ ดีสุด — คีย์เวิร์ดคุม, ชื่อเป็นโบนัส |
+
+**เกณฑ์ว่าชื่อจะ "ได้ผล" แค่ไหน = data ของผู้กำกับคนนั้นในชุดเทรนมีเยอะไหม:**
+- 🟢 **ระดับโลก data เยอะ → ชื่ออาจช่วยจริง:** Kurosawa, Nolan, Kubrick, Wes Anderson, Fincher, Tarantino, Spielberg, Wong Kar-wai (ลองใส่ชื่อได้ มีโอกาสโมเดลรู้จัก)
+- 🔴 **อินดี้/ภูมิภาค data น้อย → อย่าพึ่งชื่อ:** เต๋อ นวพล, อภิชาติพงศ์, วิศิษฏ์ (ต้องมีคีย์เวิร์ดคุมเสมอ ชื่อแทบไม่ช่วย)
+
+**กฎเหล็ก:** ไม่ว่าผู้กำกับดังแค่ไหน **ต้องมีคีย์เวิร์ดอธิบายเสมอ** — ห้ามใส่แค่ชื่อลอยๆ แล้วฝากชะตาไว้กับโมเดล
+**วิธีเช็กว่าชื่อมีผลจริง:** generate 2 รอบ (มีชื่อ / ลบชื่อเหลือแต่คีย์เวิร์ด) แล้วเทียบ
 
 ---
 
@@ -164,6 +183,41 @@ metadata:
 
 ---
 
+# 🎭 สาย Deadpan Visual Comedy (ตลกหน้าตาย เล่าด้วยภาพ)
+> ตระกูลเดียวกับเต๋อ นวพล — เหมาะมากกับงาน "ไม่มีบทพูด + หน้านิ่ง + still เยอะ" เช่น [[tuensai-project]]
+
+## บัสเตอร์ คีตัน (Buster Keaton) — ต้นตำรับ
+- **"The Great Stone Face"** หน้านิ่งสนิทไม่ว่าเกิดอะไร + ตลกกายภาพ + **หนังเงียบ ไม่มีบทพูด**
+- ตลกมาจากร่างกาย/สถานการณ์ ไม่ใช่สีหน้า — รากของ "ตัวรีบ แต่หน้าเฉย"
+- หนังอ้างอิง: *The General*, *Sherlock Jr.*, *Steamboat Bill, Jr.*
+
+## ฌาคส์ ตาติ (Jacques Tati)
+- ตลกด้วยภาพล้วน บทพูดแทบไม่มี · **ช็อตกว้างสังเกตการณ์** มุกซ่อนอยู่ในเฟรม (deep staging)
+- หนังอ้างอิง: *Mon Oncle*, *Playtime*, *Mr. Hulot's Holiday*
+
+## รอย แอนเดอร์สสัน (Roy Andersson)
+- **static tableau** เฟรมล็อกนิ่งสนิทช็อตเดียวยาว · deadpan absurd · สีซีดหม่น
+- หนังอ้างอิง: *A Pigeon Sat on a Branch...*, *Songs from the Second Floor*
+
+## อากิ เการิสมากิ (Aki Kaurismäki)
+- มินิมอล หน้านิ่ง · กรอบนิ่ง สีหม่น แห้งๆ เหงาๆ + ใช้เพลงเก๋ๆ
+- หนังอ้างอิง: *The Man Without a Past*, *Le Havre*, *Fallen Leaves*
+
+## ทาเคชิ คิตาโนะ (Takeshi Kitano) — fast-slow
+- หน้านิ่ง + **long static take สลับ burst เร็วฉับพลัน** = จังหวะ fast-slow ชัดเจน (ญี่ปุ่น)
+- หนังอ้างอิง: *Hana-bi*, *Kikujiro*, *Sonatine*
+
+## เอเลีย สุไลมาน (Elia Suleiman)
+- นิ่งเงียบแทบไม่พูด · tableau สมมาตร + มุกกายภาพแบบ Keaton ยุคใหม่
+- หนังอ้างอิง: *It Must Be Heaven*, *Divine Intervention*
+
+**จับคู่เทคนิค ↔ การใช้งาน:**
+- อยาก **fast-slow** → Kitano (นิ่งสลับ burst), Keaton (รีบกายภาพ)
+- อยาก **still tableau นิ่งยาว** → Andersson, Tati, Kaurismäki, Suleiman
+- ทั้งหมดเข้ากับเต๋อ นวพลได้ (ตระกูลเดียวกัน) — ผสมคีย์เวิร์ดข้ามกันได้ไม่หลุดสไตล์
+
+---
+
 ## ตารางคีย์เวิร์ดเร็ว (เอาไปใส่ prompt วิดีโอ)
 | ผู้กำกับ | คีย์เวิร์ดสั้นสำหรับ prompt |
 |---------|---------------------------|
@@ -184,6 +238,12 @@ metadata:
 | เต๋อ นวพล | minimalist observer, slow camera, sunlit white space, analog, Instagram framing |
 | อภิชาติพงศ์ (เจ้ย) | slow cinema, static serene camera, dreamlike, ambient nature sound, Thai spiritual |
 | วิศิษฏ์ | hyper-saturated color, retro Thai postcard, surreal extravagant set/costume |
+| Buster Keaton | deadpan stone face, silent physical comedy, static wide, vintage |
+| Jacques Tati | observational wide shot, minimal dialogue, visual gag, deep staging |
+| Roy Andersson | locked static tableau, deadpan, muted pale palette, single long wide take |
+| Aki Kaurismäki | deadpan minimalist, static framing, muted color, dry melancholic |
+| Takeshi Kitano | deadpan, long static take, sudden quick burst (fast-slow), restrained |
+| Elia Suleiman | silent deadpan tableau, symmetrical, observational, dry wit |
 
 ---
 
@@ -204,4 +264,5 @@ metadata:
 - Greta Gerwig: [IndieWire](https://www.indiewire.com/gallery/greta-gerwig-films-directorial-style-barbie/), [StudioBinder](https://www.studiobinder.com/blog/barbie-director-greta-gerwig/)
 - เต๋อ นวพล (Nawapol): [Asian Movie Pulse interview](https://asianmoviepulse.com/2020/02/interview-with-nawapol-thamrongrattanarit-2/), [วิกิพีเดีย](https://th.wikipedia.org/wiki/นวพล_ธำรงรัตนฤทธิ์)
 - อภิชาติพงศ์ (เจ้ย): [Wikipedia](https://en.wikipedia.org/wiki/Apichatpong_Weerasethakul), [4Columns](https://4columns.org/chan-andrew/apichatpong-weerasethakul)
-- วิศิษฏ์ ศาสนเที่ยง: [Wikipedia](https://en.wikipedia.org/wiki/Wisit_Sasanatieng) director style
+- วิศิษฏ์ ศาสนเที่ยง: [Wikipedia](https://en.wikipedia.org/wiki/Wisit_Sasanatieng)
+- Deadpan visual comedy (Keaton/Tati/Andersson/Kaurismäki/Kitano/Suleiman): [Buster Keaton — Wikipedia](https://en.wikipedia.org/wiki/Buster_Keaton), [Roy Andersson — Grokipedia](https://grokipedia.com/page/Roy_Andersson), [Elia Suleiman — SBS](https://www.sbs.com.au/whats-on/article/meet-elia-suleiman-palestinian-silent-comedy-auteur/0z4maoa0j), [Kitano — Unseen Japan](https://unseen-japan.com/kitano-takeshi-the-complete-ranked-filmography/)

@@ -1,6 +1,6 @@
 ---
 name: seedance-knowledge
-description: How to write prompts for Seedance 2.0 AI video model to get cinematic results
+description: How to write Seedance 2.0 video prompts — formula, camera, timeline golden rule (ลำดับบอก/มุมปล่อย), under-direct acting, host specs Higgsfield/kie.ai
 metadata: 
   node_type: memory
   type: reference
@@ -61,6 +61,14 @@ Seedance 2.0 = AI text/image-to-video model ของ ByteDance. ทำวิด
 - **Specific ชนะ generic** — ยิ่ง detail ยิ่ง consistent
 - **1 action / 1 shot** — หลาย action ในคลิปสั้น = รีบ/มั่ว
 
+**ตัวอย่างครบสูตร (โครง minimal):**
+```
+A skateboarder lands a clean trick in an empty dawn parking lot,
+camera low tracking shot then subtle rise, modern cinematic contrast,
+avoid jitter and bent limbs.
+```
+Subject → Action → Environment → Camera → Style → Constraints — ครบใน 3 บรรทัด
+
 ## Camera movement (8 แบบ) — leverage สูงสุดต่อคุณภาพ
 
 | Movement | ใช้เมื่อ |
@@ -85,11 +93,14 @@ Seedance 2.0 = AI text/image-to-video model ของ ByteDance. ทำวิด
 เพิ่ม lighting → คุณภาพขึ้นเยอะ. keywords: golden hour, rim light, natural light, neon, backlit, overcast.
 เช่น "A person walking" → "A person walking in soft golden hour lighting"
 
+**หมวดสไตล์ (ช่อง Style):** Cinematic (film tone, 35mm) · Quality (4K, high detail) · Film (grain, analog, vintage) · Tone (warm, cool, desaturated) · Atmosphere (moody, dreamy, ethereal)
+
 ## Multimodal reference (@-role)
 
 upload asset แล้ว assign role ด้วย `@` — ต่างระหว่าง model เดา vs model รู้
 - `@image is the first keyframe and style reference`
 - "use the composition from Image 1" / "follow the action from Video 2"
+- **Text vs References แบ่งหน้าที่:** text เก่ง "พื้นที่/หน้าตา/อารมณ์" (spatial) · reference video เก่ง "จังหวะ/การเคลื่อนไหว" (temporal) → ใช้ text สร้างฉาก + วิดีโออ้างอิงคุมการเคลื่อนไหว
 - ปกติ 1–4 image/prompt
 - VFX inline: ใส่ `[VFX: branching electric circuits pulsing with white-blue current]` แทนบรรยายแยก
 
@@ -99,6 +110,45 @@ upload asset แล้ว assign role ด้วย `@` — ต่างระห
 Timed segments สำหรับ animation: `0–3s: WIDE SHOT...`, `3–6s: ...`
 ปิดท้าย: `Total: 15s / 6 shots / 16:9`
 
+**Timeline prompting (multi-shot):**
+- **อย่าเขียนพารากราฟยาวก้อนเดียว**แล้วหวังให้โมเดลหาจุดตัดเอง — ใส่ป้ายกำกับแต่ละช็อต (Shot 1, Shot 2) แต่ละช็อตมี 1 แอ็กชันหลัก + 1 คำสั่งกล้อง
+- ใช้ลูกศรบอกลำดับจังหวะ: `action › action › action`
+- จัดระเบียบ prompt รอบ timestamp + ทิศทางกล้อง = แยก "คลิปกระจัดกระจาย" ออกจาก "วิดีโอที่เป็นซีนจริง"
+
+### ⭐ กฎทอง: จะบอกมุมกล้องในแต่ละบีตหรือไม่ (สำหรับ timeline)
+**บอก "ลำดับ + แอ็กชัน" เสมอ — แต่ "มุมกล้อง" ไม่บอกก็ได้** เพราะ timeline ล็อกลำดับไว้แล้ว ปล่อยมุมให้โมเดลเลือก มันจะจับคู่มุมกับแอ็กชันเองและมัก**ออกมาเป็นธรรมชาติกว่า**สั่งเอง (จะไม่มั่ว เพราะปล่อยแค่มุม ไม่ได้ปล่อยลำดับ)
+
+- ✅ **ปล่อยมุม** = ภาพมีชีวิต/เป็นธรรมชาติ, prompt สั้นลง
+- ⚠️ ข้อแลก = สุ่มขึ้นนิด + คุมบีตเป๊ะไม่ได้
+- 🔒 **ข้อยกเว้น: ล็อกมุมเฉพาะบีตที่ "ความหมาย/มุกพึ่งมุมนั้น"** เช่น `CUT to` ตอนเฉลยมุก, `push-in` ตอนเน้นอารมณ์, `holds a still beat` ตอนทิ้งจังหวะ — นอกนั้นปล่อยได้หมด
+
+**สูตรจำง่าย:** ลำดับ+แอ็กชัน = บอกเสมอ · มุมกล้อง = ปล่อย ยกเว้นบีตสำคัญ
+
+## ⭐ Under-direct อารมณ์/ท่าทาง (อย่าสั่งรีแอคแรงๆ)
+
+**ยิ่งเขียนคำอารมณ์ตรงๆ โมเดลยิ่ง overact** — `panicked`, `wide eyes`, `fed-up face`, `exhales a long sigh` → ออกมาเว่อร์เหมือนละครเกินจริง ไม่เป็นธรรมชาติ (เป็น "AI tell" เวอร์ชันการแสดง หลักเดียวกับ over-direct มุมกล้อง)
+
+**วิธีที่ถูก:**
+- **บรรยายสถานการณ์/แอ็กชันกลางๆ** แล้วปล่อยให้รีแอคเกิดเอง → `she wakes, glances at her phone, gets out of bed` (ไม่ใช่ `she jolts awake panicked with wide eyes`)
+- **เพิ่มบรรทัดคุมการแสดง:** `Underplayed, restrained, natural performance; minimal facial expression; no exaggerated reactions.`
+- ปล่อยให้บริบท/จังหวะนิ่งเล่าอารมณ์เอง → `stands still for a long beat` ดีกว่า `makes a fed-up face and sighs`
+
+### ⚠️⚠️ สำคัญ: under-direct ≠ "หน้านิ่งตลอดเรื่อง"
+เคยเข้าใจผิดว่า "ลดอารมณ์" = สั่งให้หน้าเฉยทั้งเรื่อง → ผลออกมา **อืด ไม่มีชีวิต** (เจอกับ [[tuensai-project]] มาแล้ว)
+
+**ความหมายที่ถูก:**
+- **ระหว่างแอ็กชัน = ต้องมีอารมณ์จริง** — ตื่นก็ตกใจ, รีบก็รีบ, วิ่งมาก็เหนื่อยหอบ · แค่ให้ "จริง ไม่เว่อร์การ์ตูน" (`natural, genuine reactions — startled, flustered, out of breath — real but never exaggerated`)
+- **deadpan = สงวนไว้ที่ punchline (ตอนจบ) เท่านั้น** — พีคของมุกคือ "ทุ่มสุดตัวมีอารมณ์เต็ม → แล้วมา flat ตอนรู้ความจริง" (`her face goes still and blank, a long held beat, then a small sigh`)
+
+**สูตร deadpan comedy ที่ถูก:** อารมณ์จริงตลอดแอ็กชัน → **หน้านิ่ง + ทิ้งเฟรม + ถอนหายใจ เฉพาะตอนเฉลย** (ความตัดกันคือมุก ไม่ใช่หน้าเฉยตั้งแต่ต้น)
+
+**กฎรวมเรื่อง "สั่งมาก vs สั่งน้อย":**
+| องค์ประกอบ | ควร |
+|---|---|
+| ลำดับ + แอ็กชัน | **over-direct** (บอกชัด) |
+| มุมกล้อง | ปล่อย ยกเว้นบีตสำคัญ |
+| **อารมณ์/ท่าทาง** | **under-direct** = "จริง ไม่เว่อร์" (ไม่ใช่หน้าเฉย) · deadpan เก็บไว้ที่ punchline |
+
 ## Pitfall checklist
 
 - ❌ ซ้อน camera move ที่ขัดกัน
@@ -106,6 +156,8 @@ Timed segments สำหรับ animation: `0–3s: WIDE SHOT...`, `3–6s: ..
 - ❌ fast camera + fast subject + complex scene พร้อมกัน
 - ❌ adjective ฟุ่มเฟือย ("amazing", "beautiful")
 - ❌ technical jargon (fps, ISO, focal length) ใน rhythm
+- ❌ มองว่าเป็นโมเดล text อย่างเดียว — ยัดทุกอย่างลงพารากราฟเดียว (มัน multimodal)
+- ❌ ลืมเขียนเสียง (audio) ทั้งที่โมเดลรองรับ — เขียนตั้งใจ อย่าปล่อยให้เดา
 - ✅ negative prompt จำเป็น: "avoid jitter", "avoid bent limbs", "avoid temporal flicker", "avoid identity drift"
 - ✅ บังคับ realism: เพิ่ม "no 3D, no cartoon, no VFX"
 - ✅ locked POV: บอกชัดว่า camera ไม่ทำอะไร
@@ -187,3 +239,8 @@ Timed segments สำหรับ animation: `0–3s: WIDE SHOT...`, `3–6s: ..
 - [invideo.io — How to Prompt Like a Pro](https://invideo.io/blog/seedance-2-0-prompt-guide/)
 - [imagine.art — 70 ready-to-use prompts](https://www.imagine.art/blogs/seedance-2-0-prompt-guide)
 - [Luma — How to Prompt Seedance 2.0](https://lumalabs.ai/learning-center/articles/how-to-prompt-seedance-2.0)
+- [MindStudio — Timeline Prompting for Cinematic AI Video](https://www.mindstudio.ai/blog/timeline-prompting-seedance-2-cinematic-ai-video)
+- [seedance2.ai — Prompt Guide](https://seedance2.ai/guide)
+- [Media.io — Best Copy-Paste Guide](https://www.media.io/ai/image-to-video/seedance-2-0-prompts)
+- [redreamality.com — Complete Prompt Engineering Playbook](https://redreamality.com/blog/seedance-2-guide/)
+- [seedance2.so — prompt engineering guide](https://seedance2.so/blog/ai-video-prompt-engineering-guide)

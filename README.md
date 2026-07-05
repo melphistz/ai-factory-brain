@@ -11,6 +11,8 @@
 | `agents/` | subagents: storyboard-prompter (opus) · deep-reasoner (opus) · fast-worker (sonnet) | repo |
 | `skills/` | seedance-2-pro-director · shotlist-builder · video-prompt-builder | repo |
 | `projects/FF_factory/` | Fox-Funnels factory docs | ⚠️ mirror — ตัวจริงอยู่ mac mini `~/Desktop/Ads/FF_factory/` |
+| `projects/tuensai/` | หนังสั้น "ตื่นสาย" (deadpan แนวเต๋อ) | repo |
+| `projects/_template/` | เทมเพลตโปรเจกต์วิดีโอ 5 ขั้น (brief→score/edit) | repo |
 | `tools/` | `_ssim_scan.py` (AI-video temporal scan) ฯลฯ | repo |
 | `setup/` | สคริปต์ตั้งเครื่องใหม่ | — |
 

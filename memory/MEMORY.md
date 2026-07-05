@@ -9,6 +9,8 @@ One line per memory, grouped by section. Add new entries under the matching sect
 
 ## Active Projects
 
+- [ตื่นสาย (Sunday School Comedy)](tuensai-project.md) — หนังสั้น deadpan แนวเต๋อ (จาก Windows vault): รีบไปโรงเรียน→วันอาทิตย์ · ไฟล์เต็ม projects/tuensai/ · status: รอผลเจน V3 + ค้างเซฟ prompt 30s
+- [Story Ideas — แนวเต๋อ นวพล](story-ideas-nawapol.md) — idea bank 10 เรื่อง ภาพล้วนไม่มีบทพูด สำหรับตั้งโปรเจกต์ถัดไป (ก๊อป projects/_template)
 - [AI UGC Ad Factory Workflow](ai-ugc-ad-factory-workflow.md) — ACTIVE: modular AI ad factory for Fox-Funnels (8 concept × 3 hook, hook-swap, locked architecture + 2 physical risks)
 - [FF Factory — Live Session State](FF_SESSION_STATE.md) — symlink → Desktop/Ads/FF_factory/SESSION_STATE.md (volatile task-state, edit at source)
 - [Valenshield Walking-Pad TIFU (vid02)](valenshield-walkingpad-tifu-vid02.md) — ACTIVE Valenshield campaign 3: cute walking-pad + TIFU-flip (หกใส่ตัว→ผ้าสะท้อนน้ำเซฟ), 20s 9:16 new model; storyboard sheet DONE, next=animate. Has grid direction-lock + sheet-render pipeline
@@ -22,14 +24,15 @@ One line per memory, grouped by section. Add new entries under the matching sect
 
 ## Seedance / Video Prompting
 
+- [Storyboard Knowledge](storyboard-knowledge.md) — storyboard พื้นฐานสำหรับ AI video: board first render second, 3 ช็อตพื้นฐาน, จัดเฟรม, storyboard vs shot list (จาก Windows vault)
 - [AI Video Realism Hierarchy](ai-video-realism-hierarchy.md) — motion/แสง/กล้อง = ตัวคูณ realism, skin detail = แค่ gate; QA ข้อ 1 = contact physics (มือแตะของ) + case study MV ไทย AI
-- [Seedance Knowledge](seedance-knowledge.md) — how to write Seedance 2.0 video prompts for cinematic results
+- [Seedance Knowledge](seedance-knowledge.md) — how to write Seedance 2.0 video prompts: formula/camera/host specs + กฎทองมุมกล้อง (ลำดับบอก/มุมปล่อย) + under-direct acting (merged Windows vault 2026-07-05)
 - [Seedance Prompt Repository](seedance-prompt-repository.md) — real Seedance 2.0 prompt examples + reusable style stacks
 - [Seedance UGC Repository](seedance-ugc-repository.md) — Seedance 2.0 prompts for realistic UGC talking-head ads (don't look AI)
 - [Storyboard GPT Image 2 → Seedance](storyboard-gpt-image-to-seedance.md) — make storyboard/keyframes in GPT Image 2, animate in Seedance 2.0
 - [UGC Storyboard Sheet Template](ugc-storyboard-sheet-template.md) — production-ready 3-part@10s UGC storyboard layout that actually feeds Seedance (+ 4 fix-before-use rules)
 - [Veo / Google Flow Knowledge](veo-google-flow-knowledge.md) — SEPARATE model (not Seedance): talking-head UGC master lock-tag template + Thai speech/VO-pacing rules
-- [Director Styles Knowledge](director-styles-knowledge.md) — famous film director visual styles + prompt keywords (Wong Kar-wai, Nolan, Kubrick...)
+- [Director Styles Knowledge](director-styles-knowledge.md) — famous film director visual styles + prompt keywords (Wong Kar-wai, Nolan, Kubrick...) + สาย deadpan comedy (Keaton/Tati/Andersson/Kitano…) + เกณฑ์ว่าใส่ชื่อผู้กำกับใน prompt ได้ผลเมื่อไหร่
 - [MV Directors Knowledge](mv-directors-knowledge.md) — drama/storytelling MV directors (intl + Thai) as style refs
 
 ## Image Generation & Character
