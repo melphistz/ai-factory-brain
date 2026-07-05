@@ -18,7 +18,7 @@ metadata:
 | ยาก→ง่าย | งาน | agent | model |
 |---|---|---|---|
 | 1 | storyboard/ภาพจริง → video prompt + continuity | storyboard-prompter | opus |
-| 2 | brief → prompt kit: char (portrait+sheet) / scene / event composite + GEN ORDER + @Image map | asset-prompt-builder ✅ 07-05 | opus |
+| 2 | 2 เฟส: A = brief → prompt char (portrait+sheet)/scene + GEN ORDER · B = ภาพจริงโยนกลับ → storyboard frame prompts (@Image map) | asset-prompt-builder ✅ 07-05 | opus |
 | 3 | copy ไทย / hook bank / SPINE script (modular contract) | script-hook-writer ✅ 07-05 | opus |
 | 4 | debug pipeline / architecture | deep-reasoner | opus |
 | 5 | QA 2 เกท: ภาพก่อนไปต่อ + คลิปหลังเจน (ffmpeg + ssim, ดู pixel จริง) | qa-inspector ✅ 07-05 | sonnet |

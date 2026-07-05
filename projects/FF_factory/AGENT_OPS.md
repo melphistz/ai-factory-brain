@@ -12,16 +12,19 @@
 3. **Subagent ส่งออก text เท่านั้น** → orchestrator เซฟไฟล์เข้าโปรเจกต์
 4. **แก้งาน = re-roll หน่วยเล็กสุด** — QA ต้องชี้หน่วย + prompt ที่ต้องแก้เสมอ
 
-## Flow หลัก (5 ขั้นของ Mirko → ผู้รับผิดชอบ)
+## Flow หลัก (ขั้นของ Mirko → ผู้รับผิดชอบ) — ภาพ storyboard ก่อน แล้วค่อยวิดีโอ
 
 | ขั้น | งาน | ผู้ทำ | output |
 |---|---|---|---|
 | **1. Intake** | รับ brief หรือ storyboard → ตั้งโฟลเดอร์โปรเจกต์ | Fable (main) | job folder + โครงโมดูล |
 | 1.5 Copy (เฉพาะงาน ad) | โมดูล copy: HOOK bank / BODY (problem·mech·demo·proof) / CTA | **script-hook-writer** (opus) | script ต่อโมดูล + visual direction |
-| **2. Prompt kit** | prompt ตัวละคร (portrait+sheet) · prompt ฉาก (clean plate) · prompt เหตุการณ์ (ตัวละคร×ฉาก ต่อโมดูล/ช็อต) · video prompt v1 (PENDING) · **ลำดับเจน + @Image slot map** | **asset-prompt-builder** (opus) | PROMPT KIT copy-paste ได้ทันที |
-| **3. Manual gen** | เจน character → ทำ character sheet → เจนฉาก → เจน composite (เหตุการณ์) ตาม GEN ORDER | **Mirko** (นอกระบบ) | ไฟล์ภาพ |
-| 3.5 QA ภาพ (แนะนำ) | เช็ค identity/wardrobe/composition/text ก่อนไปต่อ | **qa-inspector** (sonnet) | PASS/REDO + prompt fix |
-| **4. Video prompts** | ภาพจริงกลับมา → final video prompt ต่อช็อต (revise v1 กับ pixel จริง, continuity ledger ข้ามโมดูล) | **storyboard-prompter** (opus) | video prompt พร้อมเจน |
+| **2A. Prompt kit — ตัวละคร+ฉาก** | prompt ตัวละคร (portrait + character sheet) · prompt ฉาก (clean plate) · แผน storyboard (รายการเฟรม) · **GEN ORDER + ชื่อไฟล์** | **asset-prompt-builder** (opus, Phase A) | KIT A copy-paste ได้ทันที |
+| **3A. Manual gen** | เจน character → ทำ character sheet → เจนฉาก → **โยนภาพกลับมา** | **Mirko** | char sheet + scene plates |
+| 3A.5 QA (แนะนำ) | เช็ค identity sheet/ฉาก ก่อนลงทุนเขียน storyboard ทั้งชุด | **qa-inspector** (sonnet) | PASS/REDO + prompt fix |
+| **2B. Storyboard prompts** | อ่านภาพจริง → continuity ledger จาก pixel จริง → **prompt เฟรม storyboard ต่อโมดูล/ช็อต** (composite: char×scene, @Image slot map, เฟรม = first-frame ของวิดีโอ) | **asset-prompt-builder** (opus, Phase B) | storyboard frame prompts |
+| **3B. Manual gen** | เจนเฟรม storyboard ครบชุด → โยนกลับมา | **Mirko** | เฟรม storyboard จริง |
+| 3B.5 QA (แนะนำ) | เช็คเฟรม: identity/continuity/composition/text | **qa-inspector** (sonnet) | PASS/REDO ต่อเฟรม |
+| **4. Video prompts** | เฟรมจริง = first frame → video prompt ต่อช็อต + continuity ข้ามโมดูล | **storyboard-prompter** (opus) | video prompt พร้อมเจน |
 | 4.5 Manual gen video | เจนวิดีโอต่อโมดูล | **Mirko** | ไฟล์คลิป |
 | 4.6 QA คลิป (แนะนำ) | lip-sync/physics/seam/drift | **qa-inspector** (sonnet) | PASS/REDO ต่อคลิป |
 | **5. Timeline** | JSON timing ครอบโมดูล (J-cut, captions, fx markers) → Remotion/Hyperframe/ตัดมือ | **timeline-builder** (sonnet) | timeline.json + cue sheet |
@@ -31,17 +34,19 @@
 ## จุดที่คนกับ Claude สลับมือกัน (hand-off)
 
 ```
-brief ──Claude──▶ PROMPT KIT ──Mirko gen──▶ ภาพ ──Claude QA+video prompt──▶ ──Mirko gen──▶ คลิป ──Claude timeline──▶ Mirko ตัดต่อ
+brief ─▶ KIT A (char+ฉาก) ─▶ [Mirko gen] ─▶ ตัวละคร/ฉากจริง ─▶ STORYBOARD PROMPTS ─▶ [Mirko gen]
+      ─▶ เฟรมจริง ─▶ VIDEO PROMPTS ─▶ [Mirko gen] ─▶ คลิป ─▶ TIMELINE ─▶ Mirko ตัดต่อ
 ```
-- ทุกครั้งที่เอาภาพ/คลิปกลับมา: วางไฟล์แล้วบอกว่าไฟล์ไหน = asset id ไหน (ตาม naming ใน GEN ORDER) — Claude จับคู่ต่อให้เอง
-- ชื่อไฟล์ตาม ASSET MAP (`char01_fon.png`, `scene02_school.png`, `evt_HOOK_01.png`) เพื่อให้ QA/video prompt อ้างถูกตัว
+- ทำไม storyboard ภาพก่อนวิดีโอ: prompt composite เขียนหลังเห็นตัวละครจริง = ledger ตรง pixel · เห็นทั้งเรื่องเป็นภาพนิ่งก่อนจ่ายค่าเจนวิดีโอ · แก้ภาพนิ่งถูกกว่า re-roll วิดีโอ (board first, render second)
+- ทุกครั้งที่โยนภาพ/คลิปกลับมา: วางไฟล์แล้วบอกว่าไฟล์ไหน = asset id ไหน (ตาม naming ใน GEN ORDER) — Claude จับคู่ต่อให้เอง
+- ชื่อไฟล์ตาม ASSET MAP (`char01_fon_sheet.png`, `scene02_school.png`, `sb_HOOK_01.png`)
 
 ## Fleet (8 ตัว — `agents/` ใน brain repo, junction ทั้งสองเครื่อง)
 
 | ความยาก | งาน | agent | model |
 |---|---|---|---|
 | 1 | storyboard/ภาพจริง → video prompt + continuity | storyboard-prompter | opus |
-| 2 | brief → prompt kit (char/scene/event + gen order) | asset-prompt-builder | opus |
+| 2 | 2 เฟส: A=prompt char/scene + gen order · B=storyboard frame prompts จากภาพจริง | asset-prompt-builder | opus |
 | 3 | copy ไทย / hook bank / SPINE | script-hook-writer | opus |
 | 4 | debug pipeline / architecture | deep-reasoner | opus |
 | 5 | QA 2 เกท (ภาพ/คลิป, ดู pixel จริง) | qa-inspector | sonnet |
@@ -55,12 +60,13 @@ Fan-out ได้ใน message เดียว: concepts × asset-prompt-builde
 
 ```
 projects/<campaign or FF_factory/jobs/<id>>/
-  01-brief.md          # brief + โมดูลที่ล็อก
-  02-script.md         # จาก script-hook-writer (งาน ad)
-  03-promptkit.md      # จาก asset-prompt-builder (ASSET MAP + GEN ORDER + prompts)
-  04-video-prompts.md  # จาก storyboard-prompter (หลังภาพจริงกลับมา)
-  05-timeline.json     # จาก timeline-builder (+ cue sheet ใน 05-score-and-edit.md)
-  assets/              # ภาพเล็ก (char sheet ฯลฯ) — เข้า git ข้ามเครื่อง
+  01-brief.md               # brief + โมดูลที่ล็อก
+  02-script.md              # จาก script-hook-writer (งาน ad)
+  03a-promptkit.md          # Phase A: char/scene prompts + GEN ORDER + แผน storyboard
+  03b-storyboard-prompts.md # Phase B: เฟรม storyboard prompts (หลัง char/ฉากจริงกลับมา)
+  04-video-prompts.md       # จาก storyboard-prompter (หลังเฟรมจริงกลับมา)
+  05-timeline.json          # จาก timeline-builder (+ cue sheet ใน 05-score-and-edit.md)
+  assets/                   # ภาพเล็ก (char sheet, เฟรม storyboard) — เข้า git ข้ามเครื่อง
 ```
 ไฟล์หนัก (คลิป/ภาพชุดใหญ่) per-machine: mac `~/Desktop/Ads/...` · Windows `D:\Claude\90-Assets\`
 
