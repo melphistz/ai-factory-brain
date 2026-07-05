@@ -10,7 +10,7 @@ status: prompts-pending
 > ใช้ subagent `storyboard-prompter` ยิงขนานได้
 
 ## ⚠️ ก่อนเขียน prompt — ต้องมีก่อน (เฟสถัดไป)
-- [ ] **Character sheet ฝน** — gen หน้า+เต็มตัว ล็อกชุด → `90-Assets/reference-images/fon-ref.png`
+- [ ] **Character sheet ฝน** — gen หน้า+เต็มตัว ล็อกชุด → `assets/fon-ref.png`
 - [ ] **Character sheet ไหม** — เดียวกัน → `mai-ref.png`
 - [ ] **มอไซค์ ref** — รถครอบครัวแดงซีด เห็นกระจกมองข้างชัด → `bike-ref.png`
 - [ ] คู่กัน 2 คนบนมอไซค์ 1 รูป (ล็อกสัดส่วน/ตำแหน่งนั่ง) → `duo-bike-ref.png`

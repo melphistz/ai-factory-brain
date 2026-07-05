@@ -4,6 +4,7 @@ One line per memory, grouped by section. Add new entries under the matching sect
 
 ## Rules
 
+- [Thai Lyric Craft Feedback](feedback-thai-lyric-craft.md) — FEEDBACK: เนื้อเพลง/กวีไทยต้องวางสัมผัส (นอก+ใน) ตั้งแต่ร่างแรก + โชว์ rhyme map · หลักอยู่ thai-lyric-writing
 - [Vault Structure](vault-structure.md) — reorg 2026-07-03: 9-section index + entry rule, rename log (ai-influencer-image-prompt), backup location
 - [Log Updates to Obsidian](log-updates-to-obsidian.md) — RULE: record every new thing/update in the vault, each time
 
@@ -71,6 +72,9 @@ One line per memory, grouped by section. Add new entries under the matching sect
 
 ## Tools & Setup
 
-- [AI Factory Brain Sync](ai-factory-brain-sync.md) — git repo ~/ai-factory-brain: vault/agents/skills ตัวจริง + symlink กลับ; sync ด้วย ./sync.sh ต้น-ท้าย session; Windows setup ใน setup/
+- [AI Factory Brain Sync](ai-factory-brain-sync.md) — git repo ~/ai-factory-brain: vault/agents/skills ตัวจริง + symlink กลับ; sync ด้วย ./sync.sh ต้น-ท้าย session; Windows junction map (รวม D--Claude → repo memory)
+- [Legacy Vault D:\Claude](legacy-vault-d-claude.md) — vault เก่าบน Windows เกษียณ 2026-07-05: เหลือ 90-Assets (ไฟล์หนัก) + _archive · ความรู้ตัวจริงอยู่ repo
+- [Grok Media Saver — Project](grok-media-saver-project.md) — extension โหลดรูป Grok Imagine ที่ D:\Downloads (Windows), v6.1.1 ใช้ได้จริง · เครื่อง Windows ไม่มี node
+- [Grok Media Saver — Knowledge](grok-media-saver-knowledge.md) — คู่มือใช้งาน + ความรู้เชิงลึก extension (ย้ายจาก vault เก่า)
 - [Claude Subagents](claude-subagents.md) — MODEL POLICY: Fable=orchestrate เท่านั้น, subagent=Opus/Sonnet ตามความยาก; storyboard-prompter (opus, storyboard→prompt ภาพ+วิดีโอ) + deep-reasoner (opus) + fast-worker (sonnet) ใน ~/.claude/agents/
 - [Exa MCP Setup](exa-mcp-setup.md) — Exa search via curl/MCP (free); Reddit+X unavailable, general web works; read_x.py for single tweets

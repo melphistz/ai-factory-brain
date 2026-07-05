@@ -38,6 +38,6 @@ status: storyboard
 - ช็อต 5, 12 = มุม signature ต้องเฟรมเหมือนกันสองครั้ง (เช้า/เย็น) ให้คนดูรู้สึก "เวลาผ่านไป"
 - ช็อต 15 = ช็อตเดียวที่ห้ามพลาด ถ้าเจนไม่ได้ตามแบบ ให้แยกเจน 2 เลเยอร์ (คน / กระจก) มา comp ใน CapCut
 - ช็อต 18 อ้างอิง Melancholia opening + Your Name comet — "หายนะที่สวย ไม่ใช่หนัง disaster"
-- moodboard/character sheet → `90-Assets/reference-images/`
+- moodboard/character sheet → `assets/` (ในโปรเจกต์ — sync ข้ามเครื่องผ่าน git)
 
 ## ถัดไป → [[04-prompts]]

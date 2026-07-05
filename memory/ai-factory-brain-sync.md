@@ -18,6 +18,12 @@ metadata:
 - `projects/FF_factory/` = **mirror** (canonical = `~/Desktop/Ads/FF_factory/` บน mac)
 - `tools/` = `_ssim_scan.py` ฯลฯ · `setup/` = สคริปต์ตั้งเครื่องใหม่ · README.md = คู่มือเต็ม
 
+## Junction map (Windows PC — ตั้งแล้ว 2026-07-05, repo อยู่ `D:\ai-factory-brain`)
+
+- `%USERPROFILE%\.claude\agents` → repo agents · `\.claude\skills` → repo skills
+- `\.claude\projects\D--ai-factory-brain\memory` → repo memory
+- `\.claude\projects\D--Claude\memory` → repo memory (เพิ่ม 2026-07-05 — เปิดจาก vault เก่า [[legacy-vault-d-claude]] ก็ได้สมองเดียวกัน)
+
 ## Ritual
 
 **เริ่ม+เลิกงานทุก session: `cd ~/ai-factory-brain && ./sync.sh`** (Windows: `.\sync.ps1`) — pull→commit→push จบในคำสั่งเดียว. Windows ต้องเปิด claude จาก folder repo เสมอ (memory ผูก cwd)
