@@ -11,9 +11,9 @@ metadata:
 
 ไฟล์จริงอยู่ `<brain repo>/agents/` (junction เข้า `~/.claude/agents` ทั้งสองเครื่อง) — ใช้ได้ทุก project · ทุกตัวอ่าน brain ด้วย dual path (mac `/Users/working/ai-factory-brain/` · Windows `D:\ai-factory-brain\`) · **orchestration playbook เต็ม = `projects/FF_factory/AGENT_OPS.md`** (โหมด v2 prompt-first/manual-gen: flow 5 ขั้น, hand-off, fan-out)
 
-## MODEL POLICY (Mirko กำหนด 2026-07-03)
+## MODEL POLICY (Mirko กำหนด 2026-07-03 · ปรับ 2026-07-05: ไม่ผูกกับ Fable)
 
-**Fable = วางแผน/orchestrate ใน main loop เท่านั้น — subagent ห้ามใช้ Fable** จัดตามความยาก: ยาก = Opus, tool-driven/ง่าย = Sonnet
+**Main loop = orchestrate เท่านั้น ไม่ว่าโมเดลไหน** (Fable กำลังจะหมดสิทธิ์ใช้ — ต่อไป main เป็น Opus ก็ใช้กติกาเดิม): ห้ามเขียน copy/prompt/QA เองใน main, dispatch ตาม `projects/FF_factory/AGENT_OPS.md` PROTOCOL · โมเดล main ห้ามใช้เป็น subagent · subagent จัดตามความยาก: ยาก = Opus, tool-driven/ง่าย = Sonnet · แผนทั้งหมดวางจบแล้ว — session ใหม่อ่าน CLAUDE.md (โหลดเอง) + AGENT_OPS.md แล้วรันได้เลยไม่ต้องวางแผนใหม่
 
 | ยาก→ง่าย | งาน | agent | model |
 |---|---|---|---|

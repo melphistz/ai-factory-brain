@@ -7,10 +7,10 @@
 
 ## กติกาเหล็ก
 
-1. **Fable = orchestrate ใน main loop เท่านั้น** — ห้ามเป็น subagent
+1. **Main loop = orchestrate เท่านั้น ไม่ว่าจะเป็นโมเดลไหน** (เขียนแผนนี้สมัย Fable — ต่อไป main จะเป็น Opus ก็ใช้กติกาเดิม): ห้ามเขียน copy/prompt/QA เองใน main, dispatch ตาม PROTOCOL ข้างล่าง · โมเดล main ห้ามใช้เป็น subagent
 2. **ไม่มีการยิง generate/เผาเครดิตจาก Claude เลยในโหมดนี้** — การเจนทั้งหมดเป็นของ Mirko (manual) · subagent ทุกตัวมีกฎ no-credits ฝังแล้ว
-3. **Subagent ส่งออก text เท่านั้น** → orchestrator เซฟไฟล์เข้าโปรเจกต์
-4. **แก้งาน = re-roll หน่วยเล็กสุด** — QA ต้องชี้หน่วย + prompt ที่ต้องแก้เสมอ
+3. **Subagent ส่งออก text เท่านั้น** → orchestrator เซฟลงไฟล์ job ทันทีทั้งดุ้น แล้วค่อยสรุปสั้นให้ Mirko
+4. **แก้งาน = re-roll หน่วยเล็กสุด** — QA ต้องชี้หน่วย + prompt ที่ต้องแก้เสมอ · อยากแก้งาน agent → dispatch กลับ agent เดิมพร้อม feedback
 
 ## Flow หลัก (ขั้นของ Mirko → ผู้รับผิดชอบ) — ภาพ storyboard ก่อน แล้วค่อยวิดีโอ
 
@@ -73,6 +73,37 @@ projects/<campaign or FF_factory/jobs/<id>>/
 ## โมดูลมาตรฐาน (tag ใช้ทั้ง kit → timeline)
 
 `HOOK` (×n สลับได้) · `BODY.PROBLEM` · `BODY.MECH` · `BODY.DEMO` · `BODY.PROOF` · `CTA` — งานหนัง/MV ใช้เลขช็อตแทน · กฎเดิมคงอยู่: BODY ใช้ร่วมทุก hook, hook ≠ body เชิงภาพ (intentional cut), J-cut ที่รอยต่อ
+
+## ORCHESTRATION PROTOCOL — บทสั่งงานต่อขั้น (main loop ทุกโมเดล copy ไปใช้ได้เลย)
+
+**เมื่อ Mirko โยน brief ใหม่ (งาน ad):**
+1. ก๊อป `jobs/_template/` → `jobs/<job_id>/` · เติม `01-brief.md` จากที่คุยกับ Mirko (ถามให้ครบ: สินค้า/ข้อเสนอ, กลุ่มเป้าหมาย, ความยาว, aspect, จำนวน hook, ข้อห้าม)
+2. dispatch **script-hook-writer**: *"อ่าน `<job>/01-brief.md` แล้วเขียน copy เต็มตาม output contract: CONCEPT / BODY (line-by-line + วินาที + visual beat) / HOOK BANK <n> ตัวพร้อม tier / CTA / FLAGS — campaign: <ชื่อ>"* → เซฟลง `02-script.md` → **Gate 0: ให้ Mirko อนุมัติ script ก่อน**
+3. dispatch **asset-prompt-builder**: *"PHASE A. อ่าน `<job>/01-brief.md` + `02-script.md`. aspect <x>, สไตล์ <y>. ทำ ASSET MAP + GEN ORDER + prompt ตัวละคร (portrait+sheet) + prompt ฉาก + แผน storyboard"* → เซฟลง `03a-promptkit.md` → ส่ง GEN ORDER ให้ Mirko ไปเจน
+   (งานหนัง/MV: ข้ามข้อ 2, dispatch Phase A จาก brief/storyboard ตรง ๆ)
+
+**เมื่อ Mirko โยนภาพตัวละคร/ฉากกลับมา:**
+4. ย้ายไฟล์เข้า `<job>/assets/` ตั้งชื่อตาม ASSET MAP (Mirko บอกว่าไฟล์ไหนคือ asset ไหน)
+5. dispatch **qa-inspector**: *"Gate 1 เช็คภาพใน `<job>/assets/`: <รายชื่อไฟล์> เทียบ prompt ใน `03a-promptkit.md` — identity sheet ใช้ล็อกหน้าได้ไหม, ฉากตรง spec ไหม"* → REDO = ส่ง prompt แก้กลับ Mirko · PASS = ข้อ 6
+6. dispatch **asset-prompt-builder**: *"PHASE B. ภาพจริง: <path=asset id ทุกคู่>. อ่าน `01/02/03a` แล้วทำ CONTINUITY LEDGER จาก pixel จริง + STORYBOARD FRAME PROMPTS ทุกโมดูล + GEN ORDER"* → เซฟลง `03b-storyboard-prompts.md` → Mirko ไปเจนเฟรม
+
+**เมื่อเฟรม storyboard กลับมา:**
+7. เก็บเข้า `assets/` (ชื่อ `sb_<module>_<nn>.png`) → dispatch **qa-inspector** (Gate 1 รอบเฟรม: identity/continuity/composition/text)
+8. dispatch **storyboard-prompter**: *"storyboard = เฟรมจริงใน `<job>/assets/sb_*.png` (เรียงตาม `03b`), continuity ledger ใน `03b`, ความยาวต่อช็อตใน `02`/brief. ทำ VIDEO PROMPT ต่อช็อต + FINAL FRAME + QA hooks"* → เซฟลง `04-video-prompts.md` → Mirko ไปเจนวิดีโอ
+
+**เมื่อคลิปกลับมา:**
+9. dispatch **qa-inspector**: *"Gate 2 คลิปใน <paths>: lip-sync (ถ้ามีพูด), contact physics, drift, รอยต่อ hook↔body ตามกฎ J-cut"* → REDO ต่อคลิปที่พังเท่านั้น
+10. dispatch **timeline-builder**: *"คลิป: <path=module ทุกคู่>, target <sec>, aspect <x>. ทำ CUE SHEET + TIMELINE JSON + CHECKS"* → เซฟ JSON ลง `05-timeline.json`, cue sheet ลง `05-cuesheet.md` → ส่งให้ Mirko ตัดต่อ (Remotion/Hyperframe/มือ)
+
+**ทุกขั้น:** เซฟ output agent ทั้งดุ้นก่อนสรุป · fan-out ได้เมื่องานอิสระกัน (หลาย concept/หลายคลิป = ยิงใน message เดียว) · sync ขึ้น git อัตโนมัติ (hooks) — mac รัน `./sync.sh` เอง
+
+## เกณฑ์ตัดสิน "flow ผ่าน" (ประเมินหลัง dry run จบ 1 job)
+
+1. GEN ORDER ทำตามได้จนจบโดยไม่ต้องถามเพิ่ม (prompt พร้อมใช้จริง)
+2. เฟรม storyboard identity/wardrobe นิ่งทั้งชุด — QA รอบแรกผ่าน ≥ ~80% ของเฟรม
+3. video prompt ใช้เจนได้โดยแก้เล็กน้อยหรือไม่แก้เลย
+4. timeline.json/cue sheet เอาไปตัดได้จริงโดยไม่ต้องรื้อ
+→ **ผ่านทั้ง 4 = เปิดหัวข้อ 🅿️ ต่อยอดได้** · ข้อไหนไม่ผ่าน → dispatch deep-reasoner วิเคราะห์ root cause แล้วแก้ playbook/agent ก่อน ห้ามฝืนต่อยอด
 
 ## 🅿️ จอดไว้ (ต่อยอดเมื่อ flow ผ่าน)
 
