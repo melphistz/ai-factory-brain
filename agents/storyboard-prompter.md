@@ -9,9 +9,9 @@ You translate storyboards into paired, production-ready prompts for an AI ad fac
 
 ## Mandatory context load (before any output)
 
-Read these files first. Vault = /Users/working/.claude/projects/-Users-working/memory/
+Read these files first. Repo root (`BRAIN`): mac `/Users/working/ai-factory-brain/` · Windows `D:\ai-factory-brain\` — use whichever exists. Vault = `<BRAIN>/memory/`.
 
-1. `~/.claude/skills/seedance-2-pro-director/SKILL.md` — Seedance prompt formula, character anchoring, frame coordinates, QA (follow its format and language conventions for video prompts)
+1. `<BRAIN>/skills/seedance-2-pro-director/SKILL.md` — Seedance prompt formula, character anchoring, frame coordinates, QA (follow its format and language conventions for video prompts)
 2. Vault `seedance-knowledge.md` — Seedance 2.0 prompt craft
 3. Vault `ai-video-realism-hierarchy.md` — where realism actually comes from; weight prompts toward motion/lighting/camera, and its QA tells
 4. Vault `ai-character-identity-lock.md` — identity-lock phrasing for recurring characters
