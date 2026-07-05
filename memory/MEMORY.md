@@ -9,6 +9,7 @@ One line per memory, grouped by section. Add new entries under the matching sect
 
 ## Active Projects
 
+- [แค่วันนี้ (Just Today MV)](kae-wan-nee-project.md) — MV รักสองสาว+อุกกาบาตวันสุดท้าย · Guadagnino×Malick×Melancholia · เพลง Suno สไตล์ fellow fellow · ไฟล์เต็ม projects/kae-wan-nee/ · status: shotlist ล็อก, next = gen เพลง + character sheet
 - [ตื่นสาย (Sunday School Comedy)](tuensai-project.md) — หนังสั้น deadpan แนวเต๋อ (จาก Windows vault): รีบไปโรงเรียน→วันอาทิตย์ · ไฟล์เต็ม projects/tuensai/ · status: รอผลเจน V3 + ค้างเซฟ prompt 30s
 - [Story Ideas — แนวเต๋อ นวพล](story-ideas-nawapol.md) — idea bank 10 เรื่อง ภาพล้วนไม่มีบทพูด สำหรับตั้งโปรเจกต์ถัดไป (ก๊อป projects/_template)
 - [AI UGC Ad Factory Workflow](ai-ugc-ad-factory-workflow.md) — ACTIVE: modular AI ad factory for Fox-Funnels (8 concept × 3 hook, hook-swap, locked architecture + 2 physical risks)
@@ -34,6 +35,10 @@ One line per memory, grouped by section. Add new entries under the matching sect
 - [Veo / Google Flow Knowledge](veo-google-flow-knowledge.md) — SEPARATE model (not Seedance): talking-head UGC master lock-tag template + Thai speech/VO-pacing rules
 - [Director Styles Knowledge](director-styles-knowledge.md) — famous film director visual styles + prompt keywords (Wong Kar-wai, Nolan, Kubrick...) + สาย deadpan comedy (Keaton/Tati/Andersson/Kitano…) + เกณฑ์ว่าใส่ชื่อผู้กำกับใน prompt ได้ผลเมื่อไหร่
 - [MV Directors Knowledge](mv-directors-knowledge.md) — drama/storytelling MV directors (intl + Thai) as style refs
+
+## Music & Lyrics
+
+- [Thai Lyric Writing](thai-lyric-writing.md) — หลักแต่งเนื้อเพลงไทย: สัมผัสนอก/ใน, 6 ประเภทสัมผัส+สเกลเสถียร, rhyme scheme aabb/abab, วรรณยุกต์ vs เมโลดี้, กฎ "ความหมายชนะสัมผัส" + สไตล์ fellow fellow
 
 ## Image Generation & Character
 
