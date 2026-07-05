@@ -26,7 +26,9 @@ metadata:
 
 ## Ritual
 
-**เริ่ม+เลิกงานทุก session: `cd ~/ai-factory-brain && ./sync.sh`** (Windows: `.\sync.ps1`) — pull→commit→push จบในคำสั่งเดียว. Windows ต้องเปิด claude จาก folder repo เสมอ (memory ผูก cwd)
+**เริ่ม+เลิกงานทุก session: `cd ~/ai-factory-brain && ./sync.sh`** (Windows: `.\sync.ps1`) — pull→commit→push จบในคำสั่งเดียว
+
+**Windows: อัตโนมัติแล้ว (2026-07-05)** — SessionStart + SessionEnd hooks ใน `%USERPROFILE%\.claude\settings.json` รัน sync.ps1 ให้เองทุก session · และ memory junction ครอบทั้ง D--ai-factory-brain + D--Claude แล้ว เปิด claude จากไหนก็ได้สมองเดียวกัน (mac ยังรันมือตามเดิม)
 
 ## ค้าง / caveat
 
