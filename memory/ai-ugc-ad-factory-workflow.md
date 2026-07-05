@@ -68,3 +68,11 @@ Hook tiers (my ranking):
 
 ## Next action (where we paused)
 PoC = 1 body + hook#1 + hook#3 → concat J-cut → inspect seam. Blocked on: (1) Mirko confirm spend credits, (2) avatar — provide Thai presenter ref or gen new + identity-lock sheet.
+
+## ⚡ OPERATING MODE v2 (2026-07-05) — PROMPT-FIRST / MANUAL GEN
+
+Mirko pivot: **ลืม Ploy ไปก่อน (reset 0)** · **ไม่ยิง MCP gen เลย** — Claude คิด prompt เป็นหลัก Mirko เจนเอง manual แล้วเอาภาพ/คลิปกลับมาให้ Claude ต่อ · ถ้า flow นี้ OK ค่อยต่อยอด (automation/matrix จอดไว้)
+
+Flow 5 ขั้น: (1) intake brief/storyboard → (2) **asset-prompt-builder** ทำ prompt kit — char portrait+sheet / scene plate / event composite ต่อโมดูล + GEN ORDER + @Image slot map (+video prompt v1 PENDING) → (3) Mirko เจน char→sheet→scene→composite → (3.5) qa-inspector เช็คภาพ → (4) **storyboard-prompter** เขียน video prompt final จากภาพจริง → (4.5) Mirko เจนวิดีโอ → (5) **timeline-builder** ทำ timeline.json (J-cut/captions/fx) สำหรับ Remotion/Hyperframe/ตัดมือ
+
+Playbook เต็ม: `projects/FF_factory/AGENT_OPS.md` · โมดูล tag: HOOK / BODY.PROBLEM / BODY.MECH / BODY.DEMO / BODY.PROOF / CTA — กฎ modular เดิมคงอยู่ทั้งหมด (BODY ร่วมทุก hook, hook≠body เชิงภาพ, J-cut ที่รอยต่อ)

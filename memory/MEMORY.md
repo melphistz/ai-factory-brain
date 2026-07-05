@@ -13,7 +13,7 @@ One line per memory, grouped by section. Add new entries under the matching sect
 - [แค่วันนี้ (Just Today MV)](kae-wan-nee-project.md) — MV รักสองสาว+อุกกาบาตวันสุดท้าย · Guadagnino×Malick×Melancholia · เพลง Suno สไตล์ fellow fellow · ไฟล์เต็ม projects/kae-wan-nee/ · status: shotlist ล็อก, next = gen เพลง + character sheet
 - [ตื่นสาย (Sunday School Comedy)](tuensai-project.md) — หนังสั้น deadpan แนวเต๋อ (จาก Windows vault): รีบไปโรงเรียน→วันอาทิตย์ · ไฟล์เต็ม projects/tuensai/ · status: รอผลเจน V3 + ค้างเซฟ prompt 30s
 - [Story Ideas — แนวเต๋อ นวพล](story-ideas-nawapol.md) — idea bank 10 เรื่อง ภาพล้วนไม่มีบทพูด สำหรับตั้งโปรเจกต์ถัดไป (ก๊อป projects/_template)
-- [AI UGC Ad Factory Workflow](ai-ugc-ad-factory-workflow.md) — ACTIVE: modular AI ad factory for Fox-Funnels (8 concept × 3 hook, hook-swap, locked architecture + 2 physical risks)
+- [AI UGC Ad Factory Workflow](ai-ugc-ad-factory-workflow.md) — ACTIVE · **MODE v2 (07-05): prompt-first/manual-gen** (Ploy reset, no MCP gen, flow 5 ขั้นใน AGENT_OPS.md, ถ้า OK ค่อยต่อยอด) · โครงเดิม: 8 concept × 3 hook hook-swap
 - [FF Factory — Live Session State](FF_SESSION_STATE.md) — symlink → Desktop/Ads/FF_factory/SESSION_STATE.md (volatile task-state, edit at source)
 - [Valenshield Walking-Pad TIFU (vid02)](valenshield-walkingpad-tifu-vid02.md) — ACTIVE Valenshield campaign 3: cute walking-pad + TIFU-flip (หกใส่ตัว→ผ้าสะท้อนน้ำเซฟ), 20s 9:16 new model; storyboard sheet DONE, next=animate. Has grid direction-lock + sheet-render pipeline
 - [Valenshield Macro ASMR Ad](valenshield-macro-asmr-ad.md) — ACTIVE Valenshield campaign 2: 4-clip no-person WHITE fabric macro ASMR; Clip 2 defined (water-repellent bead demo)
@@ -76,5 +76,5 @@ One line per memory, grouped by section. Add new entries under the matching sect
 - [Legacy Vault D:\Claude](legacy-vault-d-claude.md) — vault เก่าบน Windows เกษียณ 2026-07-05: เหลือ 90-Assets (ไฟล์หนัก) + _archive · ความรู้ตัวจริงอยู่ repo
 - [Grok Media Saver — Project](grok-media-saver-project.md) — extension โหลดรูป Grok Imagine ที่ D:\Downloads (Windows), v6.1.1 ใช้ได้จริง · เครื่อง Windows ไม่มี node
 - [Grok Media Saver — Knowledge](grok-media-saver-knowledge.md) — คู่มือใช้งาน + ความรู้เชิงลึก extension (ย้ายจาก vault เก่า)
-- [Claude Subagents](claude-subagents.md) — MODEL POLICY: Fable=orchestrate เท่านั้น · fleet ครบ 6 (opus: storyboard-prompter/script-hook-writer/deep-reasoner · sonnet: qa-inspector/teardown-analyst/fast-worker) · playbook = FF_factory/AGENT_OPS.md
+- [Claude Subagents](claude-subagents.md) — MODEL POLICY: Fable=orchestrate เท่านั้น · fleet 8 (opus: storyboard-prompter/asset-prompt-builder/script-hook-writer/deep-reasoner · sonnet: qa-inspector/teardown-analyst/timeline-builder/fast-worker) · playbook = FF_factory/AGENT_OPS.md
 - [Exa MCP Setup](exa-mcp-setup.md) — Exa search via curl/MCP (free); Reddit+X unavailable, general web works; read_x.py for single tweets

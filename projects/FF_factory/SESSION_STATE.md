@@ -44,3 +44,6 @@ SPINE ล็อก (problem→mechanism→proof→CTA "ทักแชต") ส�
 PoC = 1 body + hook#1 + hook#3 → animate → concat J-cut → ตรวจ **lip-sync quality + รอยต่อ** (2 physical risk).
 แนะ staged: ยิง 1 hook สั้นก่อน (เช็ค lip-sync) → ผ่านค่อยทำ body + hook2 + concat. de-risk ก่อนเผาเครดิตเต็ม.
 รอ: Mirko สั่ง generate + อนุมัติ script.
+
+## ⚡ PIVOT 2026-07-05 (แก้จาก Windows — reconcile บน mac ด้วย)
+Mirko เปลี่ยนโหมด: **prompt-first / manual gen** — ลืม Ploy ไปก่อน (reset 0), ไม่ยิง MCP gen, Claude คิด prompt เป็นหลักแล้ว Mirko เจนเอง · NEXT เดิมข้างบน**พักไว้** จนกว่า flow ใหม่จะผ่านแล้วค่อยต่อยอด · flow + fleet 8 agents อยู่ `AGENT_OPS.md` (อัปเป็น v2 แล้ว) + memory `ai-ugc-ad-factory-workflow` ท้ายไฟล์
