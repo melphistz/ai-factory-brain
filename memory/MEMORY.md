@@ -26,6 +26,7 @@ One line per memory, grouped by section. Add new entries under the matching sect
 
 ## Seedance / Video Prompting
 
+- [Gemini Gem — Seedance Director](gemini-gem-seedance-director.md) — Gem สำเร็จรูป "Seedance 2.0 Prompt Director" สำหรับ Gemini: Instructions EN 11.8k chars + [knowledge pack](gemini-gem-seedance-knowledge-pack.md) พร้อมอัปโหลด + วิธีติดตั้ง/ลำดับตัดถ้าเกินลิมิต (กลั่นจากคลัง Seedance ทั้งหมด 07-05)
 - [Storyboard Knowledge](storyboard-knowledge.md) — storyboard พื้นฐานสำหรับ AI video: board first render second, 3 ช็อตพื้นฐาน, จัดเฟรม, storyboard vs shot list (จาก Windows vault)
 - [AI Video Realism Hierarchy](ai-video-realism-hierarchy.md) — motion/แสง/กล้อง = ตัวคูณ realism, skin detail = แค่ gate; QA ข้อ 1 = contact physics (มือแตะของ) + case study MV ไทย AI
 - [Seedance Knowledge](seedance-knowledge.md) — how to write Seedance 2.0 video prompts: formula/camera/host specs + กฎทองมุมกล้อง (ลำดับบอก/มุมปล่อย) + under-direct acting (merged Windows vault 2026-07-05)
