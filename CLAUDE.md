@@ -13,8 +13,9 @@
 ## เปิดงานยังไง
 
 - **งาน factory/ad ทุกชนิด:** อ่าน `projects/FF_factory/AGENT_OPS.md` ก่อน — มี flow เต็ม + ORCHESTRATION PROTOCOL (บทสั่งงาน agent ต่อขั้น copy ไปใช้ได้เลย)
-- **job ad ใหม่:** ก๊อป `projects/FF_factory/jobs/_template/` → ตั้งชื่อ job → เดิน protocol ข้อ 1
-- **งานหนัง/MV:** โปรเจกต์อยู่ `projects/<ชื่อ>/` (โครง 01-brief → 05) — flow เดียวกัน ใช้เลขช็อตแทน module tag
+- **Mirko บอก "งานใหม่"/"โปรเจกต์ใหม่":** ทำ ONBOARDING ก่อนเสมอ — ถามชุดเดียว: ชื่อโปรเจกต์ · ประเภท (ad หรือ หนัง/MV) · video ratio · ความยาว → **สร้างโฟลเดอร์แยกทันที** (ad: `jobs/<slug>/` · หนัง/MV: `projects/<slug>/` — ก๊อปจาก `_template`) + เติม frontmatter `01-brief.md` + ตั้ง `STATE.md` · ห้ามเริ่มงานโดยไม่มีโฟลเดอร์
+- **ทำต่อโปรเจกต์เดิม:** อ่าน `STATE.md` ของโปรเจกต์นั้นก่อนเสมอ (สถานะ+ขั้นถัดไปอยู่ในนั้น) และอัปเดตทุกครั้งที่จบขั้น
+- **ทุกไฟล์ของโปรเจกต์อยู่ในโฟลเดอร์ตัวเองเท่านั้น** (script/prompt kit/verdicts/timeline/assets) — ห้ามปนข้ามโปรเจกต์
 - **Mirko โยนภาพ/คลิปกลับมา:** ดู protocol หัวข้อ "เมื่อภาพกลับมา" ใน AGENT_OPS — QA ก่อน แล้วค่อยขั้นถัดไป
 - **ต่อยอด/automation:** ห้ามเริ่มเองจนกว่า dry run จะผ่านเกณฑ์ (อยู่ท้าย AGENT_OPS)
 

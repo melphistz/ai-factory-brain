@@ -60,7 +60,8 @@ Fan-out ได้ใน message เดียว: concepts × asset-prompt-builde
 
 ```
 projects/<campaign or FF_factory/jobs/<id>>/
-  01-brief.md               # brief + โมดูลที่ล็อก
+  STATE.md                  # สถานะล่าสุด + ขั้นถัดไป + ของที่ล็อกแล้ว (อัปเดตทุกจบขั้น — จุด resume)
+  01-brief.md               # brief + โมดูลที่ล็อก (frontmatter จาก onboarding)
   02-script.md              # จาก script-hook-writer (งาน ad)
   03a-promptkit.md          # Phase A: char/scene prompts + GEN ORDER + แผน storyboard
   03b-storyboard-prompts.md # Phase B: เฟรม storyboard prompts (หลัง char/ฉากจริงกลับมา)
@@ -76,8 +77,16 @@ projects/<campaign or FF_factory/jobs/<id>>/
 
 ## ORCHESTRATION PROTOCOL — บทสั่งงานต่อขั้น (main loop ทุกโมเดล copy ไปใช้ได้เลย)
 
-**เมื่อ Mirko โยน brief ใหม่ (งาน ad):**
-1. ก๊อป `jobs/_template/` → `jobs/<job_id>/` · เติม `01-brief.md` จากที่คุยกับ Mirko (ถามให้ครบ: สินค้า/ข้อเสนอ, กลุ่มเป้าหมาย, ความยาว, aspect, จำนวน hook, ข้อห้าม)
+**ขั้น 0 — ONBOARDING (บังคับ เมื่อ Mirko บอก "งานใหม่"/"โปรเจกต์ใหม่"):**
+- ถามกลับชุดเดียว 4 ข้อ: **(1) ชื่อโปรเจกต์ (2) ประเภทงาน: ad หรือ หนัง/MV (3) video ratio (4) ความยาวเป้าหมาย (วินาที)** — งาน ad ถามเพิ่ม: จำนวน hook (default 3)
+- **สร้างโฟลเดอร์แยกทันที** (ห้ามเริ่มงานใด ๆ โดยไม่มีโฟลเดอร์):
+  - ad → ก๊อป `jobs/_template/` → `jobs/<slug>/` · หนัง/MV → ก๊อป `projects/_template/` → `projects/<slug>/` (slug = ชื่อสั้น kebab-case อังกฤษ/ทับศัพท์)
+- เติมคำตอบลง frontmatter `01-brief.md` (job/aspect/target_sec/hooks/created) + อัปเดต `STATE.md` (stage: brief)
+- คุยเก็บ brief ที่เหลือ (สินค้า/ข้อเสนอ, กลุ่มเป้าหมาย, สไตล์, ข้อห้าม) เติมลง `01-brief.md` แล้วค่อยเดินขั้น 2
+
+**กฎแยกโปรเจกต์ (กันงง):** ทุกไฟล์ของโปรเจกต์ — script, prompt kit, verdicts, timeline, `assets/` — อยู่ในโฟลเดอร์ตัวเอง**เท่านั้น** ห้ามปนข้ามโปรเจกต์/ห้ามวางที่ root · **จบขั้นไหนอัปเดต `STATE.md` ทันที** (stage + ขั้นถัดไป + สิ่งที่ล็อกแล้ว) · เปิด session มาทำต่อ → อ่าน `STATE.md` ของโปรเจกต์นั้นก่อนเสมอ
+
+**หลัง onboarding (งาน ad):**
 2. dispatch **script-hook-writer**: *"อ่าน `<job>/01-brief.md` แล้วเขียน copy เต็มตาม output contract: CONCEPT / BODY (line-by-line + วินาที + visual beat) / HOOK BANK <n> ตัวพร้อม tier / CTA / FLAGS — campaign: <ชื่อ>"* → เซฟลง `02-script.md` → **Gate 0: ให้ Mirko อนุมัติ script ก่อน**
 3. dispatch **asset-prompt-builder**: *"PHASE A. อ่าน `<job>/01-brief.md` + `02-script.md`. aspect <x>, สไตล์ <y>. ทำ ASSET MAP + GEN ORDER + prompt ตัวละคร (portrait+sheet) + prompt ฉาก + แผน storyboard"* → เซฟลง `03a-promptkit.md` → ส่ง GEN ORDER ให้ Mirko ไปเจน
    (งานหนัง/MV: ข้ามข้อ 2, dispatch Phase A จาก brief/storyboard ตรง ๆ)

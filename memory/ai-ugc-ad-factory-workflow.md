@@ -73,6 +73,8 @@ PoC = 1 body + hook#1 + hook#3 → concat J-cut → inspect seam. Blocked on: (1
 
 Mirko pivot: **ลืม Ploy ไปก่อน (reset 0)** · **ไม่ยิง MCP gen เลย** — Claude คิด prompt เป็นหลัก Mirko เจนเอง manual แล้วเอาภาพ/คลิปกลับมาให้ Claude ต่อ · ถ้า flow นี้ OK ค่อยต่อยอด (automation/matrix จอดไว้)
 
+Intake = **ONBOARDING บังคับ**: ได้ยิน "งานใหม่" → ถาม ชื่อโปรเจกต์/ประเภท/ratio/ความยาว → สร้างโฟลเดอร์แยกต่อโปรเจกต์ (จาก _template) + STATE.md ประจำโปรเจกต์ (resume จากไฟล์นี้ อัปเดตทุกจบขั้น) · ไฟล์ทุกชิ้นอยู่ในโฟลเดอร์ตัวเองเท่านั้น
+
 Flow (storyboard ภาพก่อนวิดีโอ — Mirko เลือก 2026-07-05): (1) intake brief/storyboard → (2A) **asset-prompt-builder Phase A** — prompt char portrait+sheet / scene plate + GEN ORDER + แผน storyboard → (3A) Mirko เจน char/ฉาก **โยนกลับ** → (3A.5) qa-inspector เช็ค → (2B) **asset-prompt-builder Phase B** — อ่านภาพจริง ทำ continuity ledger จาก pixel แล้วเขียน **storyboard frame prompts** ต่อโมดูล/ช็อต (@Image map, เฟรม = first-frame วิดีโอ) → (3B) Mirko เจนเฟรม โยนกลับ → (4) **storyboard-prompter** video prompt จากเฟรมจริง → (4.5) Mirko เจนวิดีโอ → (5) **timeline-builder** timeline.json (J-cut/captions/fx) สำหรับ Remotion/Hyperframe/ตัดมือ · เหตุผล board-first: ledger ตรงภาพจริง + เห็นทั้งเรื่องก่อนจ่ายค่าวิดีโอ + แก้ภาพนิ่งถูกกว่า
 
 Playbook เต็ม: `projects/FF_factory/AGENT_OPS.md` · โมดูล tag: HOOK / BODY.PROBLEM / BODY.MECH / BODY.DEMO / BODY.PROOF / CTA — กฎ modular เดิมคงอยู่ทั้งหมด (BODY ร่วมทุก hook, hook≠body เชิงภาพ, J-cut ที่รอยต่อ)
