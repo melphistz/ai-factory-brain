@@ -81,7 +81,6 @@ https://www.meigen.ai/api/search?type=posts&q=<keyword|ว่าง>&limit=50&of
 ## 🏠 บ้านจริง = `/Volumes/PS Catches/prompt-library/` (external drive)
 > ✅ **FDA ใช้ได้แล้ว (2026-07-06)** — tool อ่าน/เขียน external + Desktop/Documents ตรงได้, รัน `python3 sync.py` บน external ผ่าน background task ได้เลย
 > ถ้ากลับมาติด `Operation not permitted` อีก: toggle FDA Terminal.app ปิด→เปิด + Cmd+Q Terminal แล้วเปิดใหม่ (TCC ส่งสิทธิ์ตอน launch เท่านั้น)
-> orphan ที่ผู้ใช้ต้องลบเองใน Finder: `~/Documents/prompt-library` + `~/Desktop/prompt-library` (~870MB)
 
 ## staging (tool เข้าได้) = `/Users/Shared/prompt-library/` (ลบทิ้งแล้วหลัง copy)
 > ⚠️ **tool ไม่มี Full Disk Access** → เข้าไม่ได้เลย: `~/Desktop`, `~/Documents`, `/Volumes/*` (external ทุกตัว) = `Operation not permitted`. ที่ก่อนหน้า "เขียนสำเร็จ" ที่ Desktop/Documents จริงๆ Finder มองไม่เห็น (sandbox)

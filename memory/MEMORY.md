@@ -22,7 +22,7 @@ One line per memory, grouped by section. Add new entries under the matching sect
 ## Session State (volatile — archive when done)
 
 - [YouMind Scrape — DONE](youmind-scrape-session-state.md) — DONE 3 ก.ค.: merged youmind→galleries (img 6877, video 363). optional leftover: 44 img fail + youmind video undercount
-- [MeiGen Library — DONE](meigen-library-session-state.md) — DONE 07-06: FDA works (toggle off/on + restart Terminal fix), sync direct on external OK; leftover: user deletes ~870MB orphans in Finder
+- [MeiGen Library — DONE](meigen-library-session-state.md) — CLOSED 07-06: FDA works (toggle off/on + restart Terminal fix), sync direct on external OK, orphans deleted — nothing left
 
 ## Seedance / Video Prompting
 

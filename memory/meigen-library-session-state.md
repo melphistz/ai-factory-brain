@@ -22,8 +22,8 @@ metadata:
 1. **FDA ผ่าน** — tool อ่าน/เขียน external ตรงได้. เคล็ด: ถ้าติด `Operation not permitted` ทั้งที่ toggle เปิด → toggle Terminal.app ปิด→เปิด + Cmd+Q Terminal เปิดใหม่
 2. **sync 07-06 สำเร็จ**: +481 ใหม่ → meigen 6,519 · gallery 7,358 cards (รวม youmind 839)
 
-## ค้างอย่างเดียว
-- **ผู้ใช้ลบ orphan เองใน Finder** (~870MB): `~/Documents/prompt-library` + `~/Desktop/prompt-library`
+## ไม่มีอะไรค้าง
+- orphan Desktop/Documents ลบไปแล้ว (ยืนยัน 07-06) — โปรเจกต์นี้ปิดสมบูรณ์
 
 ## ข้อจำกัด env ที่เจอ (จำไว้)
 - tool **ไม่มี FDA** (ก่อน restart): เข้าไม่ได้ `~/Desktop` `~/Documents` `/Volumes/*` = Operation not permitted
