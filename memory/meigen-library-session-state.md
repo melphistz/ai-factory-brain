@@ -1,6 +1,6 @@
 ---
 name: meigen-library-session-state
-description: "RESUME state — MeiGen prompt library build; user restarting to grant Full Disk Access, then continue"
+description: "DONE 2026-07-06 — FDA works, sync.py runs direct on external; leftover: user deletes orphan folders in Finder"
 metadata: 
   node_type: memory
   type: project
@@ -18,11 +18,12 @@ metadata:
 - **library อยู่บน external: `/Volumes/PS Catches/prompt-library/`** (ผู้ใช้ copy manual แล้ว, ยืนยัน gallery เปิดได้ 5,994 รูป)
 - ลบ staging /Users/Shared แล้ว
 
-## ค้าง (หลัง restart + FDA)
-1. **ทดสอบ FDA ได้ผลไหม** — ลอง tool เขียน `/Volumes/PS Catches/.t` (touch+read). ถ้าผ่าน = tool เข้า external ได้ตรงแล้ว
-   - ถ้าผ่าน: sync/rebuild ตรงบน external ได้เลย ไม่ต้อง staging
-   - ถ้าไม่ผ่าน (harness helper แยก): sync ที่ /Users/Shared แล้ว copy ทับ / หรือผู้ใช้รัน `python3 sync.py` เองใน Terminal
-2. **ผู้ใช้ต้องลบ orphan เองใน Finder** (~870MB): `~/Documents/prompt-library` + `~/Desktop/prompt-library`
+## ✅ จบแล้ว (2026-07-06)
+1. **FDA ผ่าน** — tool อ่าน/เขียน external ตรงได้. เคล็ด: ถ้าติด `Operation not permitted` ทั้งที่ toggle เปิด → toggle Terminal.app ปิด→เปิด + Cmd+Q Terminal เปิดใหม่
+2. **sync 07-06 สำเร็จ**: +481 ใหม่ → meigen 6,519 · gallery 7,358 cards (รวม youmind 839)
+
+## ค้างอย่างเดียว
+- **ผู้ใช้ลบ orphan เองใน Finder** (~870MB): `~/Documents/prompt-library` + `~/Desktop/prompt-library`
 
 ## ข้อจำกัด env ที่เจอ (จำไว้)
 - tool **ไม่มี FDA** (ก่อน restart): เข้าไม่ได้ `~/Desktop` `~/Documents` `/Volumes/*` = Operation not permitted

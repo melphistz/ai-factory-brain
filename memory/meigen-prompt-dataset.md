@@ -79,9 +79,8 @@ https://www.meigen.ai/api/search?type=posts&q=<keyword|ว่าง>&limit=50&of
 - get full prompt ต่อ id อีกทาง: **FxTwitter** `https://api.fxtwitter.com/status/<id>` (id = tweet id; tweet text = prompt) — ข้าม meigen เลย
 
 ## 🏠 บ้านจริง = `/Volumes/PS Catches/prompt-library/` (external drive)
-> tool เขียน/อ่าน external ไม่ได้ (ไม่มี FDA). ผู้ใช้ copy manual จาก /Users/Shared → external เสร็จแล้ว (ยืนยัน gallery เปิดได้ 5,994 รูป).
-> **sync บน external ต้องรันผ่าน Terminal เอง** (Terminal มี permission): `cd "/Volumes/PS Catches/prompt-library" && python3 sync.py`
-> ทางเลือก: ให้ tool sync ที่ /Users/Shared (staging) แล้ว copy ทับ external
+> ✅ **FDA ใช้ได้แล้ว (2026-07-06)** — tool อ่าน/เขียน external + Desktop/Documents ตรงได้, รัน `python3 sync.py` บน external ผ่าน background task ได้เลย
+> ถ้ากลับมาติด `Operation not permitted` อีก: toggle FDA Terminal.app ปิด→เปิด + Cmd+Q Terminal แล้วเปิดใหม่ (TCC ส่งสิทธิ์ตอน launch เท่านั้น)
 > orphan ที่ผู้ใช้ต้องลบเองใน Finder: `~/Documents/prompt-library` + `~/Desktop/prompt-library` (~870MB)
 
 ## staging (tool เข้าได้) = `/Users/Shared/prompt-library/` (ลบทิ้งแล้วหลัง copy)
@@ -92,8 +91,8 @@ https://www.meigen.ai/api/search?type=posts&q=<keyword|ว่าง>&limit=50&of
 > ⚠️ **foreground bash python พังเรื่อง import (PermissionError importlib)** — รัน python ผ่าน **background task** เท่านั้น
 > orphan ต้องลบเองใน Finder: `~/Documents/prompt-library` + `~/Desktop/prompt-library` (~870MB)
 
-### ไฟล์ใน /Users/Shared/prompt-library/
-- `meigen-all.json` — **6,038 records** (full text + meta + categories)
+### ไฟล์ใน library
+- `meigen-all.json` — **6,519 records** (sync 2026-07-06: +481) · gallery รวม youmind = 7,358 cards
 - `meigen-prompts-1446.json` — curated (category จริง)
 - `thumbs/` — 360px (~434MB)
 - `gallery.html` — filter model+category+search+copy
