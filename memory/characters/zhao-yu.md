@@ -68,6 +68,14 @@ Consistent face structure/makeup all panels, photoreal, even light.
 
 ธีม: Korean idol mag, chrome liquid-metal masthead "TREND ICON", pink Y2K collage (chrome/sparkle/heart/barcode/Windows-98 popup "Loading Confidence 100%"). ชื่อไอดอลเป็น **coverline ตัวใหญ่ใต้ masthead/ข้างหน้า** ("ZHAO YU 趙宇" chrome ชมพู) — ไม่ซ่อน barcode. เต็ม prompt อยู่ในแชต session 2026-07-06.
 
+## Canonical Reference Images (gen 2026-07-06, identity locked ✅)
+
+`characters/zhao-yu-refs/` — ลาก @ref จากไฟล์พวกนี้ตอนทำภาพใหม่ ไม่ต้อง gen ซ้ำ:
+- `zhao-yu-turnaround-sheet.png` — **@ref หลัก** (front/3-4/side/back + close-up) ล็อกหน้า+outfit
+- `zhao-yu-expression-sheet.png` — 8 อารมณ์ close-up
+- `zhao-yu-portrait.png` — portrait เดี่ยว pose เท่
+- `zhao-yu-trend-icon-cover.png` — TREND ICON pink Y2K cover (ตัวอย่าง output จริง)
+
 ## Caveat
 
 - CJK (趙宇 + ฮันกึล) model render เพี้ยนบ่อย — ถ้าเป๊ะสำคัญ gen พื้น+latin ก่อน แปะ CJK ทีหลังใน editor
