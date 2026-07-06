@@ -44,7 +44,7 @@ One line per memory, grouped by section. Add new entries under the matching sect
 
 ## Image Generation & Character
 
-- [Zhao Yu (趙宇) — Character Profile](characters/zhao-yu.md) — Korean idol, pink Y2K theme; identity spec + 4 gen prompts (portrait/turnaround/expression sheet/TREND ICON cover) ล็อกหน้าข้ามภาพ
+- [Zhao Yu (趙宇) — Character Profile](characters/zhao-yu.md) — Korean idol, pink Y2K theme; identity spec + 4 gen prompts (portrait/turnaround/expression sheet/TREND ICON cover) ล็อกหน้าข้ามภาพ · +07-06 **realistic RAW-UGC variant** (cherryhikiko-style: bright flat phone selfie + matte skin, sexy-tasteful preset + ceiling)
 - [AI Influencer Image Prompt](ai-influencer-image-prompt.md) — generate very realistic AI influencer/virtual-model images (don't look AI)
 - [AI Character Identity Lock](ai-character-identity-lock.md) — keep same face across many images/scenes (named reference sheet, GPT Image 2)
 - [Image Prompt Suffixes & Techniques](image-prompt-suffixes-techniques.md) — TVC white-tone suffix, pose-transfer, character-swap, upscale prompts, storyboard tool (from ZenityX)

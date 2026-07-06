@@ -76,6 +76,22 @@ Consistent face structure/makeup all panels, photoreal, even light.
 - `zhao-yu-portrait.png` — portrait เดี่ยว pose เท่
 - `zhao-yu-trend-icon-cover.png` — TREND ICON pink Y2K cover (ตัวอย่าง output จริง)
 
+## Realistic RAW-UGC variant (07-06) — สำหรับปั้นบัญชี IG แนว cherryhikiko
+เวอร์ชัน "คนจริง candid" (ไม่ใช่ idol glam) = idol identity + realism stack. อ้างอิงลุค [[veo-google-flow-knowledge]] + [[ai-influencer-image-prompt]] + teardown cherryhikiko.
+- **anchor ใหม่:** gen `zhao-yu-realistic-sheet.png` (turnaround+expression, bright even light, ผิว matte มีรูขุมขน) → ใช้เป็น @ref แทน turnaround idol เดิมเวลาทำโพสต์ UGC
+- ตัวอย่าง gen ที่ผ่าน: `~/Downloads/ChatGPT Image Jul 6, 2026, 05_45_04 PM.png` (bright bedroom selfie, satin lace cami)
+
+### กฎ realism (คีย์ให้ "ไม่ดู AI")
+1. **phone front-cam selfie** — wide barrel distortion, handheld, grain, compression, soft นิด, แขนยื่นถือมือถือ
+2. **ผิว unretouched** — รูขุมขน, ฝ้า/กระบางๆ, ไฝ, มัน T-zone, **matte ไม่วาว** (NO smoothing/airbrush)
+3. ⭐ **แสงสว่าง แบน โอเวอร์นิดๆ** (แบบ cherry) — daytime window / ไฟห้องสว่าง, neutral-cool WB. **ห้าม moody/dark/low-key** (บทเรียน 07-06: recipe เดิมสั่ง "underexposed/moody" → ออกมามืดหมด ผิด ref)
+4. ฉากชีวิตจริง (เตียง/ห้อง/รถ), framing casual off-center
+
+### sexy tasteful preset (suggestive-clothed)
+- wardrobe: black lace bralette / satin cami / robe เลื่อนไหล่ / crop+midriff · pose: นั่งขอบเตียง/นอน over-shoulder/mirror selfie · gold necklace + hoops
+- ⛔ **ceiling:** suggestive-clothed = สุด. explicit/nude = (ก) mainstream tool บล็อกหมด (ข) เราไม่ทำ. ดัน "variety" (มุม/wardrobe/mood/สว่าง) ไม่ใช่ "โป๊ขึ้น"
+- tool ทน suggestive: Nano Banana > Seedance > GPT Image (strict สุด)
+
 ## Caveat
 
 - CJK (趙宇 + ฮันกึล) model render เพี้ยนบ่อย — ถ้าเป๊ะสำคัญ gen พื้น+latin ก่อน แปะ CJK ทีหลังใน editor
