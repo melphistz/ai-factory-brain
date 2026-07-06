@@ -30,6 +30,22 @@ STYLE: high-end idol beauty campaign, crisp micro-detail, true-to-life color, na
 Negative: no plastic or waxy skin, no over-airbrushing, no doll-like uncanny face, no over-symmetry, no CGI or 3D render, no warped hands or fingers, no extra fingers, no text, no logo, no watermark.
 ```
 
+## Variant — "doll-visual archetype" (tall ethereal, สาย IVE-visual)
+⚠️ **ห้ามก๊อปหน้า idol คนจริง** (เช่นจางวอนยอง = deepfake/impersonation ไม่ทำ). ทำได้แค่ **archetype** = ตัวใหม่ที่มี traits แนวนั้น. negative ต้องมี `do not replicate any specific real person`.
+traits: สูงเพรียว สัดส่วนนางแบบ คอยาว · ตากลมโตแบบตุ๊กตา innocent gaze · หน้าเล็ก V-line จมูกโด่ง · glass skin · ออร่า elegant ethereal regal.
+```
+Ultra-photorealistic beauty portrait of a 20-year-old Korean female K-pop idol, the "visual" (most beautiful member) of a girl group — editorial idol photocard quality, shot on a full-frame camera with an 85mm f1.4 lens.
+BODY/AURA: tall slender model proportions, long graceful neck, elegant ethereal regal aura — inspired by the tall doll-visual archetype of K-pop, NOT any specific real idol.
+FACE: strikingly beautiful, harmonious balanced features — large round doll-like eyes with defined double eyelids, long natural lashes and a bright innocent gaze, a slim high nose bridge, delicate small V-line face, smooth forehead, full glossy lips with a gentle gradient tint, delicate arched brows. Fair luminous "glass skin" with a healthy dewy glow.
+SKIN: photoreal real skin — fine visible pores, soft natural texture, subtle cheek flush, faint peach fuzz, NO plastic or waxy CGI, NO heavy airbrush; flawless but real.
+HAIR: long silky straight-to-softly-wavy black hair with light see-through bangs framing the face, natural shine and flyaways.
+MAKEUP/STYLING: soft luminous K-beauty idol makeup, glossy lips, subtle shimmer, tiny elegant earrings; clean chic top.
+EXPRESSION: calm, alluring, effortless — a soft magnetic gaze straight into the camera that holds attention.
+LIGHT: soft professional beauty light, gentle catchlights in the eyes, delicate rim light on the hair, clean bright airy tone, seamless soft-gradient studio background.
+STYLE: high-end idol beauty campaign, crisp micro-detail, true-to-life color, natural depth of field.
+Negative: no plastic or waxy skin, no over-airbrushing, no doll-like uncanny plastic face, no over-symmetry, no CGI or 3D render, no warped hands or fingers, no extra fingers, no text, no logo, no watermark, do not replicate any specific real person.
+```
+
 ## Variants ต่อยอด
 - **full-body idol / stage / concept** — เปลี่ยน framing + outfit (stage costume / street / Y2K) คง FACE+SKIN block
 - **ล็อกเป็นตัวละคร** — gen ใบสวยสุด → ทำ turnaround+expression sheet เป็น @ref (ดู [[characters/zhao-yu]] เป็น template)
