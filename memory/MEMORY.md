@@ -4,6 +4,7 @@ One line per memory, grouped by section. Add new entries under the matching sect
 
 ## Rules
 
+- [Always Full Prompt](feedback-always-full-prompt.md) — FEEDBACK: คุยเรื่อง prompt สร้างภาพ/วิดีโอ = จบด้วย full paste-ready prompt เสมอ ทุกครั้ง (อธิบายที่เพิ่มได้ แต่ต้องมี full)
 - [Thai Lyric Craft Feedback](feedback-thai-lyric-craft.md) — FEEDBACK: เนื้อเพลง/กวีไทยต้องวางสัมผัส (นอก+ใน) ตั้งแต่ร่างแรก + โชว์ rhyme map · หลักอยู่ thai-lyric-writing
 - [Vault Structure](vault-structure.md) — reorg 2026-07-03: 9-section index + entry rule, rename log (ai-influencer-image-prompt), backup location
 - [Log Updates to Obsidian](log-updates-to-obsidian.md) — RULE: record every new thing/update in the vault, each time
@@ -45,6 +46,7 @@ One line per memory, grouped by section. Add new entries under the matching sect
 ## Image Generation & Character
 
 - [Zhao Yu (趙宇) — Character Profile](characters/zhao-yu.md) — Korean idol, pink Y2K theme; identity spec + 4 gen prompts (portrait/turnaround/expression sheet/TREND ICON cover) ล็อกหน้าข้ามภาพ · +07-06 **realistic RAW-UGC variant** (cherryhikiko-style: bright flat phone selfie + matte skin, sexy-tasteful preset + ceiling)
+- [Cute-Face Charm Recipe](cute-face-charm-recipe.md) — แก้ realism ผ่านแต่หน้าไม่น่ารัก: Korean dong-an/aegyo-sal geometry block + full cherryhikiko cute-UGC prompt (หน้าสั้นกลม/ตากลมโตยิ้มเสี้ยว/จมูกเล็กมน)
 - [K-pop Idol Visual Prompt](kpop-idol-visual-prompt.md) — realistic 20yo K-pop female "visual" beauty portrait recipe + แปลง superlative (สวยจนลืมหายใจ) → concrete features (glass skin/almond eyes/magnetic gaze)
 - [AI Influencer Image Prompt](ai-influencer-image-prompt.md) — generate very realistic AI influencer/virtual-model images (don't look AI)
 - [AI Character Identity Lock](ai-character-identity-lock.md) — keep same face across many images/scenes (named reference sheet, GPT Image 2)
