@@ -11,6 +11,7 @@ One line per memory, grouped by section. Add new entries under the matching sect
 
 ## Active Projects
 
+- [Drama App (ของเราเอง)](smartaihub-drama-series.md) — สร้างระบบซีรีส์แนวตั้งเอง (ต้นแบบ = case study ในลิงก์) · 07-07: ultracode เขียน intel-pack 9 ไฟล์ system prompts ที่ `projects/drama-app/intel-pack/` · next = Opus/Codex สร้างแอปครอบ · สถานะจริง = `projects/drama-app/STATE.md`
 - [แค่วันนี้ (Just Today MV)](kae-wan-nee-project.md) — MV รักสองสาว+อุกกาบาตวันสุดท้าย · Guadagnino×Malick×Melancholia · เพลง Suno สไตล์ fellow fellow · ไฟล์เต็ม projects/kae-wan-nee/ · status: shotlist ล็อก, next = gen เพลง + character sheet
 - [ตื่นสาย (Sunday School Comedy)](tuensai-project.md) — หนังสั้น deadpan แนวเต๋อ (จาก Windows vault): รีบไปโรงเรียน→วันอาทิตย์ · ไฟล์เต็ม projects/tuensai/ · status: รอผลเจน V3 + ค้างเซฟ prompt 30s
 - [Story Ideas — แนวเต๋อ นวพล](story-ideas-nawapol.md) — idea bank 10 เรื่อง ภาพล้วนไม่มีบทพูด สำหรับตั้งโปรเจกต์ถัดไป (ก๊อป projects/_template)
@@ -27,6 +28,7 @@ One line per memory, grouped by section. Add new entries under the matching sect
 
 ## Seedance / Video Prompting
 
+- [Vertical Drama Basics (Dramy.ai)](vertical-drama-basics-dramy.md) — โครงละครแนวตั้ง: ตอน 5 ช่วง Hook/Setup/Conflict/Twist/**Cliffhanger บังคับ**, Hook 4 ประเภท+เกณฑ์เลือก, ไอเดีย AI-friendly (ตัวละคร≤3/สถานที่≤2/30-60วิ) · Dramy.ai = ผู้เล่นไทย niche เดียวกับ smartaihub
 - [Gemini Gem — Seedance Director](gemini-gem-seedance-director.md) — Gem สำเร็จรูป "Seedance 2.0 Prompt Director" สำหรับ Gemini: Instructions EN 11.8k chars + [knowledge pack](gemini-gem-seedance-knowledge-pack.md) พร้อมอัปโหลด + วิธีติดตั้ง/ลำดับตัดถ้าเกินลิมิต (กลั่นจากคลัง Seedance ทั้งหมด 07-05)
 - [Storyboard Knowledge](storyboard-knowledge.md) — storyboard พื้นฐานสำหรับ AI video: board first render second, 3 ช็อตพื้นฐาน, จัดเฟรม, storyboard vs shot list (จาก Windows vault)
 - [AI Video Realism Hierarchy](ai-video-realism-hierarchy.md) — motion/แสง/กล้อง = ตัวคูณ realism, skin detail = แค่ gate; QA ข้อ 1 = contact physics (มือแตะของ) + case study MV ไทย AI
@@ -62,6 +64,7 @@ One line per memory, grouped by section. Add new entries under the matching sect
 
 ## Ad Knowledge & Research
 
+- [SmartAIHub Drama App — Case Study](smartaihub-drama-series.md) — แอปของคนอื่น (ไม่ใช่ของเรา): drama-series แนวตั้งครบวงจร คิดเรื่อง→ตัวละคร→shot prompt→เจนผ่าน API · เก็บเป็น feature spec + จุดอ่อนที่เห็น · verdict 07-07: เราสร้างแบบนี้ได้ (คลัง = intelligence layer พร้อมแล้ว)
 - [UGC Ad Structure](ugc-ad-structure.md) — UGC ad anatomy (hook/body/CTA) + worked teardowns of real AI UGC ads
 - [Ads 50 Teardown — AI Video Bootcamp](ads-50-teardown-ai-video-bootcamp.md) — 50 competitor ad teardown: 4-beat skeleton, hook formulas, the modular hook-swap scale mechanic
 - [Ads Contact-Sheet Pipeline](ads-contact-sheet-pipeline.md) — competitor ad teardown: _batch.py → sheets/ (30-frame 5x6) + txt/ transcripts in Desktop/Ads/videos
