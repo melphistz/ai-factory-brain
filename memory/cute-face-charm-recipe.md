@@ -11,6 +11,19 @@ metadata:
 
 แก้เคสคลาสสิก: **realism ผ่านแล้ว** (ผิว/รูขุมขน/หน้าอกเหมือนจริง) **แต่หน้าไม่น่ารัก** — gen ออกมาเป็น "สาวธรรมดา realistic" หน้ายาว ตาเล็ก จมูกกว้าง+แดง ยิ้มเห็นเหงือกฝืน. ปัญหาไม่ใช่ realism แต่ **cute-face geometry หาย** → ต้องฉีดกลับ. ดูคู่ [[characters/zhao-yu]] realistic variant · [[ai-influencer-image-prompt]] · lesson จาก teardown cherryhikiko.
 
+## ⭐⭐ 07-07 BREAKTHROUGH — "Douyin/Korean glass-skin" token stack (research เน็ต+MeiGen ยืนยันตรงกัน)
+> geometry block เดี่ยวๆ ยังแพ้ (gen ออกมา average/ยิ้มตาหยี/แก้มบวม). ของจริงที่ community ใช้ทำลุค cute-AI-girl (แบบ Pixel/cherryhikiko refs) = **ความน่ารักมาจาก MAKEUP STYLE TOKEN ไม่ใช่กระดูก**:
+1. ⭐ **`Douyin/Korean glass-skin makeup`** — token เดียวดึงทั้งลุค (model รู้จัก style นี้ทั้งชุด)
+2. **`porcelain and dewy glass skin`** — ผิวต้อง**เนียน porcelain ก่อน** + `realistic pores` เบาๆ ทีหลัง. ⚠️ imperfection stack หนัก (moles/T-zone/no-airbrush) = ดันไป "สาวธรรมดา" — **นี่คือตัวที่ทำพังรอบแรก**
+3. **`heavy soft pink blush on the apples of the cheeks AND tip of the nose`** — blush จมูก+แก้ม = youthful flush signature
+4. **`soft grey contact lenses with reflective catchlights`** — ตาสีเทา = ฟีเจอร์ลับของ refs
+5. **`prominent aegyo-sal`** + `long separated doll-like lashes, wispy lashes, brushed-up brows`
+6. **`glossy pink gradient lips`**
+7. camera: **`shot on iPhone front camera, ISO 100, no background blur, no bokeh, shadows slightly flattened, slightly overexposed`** = ลุคสว่างแบน
+8. expression: `eyes stay open large and round` / eye-smile — ห้าม squeeze ปิด
+- แหล่ง: nanobananaimages.com prompt hub + PromptSilo (JSON face-forensics: "Idol Beauty Mode: luminous, minimal texture") + reel.money 20-prompt pack + MeiGen dataset local (หลาย record ใช้ประโยคเดียวกัน verbatim: "Makeup: Douyin/Korean glass-skin finish, pink lip gloss, aegyosal, soft blush, grey contacts, wispy lashes, brushed-up brows")
+- consistency: prompt community ส่วนใหญ่เป็น **reference-guided** ("the same subject in the attached image") → หน้าเป๊ะข้ามภาพต้องมี @ref ใบแรกเสมอ
+
 ## กุญแจหน้าน่ารัก (เกาหลี 동안 dong-an / 애교 aegyo) — เรียงตามพลัง
 1. ⭐ **aegyo-sal (애교살)** = ไขมันนูนใต้ตา = สร้างเสน่ห์อันดับ 1 (ยิ้มแล้วตาเป็นเสี้ยวมีประกาย)
 2. **หน้าสั้นกลม** — โหนกแก้มอวบ baby fat, ส่วนล่างสั้น (คางเล็ก, philtrum สั้น)
