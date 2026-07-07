@@ -11,7 +11,7 @@ One line per memory, grouped by section. Add new entries under the matching sect
 
 ## Active Projects
 
-- [Drama App (ของเราเอง)](smartaihub-drama-series.md) — สร้างระบบซีรีส์แนวตั้งเอง (ต้นแบบ = case study ในลิงก์) · 07-07: ultracode เขียน intel-pack 9 ไฟล์ system prompts ที่ `projects/drama-app/intel-pack/` · next = Opus/Codex สร้างแอปครอบ · สถานะจริง = `projects/drama-app/STATE.md`
+- [Drama App (ของเราเอง)](smartaihub-drama-series.md) — ระบบซีรีส์แนวตั้งเอง (ต้นแบบ = case study ในลิงก์) · **07-07: v1 BUILT+VERIFIED** — โค้ด `D:\drama-app` (Next.js, repo แยก, mock เปิดได้ทันที), intel-pack 9 ไฟล์ system prompts ที่ `projects/drama-app/intel-pack/` · next = ลองเจนซีรีส์ทดสอบ/ต่อ gen API · สถานะเต็ม = `projects/drama-app/STATE.md`
 - [แค่วันนี้ (Just Today MV)](kae-wan-nee-project.md) — MV รักสองสาว+อุกกาบาตวันสุดท้าย · Guadagnino×Malick×Melancholia · เพลง Suno สไตล์ fellow fellow · ไฟล์เต็ม projects/kae-wan-nee/ · status: shotlist ล็อก, next = gen เพลง + character sheet
 - [ตื่นสาย (Sunday School Comedy)](tuensai-project.md) — หนังสั้น deadpan แนวเต๋อ (จาก Windows vault): รีบไปโรงเรียน→วันอาทิตย์ · ไฟล์เต็ม projects/tuensai/ · status: รอผลเจน V3 + ค้างเซฟ prompt 30s
 - [Story Ideas — แนวเต๋อ นวพล](story-ideas-nawapol.md) — idea bank 10 เรื่อง ภาพล้วนไม่มีบทพูด สำหรับตั้งโปรเจกต์ถัดไป (ก๊อป projects/_template)
