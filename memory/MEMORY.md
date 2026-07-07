@@ -82,7 +82,7 @@ One line per memory, grouped by section. Add new entries under the matching sect
 
 - [AI Factory Brain Sync](ai-factory-brain-sync.md) — git repo ~/ai-factory-brain: vault/agents/skills ตัวจริง + symlink กลับ; sync ด้วย ./sync.sh ต้น-ท้าย session; Windows junction map (รวม D--Claude → repo memory)
 - [Legacy Vault D:\Claude](legacy-vault-d-claude.md) — vault เก่าบน Windows เกษียณ 2026-07-05: เหลือ 90-Assets (ไฟล์หนัก) + _archive · ความรู้ตัวจริงอยู่ repo
-- [Grok Media Saver — Project](grok-media-saver-project.md) — extension โหลดรูป Grok Imagine ที่ D:\Downloads (Windows), v6.1.1 ใช้ได้จริง · เครื่อง Windows ไม่มี node
+- [Grok Media Saver — Project](grok-media-saver-project.md) — extension โหลดรูป Grok Imagine ที่ D:\Downloads (Windows), v6.1.1 ใช้ได้จริง · เครื่อง Windows มี Node v24 แล้ว (07-07, refresh PATH ก่อนใช้)
 - [Grok Media Saver — Knowledge](grok-media-saver-knowledge.md) — คู่มือใช้งาน + ความรู้เชิงลึก extension (ย้ายจาก vault เก่า)
 - [Claude Subagents](claude-subagents.md) — MODEL POLICY: Fable=orchestrate เท่านั้น · fleet 8 (opus: storyboard-prompter/asset-prompt-builder/script-hook-writer/deep-reasoner · sonnet: qa-inspector/teardown-analyst/timeline-builder/fast-worker) · playbook = FF_factory/AGENT_OPS.md
 - [Exa MCP Setup](exa-mcp-setup.md) — Exa search via curl/MCP (free); Reddit+X unavailable, general web works; read_x.py for single tweets

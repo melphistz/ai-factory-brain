@@ -1,8 +1,10 @@
 ---
 name: grok-media-saver-project
 description: Chrome extension ที่ D:\Downloads\grok-media-saver-v6.0 สำหรับ bulk download รูป/วิดีโอจาก Grok Imagine — แก้เป็น v6.1.1 เมื่อ 2026-07-05 ใช้งานได้จริงแล้ว (เครื่อง Windows)
-metadata:
+metadata: 
+  node_type: memory
   type: project
+  originSessionId: 72a4a9da-c166-4cd1-b6d1-c921aa8e967a
 ---
 
 Extension "Grok Media Saver" (unpacked, MV3, side panel UI ภาษาไทย) อยู่ที่ `D:\Downloads\grok-media-saver-v6.0` (เครื่อง Windows) — user ใช้โหลดภาพ gen จาก grok.com/imagine (วัตถุดิบงาน AI film)
@@ -17,4 +19,4 @@ Extension "Grok Media Saver" (unpacked, MV3, side panel UI ภาษาไทย
 
 ยังไม่ได้แก้ (ตั้งใจเว้น): dHash hamming ≤6 อาจมองรูป variant จาก prompt เดียวกันเป็น "ซ้ำ" → เตือน user แล้วว่าอย่ากดตรวจซ้ำก่อนโหลดถ้าอยากได้ทุกรอบแก้; popup.* เป็นไฟล์ตายซากไม่ถูกใช้
 
-เครื่อง Windows นี้**ไม่มี JS runtime เลย** (ไม่มี node/deno/bun/WSL) และ**ใช้ Obsidian เป็น node แทนไม่ได้** — Electron ของ Obsidian ปิด fuse ELECTRON_RUN_AS_NODE ไว้ เรียกแล้วเปิด GUI ขึ้นมาแทน (เคยพลาดมาแล้ว) → ตรวจ syntax ด้วยการอ่านไฟล์เต็ม + นับสมดุลวงเล็บ หรือแนะนำ user ติดตั้ง Node.js
+~~เครื่อง Windows นี้ไม่มี JS runtime~~ **อัปเดต 07-07: มี Node.js LTS v24.18.0 แล้ว** (ลงผ่าน winget ตอนสร้าง drama-app) — shell ใหม่ต้อง refresh PATH ก่อนเรียก node/npm · ที่ยังจริง: **ใช้ Obsidian เป็น node แทนไม่ได้** — Electron ปิด fuse ELECTRON_RUN_AS_NODE ไว้ เรียกแล้วเปิด GUI ขึ้นมาแทน (เคยพลาดมาแล้ว)

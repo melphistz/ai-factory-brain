@@ -40,7 +40,7 @@ Chrome extension (โหลดแบบ unpacked ผ่าน `chrome://extensio
 2. **เว็บที่ grid เป็น virtualized list ต้องเก็บข้อมูลระหว่างเลื่อน** — เก็บครั้งเดียวตอนท้ายจะเห็นแค่จอเดียว เพราะ React ถอด element ที่พ้นจอออก
 3. **Replay pagination API ต้องมี retry + backoff + หน่วงระหว่างหน้า** — โดน 429 ครั้งเดียวแล้ว `break` เงียบ ๆ = ได้ข้อมูลไม่ครบโดยไม่รู้ตัว และต้อง**รายงานผลเสมอ**ว่าจบสมบูรณ์หรือถูกตัด
 4. **บั๊กคลาสสิก JS:** ตัวแปรใน template string ที่ไม่มีจริง (`${dup}`) ทำ ReferenceError เงียบ ๆ → UI ว่างทั้งแผงและ abort งานกลางทาง — เจอบ่อยในโค้ดที่ refactor แล้วลบตัวแปรไม่หมด
-5. **เครื่องนี้ไม่มี node/deno/bun/WSL** — และใช้ Obsidian เป็น node แทนไม่ได้ (Electron ปิด fuse `ELECTRON_RUN_AS_NODE` ไว้ เรียกแล้วจะเปิด GUI ขึ้นมาแทน) ถ้าจะทำงาน JS จริงจังควรติดตั้ง Node.js
+5. ~~เครื่องนี้ไม่มี node~~ **อัปเดต 07-07: ติดตั้ง Node.js LTS v24.18.0 แล้ว (winget)** — แต่ shell ใหม่ต้อง refresh PATH ก่อน: `$env:Path = [Environment]::GetEnvironmentVariable('Path','Machine') + ';' + [Environment]::GetEnvironmentVariable('Path','User')` · ข้อจำกัดเดิมที่ยังจริง: ใช้ Obsidian เป็น node แทนไม่ได้ (Electron ปิด fuse `ELECTRON_RUN_AS_NODE`)
 
 ## ประวัติการแก้ (5 ก.ค. 2026: v6.0.0 → 6.1.1)
 

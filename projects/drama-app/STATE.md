@@ -1,11 +1,24 @@
 # drama-app — STATE
 
-- **โปรเจกต์:** สร้างระบบ web app ผลิตซีรีส์ละครแนวตั้งของเราเอง (ต้นแบบ = case study `memory/smartaihub-drama-series.md`)
-- **stage (2026-07-07): INTEL PACK = READY ✅** — `intel-pack/` ครบ 9 ไฟล์ (00-contracts → 08-qa-gates) ผ่าน ultracode เต็มวง: draft → skeptic 2 เลนส์/ไฟล์ → revise (64 findings/17 critical) → coherence ข้ามไฟล์ → apply คำตัดสิน 3 ข้อ → recheck ตาใหม่ (แก้เศษตกค้าง 11 จุดใน 05/08) — เขียนด้วย Fable ทั้งหมดก่อนโควต้าหมด
-- **คำตัดสินสถาปัตยกรรมที่ล็อกแล้ว (อย่าเปิดใหม่โดยไม่มีเหตุ):**
-  1. identity anchor เต็มก้อน verbatim = เฉพาะ **keyframe prompt** · video prompt (i2v) ใช้ **short positive lock** 1 บรรทัด (ข้อยกเว้น: ช็อต reference-mode ใช้ anchor ย่อกลาง)
-  2. **LedgerEntry มี single writer = ชั้น ledger ของแอป** — endpoint 02 ส่งแค่ "ledger:" flags, 04 ส่ง ledger_draft เป็นวัตถุดิบ
-  3. **state_locks = object keyed** (ห้าม array) — validator diff ข้ามช็อตรายคีย์
-- **known gap (cosmetic ไม่ block):** ประโยค single-writer ใน 00 §5 ยังไม่เอ่ยถึง ledger_draft (wardrobe) ของ 04 ชัดๆ — ความหมายไม่ขัด แก้ตอน build ได้
-- **ถัดไป:** (1) Mirko รีวิว pack (เริ่มจาก 00-contracts + 07-video-prompt) → (2) dispatch **Opus/Codex สร้างตัวแอป** (UI + DB Supabase + call LLM/Higgsfield/kie.ai) โดยใช้ intel-pack เป็น system prompts ตรงๆ — **ไม่ต้องใช้ Fable อีก**
-- **กติกา:** ไฟล์โปรเจกต์อยู่ในโฟลเดอร์นี้เท่านั้น · 1 ไฟล์ intel-pack = 1 endpoint/skill · แก้ pack = ต้องรัน recheck ข้ามไฟล์ซ้ำ
+- **โปรเจกต์:** ระบบ web app ผลิตซีรีส์ละครแนวตั้งของเราเอง (ต้นแบบ = `memory/smartaihub-drama-series.md`)
+- **โค้ดอยู่ที่:** `D:\drama-app` (git repo แยก บนเครื่อง Windows — ยังไม่มี remote, per-machine · brain repo เก็บแค่ STATE นี้ + intel-pack)
+- **stage (2026-07-07): APP v1 = BUILT + VERIFIED ✅**
+
+## v1 ทำอะไรได้ (prompt-first — ยังไม่ call gen API)
+Next.js 15 + TS + Tailwind · เก็บข้อมูลเป็น JSON ต่อซีรีส์ (`data/<id>.json`) · LLM ผ่าน @anthropic-ai/sdk (`LLM_MOCK=1` เป็น default เปิดได้ทันทีไม่ต้องมี key) · system prompts โหลดจาก `prompts/` (= intel-pack 9 ไฟล์ ก๊อปมา) ไม่ hardcode
+- pipeline: brief → **/api/bible** (series bible + แผนรายตอน) → **/api/script** (สคริปต์ตอน 5 ช่วง) → **/api/shots** (shot list) → **/api/characters** (การ์ด + identity-lock image prompts) → **/api/ledger** (materialize continuity — single writer) → **/api/keyframe-prompt** + **/api/video-prompt** (budget meter 3200/1800 + คัดลอก + QA checklist 2 เกท)
+- 14 route, 20 components (BudgetMeter/QaChecklist/LedgerBoard/PromptPanel ฯลฯ)
+
+## verify ที่ทำจริง (Opus + main loop double-check)
+- `npm run build` ผ่าน 14 route · integrate smoke API 7/7 = 200 ตรง contracts · main loop รันเซิร์ฟจริง GET 6 หน้า SSR ทุกหน้า 200 render จริง (demo series `demo-kon-fon-ja-yut`)
+- git: 3 commits (scaffold b11e033 / integrate 00a66cb / fix 602a005) working tree สะอาด
+- fix รอบ review แก้ 5 (1 critical): store.ts per-series async mutex กัน lost-update · atomic rename retry (Windows EPERM) · keyframe verbatim-anchor guard (422 ถ้า anchor ไม่ครบ) · sanitize ไทยไม่ให้รั่วเข้า EN prompt · error หุ้มไทย+status
+
+## วิธีรัน
+`cd D:\drama-app` → refresh PATH (`$env:Path = [Environment]::GetEnvironmentVariable('Path','Machine')+';'+[Environment]::GetEnvironmentVariable('Path','User')`) → `npm run dev` → เปิด localhost:3000 · ใส่ ANTHROPIC_API_KEY + set LLM_MOCK= (ว่าง) ใน .env.local เพื่อเจนจริง (default mock)
+
+## ถัดไป (ตัวเลือก — ให้ Mirko เลือก)
+1. ลองใช้จริง: เจนซีรีส์ทดสอบ 1 เรื่อง (mock ก่อน แล้วต่อ key จริง) → ดูว่า output ตรงใจไหม แก้ prompt ใน intel-pack ได้
+2. ต่อ gen API (kie.ai/Higgsfield) แทนคัดลอกมือ — Higgsfield มี MCP อยู่แล้ว
+3. polish UI / auth / deploy · push ขึ้น GitHub remote ถ้าอยากข้ามเครื่อง
+- **แก้ intel-pack = ต้อง re-copy เข้า `D:\drama-app\prompts\` + rerun recheck ข้ามไฟล์**
