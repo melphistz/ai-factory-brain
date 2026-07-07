@@ -4,6 +4,7 @@ One line per memory, grouped by section. Add new entries under the matching sect
 
 ## Rules
 
+- [Model/Effort Strategy](feedback-model-effort-strategy.md) — FEEDBACK: intelligence-asset (freeze ยาว) = โมเดลฉลาดสุด+ultracode+verify 2 เลนส์ · build/production = Opus/Sonnet+high ถูกกว่าทำได้เท่ากัน · effort สูง=ช้าลงไม่ใช่เร็ว · build ช้าเพราะ subprocess ไม่ใช่โมเดล
 - [Always Full Prompt](feedback-always-full-prompt.md) — FEEDBACK: คุยเรื่อง prompt สร้างภาพ/วิดีโอ = จบด้วย full paste-ready prompt เสมอ ทุกครั้ง (อธิบายที่เพิ่มได้ แต่ต้องมี full)
 - [Thai Lyric Craft Feedback](feedback-thai-lyric-craft.md) — FEEDBACK: เนื้อเพลง/กวีไทยต้องวางสัมผัส (นอก+ใน) ตั้งแต่ร่างแรก + โชว์ rhyme map · หลักอยู่ thai-lyric-writing
 - [Vault Structure](vault-structure.md) — reorg 2026-07-03: 9-section index + entry rule, rename log (ai-influencer-image-prompt), backup location
