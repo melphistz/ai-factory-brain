@@ -7,7 +7,7 @@ updated: ""
 
 # STATE — <ชื่อโปรเจกต์>
 
-> stage: onboarding → brief → script → storyboard → kitA → gen-assets → storyboard-prompts → gen-frames → video-prompts → gen-video → score/edit → done
+> stage: onboarding → brief → script → promptkitA → gen-assets → storyboard-prompts → gen-frames → video-prompts → gen-video → timeline → done
 > **orchestrator: อัปเดตไฟล์นี้ทุกครั้งที่จบขั้น** · เปิดมาทำต่อ = อ่านไฟล์นี้ก่อนเสมอ
 
 ## สถานะล่าสุด

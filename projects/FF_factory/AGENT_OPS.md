@@ -66,7 +66,7 @@ projects/<campaign or FF_factory/jobs/<id>>/
   03a-promptkit.md          # Phase A: char/scene prompts + GEN ORDER + แผน storyboard
   03b-storyboard-prompts.md # Phase B: เฟรม storyboard prompts (หลัง char/ฉากจริงกลับมา)
   04-video-prompts.md       # จาก storyboard-prompter (หลังเฟรมจริงกลับมา)
-  05-timeline.json          # จาก timeline-builder (+ cue sheet ใน 05-score-and-edit.md)
+  05-timeline.json          # จาก timeline-builder (+ cue sheet ใน 05-cuesheet.md — ตาม PROTOCOL ข้อ 10)
   assets/                   # ภาพเล็ก (char sheet, เฟรม storyboard) — เข้า git ข้ามเครื่อง
 ```
 ไฟล์หนัก (คลิป/ภาพชุดใหญ่) per-machine: mac `~/Desktop/Ads/...` · Windows `D:\Claude\90-Assets\`

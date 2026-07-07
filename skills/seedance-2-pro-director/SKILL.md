@@ -1,6 +1,6 @@
 ---
 name: seedance-2-pro-director
-description: Elite AI film prompt director for Seedance 2.0. Use this skill whenever the user wants a single production-ready Seedance 2.0 prompt for high-budget AI cinema with strict character anchoring, screen positioning, pose locks, depth, gaze direction, camera blocking, continuity, and final-frame control. Trigger on phrasings like "write a Seedance prompt", "make this scene into a Seedance 2.0 prompt", "lock the character in the left third", "two-character blocking prompt", "turn this idea into a shot", "I need a cinematic prompt for Seedance", or any single-shot prompt-engineering request for Seedance 2.0. Do NOT use for full shotlists across many scenes — for those use shotlist-builder.
+description: Elite AI film prompt director for Seedance 2.0. Use this skill whenever the user wants a single production-ready Seedance 2.0 prompt for high-budget AI cinema with strict character anchoring, screen positioning, pose locks, depth, gaze direction, camera blocking, continuity, and final-frame control. Trigger on phrasings like "write a Seedance prompt", "make this scene into a Seedance 2.0 prompt", "lock the character in the left third", "two-character blocking prompt", "turn this idea into a shot", "I need a cinematic prompt for Seedance", or any single-shot prompt-engineering request for Seedance 2.0. Do NOT use for full shotlists across many scenes — for those use shotlist-builder. Do NOT use for planning a whole multi-shot ad video from a brief — for that use video-prompt-builder.
 ---
 
 # Seedance 2.0 Pro Director
@@ -70,7 +70,7 @@ Write Seedance prompts in plain, concrete, visual English. The model needs to un
 > The protagonist emerges as a metaphysical embodiment of fractured destiny within an operatic neon labyrinth of existential dread.
 
 **Better:**
-> A young woman stands alone in the left third of a rain-soaked neon alley. She slowly turns her head toward a red drone light reflected in a puddle. Her face shows controlled fear.
+> A young woman stands alone in the left third of a rain-soaked neon alley. She slowly turns her head toward a red drone light reflected in a puddle. Her shoulders tense; her jaw tightens for half a second.
 
 **Bad:**
 > Epic cinematic masterpiece, insanely beautiful, ultra-realistic, dramatic, award-winning, hyper-detailed, mind-blowing.
@@ -129,6 +129,19 @@ If the prompt contains more than:
 
 ---
 
+## Timed shots: timecodes + the camera-angle golden rule
+
+When a shot breaks into multiple beats (timed shots), structure the prompt as a timeline:
+
+- Label every beat with a timecode: `[0:00-0:03] ...` `[0:03-0:06] ...` — timecodes force the model to spread the action across the clip. Without them it dumps the payoff in the first 2 seconds.
+- One main action + at most one camera instruction per beat. Never one long paragraph hoping the model finds the cuts itself.
+
+**Golden rule for timed shots:** always state ORDER + ACTION for every beat, but you may LEAVE the camera angle to the model — the timeline already locks the sequence, and the model pairs angles to actions more naturally than manual per-beat angle calls. Lock the angle only on beats where the meaning or the joke depends on it: `CUT to` at a reveal, `push-in` at an emotional peak, `holds a still beat` for a comedic pause.
+
+This golden rule governs per-beat angles inside a timed sequence. A single continuous blocked shot still gets the full camera plan (shot size, angle, lens, movement) as specified below.
+
+---
+
 ## Reference discipline
 
 If the user provides references, every reference must be assigned a clear role.
@@ -159,14 +172,20 @@ If the user provides references, every reference must be assigned a clear role.
 
 ---
 
-## Mode selection rules
+## Mode selection rules (STEP 0 — decide before writing a word)
 
-Pick the mode before writing the prompt:
+The input mode decides the result more than the prompt does — the wrong mode breaks the shot no matter how good the prompt is. Pick the mode before writing the prompt:
 
 - **T2V** — only an idea, no images or video.
 - **I2V** — animate a character, object, product shot, portrait, concept art, key frame, or still image.
 - **R2V** — multiple references that need to be combined: identity, outfit, object, environment, style, or composition.
 - **V2V** — transfer motion, camera movement, VFX, edit, extension, or scene transformation from an existing clip.
+
+**Decision tree (production-verified):**
+- **I2V first frame** locks the opening pose exactly — the video CANNOT show anything before that frame (a still of a mid-air split starts already split; there is no run-up). Use it when the frame IS the true start of the action.
+- **First + last frame** interpolates A→B. Two frames far apart (full body → close-up) = heavy morph risk.
+- **Reference (R2V)** anchors identity and look but does NOT lock the opening frame — the model generates the action itself, so you CAN show action before a pose (run-in, then jump). The lever is describing the action arc clearly. A generation not starting from your reference image is not a bug — references never lock frame 1; if you need the exact opening, switch to first frame.
+- **Extension beats regeneration (V2V):** to continue a clip you like, feed it back as a video reference and instruct the model to continue — same actor, voice, props, and scene, seamless. This beats generating the scene twice.
 
 If the user doesn't specify a mode, pick the best one yourself and explain it in one line.
 
@@ -202,6 +221,9 @@ Don't rely on negative prompts as the main control. Always state the positive co
 | No extra people | The frame contains only Character A and Character B in the specified positions. |
 | No blur | The subject remains sharply focused, with controlled cinematic motion blur only on fast-moving rain and background lights. |
 | No random cuts | One continuous shot with uninterrupted camera movement and no scene change. |
+| Deformed hands | Exactly two arms, five fingers per hand. |
+
+**Hand fix (verified):** whenever hands are visible or touch anything, add `Exactly two arms, five fingers per hand` — this one line cuts hand artifacts roughly 70%.
 
 ---
 
@@ -313,7 +335,34 @@ Position alone is not enough. Always lock the character's state.
 A state lock includes: emotion, posture, costume, hair, injuries or makeup, wet/dry state, object in hand, physical condition, facial expression, gaze direction, body tension.
 
 **Example (better written positively):**
-> Character A maintains a tense, frightened expression, keeps standing in the left third, keeps her right hand gripping the doorframe, and keeps looking upward toward the drone light.
+> Character A keeps her shoulders tense and jaw tight, keeps standing in the left third, keeps her right hand gripping the doorframe, and keeps looking upward toward the drone light.
+
+---
+
+## Acting: under-direct emotion (verified)
+
+Direct emotion words make the model OVERACT — an acting AI-tell. `panicked`, `wide eyes`, `fed-up face`, `exhales a long sigh` come out as soap-opera exaggeration.
+
+- Describe the SITUATION or a neutral physical action and let the reaction emerge: `she wakes, glances at her phone, gets out of bed` — not `she jolts awake panicked with wide eyes`.
+- Write emotion as MUSCLE, not adjective: inner-brow lift, lower-lid tighten, jaw tightens for half a second, throat swallow, chin tremble, breath catch, slow blink, tear spill.
+- Optional control line: `Underplayed, restrained, natural performance; no exaggerated reactions.`
+- When filling the emotion/expression fields of a state lock or anchor block, translate the emotion into these physical cues.
+
+**But under-direct does NOT mean a blank face throughout** — that reads dead and sluggish. During the action the emotion must be REAL: startled, rushed, out of breath — `natural, genuine reactions, real but never exaggerated`. DEADPAN is reserved for the punchline only: full genuine emotion through the action, then `her face goes still and blank, a long held beat, then a small sigh` at the reveal — the contrast is the joke.
+
+**Direct-vs-free summary:** order + action = always state explicitly · camera angle = free except meaning-bearing beats (golden rule above) · emotion = under-direct as "real, never exaggerated", deadpan saved for the punchline.
+
+### Verified emotional-arc formula (i2v, Jul 2026)
+
+For an emotional progression inside one clip (e.g. smile → sadness → tears in 15s), this formula is production-verified:
+
+- Convert the emotional arc into MICRO-BEATS per timecode (0-3 / 3-7 / 7-11 / 11-15), written as muscle actions, not adjectives.
+- i2v: do not re-describe the face — one short positive identity-lock, then describe only performance and motion.
+- Keep the four motion layers separate (subject performance / internal breath-blink-hair / camera / environmental).
+- Tears or glasses catching a light source = free reflective complexity — renders beautifully.
+- End with a clear final-frame cue.
+
+Tuning notes from the verified run: `smile 20%` renders stronger than intended → use `faint closed-lip smile, barely there` · `very slow push-in` still reframes a lot → use `hold framing, minimal push-in` to keep the frame · add `lips stay pressed, no open mouth` to contain a peak.
 
 ---
 
@@ -522,6 +571,15 @@ Before delivering the prompt, mentally repair it:
 
 ---
 
+## Known pitfalls + the hyperzoom fix
+
+- Full-body shots artifact more easily than medium or close-up — prefer medium/close-up when the story allows.
+- Faces distort across long sequences; clips under 10 seconds drift less.
+- Never write bare "fast" — it produces jitter. Describe the physics instead: `whip-like push`, `rapid hyperzoom`.
+- **Wide→close in one clip:** a slow push-in exposes the subject morphing mid-zoom. Fix = `rapid hyperzoom, heavy directional motion blur, whip-like push, settling sharp` plus `keep final frame sharp, intentional motion blur only` — the blur hides the middle frames. If it still breaks, split into 2 clips and punch-in at the edit.
+
+---
+
 ## Final QA before answering
 
 Before you deliver the final prompt, verify:
@@ -565,6 +623,12 @@ Prompts must read like production direction:
 - Restrained micro-expression
 - Final frame holds on the character's eyes
 
+**Style physics that actually control the output:**
+- Lighting is physical, never emotional: "single focused spotlight from above, sharp circular pool of warm tungsten light, sharp falloff into deep shadow" — not "moody atmosphere".
+- Mood = a visual noun the model can render (golden haze, blue-grey mist, amber dust, halation, bloom, film grain), never an abstract adjective (melancholic, epic).
+- Reflective surfaces = free complexity: wet pavement or a glossy floor forces the model to render reflections — double visual value for free.
+- fps, ISO, and aperture values control nothing — but focal length in mm is real: 24mm (wide) / 50mm (standard) / 85mm (portrait) / 135mm (tele) actually change compression and bokeh.
+
 **Your goal:** the prompt must be so clear that Seedance 2.0 reads it as a director's storyboard, not a literary description.
 
 ---
@@ -602,3 +666,40 @@ Prompts must read like production direction:
 >
 > **Final frame:**
 > The camera holds on the tense negative space between them, with Character A's hand sharp in the foreground and Character B's mask softly threatening in the right midground.
+
+---
+
+## Realism hierarchy (footage meant to pass as real)
+
+Realism lives in motion, light, and camera — not in skin detail. Weight the prompt in this order (top = biggest multiplier):
+
+1. **Physics** — body weight, foot-ground contact, inertia, secondary motion (hair/fabric/water).
+2. **Motion cadence** — micro-jitter, pauses, breathing; never floaty interpolated-smooth.
+3. **Camera imperfection** — handheld micro-shake, focus hunt; gimbal-smooth perfection is an AI tell.
+4. **Motivated single-source lighting** — shadows and speculars track the movement; "soft pretty light everywhere" is a tell.
+5. **Human micro-behavior** — blinks, saccades, mouth cadence, micro-expression.
+6. **Skin detail = gate only** — just "not plastic, not beauty-filtered"; extra detail adds no realism.
+
+Post-generation QA order: contact physics FIRST (zoom in wherever hands touch objects or people), then hands/fingers, then wardrobe + prop consistency across shots, then identity drift and on-screen text.
+
+---
+
+## Fixed facts (hosts: Higgsfield + kie.ai)
+
+- 24fps fixed. Aspect ratios 16:9 / 9:16 / 1:1 / 4:3 / 3:4 / 21:9 / 9:21 (ignored when a reference image is present).
+- Duration steps 4/5/6/8/10/12/15 seconds; max 15s per shot — chain shots for anything longer.
+- Prompt hard cap: 2000 characters. Working budget (locked 07-07): keep the paste-ready prompt ≤1,800 — never approach the cap (a real case shipped 1,973/2,000 with zero room left for fixes).
+- References: up to 9 images / 3 videos (15s each) / 3 audio (Higgsfield: 12 assets total).
+- Native synchronized audio is generated in the same pass — always write the audio layer on purpose, never leave it to chance.
+- Hosts in use: Higgsfield (UI, native 4K, Unlimited add-on) and kie.ai (API, Fast/Mini tiers). **Both accept real human face uploads — faces are not blocked** (verified Jun 2026; the old "faces blocked" claim applied only to Segmind, a host we don't use). IP guardrails (celebrities, copyrighted characters) and C2PA watermarking still apply.
+
+---
+
+## Deeper knowledge (read from the brain vault at runtime)
+
+Vault paths — mac: `/Users/working/ai-factory-brain/memory/` · Windows: `D:\ai-factory-brain\memory\`
+
+- `seedance-knowledge.md` — full theory: formula, camera, timeline golden rule, under-direct acting, input-mode decision tree, host specs.
+- `seedance-prompt-repository.md` — real prompt examples, reusable style stacks, UGC templates, 14 camera techniques, on-product text rules.
+- `ai-video-realism-hierarchy.md` — realism hierarchy case studies + post-gen QA tells (contact physics, wardrobe re-roll, ECU detail inconsistency).
+- `gemini-gem-seedance-director.md` — the distilled director instruction set (same system, condensed for Gemini Gem).

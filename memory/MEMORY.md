@@ -11,7 +11,7 @@ One line per memory, grouped by section. Add new entries under the matching sect
 
 ## Active Projects
 
-- [Drama App (ของเราเอง)](smartaihub-drama-series.md) — ระบบซีรีส์แนวตั้งเอง (ต้นแบบ = case study ในลิงก์) · **07-07: v1 BUILT+VERIFIED** — โค้ด `D:\drama-app` (Next.js, repo แยก, mock เปิดได้ทันที), intel-pack 9 ไฟล์ system prompts ที่ `projects/drama-app/intel-pack/` · next = ลองเจนซีรีส์ทดสอบ/ต่อ gen API · สถานะเต็ม = `projects/drama-app/STATE.md`
+- [Drama App (ของเราเอง)](smartaihub-drama-series.md) — ระบบซีรีส์แนวตั้งเอง (ต้นแบบ = case study ในลิงก์) · **07-07: v1 BUILT+VERIFIED + genre packs 5 แนว** (09-genre-packs.md: รักดราม่า/ตลก deadpan/สยอง/แอ็กชัน/ครอบครัว, backward-compatible, deploy เข้าแอปแล้ว) — โค้ด `D:\drama-app` (Next.js, mock เปิดได้ทันที), intel-pack 10 ไฟล์ที่ `projects/drama-app/intel-pack/` · next = ลองเจนซีรีส์ทดสอบ + wire genre เข้า UI (Opus) · สถานะเต็ม = `projects/drama-app/STATE.md`
 - [แค่วันนี้ (Just Today MV)](kae-wan-nee-project.md) — MV รักสองสาว+อุกกาบาตวันสุดท้าย · Guadagnino×Malick×Melancholia · เพลง Suno สไตล์ fellow fellow · ไฟล์เต็ม projects/kae-wan-nee/ · status: shotlist ล็อก, next = gen เพลง + character sheet
 - [ตื่นสาย (Sunday School Comedy)](tuensai-project.md) — หนังสั้น deadpan แนวเต๋อ (จาก Windows vault): รีบไปโรงเรียน→วันอาทิตย์ · ไฟล์เต็ม projects/tuensai/ · status: รอผลเจน V3 + ค้างเซฟ prompt 30s
 - [Story Ideas — แนวเต๋อ นวพล](story-ideas-nawapol.md) — idea bank 10 เรื่อง ภาพล้วนไม่มีบทพูด สำหรับตั้งโปรเจกต์ถัดไป (ก๊อป projects/_template)
@@ -72,8 +72,8 @@ One line per memory, grouped by section. Add new entries under the matching sect
 ## Skills & Workflows
 
 - [Skills Cheat Sheet](skills-cheatsheet.md) — which installed skill runs for which ad task + how to force-pick / auto-allocate
-- [Seedance 2 Pro Director Skill](seedance-2-pro-director-skill.md) — INSTALLED skill (~/.claude/skills): elite single-shot Seedance prompt director (formula + char-anchor + frame-coords + QA); companion = shotlist-builder
-- [Shotlist Builder Skill](shotlist-builder-skill.md) — INSTALLED skill: stateful 4-phase screenplay→shotlist HTML w/ Chinese Seedance prompts; cinematic-film lane; has claude.ai-env deps to adapt for Claude Code
+- [Seedance 2 Pro Director Skill](seedance-2-pro-director-skill.md) — INSTALLED skill (~/.claude/skills): elite single-shot Seedance prompt director (formula + char-anchor + frame-coords + QA); companion = shotlist-builder · Fable audit ยกระดับ 07-07 (+11 findings: golden rule/under-direct fix/input modes/budget 1,800)
+- [Shotlist Builder Skill](shotlist-builder-skill.md) — INSTALLED skill: stateful 4-phase screenplay→shotlist HTML w/ Chinese Seedance prompts; cinematic-film lane; Claude Code-ready (Fable audit 07-07)
 - [Video Prompt Builder Framework](video-prompt-builder-framework.md) — 4-section structure for planning whole Seedance ads (skill in ~/.claude/skills/)
 - [Higgsfield 3-Step AI Ad Workflow](higgsfield-3step-ai-ad-workflow.md) — CINEMATIC-COMMERCIAL (not UGC): 2 Higgsfield Seedance 2.0 tutorials (headphones + football/robot) — asset→shotlist→scene + layout-map/erase-face/style-prefix/beat-ramp/physics-weight tricks
 - [Higgsfield Marketing Studio Workflow](higgsfield-marketing-studio-workflow.md) — MS auto ad generator (beauty-brand demo): UGC + Hyper Motion + TV Spot in one tool + 5 luxury location prompts
@@ -84,5 +84,5 @@ One line per memory, grouped by section. Add new entries under the matching sect
 - [Legacy Vault D:\Claude](legacy-vault-d-claude.md) — vault เก่าบน Windows เกษียณ 2026-07-05: เหลือ 90-Assets (ไฟล์หนัก) + _archive · ความรู้ตัวจริงอยู่ repo
 - [Grok Media Saver — Project](grok-media-saver-project.md) — extension โหลดรูป Grok Imagine ที่ D:\Downloads (Windows), v6.1.1 ใช้ได้จริง · เครื่อง Windows มี Node v24 แล้ว (07-07, refresh PATH ก่อนใช้)
 - [Grok Media Saver — Knowledge](grok-media-saver-knowledge.md) — คู่มือใช้งาน + ความรู้เชิงลึก extension (ย้ายจาก vault เก่า)
-- [Claude Subagents](claude-subagents.md) — MODEL POLICY: Fable=orchestrate เท่านั้น · fleet 8 (opus: storyboard-prompter/asset-prompt-builder/script-hook-writer/deep-reasoner · sonnet: qa-inspector/teardown-analyst/timeline-builder/fast-worker) · playbook = FF_factory/AGENT_OPS.md
+- [Claude Subagents](claude-subagents.md) — MODEL POLICY: main=orchestrate เท่านั้น · fleet 8 (opus: storyboard-prompter/asset-prompt-builder/script-hook-writer/deep-reasoner · sonnet: qa-inspector/teardown-analyst/timeline-builder/fast-worker) · playbook = FF_factory/AGENT_OPS.md · **ทั้ง fleet+3 skills ผ่าน Fable audit 07-07**
 - [Exa MCP Setup](exa-mcp-setup.md) — Exa search via curl/MCP (free); Reddit+X unavailable, general web works; read_x.py for single tweets

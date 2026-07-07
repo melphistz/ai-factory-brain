@@ -7,7 +7,9 @@ metadata:
   originSessionId: f495e44a-04e5-4cac-94ed-83e0ab9d81c9
 ---
 
-# Claude Code Subagents — fleet 8 ตัว (2026-07-05)
+# Claude Code Subagents — fleet 8 ตัว (2026-07-05 · **Fable audit ยกระดับทั้ง fleet 07-07**)
+
+> 07-07 (วันสุดท้าย Fable): audit→revise→verify ทุกตัว + coherence ข้าม fleet — อัดความรู้ verified ล่าสุด (กฎทองมุมกล้อง, under-direct ฉบับแก้, short-lock i2v, budget 1,800, ลำดับ QA tells, hook 4 ประเภทสายละคร) เข้า agent ที่เกี่ยว · 3 skills ก็ถูกยกระดับ (shotlist-builder ถอน claude.ai deps เก็บตก) · `projects/_template` จัดโครงตรง AGENT_OPS แล้ว · diff ทั้งหมดใน git 07-07
 
 ไฟล์จริงอยู่ `<brain repo>/agents/` (junction เข้า `~/.claude/agents` ทั้งสองเครื่อง) — ใช้ได้ทุก project · ทุกตัวอ่าน brain ด้วย dual path (mac `/Users/working/ai-factory-brain/` · Windows `D:\ai-factory-brain\`) · **orchestration playbook เต็ม = `projects/FF_factory/AGENT_OPS.md`** (โหมด v2 prompt-first/manual-gen: flow 5 ขั้น, hand-off, fan-out)
 

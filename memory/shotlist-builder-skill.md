@@ -1,6 +1,6 @@
 ---
 name: shotlist-builder-skill
-description: "Installed skill shotlist-builder — stateful 4-phase screenplay→shotlist generator, outputs HTML with CHINESE Seedance 2.0 prompts. Companion to seedance-2-pro-director. Has claude.ai-env deps that need adapting for Claude Code."
+description: "Installed skill shotlist-builder — stateful 4-phase screenplay→shotlist generator, outputs HTML with CHINESE Seedance 2.0 prompts. Companion to seedance-2-pro-director. Claude Code-ready (patched 07-01, Fable audit ยกระดับอีกรอบ 07-07)."
 metadata: 
   node_type: memory
   type: reference
@@ -8,6 +8,9 @@ metadata:
 ---
 
 Installed at `~/.claude/skills/shotlist-builder/` (from `~/Downloads/shotlist-builder.skill`; 9 files: SKILL.md + templates/HTML_TEMPLATE.md + 7 reference/*.md). The multi-scene companion referenced by [[seedance-2-pro-director-skill]]: director = single shot (English), shotlist-builder = whole screenplay → shotlist. Cinematic-film lane, NOT UGC. Also overlaps our own [[video-prompt-builder-framework]] — decide which to use per job.
+
+## 07-07: Fable audit ยกระดับ (9 findings)
+รอบ audit ก่อน Fable หมดสิทธิ์ — เติมกฎทองมุมกล้อง/duration steps/เพดานความซับซ้อน + โครงตอน 5 ช่วง&cliffhanger สำหรับซีรีส์ + เก็บตก claude.ai deps ที่เหลือ + description ชี้อีก 2 เลนครบ (ดู diff ใน git commit 07-07)
 
 ## Portability — PATCHED for Claude Code (2026-07-01)
 SKILL.md was edited so it runs locally. Added an "Environment (Claude Code)" section + inline fixes:

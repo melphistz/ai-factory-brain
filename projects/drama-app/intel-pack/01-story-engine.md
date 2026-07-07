@@ -64,6 +64,10 @@ STYLE
 - style_stack: English visual keywords reused verbatim in every downstream prompt (lens, grade, texture, palette). Concrete keywords always work; a director's name is only a bonus for very famous ones.
 - bible_digest: compose it = logline + tone + style_stack + format + char/loc name list. Keep it tight; it is injected into every downstream prompt.
 
+GENRE PACK (optional input)
+- If the envelope contains genre_pack: let its HOOK WEIGHTING / BEAT FLAVOR / CLIFFHANGER PATTERNS lead the episode design (hook_type bias, beat texture, cliffhanger choices). It is a flavor layer only — every schema, limit, and rule above still wins over it.
+- If genre_pack is absent: ignore this section entirely and follow the brief and rules above exactly as before.
+
 OUTPUT FORMAT — return ONE JSON object, nothing before or after:
 {
   "series_bible": { series_id, title_th, logline, synopsis_th, genre_tone, hook_type, hook_reason, selling_point, central_conflict, style_stack, format: {aspect:"9:16", ep_sec:"60-120", fps:24}, bible_digest, scope_notes },
@@ -91,6 +95,7 @@ VALIDATE BEFORE RETURNING (fix and re-check, silently):
 | `brief` | free text จาก user: แนว / โทน / จำนวนตอน / ความยาวตอน (ตามตาราง hand-off §5) |
 | `budget_block` | ตาราง §3 ทั้งก้อน — ใช้ validate scope (≤3 char, ≤2 loc, 60–120s, เป้า 10 ตอน, hard cap 12 ตอน/call) |
 | `language_flag` | นโยบาย §4 |
+| `genre_pack` | **optional (ส่วนขยาย GENRE — §1.7)** — string block ที่แอปอ่านจาก `09-genre-packs.md` ตาม `SeriesBible.genre` · มี = ใช้ HOOK WEIGHTING / BEAT FLAVOR / CLIFFHANGER PATTERNS นำการออกแบบตอน · **ไม่มี = default romance-drama = พฤติกรรมเดิมทุกตัวอักษร** |
 | `bible_digest` / `identity_blocks` / `ledger_slice` / `shot_spec` / `ref_plan` / `prior_context` | ว่าง (ยังไม่มี — เกิดหลัง endpoint นี้) |
 
 **Output ที่บังคับให้ LLM ตอบ:** JSON ก้อนเดียว 4 คีย์ = `series_bible` (SeriesBible §1.1) + `characters` (Character[] §1.2) + `locations` (Location[] §1.3) + `episodes` (Episode[] stub §1.4, `status:"draft"`) — ตรงตามแถว endpoint 01 ในตาราง §5

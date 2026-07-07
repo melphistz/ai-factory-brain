@@ -13,6 +13,8 @@
 | **Action** | 60fps, 180° shutter — clear motion, motion blur within shutter range only. | `60fps流畅运动，180°快门运动模糊，禁止超出快门范围的拖影。` |
 | **Final beat / verdict** | 0.3–0.5 sec top-shot freeze — directly from above, time stops. | `严格正上方俯拍（top-shot）。0.3-0.5秒freeze frame。所有人物位置冻结。时间静止。` |
 
+> `60fps流畅运动` in the Action row is a motion-smoothness cue only — Seedance 2.0 renders at a fixed 24fps on our hosts (see the host-spec note in [STYLE_BLOCK.md](STYLE_BLOCK.md)); don't add further fps/ISO/technical jargon.
+
 ## 2. Emotional arcs within a single shot
 
 If emotion **changes** across one continuous take (e.g., Roko goes from rage → controlled), the camera changes synchronously. Write it explicitly in phases:
@@ -66,7 +68,7 @@ Never write `zoom`. Always write physical camera movement (`dolly`, `track`, `cr
 | Insert / wide / freeze | **0.3 – 2 sec** |
 | Emotional close-up with full arc (5–7 numbered beats) | **8 – 15 sec** |
 
-The full prompt envelope is 15 seconds. Divide internally for multi-shot prompts using these durations.
+The full prompt envelope is **up to** 15 seconds — pick the shortest Seedance duration step (4/5/6/8/10/12/15s) that fits the beats (see PROMPT_DENSITY.md). Divide internally for multi-shot prompts using these durations.
 
 ## 6. Common patterns — copy-paste templates
 
@@ -106,7 +108,11 @@ The full prompt envelope is 15 seconds. Divide internally for multi-shot prompts
 动作：所有人物位置冻结。时间静止。
 ```
 
-## 7. Forbidden moves
+## 7. Golden rule — when to specify the angle at all (multi-beat / timeline prompts)
+
+**Sequence + action: always explicit for every beat. Camera angle: release it except on meaning-bearing beats.** With the beat order locked, Seedance pairs angles to actions itself and the result usually looks MORE natural than per-beat angle micromanagement (it can't wander, because only the angle is free — not the order). Lock the angle only where the beat's meaning depends on it: the punchline `CUT to`, an emotional `push-in`, a `holds a still beat`. Trade-off of releasing: slightly less deterministic framing. The emotion-sync map above (§1–§2) applies to the beats you DO lock. Source: `memory/seedance-knowledge.md` (กฎทองมุมกล้อง) — brain repo, mac `/Users/working/ai-factory-brain/` · Windows `D:\ai-factory-brain\`.
+
+## 8. Forbidden moves
 
 - `禁zoom变焦` — physical camera movement only
 - `禁稳定器` (no stabilizer) — handheld means handheld breathing must be visible

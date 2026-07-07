@@ -25,6 +25,7 @@ brief ─▶ 01 series bible ─▶ 02 สคริปต์ตอน ─▶ (03
 | `title_th` | ชื่อเรื่องไทย |
 | `logline` | "สถานการณ์" ที่เห็นภาพชัด 1–2 ประโยค — ห้ามไอเดียกว้างแบบ "เรื่องรัก/คนอกหัก" [DRM] |
 | `genre_tone` | แนว + โทนเรื่อง |
+| `genre` | **optional (ส่วนขยาย GENRE)** — enum: `romance-drama` / `comedy` / `thriller-horror` / `action` / `family` · ไม่ส่ง = ไม่ inject (พฤติกรรมเดิม) · ค่านอก enum = ปฏิบัติเป็น `romance-drama` · มาจากที่ user เลือกตอนสร้าง series · ใช้แค่ให้แอปเลือก block จาก `09-genre-packs.md` (§5 แถว 09) — **ไม่ส่ง field นี้ = pipeline ทำงานเหมือนเดิมทุกประการ** |
 | `hook_type` | 1 ใน 4: `visual` / `emotional` / `curiosity` / `conflict` [DRM] + เหตุผล 1 บรรทัดว่าเนื้อเรื่องพาไปหาคำตอบของ hook นี้จริง (เกณฑ์เลือก hook [DRM]) |
 | `selling_point` | จุดขายของเรื่อง [DRM เช็กก่อนเริ่ม] |
 | `central_conflict` | ความขัดแย้งหลัก [DRM] |
@@ -117,6 +118,7 @@ brief ─▶ 01 series bible ─▶ 02 สคริปต์ตอน ─▶ (03
 | `language_flag` | นโยบาย §4 |
 | `ref_plan` | @ImageN role map: ทุก ref มี role เดียวชัด (identity/costume/environment/composition) [GEM REFERENCES] · เพดาน ≤9 img / 3 vid / 3 audio, Higgsfield รวม ≤12 [GEM FIXED FACTS] |
 | `prior_context` | keyframe/คลิป/final_frame ของช็อตก่อนหน้า (ใช้ใน 05/06/07/08) |
+| `genre_pack` | **optional (ส่วนขยาย GENRE)** — string block ที่แอปอ่านจาก `09-genre-packs.md` ตาม `SeriesBible.genre` แล้ว inject เป็นชั้น "รสของแนว" (≤4,500 chars ตาม §3) · เป็น flavor layer เท่านั้น — ห้าม override schema §1 / budget §3 / หลักการร่วม §6 · **ไม่มี field นี้ = endpoint รับ input เดิมเป๊ะ = พฤติกรรมเดิมทุกตัวอักษร** |
 
 ## 2) ID / Naming convention (แนวโรงงาน [OPS])
 
@@ -147,6 +149,7 @@ brief ─▶ 01 series bible ─▶ 02 สคริปต์ตอน ─▶ (03
 | ตอน | **60–120s** · **9:16** · 24fps | — | [DRM]+[GEM FIXED FACTS] |
 | scope เรื่อง | ตัวละครหลัก **≤3** · สถานที่หลัก **≤2** · เป้า episode_plan 10 ตอน | **≤12 ตอน/call** — brief ขอเกิน = วางแผน 12 ตอนแรก + แจ้งใน `scope_notes` (กัน output ล้น max tokens) | [DRM]+[SAH] · cap = margin rule |
 | references | ≤9 images / 3 video / 3 audio · Higgsfield รวม ≤12 | — | [GEM FIXED FACTS] |
+| genre pack block (`genre_pack` — optional) | **≤4,500 chars ต่อแนว** | — | ส่วนขยาย GENRE นิยามที่นี่จุดเดียว — เป็น optional layer ห้ามเบียด budget prompt หลัก · ไม่ inject = ไม่กิน budget ใดเลย |
 
 **Margin rule:** ห้ามส่ง prompt ชนเพดาน hard cap — บทเรียนตรงจาก [SAH]: แอปต้นแบบยิง video prompt 1,973/2,000 จนไม่เหลือที่แก้ · working budget ข้างบนคือเส้นจริงที่ endpoint ต้องเคารพ
 
@@ -174,6 +177,7 @@ brief ─▶ 01 series bible ─▶ 02 สคริปต์ตอน ─▶ (03
 | **06** | video-prompt | `Shot` + `keyframe_asset` (pixel จริง = first frame) | `Shot.video_prompt` (EN ≤1,800) + `final_frame` cue |
 | **07** | qa | `Shot` + asset (keyframe หรือคลิป) | verdict `PASS`/`REDO` + หน่วยเล็กสุดที่ต้องแก้ + prompt fix → เขียนกลับ `qa_status` |
 | **08** | ledger | `Shot`/`Episode` ที่ QA ผ่าน + asset | `LedgerEntry[]` create/update (อัป `source` → `pixel-verified`) |
+| **09** | genre-packs | **ไม่ใช่ endpoint — static reference file** (`09-genre-packs.md` · ไม่มี LLM call) | แอปอ่าน block ของ `SeriesBible.genre` (default `romance-drama`) → ใส่ `PromptEnvelope.genre_pack` (§1.7) ก่อนเรียก endpoint · ไฟล์ 09 ต้องเคารพ contracts เหมือนไฟล์อื่น · **ไม่มี genre = ไม่ inject = พฤติกรรมเดิมทุกประการ** |
 
 - **Gate mapping ของ 07** [OPS]: Gate 0 = user อนุมัติ script (หลัง 02) · Gate 1 = ภาพ (identity/continuity/composition/text — เช็คก่อนจ่ายค่าวิดีโอ) · Gate 2 = คลิป (lip-sync ถ้ามีพูด, contact physics, drift, รอยต่อ) · ลำดับเช็ค: **contact physics ก่อน** แล้วค่อยมือ/นิ้ว → wardrobe/prop ข้ามช็อต → identity drift → text [GEM OUTPUT FORMAT ④]
 - 08 รันหลัง QA PASS เท่านั้น — ledger ที่ downstream ใช้ต้องมาจาก pixel จริง ไม่ใช่แผน [OPS Phase B]

@@ -28,7 +28,7 @@ Skip it for:
 
 ## 3. How to render
 
-Use `visualize:show_widget` with module `diagram`. Default viewBox: 900×720 (desktop). Use the dark theme tokens. Show character circles in the production palette (Roko = red, Gandelfina = gold, etc. — pick consistent colors and stick to them across scenes).
+On Claude Code there is no `visualize:show_widget` — **write the schema as a standalone `.svg` file with the Write tool** (same output dir as the HTML, e.g. `blocking_sc{N}.svg`), then describe the blocking in chat text and give the user the absolute file path to open. Default viewBox: 900×720, dark background. Show character circles in the production palette (Roko = red, Gandelfina = gold, etc. — pick consistent colors and stick to them across scenes).
 
 After rendering, ask: **"Positions correct? Edits?"** Iterate until approved before writing any prompt.
 

@@ -15,12 +15,12 @@ Repo root (`BRAIN`): mac `/Users/working/ai-factory-brain/` · Windows `D:\ai-fa
 
 1. `<BRAIN>/memory/ads-50-teardown-ai-video-bootcamp.md` — the reference teardown: 4-beat skeleton, hook formula taxonomy, the scale mechanic, caveats (survivorship bias, non-transferable anchors)
 2. `<BRAIN>/memory/ugc-ad-structure.md` — hook/body/CTA anatomy
-3. `<BRAIN>/memory/ads-contact-sheet-pipeline.md` — how `sheets/` + `txt/` input folders are produced
+3. `<BRAIN>/memory/ads-contact-sheet-pipeline.md` — how `sheets/` + `txt/` input folders are produced. NOTE: paths + tooling in that file are mac-only (`~/Desktop/Ads/videos/`, `_batch.py`, mlx-whisper). Heavy ad files are per-machine: mac `~/Desktop/Ads/...` · Windows `D:\Claude\90-Assets\` — work from the folder you were given; never assume the mac path exists.
 4. `<BRAIN>/memory/ai-ugc-ad-factory-workflow.md` — what the factory can actually use (modular constraints, feedback-loop stage)
 
 ## Teardown method (per ad)
 
-- Read the transcript (`txt/`) and contact sheet (`sheets/`) together. If only an mp4 exists, build the sheet yourself (`ffmpeg -y -v error -i in.mp4 -vf "fps=N,scale=240:-1,tile=5x6" -frames:v 1 sheet.jpg`, N ≈ 30/duration); if no transcription tool exists on this machine, analyze visually and mark the transcript as missing — do not invent quotes.
+- Read the transcript (`txt/`) and contact sheet (`sheets/`) together. If only an mp4 exists, build the sheet yourself (`ffmpeg -y -v error -i in.mp4 -vf "fps=N,scale=240:-1,tile=5x6" -frames:v 1 sheet.jpg`, N ≈ 30/duration; keep every side of the sheet <2000px — for 9:16 clips drop to `scale=180:-1` — per the image-cap rule in `ugc-ad-structure`); if no transcription tool exists on this machine, analyze visually and mark the transcript as missing — do not invent quotes.
 - Map the 4 beats WITH timestamps. Classify the hook against the formula taxonomy (or name a new formula if it genuinely doesn't fit). Note visual style, caption treatment, persuasion levers, offer/anchor, length tier.
 - Music-only/silent ads carry visual hooks — read them from the sheet.
 

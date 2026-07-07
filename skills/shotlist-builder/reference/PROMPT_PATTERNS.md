@@ -226,11 +226,11 @@ Always end with:
 15秒。21:9。
 ```
 
-For multi-shot prompts (one prompt with internal `【镜头1】【镜头2】【镜头3】` cuts), still 15 seconds total — divide internally.
+The numbers are parameters: duration = the chosen Seedance step (**4 / 5 / 6 / 8 / 10 / 12 / 15s** — see PROMPT_DENSITY.md), aspect = the job's aspect (factory jobs: from `01-brief.md`; 21:9 is the cinema default). For multi-shot prompts (one prompt with internal `【镜头1】【镜头2】【镜头3】` cuts), the stated duration is the total — divide internally.
 
 ## Length
 
-Don't be precious about prompt length. Prompts in production range from ~150 Chinese characters (simple inserts) to ~2000+ characters (complex reaction shots with 7-step emotional arcs). The complex reaction shots ARE that long because they need to be — micromanaging the performance is what makes them work. Don't truncate to be neat.
+Don't be precious about prompt length. Prompts in production range from ~150 Chinese characters (simple inserts) up to the host cap — **hard ceiling 2000 chars** (Higgsfield/kie.ai spec, `memory/seedance-knowledge.md`). The complex reaction shots ARE long because they need to be — micromanaging the performance is what makes them work. Don't truncate to be neat; if a prompt would exceed 2000 chars, split it into more prompts instead.
 
 ## Tone
 

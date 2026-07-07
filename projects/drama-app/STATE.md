@@ -17,6 +17,11 @@ Next.js 15 + TS + Tailwind · เก็บข้อมูลเป็น JSON �
 ## วิธีรัน
 `cd D:\drama-app` → refresh PATH (`$env:Path = [Environment]::GetEnvironmentVariable('Path','Machine')+';'+[Environment]::GetEnvironmentVariable('Path','User')`) → `npm run dev` → เปิด localhost:3000 · ใส่ ANTHROPIC_API_KEY + set LLM_MOCK= (ว่าง) ใน .env.local เพื่อเจนจริง (default mock)
 
+## ส่วนขยาย genre (07-07 คืนเดียวกัน — Fable ก่อนหมดสิทธิ์)
+- **`intel-pack/09-genre-packs.md`** — 5 แนว: romance-drama (baseline) / comedy (deadpan family) / thriller-horror / action (กฎกันเจนพัง) / family — pack ละ 8 หัวข้อ (hook weighting / beat flavor / acting grammar / visual-lighting / director presets / cliffhanger patterns / AI pitfalls / pacing) ≤4,500 chars
+- **Backward-compatible จริง (พิสูจน์แล้ว):** `SeriesBible.genre` + `PromptEnvelope.genre_pack` เป็น optional ทั้งคู่ default=romance-drama · deploy เข้า `D:\drama-app\prompts\` แล้ว (commit `d96f8a2`) build ผ่าน + smoke /api/bible แบบไม่ส่ง genre = 200 เหมือนเดิม
+- **งานค้างเล็ก (Opus):** UI ยังไม่มีช่องเลือก genre + แอปยังไม่ inject genre_pack เข้า envelope (09 อยู่ใน prompts/ แล้วแต่ยังไม่ถูกเรียก) — wire ตาม spec ใน 00-contracts §1.1/§1.7
+
 ## ถัดไป (ตัวเลือก — ให้ Mirko เลือก)
 1. ลองใช้จริง: เจนซีรีส์ทดสอบ 1 เรื่อง (mock ก่อน แล้วต่อ key จริง) → ดูว่า output ตรงใจไหม แก้ prompt ใน intel-pack ได้
 2. ต่อ gen API (kie.ai/Higgsfield) แทนคัดลอกมือ — Higgsfield มี MCP อยู่แล้ว

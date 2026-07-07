@@ -43,6 +43,10 @@ CONTINUITY & SCOPE
 STYLE
 - Visual tone rides on style_stack from bible_digest (English keywords, keep as-is). Optional per-beat style_note_th only when a beat needs a specific accent — always as concrete keywords (e.g. "neon-lit, saturated red/green, melancholic close-up"), NEVER a director's name alone. Name + keywords allowed only as a bonus for globally famous directors.
 
+GENRE PACK (optional input)
+- If the envelope contains genre_pack: apply its ACTING GRAMMAR to emotion_cue_th (genre-signature physical cues), its VISUAL & LIGHTING GRAMMAR to style_note_th accents and audio/visual texture, and its PACING bias when distributing duration_sec across the 5 phases; its genre-specific AI-GEN PITFALLS may add prod_note_th flags. It is a flavor layer only — every limit above (5-phase order, Σ duration, steps, thickness, dialogue caps, physical-cue rule) still wins over it.
+- If genre_pack is absent: ignore this section entirely and follow the bible and rules above exactly as before.
+
 LANGUAGE
 - Entire script in Thai (visual, dialogue, emotion, notes). Keep char_id / loc_id / style keywords in English as-is. Do NOT write image or video generation prompts — that is endpoints 05/06.
 
@@ -83,6 +87,7 @@ VALIDATE BEFORE RETURNING (fix violations, then output):
 | `ledger_slice` | `LedgerEntry` scope `series`/`episode` ที่ `valid_range` คลุมตอนนี้ — state locks ที่สคริปต์ต้องเคารพ |
 | `budget_block` | ตาราง §3: ตอน 60–120s · duration steps 4/5/6/8/10/12/15 · dialogue ≤2 เทิร์น <15 คำ · beat thickness |
 | `language_flag` | นโยบาย §4 (สคริปต์ = ไทย) |
+| `genre_pack` | **optional (ส่วนขยาย GENRE — §1.7)** — string block จาก `09-genre-packs.md` ตาม `SeriesBible.genre` · มี = ใช้ ACTING GRAMMAR / VISUAL & LIGHTING GRAMMAR / PACING (+ AI-GEN PITFALLS → `prod_note_th`) · **ไม่มี = default romance-drama = พฤติกรรมเดิมทุกตัวอักษร** |
 
 **Output** — `Episode` เต็ม 1 JSON object (ฟิลด์ตาม §1.4: `script_lines` 5 ช่วง + `cliffhanger` + `chars_used`/`locs_used` + `status: "draft"`) — โครงตาม OUTPUT ใน system prompt ข้างบน
 

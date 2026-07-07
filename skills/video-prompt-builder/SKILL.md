@@ -5,7 +5,19 @@ description: Turn a creative brief into a complete short-form AD VIDEO planned a
 
 # Video Prompt Builder for Seedance 2.0
 
-Build cinematic, shot-by-shot video prompts from a creative brief. Every output follows a structured effects breakdown format designed to give Seedance 2.0 maximum detail on camera work, effects, transitions, pacing, and energy arc.
+Build a whole-ad, shot-by-shot effects plan from a creative brief. Every output follows a structured effects breakdown format covering camera work, effects, transitions, pacing, and energy arc.
+
+## Scope — planning layer, NOT a paste-ready Seedance prompt
+
+- This skill plans the WHOLE video: energy arc + effects map + shot list. Most stacked effects in this format (whip pan, mirror/symmetry, stroboscopic clone, bloom flash, frame rotation) are EDIT-layer effects (CapCut/post) — not things Seedance 2.0 generates inside one clip.
+- Do NOT feed this output to Seedance directly — it breaks the per-clip rule "1 prompt = 1 simple clip". Per-clip prompts are written separately after this plan is locked.
+- Text plan only: never call any image/video generation tool or MCP from this skill (factory rule: no credits burned from Claude; all generation is manual).
+
+## Hand-off after the plan
+
+- ONE precise character-blocked shot → `seedance-2-pro-director` skill (single-shot lane). Uploaded screenplay → multi-scene shotlist → `shotlist-builder`.
+- Factory pipeline (`projects/FF_factory/AGENT_OPS.md`): this plan feeds the brief/concept stage. Per-shot video prompts are written by the **storyboard-prompter** agent (step 4, from real storyboard frames); the effects map feeds edit/timeline cues (**timeline-builder**, step 5 fx markers) — not the Seedance prompt itself.
+- Vault sources, readable at runtime on both OS (mac `/Users/working/ai-factory-brain/` · Windows `D:/ai-factory-brain/`): `memory/video-prompt-builder-framework.md` (this framework + scope rule) · `memory/seedance-knowledge.md` (per-clip prompt craft, "1 prompt = 1 clip").
 
 ## How this skill works
 
@@ -49,7 +61,7 @@ Guidelines for writing shots:
 - Name effects precisely: "speed ramp (deceleration)" not just "speed ramp"; "digital zoom (scale-in)" not just "zoom"
 - Describe stacked effects explicitly — if 3 things happen at once, list all 3
 - Include transition logic: how does this shot EXIT and how does the next shot ENTER?
-- Use language Seedance 2.0 can interpret: describe the visual result, not the editing software technique. For example, say "the frame scales inward rapidly" rather than "apply a keyframed scale effect in After Effects"
+- Describe the visual result, not the editing software technique. For example, say "the frame scales inward rapidly" rather than "apply a keyframed scale effect in After Effects" — the plan must read as director's notes that translate later into per-clip prompts and edit cues
 - Note the most impactful or signature shot with a callout like "This is the SIGNATURE VISUAL EFFECT"
 - Be specific about speed percentages when using slow-motion (e.g. "approximately 20-25% speed")
 - Describe motion blur, light behaviour, and atmospheric effects where relevant
@@ -120,3 +132,4 @@ If the user doesn't specify a duration, default to 15-20 seconds (a sweet spot f
 1. Read `references/effects-breakdown-reference.txt` to calibrate detail level
 2. Generate the full four-section output: shot-by-shot timeline (8-12 shots), master effects inventory, density map, and energy arc
 3. Present in plain text in chat
+4. Close with the hand-off: per-clip Seedance prompts are written separately, one simple prompt per clip (see "Hand-off after the plan" above)

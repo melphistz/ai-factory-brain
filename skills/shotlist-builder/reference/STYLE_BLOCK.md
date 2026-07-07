@@ -51,6 +51,8 @@ State the proportion explicitly in the prompt, e.g.:
 风格：8K IMAX。超写实——禁3D渲染，禁游戏引擎，禁游戏CG过场质感。摄影：Emmanuel Lubezki × Roger Deakins。灯光：⚠️严格仅使用场景内实际存在的光源（practicals）。禁止一切电影补光——禁正面光、禁侧面补光、禁顶光、禁底光、禁反光板、禁柔光箱、禁LED灯带、禁霓虹、禁任何画面外光源。摄影机始终在人物的阴影侧（shadow side）拍摄。全程大气薄雾haze——禁止可见光束（god rays）。色彩：60:30:10——主色/辅色/点缀色。镜头：物理电影镜头。180°快门运动模糊。皮肤：毛孔级写实——汗毛、不对称痣、毛细血管潮红、毛孔阴影匹配现场光源。表演：好莱坞级——反应前微停顿、精准视线、湿润活眼带眼神光、可见呼吸和胸腔起伏。物理：重力惯性真实——质量有真实重量、正确接触阴影。禁漂浮道具。构图：三分法+黄金比例。每人从第一帧开始运动。连续性：角色、道具、环境每个镜头完全一致。禁身份漂移。技术：60fps流畅运动。8K细节。禁抖动（除手持呼吸感）。音频：仅环境SFX。禁音乐。禁字幕。
 ```
 
+> **Host-spec note:** Seedance 2.0 renders at a **fixed 24fps** on our hosts (Higgsfield / kie.ai — `memory/seedance-knowledge.md`, brain repo). `60fps流畅运动` in the canonical block works only as a motion-smoothness cue, not an output setting — don't add further fps/ISO/technical jargon anywhere else in the prompt.
+
 ## Scene-type lighting variants
 
 Layer these specific clauses into the lighting section above based on the scene:
@@ -89,9 +91,9 @@ Every prompt ends with:
 
 For multi-shot prompts (one prompt with internal `【镜头1】【镜头2】【镜头3】` cuts), still 15 seconds total — divide internally per shot duration rules in CAMERA_EMOTION.md.
 
-## Aspect ratio override
+## Aspect ratio / duration override
 
-If user specifies a different aspect ratio (e.g., 9:16 for shorts, 4:3 for retro), swap `21:9` in the footer.
+If user specifies a different aspect ratio (e.g., 9:16 for shorts/vertical drama, 4:3 for retro), swap `21:9` in the footer — factory jobs take aspect from `01-brief.md`. Duration likewise: swap `15秒` for the chosen Seedance step (**4/5/6/8/10/12/15s** — see PROMPT_DENSITY.md; don't pad short beats to 15s).
 
 ## Camera/composition rule (append for wide shots)
 

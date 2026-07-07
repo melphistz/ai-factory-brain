@@ -1,6 +1,6 @@
 # HTML Template
 
-The output is a single self-contained HTML file. Use the exact CSS/JS from the team's house template (the one in `Shotlist_21_23_EN.html` you generated previously is canonical).
+The output is a single self-contained HTML file. Use the exact CSS/JS from the team's house template (`Shotlist_21_23_EN.html`) **if the user can point you to a copy on disk — ask once**. On Claude Code that file is usually NOT available (it came from an earlier claude.ai session and is not in the brain repo): in that case **write the CSS/JS yourself, self-contained inline**, implementing exactly the behaviors this template's DOM expects: dark theme, `pal-red` scene palette, badge classes per [PLAN_TYPES.md](../reference/PLAN_TYPES.md), live text search (`#search`) filtering rows by text/dialogue/location, plan filter (`#planFilter`) matching `data-plan`, `resetFilters()`, the `#emptyState` toggle when no rows match, working Copy buttons, and a print stylesheet. Keep the DOM structure below unchanged.
 
 ## Structure
 
@@ -117,7 +117,7 @@ The `{TAG}` is a short bracketed shorthand like `[MS-CU · door open + boots]` o
 
 ## CSS + JS
 
-Reuse the team's house CSS/JS verbatim. Do not modify palettes, fonts, or layout. Director palette logic (`pal-black` / `pal-blue` / `pal-red`) defaults to `pal-red` for all scenes unless director assignment is explicitly requested.
+Reuse the team's house CSS/JS verbatim when a copy exists on disk. Do not modify palettes, fonts, or layout. Director palette logic (`pal-black` / `pal-blue` / `pal-red`) defaults to `pal-red` for all scenes unless director assignment is explicitly requested. If no house copy is available (typical on Claude Code), generate equivalent self-contained CSS/JS per the note at the top of this file — never emit `{HOUSE_CSS}` / `{HOUSE_JS}` placeholders or an HTML file with dead search/filter controls.
 
 **Note on plan codes:** the skill now uses English plan codes (`WS`, `MS`, `CU`, `ECU`, `MACRO`, `PAN`, `OS`, `VO`, `VO+MS`, `DISSOLVE`) for both the visible badge label and the `data-plan` attribute. The plan filter dropdown's `<option value>` should match. If reusing CSS from older Cyrillic-coded HTMLs, swap the badge classes (`p-op` → `p-ws`, `p-sp` → `p-ms`, `p-kp` → `p-cu`, `p-dkp` → `p-ecu`, `p-vyk` → `p-os`) — the colors stay the same; only class names change.
 

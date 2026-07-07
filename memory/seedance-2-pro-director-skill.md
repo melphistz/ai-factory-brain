@@ -7,6 +7,8 @@ metadata:
   originSessionId: 20a72bde-5cc0-43ba-90da-e06fffdbe0d2
 ---
 
+**07-07: Fable audit ยกระดับ (11 findings)** — เติมของ verified: กฎทองมุมกล้อง, under-direct ฉบับแก้ (ไม่ใช่หน้านิ่งตลอด/deadpan ที่ punchline), input-mode decision tree + extension>regen, hyperzoom, hand fix, emotional-arc micro-beats, host facts (หน้าจริงไม่บล็อก), working budget ≤1,800 — โดยคงระบบเดิม (anchor/coords/6-part output) ครบ
+
 Installed at `~/.claude/skills/seedance-2-pro-director/SKILL.md` (from Higgsfield Cannes-film tutorial `6aJ2BneDB5M`, downloaded to `~/Downloads/seedance-2-pro-director.skill`). THIS skill IS the "system prompt compiling the 28 tips" the Cannes video promises — nothing else to pull from that video's Google Drive for the prompt system. Auto-invokes when user asks for a SINGLE-shot Seedance prompt ("write a Seedance prompt", "lock character in left third", "two-character blocking"). Companion `shotlist-builder` handles multi-scene shotlists (NOT yet installed). Sits alongside our own [[video-prompt-builder-framework]] skill (whole-ad planner) — director = single shot, video-prompt-builder = full ad; watch for trigger overlap. Deepens [[seedance-knowledge]]. Cross-lane: works for both cinematic-commercial [[higgsfield-3step-ai-ad-workflow]] and UGC [[ai-ugc-ad-factory-workflow]].
 
 ## 3-skill lane division (set 2026-07-01 to stop trigger collision)

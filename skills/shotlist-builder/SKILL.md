@@ -1,6 +1,6 @@
 ---
 name: shotlist-builder
-description: Build production-ready cinematic shotlists with Seedance 2.0 prompts from a screenplay. Use whenever the user uploads a script (PDF, .docx, .txt, .md, fountain) and asks to turn scenes into shot breakdowns, prompt sheets, or production HTML — including phrasings like "build the shotlist", "make prompts for these scenes", "shot breakdown for scene X", "turn this script into Seedance prompts", or "I need the production HTML for scenes Y–Z". The skill runs a 4-phase loop (read script → list required assets → wait for image uploads → confirm spatial blocking → generate HTML shotlist with Chinese prompts).
+description: Build production-ready cinematic shotlists with Seedance 2.0 prompts from a screenplay. Use whenever the user uploads a script (PDF, .docx, .txt, .md, fountain) and asks to turn scenes into shot breakdowns, prompt sheets, or production HTML — including phrasings like "build the shotlist", "make prompts for these scenes", "shot breakdown for scene X", "turn this script into Seedance prompts", or "I need the production HTML for scenes Y–Z". The skill runs a 4-phase loop (read script → list required assets → wait for image uploads → confirm spatial blocking → generate HTML shotlist with Chinese prompts). Do NOT use for one precise single-shot prompt — use seedance-2-pro-director. Do NOT use for planning a whole ad video from a brief with no screenplay — use video-prompt-builder.
 ---
 
 # Shotlist Builder
@@ -16,8 +16,9 @@ Trigger the moment the user uploads a screenplay and references shotlists, promp
 This skill was authored for the claude.ai artifacts sandbox. On Claude Code, the sandbox tools/paths below DO NOT exist — use these local substitutions:
 - `present_files` → write the file with the **Write** tool, then tell the user the absolute path.
 - `visualize:show_widget` (SVG blocking widget) → write the top-down schema as a standalone `.svg` file next to the HTML and describe the blocking in text; ask for approval in chat.
-- Output dir `/mnt/user-data/outputs/` → `~/Desktop/Ads/FF_factory/shotlists/` (create it if missing).
-- Uploaded images: the user gives local file paths (e.g. `~/Desktop/Ads/FF_factory/avatar/...`), not chat attachments — map those paths to handles.
+- Output dir `/mnt/user-data/outputs/` → **factory job/project work: write into that job's own folder** (AGENT_OPS rule — every project file lives in its folder only, e.g. `<job>/Shotlist_<scope>_EN.html`). Standalone work, per-OS default: mac `~/Desktop/Ads/FF_factory/shotlists/` · Windows `D:\Claude\90-Assets\shotlists\` (create if missing).
+- Uploaded images: the user gives local file paths (e.g. `~/Desktop/Ads/FF_factory/avatar/...` on mac, `D:\Claude\90-Assets\...` on Windows), not chat attachments — map those paths to handles.
+- Brain/vault knowledge is readable at runtime, dual path: mac `/Users/working/ai-factory-brain/` · Windows `D:\ai-factory-brain\` (same repo — `memory/seedance-knowledge.md`, `memory/storyboard-knowledge.md`, `memory/vertical-drama-basics-dramy.md`).
 
 ## Core philosophy
 
@@ -66,7 +67,7 @@ Format:
 - ...
 ```
 
-End phase 2 with: *"Generate these in Nano Banana / Soul / your tool of choice and upload them back. Name files so I can map them — e.g., `roko.png`, `apartment.png`, `polaroid_nov14.png`. Then tell me which scenes to build prompts for."*
+End phase 2 with: *"Generate these in Nano Banana / Soul / your tool of choice and drop them back — on Claude Code, give me the local file paths. Name files so I can map them — e.g., `roko.png`, `apartment.png`, `polaroid_nov14.png`. Then tell me which scenes to build prompts for."*
 
 **Stop. Do not continue to phase 3 in the same turn.** Wait for the user's next message with images.
 
@@ -89,14 +90,14 @@ For each scene in scope:
 3. Write each Chinese Seedance 2.0 prompt following the [prompt patterns](reference/PROMPT_PATTERNS.md) — including the universal blocks from [STYLE_BLOCK.md](reference/STYLE_BLOCK.md), camera-emotion sync from [CAMERA_EMOTION.md](reference/CAMERA_EMOTION.md), and performance micro-beats from [MICRO_BEATS.md](reference/MICRO_BEATS.md)
 4. For multi-shot prompts, structure each internal cut as a `【镜头N】` block with its own 机位 / 背景 / 动作 / 微表演细节 sub-blocks
 5. Assemble into the [HTML template](templates/HTML_TEMPLATE.md)
-6. Write to `~/Desktop/Ads/FF_factory/shotlists/Shotlist_<scope>_EN.html` (create the dir if missing) using the Write tool
+6. Write to `Shotlist_<scope>_EN.html` in the output dir from the Environment section above (factory job → the job's own folder; standalone → per-OS default dir, create if missing) using the Write tool
 7. Deliver by telling the user the absolute file path (no `present_files` on Claude Code)
 
 ## Hard rules
 
 - **Handles renumber per prompt.** `@image1` in scene 21 = Roko; `@image1` in scene 14 may = a different character. Each prompt block declares its own handles.
 - **Output language:** all UI labels, scene headers, action cells, scene-text cells, asset lists → English. Chinese only inside the `提示词` blocks. Dialogue lines inside Chinese prompts are quoted in English (`"line"`).
-- **Default duration:** 15 seconds per prompt, 21:9. State this at the end of every prompt: `15秒。21:9。`
+- **Duration:** Seedance duration steps are **4 / 5 / 6 / 8 / 10 / 12 / 15s** — pick the shortest step that fits the beats. Complexity ceiling per duration: **4–8s = one action · 8–12s = action + reveal · 12–15s = 2–3 beats · fight/chase/transformation = split into multiple prompts.** Never pad a single-action insert to 15s (the model invents filler). Default for full-envelope cinema prompts: 15s, 21:9. State duration + aspect at the end of every prompt: `15秒。21:9。` (swap the numbers to the chosen step and the job's aspect — factory jobs take aspect from `01-brief.md`).
 - **Director assignment:** skip entirely unless user requests it. No `dir-badge`, no palette switching — default to `pal-red` color scheme.
 - **Style block:** use the [default style block](reference/STYLE_BLOCK.md) verbatim (with the appropriate scene-type variant) unless user uploads a custom one in phase 1.
 - **Lighting is ALWAYS practicals-only.** No film fill light, no reflectors, no softboxes, no LED strips, no neon. Camera shoots from the shadow side. This is non-negotiable. See [STYLE_BLOCK.md](reference/STYLE_BLOCK.md).
@@ -111,7 +112,7 @@ For each scene in scope:
 
 For every prompt, you must:
 - Pick the lens (35mm wide / 50mm dialogue / 85mm or 100mm tight emotional / 45mm macro / aperture F1.4 for shallow DOF)
-- Pick the camera move synced to the focal character's emotion (see CAMERA_EMOTION.md)
+- Pick the camera move synced to the focal character's emotion (see CAMERA_EMOTION.md) — but for multi-beat timeline prompts apply the golden rule: sequence + action are always explicit per beat; the camera angle is locked **only on meaning-bearing beats** (punchline cut, emotional push-in, held still beat) and released elsewhere for more natural results (see CAMERA_EMOTION.md §7)
 - Block the actors with concrete spatial relationships from the approved top-down schema ("Roko 2m from Gandelfina, Rein 1.5m behind Roko, partially occluded")
 - Direct the performance with numbered emotional beats (① ② ③ ④ ⑤) — micro-beats, breath, eye-line shifts, weight shifts, suppressed emotion
 - Specify lighting source by source (windows, practicals, screens) and forbid film fill light explicitly
@@ -119,6 +120,14 @@ For every prompt, you must:
 - Add `⚠️` warnings for failure modes the prompt is most likely to mess up; use `⚠️⚠️⚠️` for critical-critical (handle contamination, identity drift, light spill, prop misplacement, focus drift on inserts)
 
 See [reference/PROMPT_PATTERNS.md](reference/PROMPT_PATTERNS.md) for the full pattern library.
+
+## Series / vertical-drama mode
+
+When the script is an episodic vertical drama (ละครแนวตั้ง / series episodes), override the cinema defaults:
+- **Aspect 9:16** (not 21:9) · episode length 60–120s (idea-stage episodes 30–60s) · **medium shot = default framing** for the series (full-body shots risk artifacts; go tighter, not wider)
+- Structure every episode's shot groups around the **5-part arc: `Hook → Setup → Conflict → Twist → Cliffhanger`** — the final prompt of each episode must land the cliffhanger beat (จบค้างให้ตามต่อ), never resolve it. Cliffhanger is mandatory per episode.
+- Keep episodes AI-feasible: **≤3 main characters, ≤2 main locations** per episode.
+- Full rules (hook 4 ประเภท + เกณฑ์เลือก): `memory/vertical-drama-basics-dramy.md` in the brain repo (mac `/Users/working/ai-factory-brain/` · Windows `D:\ai-factory-brain\`).
 
 ## Example flow
 
@@ -134,7 +143,7 @@ See [reference/PROMPT_PATTERNS.md](reference/PROMPT_PATTERNS.md) for the full pa
 **Claude:**
 - Confirms image → asset mapping ("Got it: roko.png → Roko, gandelfina.png → Gandelfina, apartment.png → Old Apartment, polaroid.png → Polaroid NOV 14. Building scenes 21 and 23.")
 - Renders top-down SVG schema for any multi-character scene; asks for approval
-- After approval: generates HTML, delivers via present_files
+- After approval: generates HTML, writes the file with the Write tool and reports the absolute path (no `present_files` on Claude Code)
 
 ## File map
 

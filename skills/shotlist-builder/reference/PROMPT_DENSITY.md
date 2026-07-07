@@ -18,7 +18,7 @@ Group shot rows into one prompt when ALL of these are true:
 2. They share the same **location/subset of location**
 3. They form a **continuous emotional/temporal unit** (no time skip, no major mood pivot)
 4. They can be staged in **≤15 seconds of screen time**
-5. The combined Chinese prompt won't exceed practical generation limits (~2500 chars)
+5. The combined Chinese prompt won't exceed the host prompt limit — **max 2000 chars** (Higgsfield/kie.ai spec, see `memory/seedance-knowledge.md` in the brain repo); if it would, split into more prompts
 
 Split into separate prompts when ANY of these fire:
 1. **Hard cut between locations** (apartment → flashback)
@@ -60,6 +60,8 @@ Five distinct camera setups, five different focal lengths, five different emotio
 ## When in doubt
 
 Err toward **more prompts, shorter envelopes** rather than packing too much into 15 seconds. Seedance handles tight prompts better than overloaded ones, and the user can always run them in sequence.
+
+An envelope doesn't have to be 15s. Seedance duration steps are **4 / 5 / 6 / 8 / 10 / 12 / 15s** — generate a single-action insert at 4–6s instead of padding it to 15 (padding makes the model invent filler beats). Complexity ceiling per duration: **4–8s = one action · 8–12s = action + reveal · 12–15s = 2–3 beats · fight/chase/transformation = split.** The closing footer states the chosen step (e.g. `6秒。21:9。`).
 
 ## Tagging
 
