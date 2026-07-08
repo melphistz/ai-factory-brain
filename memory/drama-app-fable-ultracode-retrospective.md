@@ -82,6 +82,22 @@ drama-app เองถูกอ้างเป็น case study ตรงๆ ใ
 - Opus ~1.17M tokens — ใช้ในงาน Gemini Gem (จากวันอื่น) + build แอป (หลัง Mirko สั่งสลับโมเดลกลางคัน)
 - Sonnet ~57K tokens — งาน mechanical เล็กๆ
 
+### 07-08 (verified): ยอดจริงจาก raw API usage + ค่าใช้จ่ายจริงถ้าจ่ายผ่าน API
+ดึงจาก `usage` object จริงในทุกไฟล์ `agent-*.jsonl` บนเครื่อง (ไม่ใช่ประมาณ) แยก input/output/cache_write(5m)/cache_read ต่อโมเดล แล้วคูณราคาปัจจุบัน (Fable $10/$50, Opus 4.8 $5/$25 ต่อ 1M, cache_read=0.1×input, cache_write=1.25×input ที่ TTL 5 นาที — ยืนยันแล้วว่าคืนนั้นไม่มี cache 1h TTL ปนเลย):
+
+| โมเดล | input | output | cache_write | cache_read | **USD** |
+|---|---|---|---|---|---|
+| Fable 5 | 3.64M | 1.03M | 19.93M | 105.11M | **$442.06** |
+| Opus 4.8 | 0.72M | 0.26M | 4.88M | 37.41M | **$59.34** |
+| Sonnet 5 | 96 | 11K | 0.21M | 1.60M | **$1.43** |
+| **รวม** | | | | | **≈ $502.82** |
+
+**ยอด raw รวมจริง = input+output+cache ≈ 174.8M tokens — สูงกว่า ~7.15M ข้างบนมาก ไม่ใช่นับผิด** เหตุผล: `subagent_tokens` ที่ workflow รายงานตอนจบเป็นตัวนับคนละแบบ (ไม่ทราบสูตรแน่ชัด) ส่วน 174.8M คือผลรวม**ทุก API call จริงที่เกิดขึ้น** — แต่ละ agent ไม่ได้พูดจบในคำเดียว มีหลายรอบ tool-use (อ่านไฟล์→คิด→เขียน→เช็ค→สรุป) **ทุกรอบต้องส่งบทสนทนาทั้งหมดที่ผ่านมากลับไปใหม่** (API ไม่มีความจำ) — นี่คือสถาปัตยกรรมจำเป็นจริง ไม่ใช่ bug/loop (เช็คแล้วไม่มี agent ไหนวนซ้ำไม่คืบหน้า) ส่วนที่ทำให้แพงคือ **เลือกเอง**: ultracode สั่งไม่ประหยัด + ออกแบบ 92 agent แยก conversation + adversarial-verify 2 เลนส์ต่อไฟล์ (ทวีคูณจำนวน agent โดยตั้งใจ เพื่อความมั่นใจสูงสุดก่อน Fable หมดสิทธิ์ถาวร)
+
+**Cache ช่วยประหยัดจริง:** cache_read ราคาแค่ 10% ของราคาปกติ — 105M tokens cache_read ของ Fable คิดเงินแค่ ~$105 ไม่ใช่ ~$1,050
+
+**บทเรียนเรื่อง "รันเฉพาะจุดเพื่อ save token":** ทำได้จริงและใช้ไปแล้วคืนนั้น — ตอน pause `drama-app-build` แล้วสลับโมเดล ใช้ `resumeFromRunId` ทำให้ agent ที่เสร็จแล้วไม่ต้องรันซ้ำ (ดึงผลจาก cache ของ workflow) มีแค่ scaffold agent ตัวเดียวที่ค้างตอน pause ต้องรันใหม่ — วิธีประหยัดเพิ่มเติมที่ยังไม่ได้ใช้: (1) แคบ scope แต่แรก (audit แค่ agent สำคัญสุดแทนครบทุกตัว) (2) ลด effort ของ verify agent งานง่ายจาก high→medium
+
 ## ลิงก์ที่เกี่ยวข้อง
 
 [[smartaihub-drama-series]] · [[feedback-model-effort-strategy]] · [[vertical-drama-basics-dramy]] · [[claude-subagents]]

@@ -89,3 +89,4 @@ One line per memory, grouped by section. Add new entries under the matching sect
 - [Claude Subagents](claude-subagents.md) — MODEL POLICY: main=orchestrate เท่านั้น · fleet 8 (opus: storyboard-prompter/asset-prompt-builder/script-hook-writer/deep-reasoner · sonnet: qa-inspector/teardown-analyst/timeline-builder/fast-worker) · playbook = FF_factory/AGENT_OPS.md · **ทั้ง fleet+3 skills ผ่าน Fable audit 07-07**
 - [Exa MCP Setup](exa-mcp-setup.md) — Exa search via curl/MCP (free); Reddit+X unavailable, general web works; read_x.py for single tweets
 - [Factory Self-Audit Skill — PENDING](factory-self-audit-skill-plan.md) — 07-08: ยังไม่ทำ · แผน `/factory-audit` skill ให้คะแนนสุขภาพ ai-factory-brain (Context/Connections/Capabilities/Cadence, จาก AIS-OS repo idea) · Sonnet พอ ~50-150K tokens ไม่ต้อง Fable
+- [Claude Plugins Installed](claude-plugins-installed.md) — 07-08: `pordee@pordee` จาก marketplace `kerlos/pordee` (GitHub) — ติดตั้งแล้ว ยังไม่ได้สำรวจว่าทำอะไร
