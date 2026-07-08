@@ -1,6 +1,6 @@
 ---
 name: meigen-library-session-state
-description: "DONE 2026-07-06 — FDA works, sync.py runs direct on external; leftover: user deletes orphan folders in Finder"
+description: "DONE — FDA works (needs re-toggle after every reboot, known macOS external-volume TCC bug), sync.py runs direct on external. Latest sync 2026-07-08: 6,828 prompts."
 metadata: 
   node_type: memory
   type: project
@@ -22,14 +22,23 @@ metadata:
 1. **FDA ผ่าน** — tool อ่าน/เขียน external ตรงได้. เคล็ด: ถ้าติด `Operation not permitted` ทั้งที่ toggle เปิด → toggle Terminal.app ปิด→เปิด + Cmd+Q Terminal เปิดใหม่
 2. **sync 07-06 สำเร็จ**: +481 ใหม่ → meigen 6,519 · gallery 7,358 cards (รวม youmind 839)
 
+## ✅ sync 2026-07-08
+- +309 ใหม่ → **meigen 6,828** · gallery **7,667 cards** (รวม youmind 839) · thumb ok 309/309
+- คำสั่ง: `cd "/Volumes/PS Catches/prompt-library/" && python3 sync.py` (run_in_background เสมอ)
+
 ## ไม่มีอะไรค้าง
-- orphan Desktop/Documents ลบไปแล้ว (ยืนยัน 07-06) — โปรเจกต์นี้ปิดสมบูรณ์
+- orphan Desktop/Documents ลบไปแล้ว (ยืนยัน 07-06) — โปรเจกต์นี้ปิดสมบูรณ์ ใช้ต่อแค่ sync เป็นระยะ
+
+## ⚠️ FDA ต้อง re-toggle ทุกครั้งที่ reboot เครื่อง (ไม่ใช่ครั้งเดียวจบ)
+- **root cause (ยืนยัน 07-08):** macOS TCC bug เฉพาะ external/removable volume — FDA grant ไม่ persist ข้าม reboot (ต่างจาก internal disk ที่อยู่ยาว) ไม่เกี่ยว MDM/cleaning app (เช็คแล้วไม่มี)
+- **แก้:** ทุกเช้าหลัง reboot → System Settings → Privacy & Security → Full Disk Access → toggle Terminal.app ปิด→เปิด → Cmd+Q ปิด Terminal ทั้งหมด → เปิดใหม่
+- user ไม่ต้องการย้าย library เข้า internal disk (ทางแก้ถาวร) — ทนวิธี toggle ต่อไป
 
 ## ข้อจำกัด env ที่เจอ (จำไว้)
-- tool **ไม่มี FDA** (ก่อน restart): เข้าไม่ได้ `~/Desktop` `~/Documents` `/Volumes/*` = Operation not permitted
-- เข้าได้: `/Users/Shared` · `~/.claude` · `/private/tmp` scratchpad
+- tool **ไม่มี FDA** (ก่อน toggle): เข้าไม่ได้ `~/Desktop` `~/Documents` `/Volumes/*` = Operation not permitted
+- เข้าได้เสมอ: `/Users/Shared` · `~/.claude` · `/private/tmp` scratchpad
 - **foreground bash python พังเรื่อง import** → รัน python ผ่าน `run_in_background: true` เท่านั้น
 - API: `www.meigen.ai/api/search?type=posts&q=&limit=50&offset=N&sortBy=date` (ไม่มี auth, ไม่ติด CF)
 
 ## งานที่ user อาจสั่งต่อ
-- sync ของใหม่ · เพิ่ม category แม่นขึ้น (LLM ลองแล้ว 49% ไม่คุ้ม, คง keyword 68%) · merge YouMind pack เข้า gallery เดียว
+- sync ของใหม่ (รันตามคำสั่งข้างบน) · เพิ่ม category แม่นขึ้น (LLM ลองแล้ว 49% ไม่คุ้ม, คง keyword 68%) · merge YouMind pack เข้า gallery เดียว

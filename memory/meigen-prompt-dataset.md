@@ -91,7 +91,7 @@ https://www.meigen.ai/api/search?type=posts&q=<keyword|ว่าง>&limit=50&of
 > orphan ต้องลบเองใน Finder: `~/Documents/prompt-library` + `~/Desktop/prompt-library` (~870MB)
 
 ### ไฟล์ใน library
-- `meigen-all.json` — **6,519 records** (sync 2026-07-06: +481) · gallery รวม youmind = 7,358 cards
+- `meigen-all.json` — **6,828 records** (sync 2026-07-08: +309) · gallery รวม youmind = 7,667 cards
 - `meigen-prompts-1446.json` — curated (category จริง)
 - `thumbs/` — 360px (~434MB)
 - `gallery.html` — filter model+category+search+copy

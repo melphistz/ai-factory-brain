@@ -25,7 +25,7 @@ One line per memory, grouped by section. Add new entries under the matching sect
 ## Session State (volatile — archive when done)
 
 - [YouMind Scrape — DONE](youmind-scrape-session-state.md) — DONE 3 ก.ค.: merged youmind→galleries (img 6877, video 363). optional leftover: 44 img fail + youmind video undercount
-- [MeiGen Library — DONE](meigen-library-session-state.md) — CLOSED 07-06: FDA works (toggle off/on + restart Terminal fix), sync direct on external OK, orphans deleted — nothing left
+- [MeiGen Library — DONE](meigen-library-session-state.md) — CLOSED, sync ongoing: 07-08 +309→6,828 prompts. FDA needs re-toggle EVERY reboot (confirmed macOS external-volume TCC bug, not MDM)
 
 ## Seedance / Video Prompting
 
@@ -58,7 +58,7 @@ One line per memory, grouped by section. Add new entries under the matching sect
 
 ## Prompt Libraries
 
-- [MeiGen Prompt Dataset](meigen-prompt-dataset.md) — FULL 6,029 prompts pulled via open /api/search (no auth, bypasses CF) → local gallery.html; +1,446 curated open-source JSON; query/filter + ad formulas
+- [MeiGen Prompt Dataset](meigen-prompt-dataset.md) — FULL 6,828 prompts pulled via open /api/search (no auth, bypasses CF) → local gallery.html; +1,446 curated open-source JSON; query/filter + ad formulas
 - [MeiGen Top Prompts](meigen-top-prompts.md) — full copy-paste text of top brand-ad/product/editorial/food prompts (Act as + PHASE formula, JSON identity-lock, [BRAND NAME] vars)
 - [YouMind Prompt Pack](youmind-prompt-pack.md) — 8 full copy-paste GPT Image 2 prompts (editorial/UGC/product/food) + {argument} template + 10 restyle presets
 - [YouMind GPT Image 2 Prompt Library](youmind-gpt-image-prompt-library.md) — filterable prompt gallery; use Photography×Influencer/Model / Product / Storyboard filters (skills subsite = academic, skip)
