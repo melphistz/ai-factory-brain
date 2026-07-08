@@ -12,7 +12,7 @@ One line per memory, grouped by section. Add new entries under the matching sect
 
 ## Active Projects
 
-- [Drama App (ของเราเอง)](smartaihub-drama-series.md) — ระบบซีรีส์แนวตั้งเอง (ต้นแบบ = case study ในลิงก์) · **07-07: v1 BUILT+VERIFIED + genre packs 5 แนว** (09-genre-packs.md: รักดราม่า/ตลก deadpan/สยอง/แอ็กชัน/ครอบครัว, backward-compatible, deploy เข้าแอปแล้ว) — โค้ด `D:\drama-app` (Next.js, mock เปิดได้ทันที), intel-pack 10 ไฟล์ที่ `projects/drama-app/intel-pack/` · next = ลองเจนซีรีส์ทดสอบ + wire genre เข้า UI (Opus) · สถานะเต็ม = `projects/drama-app/STATE.md`
+- [Drama App (ของเราเอง)](smartaihub-drama-series.md) — ระบบซีรีส์แนวตั้งเอง (ต้นแบบ = case study ในลิงก์) · **07-07: v1 BUILT+VERIFIED + genre packs 5 แนว** (09-genre-packs.md: รักดราม่า/ตลก deadpan/สยอง/แอ็กชัน/ครอบครัว, backward-compatible, deploy เข้าแอปแล้ว) — โค้ด `D:\drama-app` (Next.js, mock เปิดได้ทันที), intel-pack 10 ไฟล์ที่ `projects/drama-app/intel-pack/` · next = ลองเจนซีรีส์ทดสอบ + wire genre เข้า UI (Opus) · สถานะเต็ม = `projects/drama-app/STATE.md` · **retrospective เต็มของคืนนี้ = [[drama-app-fable-ultracode-retrospective]]** (timeline+บทเรียน+cost, verify กับ git/journal จริง)
 - [แค่วันนี้ (Just Today MV)](kae-wan-nee-project.md) — MV รักสองสาว+อุกกาบาตวันสุดท้าย · Guadagnino×Malick×Melancholia · เพลง Suno สไตล์ fellow fellow · ไฟล์เต็ม projects/kae-wan-nee/ · status: shotlist ล็อก, next = gen เพลง + character sheet
 - [ตื่นสาย (Sunday School Comedy)](tuensai-project.md) — หนังสั้น deadpan แนวเต๋อ (จาก Windows vault): รีบไปโรงเรียน→วันอาทิตย์ · ไฟล์เต็ม projects/tuensai/ · status: รอผลเจน V3 + ค้างเซฟ prompt 30s
 - [Story Ideas — แนวเต๋อ นวพล](story-ideas-nawapol.md) — idea bank 10 เรื่อง ภาพล้วนไม่มีบทพูด สำหรับตั้งโปรเจกต์ถัดไป (ก๊อป projects/_template)

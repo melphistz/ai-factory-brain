@@ -19,4 +19,4 @@ Mirko ถามเรื่อง "งานนี้ต้องใช้โม
 
 **Why:** เผาโมเดลแพง/effort สูงกับงาน build = เปลืองเปล่าไม่ได้คุณภาพเพิ่ม · ใช้โมเดลถูกกับงาน intelligence-asset = เสียโอกาส freeze ของดีถาวร · จัดผิดทางได้แต่ช้าลง
 
-**How to apply:** งานใหม่ให้ถามตัวเองก่อน "นี่ freeze เป็นสมองถาวร หรือ production ซ้ำๆ" → asset=ฉลาดสุด+ultracode+verify 2 เลนส์ · production=Opus/Sonnet+high+เกท build/test · main loop=orchestrate เสมอ (นโยบาย [[claude-subagents]]) · ดู pattern จริงที่พิสูจน์แล้วใน [[smartaihub-drama-series]] (intel-pack freeze ด้วย Fable → Opus/Codex build แอปครอบ)
+**How to apply:** งานใหม่ให้ถามตัวเองก่อน "นี่ freeze เป็นสมองถาวร หรือ production ซ้ำๆ" → asset=ฉลาดสุด+ultracode+verify 2 เลนส์ · production=Opus/Sonnet+high+เกท build/test · main loop=orchestrate เสมอ (นโยบาย [[claude-subagents]]) · ดู pattern จริงที่พิสูจน์แล้วใน [[smartaihub-drama-series]] (intel-pack freeze ด้วย Fable → Opus/Codex build แอปครอบ) · timeline+ตัวเลข findings จริงของคืนที่ทำ = [[drama-app-fable-ultracode-retrospective]]
