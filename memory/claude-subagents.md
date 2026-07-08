@@ -36,4 +36,10 @@ metadata:
 
 เรียกใช้: บอกงานปกติ (Claude เลือกตาม description อัตโนมัติ) หรือสั่งตรง เช่น "ใช้ deep-reasoner หา root cause"
 
+**07-08 (PENDING, ไม่เร่งด่วน): วิเคราะห์ว่าตัวไหนย้ายไป Haiku ได้** — ไม่มีตัวไหนใน fleet ใช้ Haiku ตอนนี้เลย
+- **candidate ชัดสุด: fast-worker** — งาน mechanical spec ชัด ตรง sweet spot Haiku พอดี เสี่ยงน้อย
+- **ทดสอบก่อนย้ายถาวร: timeline-builder** — กึ่งกลไกกึ่งครีเอทีฟ (pacing/contrast) ต้องเช็คผลก่อน
+- **ไม่ควรย้าย: qa-inspector, teardown-analyst** — ตัดสินใจกระทบเงิน/เครดิตจริง ต้องการ nuance ไม่ใช่ classification
+- **Verdict: ไม่จำเป็นต้องทำ** — ประหยัดได้จริง (~3 เท่า) แต่ fast-worker เป็นงานเล็กอยู่แล้ว ต้นทุนรวม fleet มาจาก opus-tier เป็นหลัก ไม่ใช่ priority
+
 เกี่ยว: [[skills-cheatsheet]] (skills = ความรู้เฉพาะทางใน conversation หลัก, subagents = แยก context/แยก model ทำงานขนาน)
