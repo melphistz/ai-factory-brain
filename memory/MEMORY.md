@@ -72,6 +72,7 @@ One line per memory, grouped by section. Add new entries under the matching sect
 
 ## Skills & Workflows
 
+- [Skill Candidates — Image + Lyrics (PENDING)](skill-candidates-image-lyrics.md) — 07-08: ยังไม่ทำ · 2 ไอเดีย skill ใหม่จากสแกน brain: image-prompt-writer (คู่กับ asset-prompt-builder subagent) + thai-lyric-writer (บังคับกฎ rhyme map) · Sonnet พอ
 - [Skills Cheat Sheet](skills-cheatsheet.md) — which installed skill runs for which ad task + how to force-pick / auto-allocate
 - [Seedance 2 Pro Director Skill](seedance-2-pro-director-skill.md) — INSTALLED skill (~/.claude/skills): elite single-shot Seedance prompt director (formula + char-anchor + frame-coords + QA); companion = shotlist-builder · Fable audit ยกระดับ 07-07 (+11 findings: golden rule/under-direct fix/input modes/budget 1,800)
 - [Shotlist Builder Skill](shotlist-builder-skill.md) — INSTALLED skill: stateful 4-phase screenplay→shotlist HTML w/ Chinese Seedance prompts; cinematic-film lane; Claude Code-ready (Fable audit 07-07)
