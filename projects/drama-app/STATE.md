@@ -24,6 +24,24 @@ Next.js 15 + TS + Tailwind · เก็บข้อมูลเป็น JSON �
 
 ## ถัดไป (ตัวเลือก — ให้ Mirko เลือก)
 1. ลองใช้จริง: เจนซีรีส์ทดสอบ 1 เรื่อง (mock ก่อน แล้วต่อ key จริง) → ดูว่า output ตรงใจไหม แก้ prompt ใน intel-pack ได้
-2. ต่อ gen API (kie.ai/Higgsfield) แทนคัดลอกมือ — Higgsfield มี MCP อยู่แล้ว
+2. ~~ต่อ gen API (kie.ai/Higgsfield) แทนคัดลอกมือ~~ — **ตัดสินใจแล้ว 07-08: อยู่ prompt-first ต่อ ไม่ต่อ gen API** (ดูเหตุผล §UI redesign ด้านล่าง)
 3. polish UI / auth / deploy · push ขึ้น GitHub remote ถ้าอยากข้ามเครื่อง
 - **แก้ intel-pack = ต้อง re-copy เข้า `D:\drama-app\prompts\` + rerun recheck ข้ามไฟล์**
+
+## 🔜 PENDING: UI redesign ตาม smartaihub.app reference (07-08 — รอ Mirko reset quota ก่อนเริ่ม)
+
+**บริบท:** Mirko ส่ง screenshot หน้า UI ของ smartaihub.app (แอปคนอื่น ดู `memory/smartaihub-drama-series.md`) มาถามว่าอยากได้ layout แบบนั้น — คุยกันแล้วตกลงขอบเขต ก่อนเริ่มลงมือให้อ่าน turn การคุยเรื่องนี้ในเซสชัน 07-08 ประกอบ (มี screenshot 4 ภาพ: gallery ตัวละคร, หน้า studio ต่อช็อต, หน้าเนื้อเรื่องเต็ม)
+
+**ตัดสินใจสำคัญ: ปฏิเสธการเจนภาพ auto ในแอป** — เคยพิจารณา "กดปุ่มแล้วเจนภาพด้วย GPT Image 2 ในตัว" แต่ตัดออกเพราะ (1) เสียเงินจริงทุกครั้งที่กด ขัดนโยบาย prompt-first/manual-gen เดิม (2) มีคนเสนอวิธี "ฟรี" โดยเอา OAuth session token ของ ChatGPT subscription (mirko.foxfunnels) ไปยิง endpoint ภายใน `chatgpt.com/backend-api/codex/responses` ตรงๆ — **ปฏิเสธไปแล้ว เพราะขัด ToS ของ OpenAI ชัดเจน + หลักฐานในสกรีนช็อตเองก็โชว์ว่าโดน revoke (401 token_revoked) แล้ว = OpenAI ตรวจจับ pattern นี้อยู่จริง ความเสี่ยงบัญชี subscription โดนแบนไม่คุ้ม** → **สรุป: อยู่ prompt-first ต่อ ไม่มีการเจนอัตโนมัติในแอปเลย ไม่ว่าทางไหน**
+
+**แผน UI ที่ตกลงกัน เรียงตามลำดับความสำคัญ:**
+1. **[ตัวปลดล็อกสำคัญสุด] "อัปโหลดรูปกลับเข้าระบบ"** — endpoint รับไฟล์ที่ Mirko เจนเองจาก Higgsfield/ChatGPT แล้วอัปโหลดกลับมาแปะเป็น thumbnail ต่อตัวละคร/ต่อช็อต — ไม่ผิดนโยบายอะไร และเป็นตัวเดียวที่ทำให้ gallery/thumbnail แบบใน reference มีความหมายจริง (ตอนนี้แอปไม่เคยโชว์รูปเลยเพราะ prompt-only) **ทำก่อนอย่างอื่นทั้งหมด**
+2. Sidebar รายชื่อโปรเจกต์/ซีรีส์แบบถาวร (ตอนนี้ไม่มี nav ข้ามซีรีส์เลย)
+3. รีดีไซน์การ์ดตัวละครเป็น gallery grid + panel รายละเอียดลอยด้านล่างเมื่อเลือก (แทนที่ `CharacterCard.tsx` แบบ list+`<details>` ปัจจุบัน)
+4. ปุ่ม bulk "สร้างพรอมต์วิดีโอทั้งตอน" — วน `/api/video-prompt` เดิมทุกช็อตในตอน ไม่ต้องมี logic ใหม่
+5. Emotion chip บนบทพูด (ข้อมูล emotion มีอยู่แล้วในระบบ แค่ยังไม่โชว์สวย)
+- **ตัดทิ้งจาก reference:** ปุ่มเจนภาพในตัว, ปุ่ม "สลับภาพ AI" — ขัด prompt-first
+
+**Model/cost:** ตกลงแล้วว่างานนี้เป็น build/production tier (ดู `feedback-model-effort-strategy.md`) — **ใช้ Sonnet พอ ไม่ต้อง Fable/ultracode** ประเมินคร่าวๆ ~300K–600K tokens (เทียบ build v1 เต็มระบบที่ใช้ 1.02M ด้วย Opus/9 agents) แบ่งทำเป็น 2 รอบได้ถ้าอยากประหยัด: รอบแรกแค่ข้อ 1 (upload-back) ก่อน ดูผลแล้วค่อยทำข้อ 2-5
+
+**สถานะ:** ยังไม่เริ่มทำ — Mirko ขอรอ quota/context reset ก่อน (burn ไป Fable ultracode เยอะคืนก่อนหน้า) เริ่มได้ทันทีเมื่อพร้อม ไม่ต้องวางแผนใหม่
