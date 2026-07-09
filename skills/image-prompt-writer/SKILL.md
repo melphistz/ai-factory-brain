@@ -53,6 +53,17 @@ The model choice changes the result more than the prompt does. Ask (or infer fro
 
 Default assumption if the user doesn't say: **GPT Image 2** for anything with a named/recurring character, **Nano Banana Pro** for a one-off portrait/scene that wants cinematic polish fast.
 
+**Aesthetic A/B (production-validated, AI Video Skool pipeline, 2026-07-07, 160 images, matched prompts):** GPT Image 2 renders a more cinematic/dramatic mood — scenic lighting, neon, atmosphere. Nano Banana Pro renders more documentary/neutral, with richer physical micro-detail (dirt, objects, crowd texture). Weight the pick by desired mood too, not just cost/drift: atmosphere/cinema → GPT Image 2, material realism/identity → Nano Banana Pro.
+
+### Nano Banana Pro engine parameters (portable across access paths)
+
+This environment reaches Nano Banana Pro via the Higgsfield **MCP tools** (`generate_image`, `upscale_image`, `outpaint_image`, etc.), not a CLI — but the underlying engine parameters are portable knowledge if you're ever in an environment with the Higgsfield CLI instead:
+- Aspect ratios: `1:1, 3:2, 2:3, 4:3, 3:4, 16:9, 9:16, 4:5, 5:4, 21:9`
+- Resolution: `1k` is enough for web/social, `2k`/`4k` only if it's going to print
+- Reference image: attach directly as the identity source (multi-reference, up to ~14 images with role labels — see identity-lock section below)
+- CLI reference (other environments): `higgsfield generate cost <model>` = cost check per model, `higgsfield account status` = credit balance, `higgsfield auth login` = renew expired auth
+- ⚠️ Running `gpt_image_2` *through* Higgsfield costs 7cr/img — if GPT Image 2 is reachable directly, that route is cheaper
+
 ---
 
 ## Realism levers (paste-ready blocks)
@@ -169,6 +180,8 @@ ultra-cinematic cinematography style, clean white tone TVC, highkey commercial, 
 
 The model pattern-matches against a **visual reference**, not a text description — the more you describe a face in words, the more it drifts. Use a named reference sheet instead of re-describing the face every time.
 
+**Originality boundary:** identity-lock is for holding a consistent *original* character across scenes — never use someone else's real photo/artwork as a reference to produce a near-identical copy of it. Always generate from a prompt that describes the CONCEPT (subject, composition, mood), not a copy target.
+
 **Method (GPT Image 2, works similarly on Nano Banana Pro):**
 1. Gather 2–3 source images with the right face/vibe.
 2. Generate the **Face Sheet**, with the source images attached:
@@ -181,6 +194,8 @@ The model pattern-matches against a **visual reference**, not a text description
    Using [NAME]'s face sheet, make a full body character sheet showing front view and side profile. She is wearing [SIGNATURE OUTFIT].
    ```
 4. From then on, every new scene attaches ONLY the sheet (open a fresh conversation each time — accumulated chat context causes drift) and uses a short one-line scene prompt: `[NAME] [is] [ACTION] [at/in LOCATION]. [FORMAT]. [scene details].` — e.g. `Kristina is sitting at a coffee shop reading a book. Landscape format, cinematic.` Add `no text in the image` (models like printing the character's name as garbled text).
+
+**One change at a time.** When iterating on an existing reference (sheet or photo), edit only one thing per generation — pose, OR outfit, OR expression, not several at once. Stacking multiple changes in a single edit makes the model "reimagine" more of the image instead of surgically modifying it, and that's where identity drift creeps in.
 
 **Identity-lock block** — drop this in front of a scene prompt when working from an uploaded face photo directly (no sheet yet):
 ```

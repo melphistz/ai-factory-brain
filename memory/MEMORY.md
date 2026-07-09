@@ -62,6 +62,7 @@ One line per memory, grouped by section. Add new entries under the matching sect
 
 ## Prompt Libraries
 
+- [Batch Image-Gen Pipeline Pattern](batch-image-gen-pipeline-pattern.md) — reusable resumable-batch pattern (JSONL queue + shared done-log dedup + parallel workers on disjoint slices), from AI Video Skool team's skill (07-09); reference-for-later, repo still prompt-first/manual-gen · prompt-craft half merged into `image-prompt-writer` skill (aesthetic A/B, one-change-at-a-time, originality rule, Higgsfield engine params)
 - [MeiGen Prompt Dataset](meigen-prompt-dataset.md) — FULL 6,828 prompts pulled via open /api/search (no auth, bypasses CF) → local gallery.html; +1,446 curated open-source JSON; query/filter + ad formulas
 - [MeiGen Top Prompts](meigen-top-prompts.md) — full copy-paste text of top brand-ad/product/editorial/food prompts (Act as + PHASE formula, JSON identity-lock, [BRAND NAME] vars)
 - [YouMind Prompt Pack](youmind-prompt-pack.md) — 8 full copy-paste GPT Image 2 prompts (editorial/UGC/product/food) + {argument} template + 10 restyle presets
