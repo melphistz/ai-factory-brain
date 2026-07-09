@@ -26,3 +26,8 @@ Mirko ถามเรื่อง "งานนี้ต้องใช้โม
 **Why:** เผาโมเดลแพง/effort สูงกับงาน build = เปลืองเปล่าไม่ได้คุณภาพเพิ่ม · ใช้โมเดลถูกกับงาน intelligence-asset = เสียโอกาส freeze ของดีถาวร · จัดผิดทางได้แต่ช้าลง
 
 **How to apply:** งานใหม่ให้ถามตัวเองก่อน "นี่ freeze เป็นสมองถาวร หรือ production ซ้ำๆ" → asset=ฉลาดสุด+ultracode+verify 2 เลนส์ · production=Opus/Sonnet+high+เกท build/test · main loop=orchestrate เสมอ (นโยบาย [[claude-subagents]]) · ดู pattern จริงที่พิสูจน์แล้วใน [[smartaihub-drama-series]] (intel-pack freeze ด้วย Fable → Opus/Codex build แอปครอบ) · timeline+ตัวเลข findings จริงของคืนที่ทำ = [[drama-app-fable-ultracode-retrospective]]
+
+**07-09: "ฉลาดสุดที่มี" ไม่ใช่ hardcode ชื่อรุ่น + "asset" เล็ก-additive ไม่ต้องเผาแพงสุดเสมอ**
+- Fable เลิกใช้ได้แล้ว (โควต้าหมด/ไม่มีสิทธิ์) — กฎ "โมเดลฉลาดสุดที่มี" หมายถึง**ตัวที่มีอยู่จริงตอนนั้น** ไม่ใช่ชื่อ Fable ตายตัว → ตอนนี้ Opus 4.8 คือฉลาดสุดที่มี ใช้แทนได้เลยโดยไม่ต้องรอ Fable กลับมา
+- ไม่ใช่ intelligence-asset ทุกชิ้นต้องการโมเดลแพงสุดเท่ากัน — งาน **additive บน template ที่ freeze/verify ผ่านแล้ว** (เช่น เติม genre pack ที่ 6 บนโครง 8 หัวข้อเดิม ≤4,500 chars, ไม่แตะไฟล์อื่น) scope เล็กพอที่ Opus 4.8+ultracode ให้คุณภาพเท่า Fable จริง — หลักฐาน: คืนที่ทำ 5 pack แรกด้วย Fable ก็เจอแค่ 0 critical + 2 minor (ต่ำสุดในทุก workflอ คืนนั้น) เพราะ scope เล็ก/additive อยู่แล้ว ไม่ใช่เพราะต้องใช้ Fable ถึงพอ
+- **สรุป:** เกณฑ์เลือกโมเดลของ asset ควรดู "scope งาน" ด้วย ไม่ใช่แค่ "ประเภทงาน" — asset ใหม่จากศูนย์/ข้ามหลายไฟล์/สถาปัตยกรรม = ต้องฉลาดสุดจริง · asset เล็ก additive บนฐาน verify แล้ว = โมเดลรองพอ (Opus 4.8) ก็ freeze คุณภาพเท่ากันได้ ประหยัดกว่าโดยไม่เสียของ
