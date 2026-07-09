@@ -1,13 +1,15 @@
 ---
 name: skill-candidates-image-lyrics
-description: "PENDING (07-08) — two candidate skills identified from scanning the brain: image-prompt-writer (mirrors seedance-2-pro-director but for character/image prompts) and thai-lyric-writer (enforces rhyme-map discipline from feedback-thai-lyric-craft)"
+description: "DONE 07-09 — both candidate skills built: image-prompt-writer (mirrors seedance-2-pro-director but for character/image prompts) and thai-lyric-writer (enforces rhyme-map discipline from feedback-thai-lyric-craft)"
 metadata: 
   node_type: memory
   type: project
   originSessionId: 72a4a9da-c166-4cd1-b6d1-c921aa8e967a
 ---
 
-# Candidate skills — ยังไม่ทำ (เก็บไว้เทียบกับ `/factory-audit` ที่ pending อยู่แล้ว)
+# Candidate skills — ✅ ทำแล้ว (07-09)
+
+**สถานะล่าสุด:** ทั้งคู่สร้างเสร็จแล้ว (fast-worker, Sonnet high, dispatch ขนานกัน) — `skills/image-prompt-writer/SKILL.md` (246 บรรทัด) + `skills/thai-lyric-writer/SKILL.md` (84 บรรทัด) commit เข้า repo แล้ว. งานค้าง: ยังไม่ผ่าน audit รอบเต็มแบบ fleet 07-07 (factory-audit เจอจุดนี้เป็น leverage สูงสุดอันดับ 4-5)
 
 ## ที่มา
 07-08: คุยเรื่อง skill/memory/subagent ต่างกันยังไง แล้วสแกน brain ทั้งหมดหาว่ามีความรู้ก้อนไหนสมควรแปลงเป็น skill (workflow ที่ทำซ้ำบ่อย มีขั้นตอนชัด) บ้าง นอกจากที่มีอยู่แล้ว (seedance-2-pro-director / shotlist-builder / video-prompt-builder — ทั้งหมดเป็นสาย **วิดีโอ**)

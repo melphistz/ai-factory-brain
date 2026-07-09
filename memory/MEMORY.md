@@ -24,8 +24,12 @@ One line per memory, grouped by section. Add new entries under the matching sect
 
 ## Session State (volatile — archive when done)
 
+(empty — nothing currently in-flight; ดู Archived ด้านล่างสำหรับของที่ปิดแล้ว)
+
+## Archived (resolved — kept for reference, not action items)
+
 - [YouMind Scrape — DONE](youmind-scrape-session-state.md) — DONE 3 ก.ค.: merged youmind→galleries (img 6877, video 363). optional leftover: 44 img fail + youmind video undercount
-- [MeiGen Library — DONE](meigen-library-session-state.md) — CLOSED, sync ongoing: 07-08 +309→6,828 prompts. FDA needs re-toggle EVERY reboot (confirmed macOS external-volume TCC bug, not MDM)
+- [MeiGen Library — DONE](meigen-library-session-state.md) — CLOSED, sync ongoing periodically: 07-08 +309→6,828 prompts. FDA needs re-toggle EVERY reboot (confirmed macOS external-volume TCC bug, not MDM)
 
 ## Seedance / Video Prompting
 
@@ -72,11 +76,13 @@ One line per memory, grouped by section. Add new entries under the matching sect
 
 ## Skills & Workflows
 
-- [Skill Candidates — Image + Lyrics (PENDING)](skill-candidates-image-lyrics.md) — 07-08: ยังไม่ทำ · 2 ไอเดีย skill ใหม่จากสแกน brain: image-prompt-writer (คู่กับ asset-prompt-builder subagent) + thai-lyric-writer (บังคับกฎ rhyme map) · Sonnet พอ
+- [Factory Audit Skill](factory-self-audit-skill-plan.md) — DONE 07-09: `/factory-audit` scores brain health (Context/Connections/Capabilities/Cadence + leverage ranking) + wiki-lint (orphan links/files, contradictions, missing back-links) — trial-run verified against live repo, found real findings first run
+- [Image Prompt Writer Skill](skill-candidates-image-lyrics.md) — DONE 07-09: ad-hoc single-image prompt skill (GPT Image 2/Nano Banana), pairs with asset-prompt-builder subagent (production pipeline) · NOT audited yet (fleet-audit-style)
+- [Thai Lyric Writer Skill](skill-candidates-image-lyrics.md) — DONE 07-09: enforces mandatory 3-phase rhyme-map discipline (plan→draft→show map), can't skip · NOT audited yet
 - [Skills Cheat Sheet](skills-cheatsheet.md) — which installed skill runs for which ad task + how to force-pick / auto-allocate
 - [Seedance 2 Pro Director Skill](seedance-2-pro-director-skill.md) — INSTALLED skill (~/.claude/skills): elite single-shot Seedance prompt director (formula + char-anchor + frame-coords + QA); companion = shotlist-builder · Fable audit ยกระดับ 07-07 (+11 findings: golden rule/under-direct fix/input modes/budget 1,800)
 - [Shotlist Builder Skill](shotlist-builder-skill.md) — INSTALLED skill: stateful 4-phase screenplay→shotlist HTML w/ Chinese Seedance prompts; cinematic-film lane; Claude Code-ready (Fable audit 07-07)
-- [Video Prompt Builder Framework](video-prompt-builder-framework.md) — 4-section structure for planning whole Seedance ads (skill in ~/.claude/skills/)
+- [Video Prompt Builder Framework](video-prompt-builder-framework.md) — 4-section structure for planning whole Seedance ads (skill in ~/.claude/skills/) · NOT audited yet (fleet-audit-style, per 07-09 factory-audit finding)
 - [Higgsfield 3-Step AI Ad Workflow](higgsfield-3step-ai-ad-workflow.md) — CINEMATIC-COMMERCIAL (not UGC): 2 Higgsfield Seedance 2.0 tutorials (headphones + football/robot) — asset→shotlist→scene + layout-map/erase-face/style-prefix/beat-ramp/physics-weight tricks
 - [Higgsfield Marketing Studio Workflow](higgsfield-marketing-studio-workflow.md) — MS auto ad generator (beauty-brand demo): UGC + Hyper Motion + TV Spot in one tool + 5 luxury location prompts
 

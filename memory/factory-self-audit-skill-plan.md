@@ -1,13 +1,17 @@
 ---
 name: factory-self-audit-skill-plan
-description: "PENDING (07-08) — plan to build a /factory-audit skill that scores ai-factory-brain's own health (memory freshness, fleet/skill audit status, stale session-state, wiki-lint checks), inspired by AIS-OS repo's /audit pattern + Karpathy's LLM-wiki Lint operation"
+description: "DONE 07-09 — /factory-audit skill built + trial-run verified against live repo. Original plan below, kept as spec reference."
 metadata: 
   node_type: memory
   type: project
   originSessionId: 72a4a9da-c166-4cd1-b6d1-c921aa8e967a
 ---
 
-# Plan: `/factory-audit` skill สำหรับ ai-factory-brain — ยังไม่ทำ
+# Plan: `/factory-audit` skill สำหรับ ai-factory-brain — ✅ ทำแล้ว (07-09)
+
+**สถานะล่าสุด:** สร้างเสร็จที่ `skills/factory-audit/SKILL.md` (196 บรรทัด, fast-worker Sonnet high) + **trial run จริงกับ repo สด** เจอ findings จริง (overall 69/100): memory ขัดแย้งสถานะ (ไฟล์นี้เองกับ skill-candidates เคยบอก "ยังไม่ทำ" ทั้งที่ตอนนั้นกำลังสร้างอยู่พอดี), 2 skill ใหม่ยัง untracked ใน git, session-state 2 รายการค้างใน volatile section ทั้งที่ DONE แล้ว, orphan wikilink 1 จุด, missing back-link 3 คู่ — แก้ตามด้านล่างนี้แล้วในรอบ sync เดียวกัน
+
+โครงแผนเดิม (เก็บไว้เป็น spec อ้างอิง):
 
 ## ที่มา
 07-08: อ่าน repo [nateherkai/AIS-OS](https://github.com/nateherkai/AIS-OS) (generic solopreneur AI-OS starter kit ของคนอื่น — ไม่เกี่ยวกับ video/ad โดยตรง) เจอไอเดียที่น่าเอามาปรับใช้: skill `/audit` ของเขาให้คะแนน 0-100 ระบบ AI ของตัวเองแบบ 4 มิติ (Context/Connections/Capabilities/Cadence) แล้วจัดอันดับช่องโหว่ด้วย **leverage = คะแนนที่เสีย × ตัวคูณผลกระทบ** ไม่ใช่แค่ list gap เฉยๆ
