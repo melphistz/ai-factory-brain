@@ -27,4 +27,4 @@ metadata:
 ## ประเมินของเรา: ทำได้ไหม → ได้ (07-07)
 ส่วนที่ยากจริงคือ **intelligence layer (system prompts/skills)** ซึ่งเรามีครบใน vault แล้ว ([[seedance-knowledge]] ฯลฯ — [[gemini-gem-seedance-director]] คือตัวอย่าง freeze ความรู้หนึ่งก้อน) · ชิ้นที่ต้องสร้าง: UI + DB (Supabase มี MCP) + LLM API (story/char/prompt gen) + gen API (Higgsfield/kie.ai) · ตัวยากเชิงคิด = **continuity ledger ข้ามช็อต-ข้ามตอน + QA/cost gates** (จุดตายซีรีส์ AI ตาม [[ai-video-realism-hierarchy]])
 
-เกี่ยว: [[vertical-drama-basics-dramy.md|vertical-drama-basics-dramy]] (Dramy.ai — ผู้เล่นอีกรายใน niche เดียวกัน) · [[ai-ugc-ad-factory-workflow]]
+เกี่ยว: [[vertical-drama-basics-dramy.md|vertical-drama-basics-dramy]] (Dramy.ai — ผู้เล่นอีกรายใน niche เดียวกัน) · [[ai-ugc-ad-factory-workflow]] · [[drama-app-fable-ultracode-retrospective]] (คืนสร้าง drama-app v1 จริง)

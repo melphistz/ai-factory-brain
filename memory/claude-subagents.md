@@ -42,4 +42,4 @@ metadata:
 - **ไม่ควรย้าย: qa-inspector, teardown-analyst** — ตัดสินใจกระทบเงิน/เครดิตจริง ต้องการ nuance ไม่ใช่ classification
 - **Verdict: ไม่จำเป็นต้องทำ** — ประหยัดได้จริง (~3 เท่า) แต่ fast-worker เป็นงานเล็กอยู่แล้ว ต้นทุนรวม fleet มาจาก opus-tier เป็นหลัก ไม่ใช่ priority
 
-เกี่ยว: [[skills-cheatsheet]] (skills = ความรู้เฉพาะทางใน conversation หลัก, subagents = แยก context/แยก model ทำงานขนาน)
+เกี่ยว: [[skills-cheatsheet]] (skills = ความรู้เฉพาะทางใน conversation หลัก, subagents = แยก context/แยก model ทำงานขนาน) · [[drama-app-fable-ultracode-retrospective]] (fleet audit 07-07 เป็นส่วนหนึ่งของคืนนั้น)

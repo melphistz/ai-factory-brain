@@ -9,7 +9,7 @@ metadata:
 
 # Vertical Drama Basics — จากชุดสอน Dramy.ai (เก็บ 2026-07-07)
 
-> ต้นทาง: PDF 4 ไฟล์ใน `D:\Downloads\Documents\` (L01 บทไอเดีย · L02 บทสคริปต์ · L03 Keyword พื้นฐาน · Starter_Pack บทฮุก) — **Dramy.ai = ผู้เล่นไทย niche เดียวกับ [[smartaihub-drama-series]]** (สอน+ทำเครื่องมือละครแนวตั้ง AI)
+> ต้นทาง: PDF 4 ไฟล์ใน `D:\Downloads\Documents\` (L01 บทไอเดีย · L02 บทสคริปต์ · L03 Keyword พื้นฐาน · Starter_Pack บทฮุก) — **Dramy.ai = ผู้เล่นไทย niche เดียวกับ [[smartaihub-drama-series]]** (สอน+ทำเครื่องมือละครแนวตั้ง AI) · เกี่ยว: [[drama-app-fable-ultracode-retrospective]]
 > ระดับความลึก = เบสิกกว่าคลังเรา ([[seedance-knowledge]] · [[storyboard-knowledge]]) — เก็บเฉพาะส่วนที่เราไม่มี: **โครงเรื่อง/ตอนสายละคร**
 
 ## Format ละครแนวตั้ง (นิยามของวงการ)

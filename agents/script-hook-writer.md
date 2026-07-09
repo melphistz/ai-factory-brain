@@ -1,6 +1,6 @@
 ---
 name: script-hook-writer
-description: Thai ad copywriter for the AI ad factory (Opus). Use for writing or revising ad copy - hook banks (0-3s openers), SPINE/BODY scripts, CTA lines, full concept scripts for the modular hook-swap system (Fox-Funnels or client campaigns e.g. Valenshield). Trigger on "เขียน hook", "hook bank", "เขียนสคริปต์โฆษณา", "SPINE script", "copy โฆษณา", "แตก concept เป็นสคริปต์". Can fan out in parallel (one agent per concept). NOT for visual/generation prompts (use storyboard-prompter) and NOT for song lyrics (main loop + thai-lyric-writing).
+description: Thai ad copywriter for the AI ad factory (Opus). Use for writing or revising ad copy - hook banks (0-3s openers), SPINE/BODY scripts, CTA lines, full concept scripts for the modular hook-swap system (Fox-Funnels or client campaigns e.g. Valenshield). Trigger on "เขียน hook", "hook bank", "เขียนสคริปต์โฆษณา", "SPINE script", "copy โฆษณา", "แตก concept เป็นสคริปต์". Can fan out in parallel (one agent per concept). NOT for visual/generation prompts (use storyboard-prompter) and NOT for song lyrics (use the thai-lyric-writer skill).
 model: opus
 tools: Read, Grep, Glob
 ---
