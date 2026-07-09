@@ -1,6 +1,6 @@
 ---
 name: batch-image-gen-pipeline-pattern
-description: "Reusable engineering pattern for resumable batch image generation — JSONL queue + shared done-log dedup + parallel workers on disjoint slices. Reference-for-later, not wired up (repo is prompt-first/manual-gen)."
+description: "Reusable engineering pattern for resumable batch image generation — JSONL queue + shared done-log dedup + parallel workers on disjoint slices + known gotchas (timeouts, worker-kill, dedup hygiene, cost-approval). Reference-for-later, not wired up (repo is prompt-first/manual-gen)."
 metadata:
   node_type: memory
   type: reference
@@ -28,6 +28,14 @@ For any batch of 10+ images generated through a script/CLI (not manual one-off g
 - Resumable: kill the batch at any point, rerun the same command, already-done jobs skip via the done-log check.
 - No central coordinator needed: disjoint slices mean workers never contend for the same job.
 - Portable: works with any generation backend (this repo's context = Higgsfield MCP tools or manual ChatGPT/Gemini UI gen), the pattern is generation-engine-agnostic.
+
+## Known gotchas (from the same source skill, 07-09)
+
+- **GPT Image 2 timeout:** at quality `medium` the backend can take >180s — always pass a long timeout. If a generation call keeps failing with a timeout error, that's backend slowness, not a bug: sanity-test with quality `low` first (if that passes quickly, confirms it's just slow, not broken).
+- **Killing a stuck generation worker:** killing the wrapper script does NOT kill child node processes — force-kill the actual generator process by name too, not just the wrapper.
+- **Reference/asset hygiene:** when using scraped/downloaded reference images in a dataset, check for duplicates via checksum (`md5sum`) before use — e.g. the same logo repeated as image 01 in every folder is a common silent duplication bug.
+- **Cost-approval rule:** any batch generation over 20 images, or any video generation, on a paid credit system → estimate the cost and get explicit confirmation before running, not after.
+- **Spot-check after batch:** always spot-check 2–3 actual output files after a batch completes — never trust exit code alone as proof of success.
 
 ## Related
 

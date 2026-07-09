@@ -52,6 +52,7 @@ One line per memory, grouped by section. Add new entries under the matching sect
 
 ## Image Generation & Character
 
+- [Thai Localization — Image Prompts](thai-localization-image-prompts.md) — กฎทำภาพ AI คนไทย/ฉากไทยให้อ่านออกว่าจริง (ไม่ postcard-fake): subject/setting specifics, standard adaptation phrase (ยิงตรง Thai subject/location ทับ prompt เดิม, validated 112 prompts), text-glyph verify rule, culture · wired เข้า `image-prompt-writer` skill (trigger note)
 - [Zhao Yu (趙宇) — Character Profile](characters/zhao-yu.md) — Korean idol, pink Y2K theme; identity spec + 4 gen prompts (portrait/turnaround/expression sheet/TREND ICON cover) ล็อกหน้าข้ามภาพ · +07-06 **realistic RAW-UGC variant** (cherryhikiko-style: bright flat phone selfie + matte skin, sexy-tasteful preset + ceiling)
 - [Cute-Face Charm Recipe](cute-face-charm-recipe.md) — แก้ realism ผ่านแต่หน้าไม่น่ารัก: Korean dong-an/aegyo-sal geometry block + full cherryhikiko cute-UGC prompt (หน้าสั้นกลม/ตากลมโตยิ้มเสี้ยว/จมูกเล็กมน)
 - [K-pop Idol Visual Prompt](kpop-idol-visual-prompt.md) — realistic 20yo K-pop female "visual" beauty portrait recipe + แปลง superlative (สวยจนลืมหายใจ) → concrete features (glass skin/almond eyes/magnetic gaze)
@@ -62,7 +63,7 @@ One line per memory, grouped by section. Add new entries under the matching sect
 
 ## Prompt Libraries
 
-- [Batch Image-Gen Pipeline Pattern](batch-image-gen-pipeline-pattern.md) — reusable resumable-batch pattern (JSONL queue + shared done-log dedup + parallel workers on disjoint slices), from AI Video Skool team's skill (07-09); reference-for-later, repo still prompt-first/manual-gen · prompt-craft half merged into `image-prompt-writer` skill (aesthetic A/B, one-change-at-a-time, originality rule, Higgsfield engine params)
+- [Batch Image-Gen Pipeline Pattern](batch-image-gen-pipeline-pattern.md) — reusable resumable-batch pattern (JSONL queue + shared done-log dedup + parallel workers on disjoint slices) + known gotchas (timeouts, worker-kill, dedup hygiene, cost-approval), from AI Video Skool team's skill (07-09); reference-for-later, repo still prompt-first/manual-gen · prompt-craft half merged into `image-prompt-writer` skill (aesthetic A/B, one-change-at-a-time, originality rule, Higgsfield engine params, identity anchor kit, Real-Reference method, camera-angle vocab)
 - [MeiGen Prompt Dataset](meigen-prompt-dataset.md) — FULL 6,828 prompts pulled via open /api/search (no auth, bypasses CF) → local gallery.html; +1,446 curated open-source JSON; query/filter + ad formulas
 - [MeiGen Top Prompts](meigen-top-prompts.md) — full copy-paste text of top brand-ad/product/editorial/food prompts (Act as + PHASE formula, JSON identity-lock, [BRAND NAME] vars)
 - [YouMind Prompt Pack](youmind-prompt-pack.md) — 8 full copy-paste GPT Image 2 prompts (editorial/UGC/product/food) + {argument} template + 10 restyle presets

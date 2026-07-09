@@ -37,6 +37,14 @@ Write it as labeled sub-blocks (FACE:, SKIN:, HAIR:, LIGHT:, etc.) when the prom
 
 **Never use these "realism killer" words** (they correlate with over-rendered ArtStation-style digital art, not photography): `hyperrealistic, ultra-detailed, 8K, masterpiece`. Also avoid hyper-saturated/neon/cartoon grading, and never leave skin perfectly smooth with zero texture (plastic/waxy skin = AI-tell #1).
 
+### Shot type vocabulary (the 12 camera angles)
+
+Always specify a shot type in the CAMERA/lens field — models respect it well and it's the fastest way to control composition without a long prompt: **Wide Shot** · **Full Shot** (head-to-toe) · **Medium Shot** (waist-up) · **Close-Up** (full face) · **Extreme Close-Up** (detail — eye, lips) · **Over-the-Shoulder** (dialogue/tension) · **Low Angle** (power/dominance) · **High Angle** (vulnerability) · **POV** (first-person, hands visible) · **Overhead/Top-Down** (flat-lay, tables) · **Profile Shot** (pure lateral) · **Framed Shot** (subject framed through an element — door, mirror, window).
+
+### Aspect ratio by destination
+
+`9:16` for reels/stories · `1:1` for feed · `3:2` / `16:9` for hero images and thumbnails. When generating batch variants: keep the same structure and change ONE variable at a time (angle, outfit, time of day), generate 3–4 per scene and pick.
+
 ---
 
 ## Step 0 — pick the target model
@@ -168,6 +176,11 @@ adult Thai woman in her 20s, warm-brown tan skin undertone, neat low double eyel
 ```
 Swap per nationality: **Korean** = V-shaped jaw, high cheekbones, fair neutral skin, glass skin. **Japanese** = natural texture, editorial restraint, may include faint freckles. **Chinese** = avoid period-costume cliché, allow regional variance. Never mix markers from more than one nationality in the same prompt. Negative: `no Westernized features, no blended Asian look, no big round eyes, no anime/kawaii style, no Orientalist stereotype, no over-smoothed pale skin`.
 
+**Thai subject/setting trigger:** the moment a request specifies or implies Thailand (Thai person, Bangkok, a Thai brand/context), read `memory/thai-localization-image-prompts.md` for the full rules (authentic-vs-postcard-fake setting cues, text-glyph verification, cultural specificity). The single highest-value piece — keep it verbatim and paste it onto an existing working prompt to localize it without rewriting from scratch:
+```
+Adaptation: any person in the scene is Thai; any city or location is in Thailand (e.g. Bangkok). Keep every other detail exactly as specified in the prompt.
+```
+
 ### 6. TVC / clean commercial white-tone suffix
 Append when the user wants a clean, bright, commercial-cinematic look:
 ```
@@ -196,6 +209,10 @@ The model pattern-matches against a **visual reference**, not a text description
 4. From then on, every new scene attaches ONLY the sheet (open a fresh conversation each time — accumulated chat context causes drift) and uses a short one-line scene prompt: `[NAME] [is] [ACTION] [at/in LOCATION]. [FORMAT]. [scene details].` — e.g. `Kristina is sitting at a coffee shop reading a book. Landscape format, cinematic.` Add `no text in the image` (models like printing the character's name as garbled text).
 
 **One change at a time.** When iterating on an existing reference (sheet or photo), edit only one thing per generation — pose, OR outfit, OR expression, not several at once. Stacking multiple changes in a single edit makes the model "reimagine" more of the image instead of surgically modifying it, and that's where identity drift creeps in.
+
+**Alternative — identity anchor kit (4-shot, stronger for heavy multi-scene series):** instead of a single 2-view sheet, generate 4 separate reference images and attach ALL 4 to every new scene: (1) front neutral — face-on, neutral expression, flat lighting, (2) side profile neutral — pure profile, gives the model jaw/nose/ears, (3) front expressive — full smile with teeth + expression wrinkles, (4) full body — whole figure for body proportions. Without all 4 anchors the model "guesses" missing traits (a sheet alone under-specifies profile bone structure and body proportions) — that guessing is where inconsistency creeps in across a long scene series. Use the single-sheet method above for a short 2-3 scene job; switch to the 4-shot anchor kit once a character needs to hold up across many scenes/emotions. Nano Banana Pro is the best fit for this (holds multiple labeled references natively); fall back to GPT Image 2 if it blocks on filters.
+
+**Real-Reference method (maximum photorealism, separate from character identity-lock):** when the priority is raw photorealism rather than a consistent original character, start from a REAL photo (owned/licensed) as the base and ask for a minimal edit (e.g. "put this character on this armchair") instead of generating the scene from scratch — grain, real light, and real imperfections come "free" from the source photo. Rules: use a clean non-AI-generated reference photo, change ONE thing at a time (same discipline as above), and never use a reference photo you don't hold the rights to.
 
 **Identity-lock block** — drop this in front of a scene prompt when working from an uploaded face photo directly (no sheet yet):
 ```
@@ -269,3 +286,4 @@ Vault paths — mac: `/Users/working/ai-factory-brain/memory/` · Windows: `D:\a
 - `kpop-idol-visual-prompt.md` — full K-pop visual prompt + doll-visual archetype variant.
 - `image-prompt-suffixes-techniques.md` — TVC suffix, pose-transfer, character-swap, upscale prompt techniques.
 - `ai-platform-content-limits.md` — full content-limit research, sources, verified test cases.
+- `thai-localization-image-prompts.md` — full Thai-localization rules (authentic-vs-postcard setting cues, text-glyph verification, cultural specificity) — read whenever the request has a Thai subject/setting.
