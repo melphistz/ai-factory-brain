@@ -18,6 +18,6 @@ metadata:
 - 16:9 · 19 ช็อต · 160s · Seedance 2.0 บน Higgsfield · ตัวละคร design ใหม่ (ฝน=คนขี่, ไหม=คนซ้อน)
 - ⭐ KEY SHOT: เฟรมซ้ายสองคนมองกัน / เฟรมขวากระจกมองข้างสะท้อนอุกกาบาต — ถ้าเจนไม่ผ่าน แยก comp 2 เลเยอร์
 
-**Status:** เรื่อง+เพลง+shotlist ล็อกแล้ว · **Next:** gen เพลงใน Suno + character sheet (ฝน/ไหม/มอไซค์) → แล้วค่อยเขียน prompt 19 ช็อต (ใช้ [[storyboard-prompter]] ได้)
+**Status:** เรื่อง+เพลง+shotlist ล็อกแล้ว · **Next:** gen เพลงใน Suno + character sheet (ฝน/ไหม/มอไซค์) → แล้วค่อยเขียน prompt 19 ช็อต (ใช้ storyboard-prompter subagent ได้)
 
 เชื่อม: [[seedance-knowledge]] · [[director-styles-knowledge]] · [[ai-character-identity-lock]] · [[story-ideas-nawapol]]

@@ -134,7 +134,17 @@ Negative: no plastic or waxy skin, no over-airbrushing, no doll-like uncanny fac
 If the request evokes a specific real idol/archetype (e.g. "tall doll-visual" IVE-type look), keep it an archetype — add `inspired by the tall doll-visual archetype of K-pop, NOT any specific real idol` and `do not replicate any specific real person` in the negative. Never copy a real person's face.
 
 ### 4. Cute-face charm (Korean dong-an/aegyo geometry — when "cute" specifically isn't landing)
-The fix for realism-passed-but-not-cute is a **makeup-style token**, not just bone geometry — `Douyin/Korean glass-skin makeup` pulls the whole look at once. Combine with the geometry block:
+The geometry block ALONE still loses — tested, it gens "average realistic woman," squinty eye-smile, puffy cheeks. The actual fix is a **makeup-style token stack** layered on top of the geometry, not bone structure by itself:
+- `Douyin/Korean glass-skin makeup` — one token pulls the whole look at once
+- `porcelain and dewy glass skin` as the skin BASE — add `realistic pores` lightly on top, never lead with pores or it drags the look back to "average realistic"
+- `heavy soft pink blush on the apples of the cheeks AND tip of the nose` — the youthful-flush signature
+- `soft grey contact lenses with reflective catchlights`
+- `prominent aegyo-sal, long separated doll-like lashes, wispy lashes, brushed-up brows`
+- `glossy pink gradient lips`
+- camera: `shot on iPhone front camera, ISO 100, no background blur, no bokeh, shadows slightly flattened, slightly overexposed`
+- expression: eyes stay open large and round in the eye-smile — never squeezed shut
+
+Combine with the geometry block:
 ```
 FACE — cute charming Korean "dong-an" (baby-face) geometry: short rounded face with soft full cheeks and baby fat, short lower third, small delicate rounded chin. Large round bright eyes set slightly wide apart with a gentle downturn at the outer corners (puppy eyes), prominent aegyo-sal (soft puffy fat pads under the eyes) that push up into happy crescent eye-smiles when she grins. Small rounded button nose with a soft round tip (NOT wide, NOT flat, NOT red). Small mouth with upward-curling corners, sweet soft smile showing just a hint of metal braces, NOT a wide gummy grin. Faint single dimple, subtle bunny front teeth. Warm genuine smile that reaches the eyes — soft, endearing, charming.
 ```

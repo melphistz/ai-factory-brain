@@ -86,7 +86,7 @@ Run these as literal commands against the repo (adjust path if not already there
 ```
 cd /Users/working/ai-factory-brain/memory && grep -rno '\[\[[^]]*\]\]' . | sort -u
 ```
-For each unique target (strip `[[`/`]]`, and for `[[path|label]]` aliases use the `path` part before `|`), check `[ -f "$target.md" ]`. Anything missing is a real orphan link — **except** literal `[[wikilink]]` used as a syntax example inside prose (e.g. a rules file explaining the `[[wikilink]]` convention itself) — read the surrounding line to tell the difference before flagging it as broken.
+For each unique target (strip `[[`/`]]`, and for `[[path|label]]` aliases use the `path` part before `|`), **also strip a trailing `.md` if the target already has one** (some aliases write the extension inline, e.g. `[[vertical-drama-basics-dramy.md|vertical-drama-basics-dramy]]`) — then check `[ -f "$target.md" ]`. Skipping the strip step produces a false-positive orphan on any alias that already includes `.md`. Anything still missing after that is a real orphan link — **except** literal `[[wikilink]]` used as a syntax example inside prose (e.g. a rules file explaining the `[[wikilink]]` convention itself) — read the surrounding line to tell the difference before flagging it as broken.
 
 **4b. Orphan files** — files that exist but aren't in MEMORY.md's index:
 ```
@@ -99,7 +99,7 @@ Anything printed is a file with no index entry — dead weight or a logged-and-f
 **4c. Contradictions** — two files (or a file vs. MEMORY.md, or a file vs. the filesystem) claiming conflicting status about the same thing. This has no single command — actively look for it:
 - For every "PENDING" / "ยังไม่เริ่ม" / "not built" / "TODO" claim you see in a memory file, check whether the thing it's talking about (a skill dir, an agent file, a feature) actually exists on disk already. This is the highest-value contradiction pattern in this repo.
 - For every "DONE" / "COMPLETE" / "BUILT+VERIFIED" claim, spot-check that the artifact it refers to actually exists where claimed.
-- Two Active Project entries describing the same underlying thing with different status words also count.
+- Two MEMORY.md entries — in the same section or different sections (e.g. one under Active Projects, another under Skills & Workflows or Tools & Setup) — pointing at the same file or describing the same underlying thing with different status words also count. Check this directly: `grep -n "<filename>" memory/MEMORY.md` for any file that appears twice.
 
 **4d. Missing back-links** — heuristic, not exact:
 - From the wikilink dump in 4a, look for A→B links where B's file, read or grepped, never links back to A despite being about the closely related content (same project, same skill, direct feedback-to-subject relationship). Flag the clearest 3-5 cases only — this is a heuristic nudge, not an exhaustive grammar check.

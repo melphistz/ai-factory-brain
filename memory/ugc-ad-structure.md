@@ -9,7 +9,7 @@ metadata:
 
 # UGC Ad Structure — โครงสร้าง + teardown ตัวอย่างจริง
 
-> โครงสร้าง UGC ad ที่ขายได้ + ถอดโครงตัวอย่างจริง. คู่กับ [[seedance-ugc-repository]] (วิธีเขียน prompt UGC) · [[ai-influencer-image-prompt]] (realism)
+> โครงสร้าง UGC ad ที่ขายได้ + ถอดโครงตัวอย่างจริง. คู่กับ [[seedance-ugc-repository]] (วิธีเขียน prompt UGC) · [[ai-influencer-image-prompt]] (realism) · [[ai-video-realism-hierarchy]] (QA checklist realism)
 
 ## 🦴 โครงมาตรฐาน (5-beat)
 | ส่วน | t (15s) | หน้าที่ |

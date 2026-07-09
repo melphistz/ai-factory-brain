@@ -57,13 +57,13 @@ Draft the lyrics line by line, actually hitting the rhyme-points committed to in
 Format: reproduce the final lyrics with rhyme-linked syllables tagged by matching superscript-style markers, plus a short legend. Use this concrete format:
 
 ```
-ฉันเดินไปคนเดียว ท่ามกลางความเหงา[A]
-ไม่มีใครมาเอ่ยชื่อ ไม่มีใครมาเข้าใจ[A]
+มองฟ้า[B]ทุกคืนที่เห็นดาว[B] เหมือนใจฉันที่เฝ้ารอวัน[A]
+แม้จะไกลกันไปสักเท่าไหร่ ยังเก็บความรักไว้ในฝัน[A]
 ...
 
 Legend:
-[A] เหงา–ใจ — สัมผัสนอก, ใกล้เคียง (near)
-[B] เดียว–เดียว (สัมผัสใน บรรทัด 1) — สัมผัสสระ
+[A] วัน–ฝัน — สัมผัสนอก, สมบูรณ์ (perfect)
+[B] ฟ้า–ดาว (สัมผัสใน บรรทัด 1) — สัมผัสสระ, แบบขยาย
 ```
 
 - Tag every outer-rhyme pair and every inner-rhyme point that made it into the final draft, using sequential letters ([A], [B], [C]...).
