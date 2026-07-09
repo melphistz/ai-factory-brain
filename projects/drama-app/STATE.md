@@ -45,3 +45,15 @@ Next.js 15 + TS + Tailwind · เก็บข้อมูลเป็น JSON �
 **Model/cost:** ตกลงแล้วว่างานนี้เป็น build/production tier (ดู `feedback-model-effort-strategy.md`) — **ใช้ Sonnet พอ ไม่ต้อง Fable/ultracode** ประเมินคร่าวๆ ~300K–600K tokens (เทียบ build v1 เต็มระบบที่ใช้ 1.02M ด้วย Opus/9 agents) แบ่งทำเป็น 2 รอบได้ถ้าอยากประหยัด: รอบแรกแค่ข้อ 1 (upload-back) ก่อน ดูผลแล้วค่อยทำข้อ 2-5
 
 **สถานะ:** ยังไม่เริ่มทำ — Mirko ขอรอ quota/context reset ก่อน (burn ไป Fable ultracode เยอะคืนก่อนหน้า) เริ่มได้ทันทีเมื่อพร้อม ไม่ต้องวางแผนใหม่
+
+## 🔜 PENDING: genre pack ใหม่ "revenge/vindication" (07-09 — ยังไม่เริ่ม)
+
+**บริบท:** Mirko ถามเรื่องกระแสละคร AI ไวรัลจริง (โพสต์ขายคอร์สอ้างละคร "ผกาแก้ว x ขจรเดช" ยอดวิวหลักล้าน — ยืนยันจริงว่าไวรัล เป็นเทรนด์ "ละครคุณธรรมผลไม้/ผัก AI" ต้นตอจาก international "Fruit Love Island") คุยกันแล้วสรุปว่าโมเดลรายได้คนละแบบกับ drama-app เรา (ad-revenue-share ตาม view vs paid-unlock ของเรา) — ไม่ใช่สิ่งที่ต้องเลียนแบบ 1:1
+
+**สิ่งที่ตกลง:** drama-app ควรทำตามสูตรที่พิสูจน์แล้วว่า convert ดีสุดในฟอร์แมตนี้ = **ขาว-ดำสุดขั้ว** (ตัวร้ายเลวสนิทไม่มีเหตุผลรองรับ, นางเอก/พระเอกถูกกระทำเกินเหตุแล้วพลิกสะใจ) แบบที่ ReelShort/DramaBox ใช้เป็นแกนหลัก (สลับตระกูลลูก/แม่เลี้ยงใจร้าย/หมั้นซ้อน/แฉแล้วเหยียบกลับ) — เช็คแล้ว `09-genre-packs.md` pack `romance-drama` ปัจจุบัน**ยังไม่ครอบคลุมพอ** (เน้นแผลรัก/ความลับ ไม่ใช่ cruelty→humiliation→triumphant reveal)
+
+**ตัดสินใจ:** เพิ่ม **genre pack ใหม่แยกต่างหาก** `revenge-vindication` (ไม่แก้ baseline เดิม) ตามโครง 8 หัวข้อเดียวกับ pack อื่น (hook weighting / beat flavor / acting grammar / visual-lighting / director presets / cliffhanger patterns / AI-gen pitfalls / pacing)
+
+**Model:** งานนี้เป็น **intelligence-asset (freeze ยาว)** ตาม [[feedback-model-effort-strategy]] ไม่ใช่ production — เดิมจะใช้ Fable (โมเดลฉลาดสุดตอนทำ pack ชุดแรก) แต่ **Fable ใช้ไม่ได้แล้วตอนนี้** → กฎคือ "โมเดลฉลาดสุดที่มี" ไม่ใช่ hardcode ชื่อ Fable ดังนั้นใช้ **Opus 4.8 + ultracode + verify 2 เลนส์ (fidelity + operability)** แทน · settings.json pin Opus 4.8 ไว้แล้ว (apply ตอน restart session)
+
+**สถานะ:** ยังไม่เริ่ม — Mirko ขอ "เอาเข้าแผนก่อน" รอสั่งเริ่มเอง เมื่อเริ่ม: restart/สลับ `/model` → Opus 4.8 → dispatch ออกแบบ pack ผ่าน ultracode (ห้าม main loop เขียนเอง ตาม CLAUDE.md) → เสร็จแล้ว deploy เข้า `D:\drama-app\prompts\` เหมือน pack ชุดแรก + rerun smoke
