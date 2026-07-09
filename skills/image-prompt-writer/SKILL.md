@@ -19,6 +19,8 @@ Do NOT trigger for:
 - A screenplay broken into a multi-scene shotlist → `shotlist-builder`
 - A running ad-production job's full asset kit (characters + scenes + storyboard frames, dependency-ordered, manual-gen steps) → the `asset-prompt-builder` subagent, dispatched by the main orchestrator per `projects/FF_factory/AGENT_OPS.md`
 
+Even if the user only asks for a single character sheet: if they name a specific job/campaign, mention `FF_factory`, or say scene plates will follow, hand off to `asset-prompt-builder` immediately — that context signals a running production job, not a one-off sheet.
+
 ## Core principle
 
 Image prompts are not poetry. They are a spec sheet the model pattern-matches against: subject, face, skin, hair, styling, light, camera, setting, style, negative. Vague superlatives ("stunning", "gorgeous", "so beautiful you forget to breathe") do not translate — the model cannot render an adjective. Always convert superlatives into **concrete, physical, camera-describable features**.
@@ -45,6 +47,12 @@ Always specify a shot type in the CAMERA/lens field — models respect it well a
 
 `9:16` for reels/stories · `1:1` for feed · `3:2` / `16:9` for hero images and thumbnails. When generating batch variants: keep the same structure and change ONE variable at a time (angle, outfit, time of day), generate 3–4 per scene and pick.
 
+### Restyle / pose-transfer / character-swap
+
+For a request to restyle or recombine an existing photo (not generate from scratch):
+- **Pose transfer:** make the subject in the main image match a reference pose/line-art. **Always specify the camera angle** (high/eye-level/low/etc.) — without it the pose renders wrong. `[subject] @image_1 pose matches @image_2 100%. Camera angle: [angle].`
+- **Character swap:** combine background from one image with a character from another — `background = @image_1`, `character = @image_2` — and call out matching lighting/scale so the composite integrates cleanly.
+
 ---
 
 ## Step 0 — pick the target model
@@ -57,6 +65,7 @@ The model choice changes the result more than the prompt does. Ask (or infer fro
 | **Portrait/scene with good balance, conversational editing, cinematic light out of the box** | **Nano Banana Pro** | drift ~9%, prompt-light (don't over-add mood words, it's commercial-grade by default), holds 3–14 reference images with role labels |
 | **Single hero/final shot, raw skin-texture max, not going on social, no repeat-face need** | **FLUX.2 / FLUX.2 Pro** | best pore-level skin — but identity drift ~22% and ~47% platform-flag risk, so avoid it for anything that needs to repeat a face or post on Meta/Pinterest |
 | **Natural "raw unedited photo" look, pore + subsurface-scattering realism** | **Imagen 4 / 4 Ultra** | most natural "didn't touch the raw file" texture |
+| **Product-adjacent lifestyle/commercial shot, native 4K** | **Seedream 4.5** | native 4K, commercial/product-grade — but skin micro-detail loses to FLUX/Imagen and lighting skews warm/filmic |
 | **Fast mood/concept exploration** | Midjourney v6.1 `--style raw` | quick, less identity-stable |
 
 Default assumption if the user doesn't say: **GPT Image 2** for anything with a named/recurring character, **Nano Banana Pro** for a one-off portrait/scene that wants cinematic polish fast.
@@ -107,6 +116,10 @@ Ultra-photorealistic, 4:5 aspect ratio, adult in their 20s, Instagram aesthetic,
 **Anatomy negative (add whenever a body is in frame — fixes fake-hourglass AI tell):**
 ```
 no tiny waist, no unnaturally small abdomen, no exaggerated hourglass figure, no oversized hips, no unnaturally narrow pelvis, no elongated torso, no disproportionate limbs, no doll-like anatomy
+```
+Positive companion (pair with the negative above, not a substitute for it):
+```
+healthy naturally proportioned physique, realistic ribcage and waist, believable waist-to-hip ratio, any waist taper from posture/perspective not anatomical distortion
 ```
 
 ### Two lanes — don't mix their levers
