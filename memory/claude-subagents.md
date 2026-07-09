@@ -36,6 +36,8 @@ metadata:
 - **fast-worker** — model **Sonnet**. งาน mechanical ที่ spec ชัด: boilerplate, tests, formatting, renames, simple edits. Tools: Read/Edit/Write/Bash/Grep/Glob. กติกาในตัว: no scope creep, match codebase style, verify แคบๆ หลังแก้, รายงานแค่ what changed + verification
 - **kondomarie** — model **Sonnet**. กวาด `memory/` (redundant/superseded — ไม่ทำ wiki-lint ซ้ำกับ `factory-audit` skill) + `projects/`+`jobs/` (folder เก่า/ทิ้งร้าง เทียบ STATE.md จริง) → รายงาน ARCHIVE/DELETE candidate + confidence. Tools: **read-only** (Read/Bash/Grep/Glob ไม่มี Write/Edit) — **ไม่ลบ/ย้าย/แก้อะไรเองเด็ดขาด แม้สั่งกลางทาง** รายงานอย่างเดียว รอ Mirko สั่งทีละรายการ
 
+**07-09: ตั้ง scheduled cloud routine ให้รันเองทุกวันที่ 1+16 ของเดือน 9:00 น. (Asia/Bangkok)** — `kondomarie-repo-sweep` (`trig_016TWYJ3zMb7osDVqgDGfHqY`, https://claude.ai/code/routines/trig_016TWYJ3zMb7osDVqgDGfHqY) รันบน **cloud ของ Anthropic** (ไม่ใช่ mac/win เครื่องไหนเลย, clone `github.com/melphistz/ai-factory-brain` สดทุกรอบ) tools = Read/Bash/Grep/Glob + **Write ตัวเดียว จำกัดเฉพาะ path `reports/kondomarie-sweep-log.md`** (prompt สั่งชัดว่าห้ามแตะไฟล์อื่นแม้แต่ไฟล์เดียว) — เขียนรายงาน prepend ด้านบน (ใหม่สุดบนสุด) + commit+push อัตโนมัติ ถ้า push ไม่ผ่านจะบอกตรงๆไม่เงียบ · ไม่มี Slack/email connector ต่ออยู่ ต้องเข้าไปดู `reports/kondomarie-sweep-log.md` เองหลัง sync
+
 เรียกใช้: บอกงานปกติ (Claude เลือกตาม description อัตโนมัติ) หรือสั่งตรง เช่น "ใช้ deep-reasoner หา root cause"
 
 **07-08 (PENDING, ไม่เร่งด่วน): วิเคราะห์ว่าตัวไหนย้ายไป Haiku ได้** — ไม่มีตัวไหนใน fleet ใช้ Haiku ตอนนี้เลย
