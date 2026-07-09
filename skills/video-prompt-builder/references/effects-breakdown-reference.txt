@@ -148,10 +148,13 @@ SHOT 13-14 (00:14-00:20) — Brand Card / Logo / Closing
 00:09-00:12 = MEDIUM DENSITY (focus pull, slow-mo, rotation — 3 effects in 3s)  
 00:12-00:20 = LOW DENSITY (gentle zoom-out, fade to brand — 2 effects in 8s)
 
-The effects follow the same THREE-ACT energy arc as the edit itself:  
-Act 1 (0-6s): EXPLOSIVE — maximum effects density, speed, energy  
-Act 2 (6-12s): CONTROLLED — signature effects, deliberate placement  
-Act 3 (12-20s): RESOLVED — effects withdraw, stillness takes over
+## ENERGY ARC
 
-================================================================  
+The effects follow the same THREE-ACT structure as the edit itself:
+
+Act 1 (0-6s): EXPLOSIVE — the video grabs attention immediately: whip-pan entry, mirror/symmetry, then the white-bloom-flash + zoom + shake stack (the densest moment in the edit). Maximum effects density, speed, and energy up front.
+Act 2 (6-12s): CONTROLLED — energy settles into deliberate, purposeful moments. Slow-motion emphasizes physical detail, then the stroboscopic clone sequence (Shot 7) lands as the SIGNATURE VISUAL EFFECT — the one moment the video is built around.
+Act 3 (12-20s): RESOLVED — effects withdraw and stillness takes over: rack focus, a gentle zoom pull-back toward open sky, then a clean fade to the brand card. The energy lands intentionally rather than fizzling out.
+
+================================================================
 END OF DOCUMENT

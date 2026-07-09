@@ -82,7 +82,7 @@ One line per memory, grouped by section. Add new entries under the matching sect
 - [Skills Cheat Sheet](skills-cheatsheet.md) — which installed skill runs for which ad task + how to force-pick / auto-allocate
 - [Seedance 2 Pro Director Skill](seedance-2-pro-director-skill.md) — INSTALLED skill (~/.claude/skills): elite single-shot Seedance prompt director (formula + char-anchor + frame-coords + QA); companion = shotlist-builder · Fable audit ยกระดับ 07-07 (+11 findings: golden rule/under-direct fix/input modes/budget 1,800)
 - [Shotlist Builder Skill](shotlist-builder-skill.md) — INSTALLED skill: stateful 4-phase screenplay→shotlist HTML w/ Chinese Seedance prompts; cinematic-film lane; Claude Code-ready (Fable audit 07-07)
-- [Video Prompt Builder Framework](video-prompt-builder-framework.md) — 4-section structure for planning whole Seedance ads (skill in ~/.claude/skills/) · NOT audited yet (fleet-audit-style, per 07-09 factory-audit finding)
+- [Video Prompt Builder Framework](video-prompt-builder-framework.md) — 4-section structure for planning whole Seedance ads (skill in ~/.claude/skills/) · audited 07-09 (fleet-audit-style): 0 critical, 1 minor fixed (reference file missing ENERGY ARC header)
 - [Higgsfield 3-Step AI Ad Workflow](higgsfield-3step-ai-ad-workflow.md) — CINEMATIC-COMMERCIAL (not UGC): 2 Higgsfield Seedance 2.0 tutorials (headphones + football/robot) — asset→shotlist→scene + layout-map/erase-face/style-prefix/beat-ramp/physics-weight tricks
 - [Higgsfield Marketing Studio Workflow](higgsfield-marketing-studio-workflow.md) — MS auto ad generator (beauty-brand demo): UGC + Hyper Motion + TV Spot in one tool + 5 luxury location prompts
 
