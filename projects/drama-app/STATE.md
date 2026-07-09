@@ -40,6 +40,7 @@ Next.js 15 + TS + Tailwind · เก็บข้อมูลเป็น JSON �
 3. รีดีไซน์การ์ดตัวละครเป็น gallery grid + panel รายละเอียดลอยด้านล่างเมื่อเลือก (แทนที่ `CharacterCard.tsx` แบบ list+`<details>` ปัจจุบัน)
 4. ปุ่ม bulk "สร้างพรอมต์วิดีโอทั้งตอน" — วน `/api/video-prompt` เดิมทุกช็อตในตอน ไม่ต้องมี logic ใหม่
 5. Emotion chip บนบทพูด (ข้อมูล emotion มีอยู่แล้วในระบบ แค่ยังไม่โชว์สวย)
+6. **(07-09) "แนว" ในฟอร์มสร้างซีรีส์ → เปลี่ยนเป็น dropdown 5 ตัวเลือก** (romance-drama/comedy/thriller-horror/action/family) **+ ผูก backend จริง** — ตอนนี้ "แนว" เป็นแค่ text ต่อท้าย brief เฉยๆ ไม่ได้เลือก genre pack ไหนเลย ต้องทำคู่กับ wire `SeriesBible.genre` + inject `genre_pack` เข้า envelope (ของเดิมที่ค้างอยู่ข้อ 23 ด้านบน — งานเดียวกัน ทำพร้อมกัน) · "โทน" คงเป็น free-text เดิม (คำบรรยายอารมณ์ หลากหลายเกิน dropdown)
 - **ตัดทิ้งจาก reference:** ปุ่มเจนภาพในตัว, ปุ่ม "สลับภาพ AI" — ขัด prompt-first
 
 **Model/cost:** ตกลงแล้วว่างานนี้เป็น build/production tier (ดู `feedback-model-effort-strategy.md`) — **ใช้ Sonnet พอ ไม่ต้อง Fable/ultracode** ประเมินคร่าวๆ ~300K–600K tokens (เทียบ build v1 เต็มระบบที่ใช้ 1.02M ด้วย Opus/9 agents) แบ่งทำเป็น 2 รอบได้ถ้าอยากประหยัด: รอบแรกแค่ข้อ 1 (upload-back) ก่อน ดูผลแล้วค่อยทำข้อ 2-5
