@@ -7,7 +7,7 @@ metadata:
   originSessionId: f495e44a-04e5-4cac-94ed-83e0ab9d81c9
 ---
 
-# Claude Code Subagents — fleet 8 ตัว (2026-07-05 · **Fable audit ยกระดับทั้ง fleet 07-07**)
+# Claude Code Subagents — fleet 9 ตัว (2026-07-05 · **Fable audit ยกระดับทั้ง fleet 07-07** · +kondomarie 07-09)
 
 > 07-07 (วันสุดท้าย Fable): audit→revise→verify ทุกตัว + coherence ข้าม fleet — อัดความรู้ verified ล่าสุด (กฎทองมุมกล้อง, under-direct ฉบับแก้, short-lock i2v, budget 1,800, ลำดับ QA tells, hook 4 ประเภทสายละคร) เข้า agent ที่เกี่ยว · 3 skills ก็ถูกยกระดับ (shotlist-builder ถอน claude.ai deps เก็บตก) · `projects/_template` จัดโครงตรง AGENT_OPS แล้ว · diff ทั้งหมดใน git 07-07
 
@@ -27,12 +27,14 @@ metadata:
 | 6 | teardown โฆษณาคู่แข่ง + feedback loop ผลแอด | teardown-analyst ✅ 07-05 | sonnet |
 | 7 | timeline JSON ครอบโมดูล (J-cut/captions/fx → Remotion/Hyperframe) | timeline-builder ✅ 07-05 | sonnet |
 | 8 | mechanical (rename/format/simple edit) | fast-worker | sonnet |
+| 9 | เก็บกวาด memory/projects/jobs หา stale/redundant/orphan → รายงาน KEEP/ARCHIVE/DELETE candidate (ไม่แตะไฟล์เอง) | kondomarie ✅ 07-09 | sonnet |
 
 กฎร่วมทุกตัว: no generation/no credits (โหมดปัจจุบัน Mirko เจน manual ทั้งหมด) · final message = deliverable เดียวที่ orchestrator เห็น · agent ใหม่มีผล session ถัดไป (โหลดตอนเริ่ม session)
 
 - **storyboard-prompter** — model **Opus**. แปลง storyboard → ต่อ shot: IMAGE prompt (GPT Image 2 first-frame) + VIDEO prompt (Seedance 2.0) + final-frame spec + QA hooks. มี continuity ledger (identity/wardrobe/direction lock), โหลด skill seedance-2-pro-director + vault notes เอง, crop panel ด้วย ffmpeg ดูรายช่อง. Storyboard = source of truth (ข้อกำกวม → ⚠ ASK ไม่เดาเอง). ห้ามยิง generate เอง
 - **deep-reasoner** — model **Opus**. งานคิดหนัก: architecture decision, debug ซับซ้อน, algorithm design, trade-off analysis. Tools: read-only + Bash + web, **ห้าม edit ไฟล์** — ส่งกลับเป็น Conclusion → Recommended action → Why → Confidence & risks ให้ orchestrator ทำต่อ
 - **fast-worker** — model **Sonnet**. งาน mechanical ที่ spec ชัด: boilerplate, tests, formatting, renames, simple edits. Tools: Read/Edit/Write/Bash/Grep/Glob. กติกาในตัว: no scope creep, match codebase style, verify แคบๆ หลังแก้, รายงานแค่ what changed + verification
+- **kondomarie** — model **Sonnet**. กวาด `memory/` (redundant/superseded — ไม่ทำ wiki-lint ซ้ำกับ `factory-audit` skill) + `projects/`+`jobs/` (folder เก่า/ทิ้งร้าง เทียบ STATE.md จริง) → รายงาน ARCHIVE/DELETE candidate + confidence. Tools: **read-only** (Read/Bash/Grep/Glob ไม่มี Write/Edit) — **ไม่ลบ/ย้าย/แก้อะไรเองเด็ดขาด แม้สั่งกลางทาง** รายงานอย่างเดียว รอ Mirko สั่งทีละรายการ
 
 เรียกใช้: บอกงานปกติ (Claude เลือกตาม description อัตโนมัติ) หรือสั่งตรง เช่น "ใช้ deep-reasoner หา root cause"
 

@@ -22,7 +22,7 @@
 ## Fleet (รายละเอียด+ตารางความยาก = `memory/claude-subagents.md`)
 
 opus: storyboard-prompter · asset-prompt-builder (2 เฟส) · script-hook-writer · deep-reasoner
-sonnet: qa-inspector · teardown-analyst · timeline-builder · fast-worker
+sonnet: qa-inspector · teardown-analyst · timeline-builder · fast-worker · kondomarie (report-only, ไม่แตะไฟล์)
 
 ## โครง repo
 
