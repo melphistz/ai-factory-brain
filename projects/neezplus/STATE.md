@@ -18,8 +18,8 @@ updated: "2026-07-10"
 
 ## ขั้นถัดไป
 1. ✅ presenter kit + **sheet gen เสร็จ+approved** (07-10): `ChatGPT Image Jul 10, 2026, 02_56_47 PM.png`=face sheet, `...03_00_58 PM.png`=full-body sheet (ทั้งคู่ใน external). QA Gate1 ผ่าน. = master ref 12 คลิป
-2. ✅ **SB01 kit เสร็จ** = `SB01-prompts.md` — 4 presenter scene (1/3/5/6) × [GPT Image 2 first-frame + Veo lip-sync] + B-roll list (2/4) + packshot 6C. @Image3 ถุงจริง = `.../package/Grain Free - Adult Tuna&Salmon/pic/TU1kg-1.png`. **→ Mirko gen ได้เลย** (composite โลโก้ทับกล่องขาวก่อนเข้า Veo)
-3. ทำ prompt ก้อน A ที่เหลือ (SB02–08) — รอสี SB02/04 + เกลา compliance ก่อน
+2. ✅ **SB01 kit เสร็จ (green screen)** = `SB01-prompts.md` (full) + `SB01-prompts-paste.md` (paste-only copy ง่าย) — 4 presenter scene (1/3/5/6) × [GPT Image 2 first-frame + Veo lip-sync] + B-roll (2/4) + packshot 6C. @Image3 ถุงจริง = `.../package/Grain Free - Adult Tuna&Salmon/pic/TU1kg-1.png`. **→ Mirko gen ได้เลย** (composite โลโก้ทับกล่องขาว → key green → วางสีสูตร+text post → Veo)
+3. ทำ prompt ก้อน A ที่เหลือ (SB02–08) — green screen ปลด lock สีแล้ว, เจนได้ทุกสูตร · เหลือแค่เกลา compliance SB02/04 ก่อนล็อกบท
 
 ## รอ client sign-off ก่อน render (SB01)
 - Scene 6 บท: เลือก compliant line vs conservative alt + อนุมัติ tag `[รีวิวเพียบ]` (กฎกระทรวงฯ)
