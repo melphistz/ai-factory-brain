@@ -25,7 +25,7 @@ brief ─▶ 01 series bible ─▶ 02 สคริปต์ตอน ─▶ (03
 | `title_th` | ชื่อเรื่องไทย |
 | `logline` | "สถานการณ์" ที่เห็นภาพชัด 1–2 ประโยค — ห้ามไอเดียกว้างแบบ "เรื่องรัก/คนอกหัก" [DRM] |
 | `genre_tone` | แนว + โทนเรื่อง |
-| `genre` | **optional (ส่วนขยาย GENRE)** — enum: `romance-drama` / `comedy` / `thriller-horror` / `action` / `family` · ไม่ส่ง = ไม่ inject (พฤติกรรมเดิม) · ค่านอก enum = ปฏิบัติเป็น `romance-drama` · มาจากที่ user เลือกตอนสร้าง series · ใช้แค่ให้แอปเลือก block จาก `09-genre-packs.md` (§5 แถว 09) — **ไม่ส่ง field นี้ = pipeline ทำงานเหมือนเดิมทุกประการ** |
+| `genre` | **optional (ส่วนขยาย GENRE)** — enum: `romance-drama` / `comedy` / `thriller-horror` / `action` / `family` / `revenge-vindication` · ไม่ส่ง = ไม่ inject (พฤติกรรมเดิม) · ค่านอก enum = ปฏิบัติเป็น `romance-drama` · มาจากที่ user เลือกตอนสร้าง series · ใช้แค่ให้แอปเลือก block จาก `09-genre-packs.md` (§5 แถว 09) — **ไม่ส่ง field นี้ = pipeline ทำงานเหมือนเดิมทุกประการ** |
 | `hook_type` | 1 ใน 4: `visual` / `emotional` / `curiosity` / `conflict` [DRM] + เหตุผล 1 บรรทัดว่าเนื้อเรื่องพาไปหาคำตอบของ hook นี้จริง (เกณฑ์เลือก hook [DRM]) |
 | `selling_point` | จุดขายของเรื่อง [DRM เช็กก่อนเริ่ม] |
 | `central_conflict` | ความขัดแย้งหลัก [DRM] |

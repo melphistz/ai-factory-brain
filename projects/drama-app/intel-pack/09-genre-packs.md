@@ -20,6 +20,7 @@
 | `thriller-horror` | ระทึกขวัญ/สยอง |
 | `action` | แอ็กชัน |
 | `family` | ครอบครัว/อบอุ่น |
+| `revenge-vindication` | แก้แค้น/พลิกสะใจ (ขาว-ดำสุดขั้ว ReelShort/DramaBox) |
 
 ทุก pack ใช้ template หัวข้อเดียวกัน: a) HOOK WEIGHTING · b) BEAT FLAVOR · c) ACTING GRAMMAR · d) VISUAL & LIGHTING GRAMMAR · e) DIRECTOR KEYWORD PRESETS · f) CLIFFHANGER PATTERNS · g) AI-GEN PITFALLS · h) PACING
 
@@ -300,4 +301,57 @@ lighting = physical เท่านั้น [GEM LIGHTING]: "low warm tungsten 
 - สัดส่วนเวลา 5 ช่วงโดยประมาณ: hook 10% · setup 25% · conflict 30% · twist 15% · cliffhanger 20%
 - duration bias: hook 5–6s (ดึงอารมณ์โดยไม่กระชาก) · setup 8–10s (อยู่กับ routine ได้นาน) · conflict 6–8s/shot · twist 4–6s (เฉลยเงียบสั้นคม) · cliffhanger 6–8s (hold ท่าค้าง)
 
-> Sources: `intel-pack/00-contracts.md` · `memory/vertical-drama-basics-dramy.md` · `memory/seedance-knowledge.md` · `memory/director-styles-knowledge.md` · `memory/mv-directors-knowledge.md` · `memory/ai-video-realism-hierarchy.md`
+### GENRE: revenge-vindication — แก้แค้น/พลิกสะใจ
+> flavor layer เท่านั้น — ห้าม override schema §1 / budget §3 / หลักการร่วม §6 ของ 00-contracts · trace: [DRM]=vertical-drama-basics · [GEM]=seedance-knowledge · [DIR]=director-styles-knowledge · [CAST]=feedback-drama-character-casting
+
+#### a) HOOK WEIGHTING
+| hook [DRM] | weight | เหตุผล |
+|---|---|---|
+| emotional | สูง | โกรธ/เจ็บแทนทันที (ตบ/สาดน้ำ/ทิ้งกลางพิธี [DRM]) — อัดอั้นก่อน จึงสะใจตอน payoff |
+| conflict | สูง | ดูถูก/เผชิญหน้า [DRM] = white-black polarity — อยากเห็น "จะพลิกกลับยังไง" |
+| curiosity | กลาง | ตัวตนจริงที่ซ่อน (secret CEO/ทายาท/สลับตัวแต่เกิด) = ปมรอเฉลยตอน status-flip |
+| visual | ต่ำ | เฉพาะ "ภาพขัดสถานะ" (คนชุดโทรมกลางงานหรู) เก็บ flip เป็น payoff |
+
+engine = cruelty→humiliation→triumphant reveal (ขาว-ดำสุดขั้ว, ตัวร้ายเลวไร้ backstory) · weight = bias ไม่ใช่ข้อห้าม [DRM]
+
+#### b) BEAT FLAVOR (โครง+ลำดับ 5 ช่วง [DRM] ห้ามแตะ)
+- hook: humiliation สาธารณะจบใน 1 เฟรม — สาดน้ำ/ตบต่อหน้าแขก/ทิ้งกลางพิธี
+- setup: ปูสถานะต่ำ + ตัวร้ายเลวเชิงความสัมพันธ์ (แม่เลี้ยง/แม่สามี) · ซ่อน "ตัวตนจริง" ใน prop (บัตร/แหวนตระกูล/ผลตรวจสายเลือด=ปมสลับตัว) = ระเบิดเวลา
+- conflict: humiliation escalation — ดูถูกซ้ำ คนดูมากขึ้น เดิมพันสูงขึ้น · ยิ่งกด = ยิ่งเพิ่ม payoff
+- twist: triumphant status-flip reveal — เผยตัวตนจริง อำนาจพลิกขั้วในเฟรมเดียว (ต่ำสุด→สูงสุด)
+- cliffhanger: ค้างตรงตัวร้ายเพิ่งเริ่มรู้ / การเหยียบกลับที่เพิ่งเริ่ม ยังไม่ land
+
+#### c) ACTING GRAMMAR (variant ของ under-direct [GEM ACTING])
+ลายเซ็น = 2 register: humiliation = "กลั้น" ไม่โต้กลับ → reveal = "นิ่งเย็นทวงคืน" ไม่ตะโกน — composure ไม่ overact · ตัวร้าย ยะโสเย็น ห้ามสั่ง "evil/sneer"
+- humiliation cue EN: `jaw clenches, eyes drop, one hard swallow, chin stays level, no open sob`
+- reveal cue EN (deadpan hold ก่อนพลิก [GEM]): `still a beat, chin lifts, cool gaze, a faint mouth-corner curl`
+- villain: `slow up-down glance, chin raised` → realize `smug grin drains, face goes still`
+
+#### d) VISUAL & LIGHTING GRAMMAR
+- casting [CAST]: ทุกตัวหน้าระดับนักแสดง รวมนางร้าย (idol-glam, คง realism) · ห้าม "plain/ugly villain"
+- mood = visual noun EN ล้วน [GEM] (ต่อท้าย style_stack): high-gloss luxury sheen, cold marble/glass (reflective = ฟรี), warm-cool contrast, grain
+- lighting = physical เท่านั้น [GEM LIGHTING]: humiliation `hard flat overhead fluorescent, top-down spill` · reveal `low warm tungsten key frame-side, strong rim, deep falloff` — status flip = แสง flip · ห้ามคำอารมณ์ ("cruel lighting" = ผิด)
+
+#### e) DIRECTOR KEYWORD PRESETS [DIR]
+- **glossy-highsociety** (keywords-only — สาย 🔴 ห้ามใส่ชื่อ): `high-gloss drama-series look, luxury interior, dramatic key+rim, DramaBox flagship-tier`
+- **cold-power-reveal** (🟢 Fincher + keywords คุมเสมอ — บีต reveal/flip): `David Fincher style, low-key locked-off camera, cold desaturated, single-hue tint`
+- **vindication-lift** (keywords-only ห้ามใส่ชื่อ): `slow low-angle push toward hero, warm golden backlight, crowd OOF`
+
+#### f) CLIFFHANGER PATTERNS (chain rule N→N+1 ของ 01 ยังบังคับทุกแพตเทิร์น)
+1. **ตัวร้ายเพิ่งเริ่มรู้** — เยาะ→ตระหนก · เฟรม: รอยยิ้มยะโสค้างครึ่ง ตาเบิก
+2. **reveal ครึ่งใบ** — ตัวตน/หลักฐานเผยแค่เสี้ยว · เฟรม: มือรับนามบัตรค้าง
+3. **คนอำนาจกว่าเข้าเฟรม** — ผู้หนุนตัวจริง (พ่อจริง/บอร์ด) หลังเหยื่อ · เฟรม: เงากลุ่มคนที่ประตู
+4. **ไพ่ยังไม่เปิด** — "รู้ไหมว่าฉันคือ…" ถูกตัด / ซองเอกสารยังไม่งัด · เฟรม: นิ้วกดซองบนโต๊ะ
+
+#### g) AI-GEN PITFALLS (เฉพาะแนว — ไม่ทวน pitfalls กลาง)
+- ตบ/ผลัก/สาดน้ำ/ปาของ/ฉีกเอกสาร = two-body impact → 02 ใส่ prod_note_th ให้ shot-breaker แตก "ก่อนแตะ"+"หลังแตะ" คนละช็อต [GEM]
+- ห้าม gore/เลือด (โมเดลพัง + platform limit) → เขียนผลเป็นร่องรอย (รอยมือแดง/แก้วแตก)
+- "evil/smug/triumphant" ตรงๆ → overact การ์ตูน [GEM] → cue c) + `underplayed, controlled menace, natural`
+- reveal ผ่าน text prop (บัตร/พินัยกรรม) ชน text glyph → reaction + insert keyframe ภาพนิ่ง ตัวอักษรไม่ขยับ
+- crowd = หลายหน้า deform [GEM] → blur crowd, ล็อก 2–3 หลัก · เหยื่อ/ตัวร้ายห้ามสลับฝั่งจอ → ล็อก eyeline เข้า ledger
+
+#### h) PACING (steps {4,5,6,8,10,12,15}s เท่านั้น [§3] · Σduration=target_sec + beat thickness เดิมบังคับ)
+จังหวะ: อัดอั้นยาว → พลิกคม → สะใจ (contrast = impact [GEM])
+hook ~10–15% (5–6s humiliation) · setup ~20% (6–8s ปู+หยอดปม) · conflict ~30% (6–8s cruelty สะสม) · twist ~20% (10–12s flip + composure c) + villain realize, ขึ้น 15s ได้) · cliffhanger ~10–15% (4–5s ค้างสีหน้าตัวร้าย)
+
+> Sources: `intel-pack/00-contracts.md` · `memory/vertical-drama-basics-dramy.md` · `memory/seedance-knowledge.md` · `memory/director-styles-knowledge.md` · `memory/mv-directors-knowledge.md` · `memory/ai-video-realism-hierarchy.md` · `memory/feedback-drama-character-casting.md`

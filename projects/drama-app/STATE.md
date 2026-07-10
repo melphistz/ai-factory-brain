@@ -28,7 +28,24 @@ Next.js 15 + TS + Tailwind · เก็บข้อมูลเป็น JSON �
 3. polish UI / auth / deploy · push ขึ้น GitHub remote ถ้าอยากข้ามเครื่อง
 - **แก้ intel-pack = ต้อง re-copy เข้า `D:\drama-app\prompts\` + rerun recheck ข้ามไฟล์**
 
-## 🔜 PENDING: UI redesign ตาม smartaihub.app reference (07-08 — รอ Mirko reset quota ก่อนเริ่ม)
+## 🔄 UI redesign ตาม smartaihub.app reference (07-08 วางแผน · 07-10 เริ่มข้อ 1)
+
+**✅ 07-10/11 DONE 8/8 ข้อ** (เว้นข้อ 6 = รวม STEP 8 genre×setting) — overnight autonomous chain, Sonnet build tier, sequential + build/smoke gate + commit checkpoint ต่อข้อ. drama-app commits (local, ยังไม่ push — no remote):
+- `af503f5` ข้อ1 upload-back (endpoint /api/upload-image + ImageUpload + thumbnail) · `cb1d575` ข้อ3 gallery grid + detail panel · `33fe5ac` ข้อ8 success toast · `8c9c5d3` ข้อ7 แปลศัพท์เทคนิค→ไทย (เก็บใน tooltip) · `966526c` ข้อ2 sidebar ข้ามซีรีส์ · `d63a817` ข้อ4 ปุ่ม bulk video-prompt ทั้งตอน · `7cd0e64` ข้อ5 emotion chip สี+emoji · `9435a07` ข้อ9 rename Ledger→"ความต่อเนื่อง"+คำอธิบาย
+- **final build ✓** 15 route (static gen 10/10) · ทุกข้อ smoke จริงผ่าน (Bash run_in_background npm start + curl)
+- **บทเรียน orchestration:** (1) template verify อ่อนกับ copy/semantic task — ข้อ 7 รอบแรก drift (agent ไปทำ thumbnail แทนแปลศัพท์, verify PASS หลอกเพราะเช็คแค่ build) → main loop เช็ค diff เอง จับได้ revert+re-dispatch prompt ชัด (ย้ำ "งานแปลข้อความ ห้ามแตะรูป" + verify ต้อง grep) สำเร็จ · **ต้องเช็ค diff เองทุก copy task** (2) ข้อ 2 workflow ล้ม StructuredOutput retry cap แต่ implement เขียนไฟล์เสร็จก่อนล้ม → เช็ค build+อ่าน logic เอง = สมบูรณ์ commit ได้ ไม่ต้อง re-run (3) routine ต่อข้อ: commit checkpoint → revert data/ smoke side-effect → kill zombie server port 3000 (Get-NetTCPConnection+Stop-Process, Start-Process โดน sandbox block)
+- **known minor (ทำเพิ่มทีหลัง/polish):** sidebar ยังไม่มี active-series highlight (server component) · next-start snapshot public/ ตอน boot → รูป upload runtime อาจไม่ serve จน restart (dev mode ปกติ) · ข้อ 6 genre×setting dropdown = ทำตอน STEP 8
+
+### 🌙 AUTONOMOUS OVERNIGHT PLAN (07-10 — เดิม, ทำครบแล้ว ดูผลด้านบน)
+
+### 🌙 AUTONOMOUS OVERNIGHT PLAN (07-10 — Mirko ไปนอน สั่งทำ UI ให้ครบแล้ว save+sync)
+Mirko: "ถ้า 1 จบ รัน 2-5 แล้ว 7-9 เลย · คุม subagent ดีๆ" → main loop orchestrate เอง **sequential ทีละข้อ** (ห้ามขนาน — หลายข้อแตะไฟล์เดียว: ข้อ 1/3/8 = CharacterCard · 3/7/8 = หน้า character)
+- **order (dependency-aware):** 1(รันอยู่) → 3(gallery card) → 8(toast success) → 7(ซ่อนศัพท์) → 2(sidebar) → 4(bulk video-prompt) → 5(emotion chip) → 9(rename Ledger) · **เว้น 6**
+- **ต่อข้อ:** 1 workflow (scout→implement→build→fix, Sonnet+high) · รอจบ · build ผ่าน = **git commit `ui: item N ...` ใน D:/drama-app** (checkpoint) · build fail หลัง fix = `git checkout` revert เฉพาะข้อนั้น + mark skipped ในสรุป (ไม่ลามข้อถัดไป)
+- **ก่อน commit ทุกครั้ง:** `git status` + เช็ค `.gitignore` มี `.env*` (กัน commit ANTHROPIC_API_KEY) · drama-app = local repo ไม่มี remote → commit only ไม่ push
+- **smoke test genre×setting (Opus, รันคู่):** เสร็จ = เก็บผล 2 pack + verdict ลง `smoke-test-result.md` · **ยังไม่ deploy** (รอ Mirko approve ตอนตื่น)
+- **ปิดงาน:** ครบทุกข้อ + smoke test เสร็จ → อัพเดต STATE + save+sync brain repo (git add+commit+push · ระวัง secret) → drama-app commit local
+- **สรุปตอนตื่น:** ข้อไหนผ่าน/พัง/skip + smoke test verdict + วิธีทดสอบ UI + design รอ approve
 
 **บริบท:** Mirko ส่ง screenshot หน้า UI ของ smartaihub.app (แอปคนอื่น ดู `memory/smartaihub-drama-series.md`) มาถามว่าอยากได้ layout แบบนั้น — คุยกันแล้วตกลงขอบเขต ก่อนเริ่มลงมือให้อ่าน turn การคุยเรื่องนี้ในเซสชัน 07-08 ประกอบ (มี screenshot 4 ภาพ: gallery ตัวละคร, หน้า studio ต่อช็อต, หน้าเนื้อเรื่องเต็ม)
 
@@ -60,4 +77,56 @@ Next.js 15 + TS + Tailwind · เก็บข้อมูลเป็น JSON �
 
 **Model:** งานนี้เป็น **intelligence-asset (freeze ยาว)** ตาม [[feedback-model-effort-strategy]] ไม่ใช่ production — เดิมจะใช้ Fable (โมเดลฉลาดสุดตอนทำ pack ชุดแรก) แต่ **Fable ใช้ไม่ได้แล้วตอนนี้** → กฎคือ "โมเดลฉลาดสุดที่มี" ไม่ใช่ hardcode ชื่อ Fable ดังนั้นใช้ **Opus 4.8 + ultracode + verify 2 เลนส์ (fidelity + operability)** แทน · settings.json pin Opus 4.8 ไว้แล้ว (apply ตอน restart session)
 
-**สถานะ:** ยังไม่เริ่ม — Mirko ขอ "เอาเข้าแผนก่อน" รอสั่งเริ่มเอง เมื่อเริ่ม: restart/สลับ `/model` → Opus 4.8 → dispatch ออกแบบ pack ผ่าน ultracode (ห้าม main loop เขียนเอง ตาม CLAUDE.md) → เสร็จแล้ว deploy เข้า `D:\drama-app\prompts\` เหมือน pack ชุดแรก + rerun smoke
+**สถานะ:** ✅ **DONE (07-10)** — pack ที่ 6 `revenge-vindication` (4,366 chars ≤4,500) deploy ครบ
+- **build ผ่าน ultracode Workflow** (7 agents, 0 error, ~858K tokens, Opus 4.8 inherit): Draft ×3 เลนส์ (mechanic-fidelity/ai-operability/tonal-swing) → Synthesize → Verify ×2 เลนส์ (fidelity+operability, adversarial, ทั้งคู่ PASS) → Repair (แก้ 3 minor: trace [SAH]→[CAST], เติม trope แม่เลี้ยง/สลับตัว, trim budget)
+- pack แกน = cruelty→humiliation→triumphant reveal (ขาว-ดำสุดขั้ว ReelShort/DramaBox) · ครบ 8 หัวข้อ a-h ตาม template · casting idol-glam รวมนางร้าย [[feedback-drama-character-casting]] · Fincher preset สำหรับ reveal beat
+- **deploy:** แปะเข้า `intel-pack/09-genre-packs.md` (ก่อน `> Sources:`, +tag [CAST] ใน footer) + enum `revenge-vindication` ใน `00-contracts.md §1.1` + สารบัญ/ตาราง §09 → copy 09+00 เข้า `D:\drama-app\prompts\` (diff identical)
+- **verify:** `npm run build` ผ่าน 14 route · grep ยืนยัน 00+09 = static reference แอปยังไม่โหลด runtime (zero-touch, backward-compat สมบูรณ์) — endpoint โหลดแค่ 01/02/04/05/06/07
+- **⚠️ ค้าง (งานเดียวกับ UI redesign ข้อ 6):** แอปยังไม่ inject `genre_pack` เข้า envelope → pack ทั้ง 6 อยู่ใน prompts/ แต่ยังไม่ถูกเรียกจริง · ต้อง wire ตอนทำ UI redesign
+- teardown validation ชั้น 3 = section ล่าง (จะเสริม/ทับด้วยข้อมูลจริงจาก bilibili.tv ทีหลัง)
+
+## 🔜 PENDING: teardown ละคร revenge จริง → validate/เสริม pack (07-10 — รอ Mirko ส่งคลิป)
+
+**บริบท:** Mirko ถาม "วิธีการเล่า" ใน 09-genre-packs มาจากไหน — ตอบตรง: pack แบ่ง 3 ชั้นความแข็ง (1) โครงกระดูก 5 ช่วง+hook 4 ประเภท = hard source `vertical-drama-basics-dramy` (Dramy.ai) · (2) craft การเจน = hard source `seedance-knowledge` (validated จากเจนจริง) · (3) **"วิธีเล่าเฉพาะแนว" (เช่น revenge = cruelty→humiliation→triumphant reveal) = informed synthesis** จาก LLM dramatic-convention (archetype Monte Cristo/Cinderella-flip) + market observation (ReelShort/DramaBox/ผกาแก้ว×ขจรเดช) — **ยังไม่ผ่าน systematic teardown เชิงประจักษ์** (ต่างจาก `ads-50-teardown` ที่แกะโฆษณาจริง 50 ตัว) = gap ที่ยอมรับ
+
+**แผน teardown 3 เฟส (model/effort ตัดสินแล้วตาม [[feedback-model-effort-strategy]]):**
+| เฟส | งาน | โมเดล/effort | ใครทำ |
+|---|---|---|---|
+| 1. เตรียมของ | contact sheet (ffmpeg 5×6) + transcript (whisper ASR) | ไม่มี LLM = script ล้วน (`_batch.py` มีอยู่) | ผม |
+| 2. teardown per-clip ×8-15 | สกัด hook/beat/cliffhanger ต่อคลิป | **Sonnet + high** (fan-out ขนาน, `teardown-analyst`) | ผม |
+| 3. synthesis → สูตรกลาง → feed เข้า pack | รวม pattern ข้ามคลิป เป็นสูตร revenge เชิงประจักษ์ | **Opus 4.8 + xhigh + ultracode verify 2 เลนส์** | ผม (dispatch) |
+
+**หลัก:** effort สูง=ช้าลงไม่เร็ว → เฟส 2 ใช้ high พอ, เร่งด้วย parallel · เผา Opus แค่เฟส 3 จุดเดียว (asset freeze), ที่เหลือ Sonnet = คุ้มสุด · contact sheet=ภาพ ตัวแกะต้องมี vision (Sonnet มี)
+
+**Tooling setup (07-10 — เตรียมเฟส 1, ยังไม่เสร็จ):**
+- ✅ **yt-dlp ติดตั้งแล้ว** (v2026.07.04) — เรียกผ่าน `python -m yt_dlp` (ไม่อยู่ใน bash PATH ตรงๆ) · เครื่องมี python 3.10 + node v24
+- ❌ **ffmpeg ยังไม่ติดตั้ง** — ต้องทำก่อน download (bilibili แยก video/audio stream ต้อง merge) + ก่อน contact sheet เฟส 1 · ทางง่ายสุด = `pip install imageio-ffmpeg` (ได้ binary bundled, ไม่ต้อง winget/PATH) หรือ winget install ffmpeg
+- ✅ **แหล่ง = bilibili.tv (international, /th/) ยืนยันโหลดได้จริง** — probe URL ตัวอย่าง `https://www.bilibili.tv/th/video/4800046393334784` ผ่าน BiliIntl extractor: ไม่ติด login, ไม่ติด geo, ได้ถึง **720×1280 (720P 9:16 แนวตั้ง)** ตรง format · ต่างจาก bilibili.com จีน (ตัวนั้น geo-block บาง OGV) — .tv เป็น global platform มี sub ไทย เหมาะกว่า
+- ⚠️ python 3.10 = yt-dlp เตือน deprecated (ยังใช้ได้) — ควรอัพ 3.11+ อนาคต
+- **ค้าง:** ติดตั้ง ffmpeg + test download 1 คลิปเต็ม (merge จริง res ไหน) — ทำตอนเริ่ม teardown จริง
+
+**ต้องการจาก Mirko:** คลิปละคร revenge จริง 8-15 ตัว (ReelShort/DramaBox free eps / viral compilation YouTube-TikTok / ผกาแก้ว×ขจรเดช) — โหลด mp4 ไว้ `Desktop/Ads/` แล้วบอก path หรือส่ง link · ไม่ต้อง 50 (revenge สูตรตายตัว 10 เรื่องเห็นโครงซ้ำ)
+
+**ข้อจำกัด:** ReelShort/DramaBox มี paywall → ผมดึงจาก app เองไม่ได้ · ฟรีจริง = viral compilation + ตอนแรกปลดฟรี · ละครไทย YouTube/TikTok โหลดง่ายกว่า
+
+**สถานะ:** ยังไม่เริ่ม — Mirko "เอาทีละส่วน" ขอเซฟเข้าแผนก่อน · pack synthesis (ด้านบน) พอสำหรับตอนนี้ teardown เสริมทีหลังตอนมีคลิป (ทับ/เสริมชั้น 3 ของ pack ด้วยข้อมูลจริง)
+- **07-10 scope ตัดสิน:** teardown แกะเฉพาะ **ลำดับการเล่า** (structural beats+timing, world-agnostic) — Mirko: "แนว=แค่ style เปลี่ยนได้ โฟกัสลำดับการเล่า" · 17 links = proven winners (ยอดวิวหลายแสน bilibili) แกะได้ทุกเรื่องไม่ต้องกรอง flavor · ราย link+กลุ่ม = `teardown-sources.md`
+
+## 🔜 DECISION PENDING: แยกสถาปัตยกรรม genre × setting (07-10 — Mirko ชี้, รอ commit)
+
+**Mirko ยืนยัน concept:** "comedy ใช้ setting ไหนก็ได้ คนรวย/คนจน/แฟนตาซี/ย้อนยุค ขอแค่เป็น genre comedy" = **แนวเล่า กับ โลก เป็น 2 มิติอิสระ**
+- **แกน 1 = genre/แนวเล่า** (comedy/revenge/romance/thriller/action/family) → hook weighting · beat flavor · acting grammar · cliffhanger · pacing = *วิธีเล่า* (world-agnostic)
+- **แกน 2 = setting/โลก** (สมจริง/คนรวย/คนจน/แฟนตาซี/ย้อนยุค) → visual & lighting · prop · ชื่อ/บริบท · casting flavor = *ฉาก* (genre-agnostic)
+- แอป: 2 dropdown (แนว × โลก) → inject 2 pack ประกบ · ข้อดี = 6 แนว × N โลก = combination เยอะโดยเขียนแค่ 6+N ไม่ใช่ 6×N
+
+**กระทบระบบปัจจุบัน:** genre pack ทั้ง 6 (รวม revenge ที่เพิ่งทำ) **ผูก flavor ไว้ในตัว** (revenge=modern rich-family, comedy=deadpan family) — ถ้า commit ต้อง refactor: แยกส่วน d) VISUAL&LIGHTING + e) DIRECTOR PRESETS (+ prop/casting) ออกเป็น "setting pack" · ส่วน a/b/c/f/h (hook/beat/acting/cliffhanger/pacing) คงเป็น genre pack · โครงที่ทำมาไม่เสีย แค่จัดใหม่ (บาง pitfalls ก้ำกึ่งต้องคิดละเอียดตอนทำ)
+- งานนี้ = intelligence-asset (สถาปัตยกรรม/สัญญากลาง refactor ข้ามหลายไฟล์) → ตาม [[feedback-model-effort-strategy]] = **โมเดลฉลาดสุด+ultracode+verify** (scope ใหญ่ ข้าม 6 pack + contracts §1.1/§1.7 + UI) ไม่ใช่ additive เล็ก
+- ต่อยอด UI redesign ข้อ 6 (เดิมจะทำ genre dropdown อย่างเดียว — ตอนนี้เป็น genre × setting 2 dropdown)
+
+**สถานะ:** ✅ **DESIGN DONE (07-10)** — doc เต็ม = `projects/drama-app/genre-setting-design.md` (44KB) · dispatch ผ่าน ultracode workflow (8 agents, ~719K tokens, Opus 4.8): Analyze (section-ownership matrix) → Design ×3 มุม → Synthesize → Verify ×2 เลนส์ (เจอ 5 blocking) → Plan (แก้ blocking ครบใน migration steps)
+- **สถาปัตยกรรม:** 6 แนว × 9 โลก = 54 คู่ เขียนแค่ 15 ก้อน · genre ถือ "วิธีเล่า" (09 ผอมลง) · setting ถือ "ฉาก" (ไฟล์ใหม่ 10) · แอป 2 dropdown → inject setting→genre
+- **กลไกแก้ปมสำคัญ:** (1) hook = "genre นิยามช่อง (slot) / setting ทาผิว (skin)" กันภาพเซ็นเนเจอร์หาย (2) conflict = บันได 4 ขั้น (HARD > GENRE@function > SETTING@fixture > plot-device) + ทุกโลกต้องมี "หลอดแข็ง/ไม่สวย" ≥1 ให้ genre function เกาะ (3) tie-break จริงมาจาก lint (genre=0 ชื่อหลอด) + LLM ไม่ใช่ inject order
+- **9 โลก:** 6 carve จากเดิม (real-urban/home/minimal/dim/gritty/high-society = default ของ 6 แนว) + 3 ใหม่ (rural-poor/fantasy 2-register/period)
+- **migration 9 STEP** (0 audit §6 → 6 acceptance test → 7 net-new → 8 wire) · effort: STEP 2/3/6/7 = Opus+ultracode (จุด asset) · STEP 8 wire = Sonnet · ประเมิน ~1.2-1.8M แบ่ง 2 รอบได้
+- **✅ Mirko approve + ตอบ (07-10):** เริ่มแบบ **smoke-test 1 โลกก่อน** (high-society) · ย้อนยุค = **จีนวังหลวง xianxia** (ทำตอน STEP 7) · ค่าอื่นใช้ตาม design แนะ (fantasy 2-register, lint gate, ลุคทางเบา 01/02, สมจริงซอย 5)
+- **✅ SMOKE TEST PASS (07-10):** ผลเต็ม = `projects/drama-app/smoke-test-result.md` · carve revenge → genre[revenge]ผอม (4,476ch, lint zero-fixture ✅) + setting[high-society] (3,070ch) · **verify PASS ทั้ง 2 เลนส์** (fidelity: ของไม่หาย+humiliation เย็น/สถาบัน · operability: lint/budget/backward-compat) · repaired 1 รอบ · **สถาปัตยกรรมพิสูจน์แล้วว่าเวิร์ก** — คู่นี้เป็น template ให้ carve คู่อื่น · **ยังไม่ deploy รอ Mirko approve** ตอนตื่น → ถ้า OK ทำ migration เต็ม STEP 1-8 (รวม period=xianxia)
