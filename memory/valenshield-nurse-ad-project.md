@@ -230,13 +230,15 @@ Avoid: warped face, identity drift, uncanny expression, jitter.
 - [ ] ไม่มี morph ตอนเปลี่ยนระยะ (ถ้ามี = อย่าซูมในคลิป)
 - [ ] เลือกอันที่ "ตอนภาพเคลื่อน" ดีสุด ไม่ใช่เฟรมนิ่งสวย
 
-## 10. สถานะปัจจุบัน & ขั้นต่อไป (อัป 30 มิ.ย.)
-- **Clip 1:** ✅ backup ขาเดียว · ⏳ เวอร์ชัน 2 ขา
-- **Clip 2:** ⏳ มือเพี้ยน → ลอง hands block `believable hand proportions, natural finger curvature, realistic grip` ([[ai-influencer-image-prompt]]) + `exactly two arms, five fingers per hand` / fallback ไม่มีมือ
-- **Clip 3:** ⏳ มือพัง → whip-twist A ไม่มีมือ
-- **Clip 4:** ⏳ แตกเป็น sequence (4a leap reference-mode low-angle · 4b ซูมเป้า hyperzoom/cut · landing crouch ramp) — **เจนรูป low-angle hero + ลอง animate ตามสูตรใหม่ session นี้**
-- **Clip 5:** ⏳ flow ลงตัวแล้ว (ลุก→ซูมครึ่งตัว cinematic, first+last frame) — ยังไม่เจน
-- **ประกอบ:** ◻️ ครบ 5 คลิป → CapCut: speed ramp + บีต + โลโก้/สโลแกน + hard cut
+## 10. สถานะปัจจุบัน & ขั้นต่อไป (อัป 10 ก.ค. — ลำดับ/เนื้อคลิปเปลี่ยนจากแผนเดิม)
+> ⚠️ storyboard section 7 ด้านบน = แผนเก่า (เลขคลิปไม่ตรงแล้ว). สถานะจริงล่าสุด:
+- **Clip 1 = วิ่งโดดฉีกขา (split leap):** ✅ DONE
+- **Clip 2 = น้ำกลิ้งบนผ้า (water rolls off):** ✅ DONE
+- **Clip 3 = เดินบนลู่วิ่ง (treadmill walk):** ✅ DONE
+- **Clip 4 = ยังไม่มี concept — รอ Mirko ส่งบอร์ด** (10 ก.ค.) แล้วค่อยทำ prompt
+- **Clip 5 (brand close):** ⏳ ยังไม่เริ่ม
+- **ประกอบ:** ◻️ CapCut speed ramp + บีต + โลโก้/สโลแกน + hard cut
+> กฎ/บทเรียนทั้งหมด (section 5, input mode, hands block, hyperzoom) = ยังใช้ได้ทุกคลิป
 
 ### 🔑 insight session 30 มิ.ย. (ใช้กับทุกคลิป)
 - **input mode:** reference = ให้ model สร้าง action (วิ่งมาก่อนโดด) · first frame = ล็อกเฟรมเปิด · first+last = interpolate A→B (ดู [[seedance-knowledge]])
