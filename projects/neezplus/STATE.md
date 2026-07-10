@@ -11,16 +11,24 @@ updated: "2026-07-10"
 > orchestrator อัปเดตไฟล์นี้ทุกครั้งที่จบขั้น · เปิดมาทำต่อ = อ่านไฟล์นี้ก่อน
 
 ## ล่าสุด (2026-07-10)
-- ตั้งโปรเจกต์แล้ว (ก๊อป _template). Brief สรุปจากประชุม 2 รอบ = `01-brief.md` (บทเต็ม `meetings/`). scope = 20 คลิป: 12 UGC คนพูด + 8 product showcase
-- **SB01 (Tuna&Salmon อาหารเม็ด) = คลิปพูดคลิปแรก ทำ Veo prompt ไปแล้ว** แต่ทำก่อนได้ meeting → presenter spec **ผิด ต้องแก้** (ดูล่าง)
+- ตั้งโปรเจกต์แล้ว. Brief = `01-brief.md`, บทเต็ม `meetings/`
+- **storyboard-master.md** = pull จาก Google Sheet: บทครบ **SB01–08 (อาหารทั้งหมด)** + โครง SB09–12 ทราย (รอบท) + SB13–20 showcase (รอ product)
+- **presenter-character-kit.md** = identity-lock kit เสร็จ (asset-prompt-builder) ล็อกจาก ref 2 รูป — GPT Image 2, blank-box logo + composite post
+- **สีสูตรเพิ่ม**: SB03 ม่วง✅ · SB05/06 เขียว✅ · SB07 ส้ม✅ · **SB01 ฟ้าอ่อน** (derived จากถุงจริงใน Product drive) · SB02/SB04/SB08 ยัง TBD
 
 ## ขั้นถัดไป
-1. ล็อก presenter character sheet — ชายเนิร์ด/วิชาการ + แว่น + เสื้อยืดคอกลมดำ + โลโก้ NEEZ+ ขาว → คนเดียว 12 คลิป
-2. redo SB01 Veo prompt ให้ตรง spec จริง
-3. รอบทครบทุกสูตร + สีสูตร → ทำ prompt ก้อน A ที่เหลือ
+1. ✅ presenter kit เสร็จ → **Mirko gen Face Sheet + Full-Body Sheet** (order ในไฟล์ kit) + composite โลโก้จริง
+2. redo SB01 Veo prompt ให้ตรง spec จริง (ใช้ drop-in template จาก kit, BG ฟ้าอ่อน)
+3. ทำ prompt ก้อน A ที่เหลือ (SB02–08) — รอสี SB02/04 + เกลา compliance ก่อน
+
+## PRESENTER ล็อกแล้ว (07-10, จาก ref จริง)
+- ชายเอเชีย (เกาหลี-look) 20 ปลายๆ, หน้าเนิร์ด/นุ่มนวล friendly, ผมดำสั้นหนา
+- **แว่นกลม กรอบโลหะดำบาง** (round thin metal frame)
+- **เสื้อยืดคอกลมดำ oversized** โลโก้ที่อกซ้าย = กล่องขาว "NEEZ+" + ข้างล่าง "neezplus."
+- ref: `/Volumes/WONYOUNG/Neezplus/ChatGPT Image Jul 6, 2026, 05_49_12 PM.png` (หน้า) + `Screenshot 2569-07-08 at 09.25.41.png` (เสื้อ/wardrobe)
 
 ## ล็อกแล้ว ห้ามเปลี่ยน
-ratio 9:16 · 30 วิ/คลิป · presenter คนเดียวตลอด 12 คลิป · เสื้อยืดคอกลมดำ + โลโก้ NEEZ+ ขาว · BG solid สีล้อสูตร · โทน = ตัวแทนบริษัท (ไม่ใช่ user review)
+ratio 9:16 · 30 วิ/คลิป · presenter คนเดียวตลอด 12 คลิป (สเปกด้านบน) · BG solid สีล้อสูตร · โทน = ตัวแทนบริษัท (ไม่ใช่ user review)
 
 ## ต้องแก้ SB01 (presenter ทำก่อนได้ meeting เลยผิด)
 - ❌ เดิม: เสื้อยืดเทา, ไม่มีโลโก้, ไม่มีแว่น, BG TBD
