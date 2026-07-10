@@ -253,14 +253,19 @@ keep the logo identical across all 12 clips.
 
 ## 5 · PER-SCENE DROP-IN TEMPLATE (talking clips — 9:16)
 
+> **Production note:** all talking-clip frames are now shot on a chroma-key GREEN SCREEN backdrop.
+> The formula-colour BG and the on-screen text are composited in post after keying out the green.
+
 > New chat per clip. Attach `@Image1 = NEEZ_PRESENTER_fullbody.png` (identity + wardrobe master)
 > and `@Image2 = NEEZ_PRESENTER_facesheet.png` (face lock). Fill slots. This is the FIRST FRAME
 > of the video shot, so render a natural holdable starting pose (not the peak gesture). Spatial,
 > not temporal — no motion words.
 
 **Slots:**
-- `{FORMULA_COLOR}` = solid BG colour that echoes the product formula (e.g. purple for Chicken
-  Senior 7+, green for chicken wet, orange for fish wet, TBD for Tuna & Salmon kibble).
+- `{FORMULA_COLOR}` = **no longer baked into the frame** — the frame is now shot on green screen and
+  the formula colour is composited in post over the keyed backdrop. The slot is retained only as the
+  post-composite BG colour reference (e.g. purple for Chicken Senior 7+, green for chicken wet,
+  orange for fish wet, TBD for Tuna & Salmon kibble).
 - `{PRODUCT_BAG}` = which Neezplus bag/box he holds (leave blank / "no product yet" for
   speak-first hook frames).
 - `{POSE}` = `standing` or `seated` (see two ready variants below).
@@ -286,9 +291,12 @@ Pose: {POSE}, upper body squared to camera, relaxed shoulders, {PRODUCT_BAG} hel
 at lower-chest height, angled so its front face reads to camera. Expression: attentive and warm,
 lips parted mid-word as if explaining, soft eyes behind the glasses, faint friendly smile.
 
-Background: a clean, evenly-lit SOLID {FORMULA_COLOR} studio backdrop, smooth and seamless,
-slightly darker toward the edges; empty negative space on the upper-left for a later on-screen
-text highlight. One soft frontal key light plus gentle fill, natural soft shadow under the jaw.
+Background: a solid, evenly-lit chroma-key GREEN SCREEN backdrop — bright pure chroma green, smooth
+and seamless, flat and uniformly lit with no shadows or hotspots on the green, for clean keying. The
+subject is cleanly separated from the backdrop with NO green spill on skin, hair, glasses or
+clothing. Keep clear headroom and even space around the subject for later background compositing.
+One soft frontal key light plus gentle fill on the subject, natural soft shadow under the jaw (keep
+the shadow on the subject, not on the green backdrop).
 
 Photographed on a full-frame camera, natural skin texture with visible pores and slight natural
 facial asymmetry, a few flyaway hairs, unretouched, no beauty-filter gloss, true-to-life adult

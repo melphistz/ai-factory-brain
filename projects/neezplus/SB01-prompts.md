@@ -9,7 +9,7 @@ ratio: "9:16"
 duration: "30s"
 image_model: "GPT Image 2 (primary) · Nano Banana Pro (alt)"
 video_model: "Veo 3 / Google Flow"
-bg_color: "solid light sky-blue studio backdrop"
+bg_color: "chroma-key green screen — composite formula-colour BG + text in post"
 created: "2026-07-10"
 ---
 
@@ -17,8 +17,9 @@ created: "2026-07-10"
 
 Pipeline: GPT Image 2 first-frame → Veo 3 / Google Flow animate + Thai lip-sync.
 6 scenes. Presenter frames = scenes 1 / 3 / 5 / 6. Scenes 2 / 4 = B-ROLL real/AI cat inserts
-(no presenter frame — see §B-ROLL). All presenter frames = solid **light sky-blue** studio backdrop,
-9:16, upper-left negative space kept clear for the post-added Thai text highlight (คนบังได้).
+(no presenter frame — see §B-ROLL). All presenter frames = chroma-key **GREEN SCREEN** backdrop,
+9:16; the formula-colour BG and the Thai text highlight (คนบังได้) are composited in post after
+keying out the green.
 Chest logo = blank white box in the gen, real `logo-nees-on-black.jpg` composited in post (kit §4).
 
 ---
@@ -50,10 +51,12 @@ single small plain WHITE rounded-corner rectangle (blank, no text inside) as a l
 paired with plain relaxed black trousers.
 ```
 
-**SCENE / LIGHT LEDGER (SB01):** solid, evenly-lit **light sky-blue** seamless studio backdrop,
-smooth, slightly darker toward the edges. One soft frontal key + gentle fill, natural soft shadow
-under the jaw. No visible floor line, no reflective surface (plain seamless studio). Upper-left
-quadrant kept as empty negative space for the on-screen text highlight.
+**SCENE / LIGHT LEDGER (SB01):** solid, evenly-lit chroma-key **GREEN SCREEN** backdrop — bright,
+pure chroma green, smooth and seamless, flat and uniformly lit for clean keying (no shadows or
+hotspots on the green). One soft frontal key + gentle fill on the subject, natural soft shadow
+under the jaw (kept on the subject, not on the green). No visible floor line, no reflective surface
+(plain seamless studio), no green spill on skin, hair, glasses or clothing. Text and final
+background are composited in post after keying; keep clean headroom/space around the subject.
 
 **DRIFT NOTES vs Phase A (logged once — ledger follows reality, block kept verbatim because the
 sheet is the attached anchor in every frame):**
@@ -141,9 +144,12 @@ and caring — inner brows drawn faintly together and slightly raised, a soft cr
 brows, eyes attentive behind the glasses, lips just barely parted as if about to begin the first
 word. Head level, gaze straight into the lens.
 
-Background: a clean, evenly-lit SOLID light sky-blue studio backdrop, smooth and seamless, slightly
-darker toward the edges; empty negative space in the upper-left for a later on-screen text
-highlight. One soft frontal key light plus gentle fill, natural soft shadow under the jaw.
+Background: a solid, evenly-lit chroma-key GREEN SCREEN backdrop — bright pure chroma green, smooth
+and seamless, flat and uniformly lit with no shadows or hotspots on the green, for clean keying. The
+subject is cleanly separated from the backdrop with NO green spill on skin, hair, glasses or
+clothing. Keep clear headroom and even space around the subject for later background compositing.
+One soft frontal key light plus gentle fill on the subject, natural soft shadow under the jaw (keep
+the shadow on the subject, not on the green backdrop).
 
 Photographed on a full-frame camera, natural skin texture with visible pores and slight natural
 facial asymmetry, a few flyaway hairs, unretouched, no beauty-filter gloss, true-to-life adult
@@ -170,11 +176,13 @@ characteristics. No body morphing. No character replacement. No identity drift.
 Preserve exactly: the black oversized crew-neck t-shirt, the white chest logo patch, colors,
 fabric. Do not change wardrobe. No outfit replacement. No color changes.
 [ENVIRONMENT_LOCK]
-Preserve the solid light sky-blue seamless studio backdrop from the reference image and the empty
-upper-left negative space. Do not add objects, text, furniture, or background elements.
+Preserve the solid chroma-key green screen backdrop from the reference image — flat, bright, evenly
+lit for clean keying. Do not add objects, text, furniture, or background elements. Keep the green
+backdrop clean and uniform with no green spill onto the subject.
 [ATMOSPHERE_LOCK]
-Maintain identical soft frontal key lighting, gentle fill, soft under-jaw shadow, sky-blue color
-grading and mood. Preserve the visual feeling of the reference image.
+Maintain identical soft frontal key lighting, gentle fill, soft under-jaw shadow, neutral color
+grading, no colored cast on the subject, backdrop stays even chroma green. Preserve the visual
+feeling of the reference image.
 [IDENTITY_PERSISTENCE]
 Maintain the exact same person throughout. No identity drift, no face morphing, no age changes, no
 hairstyle changes. The final frame must match the first frame.
@@ -237,9 +245,12 @@ lower-right of frame so the presenter's face and the upper-left stay clear. Expr
 explaining — relaxed brows, soft eyes behind the glasses, faint friendly smile, lips parted mid-word
 as if introducing the product. Head level, gaze into the lens.
 
-Background: a clean, evenly-lit SOLID light sky-blue studio backdrop, smooth and seamless, slightly
-darker toward the edges; empty negative space in the upper-left for a later on-screen text
-highlight. One soft frontal key light plus gentle fill, natural soft shadow under the jaw.
+Background: a solid, evenly-lit chroma-key GREEN SCREEN backdrop — bright pure chroma green, smooth
+and seamless, flat and uniformly lit with no shadows or hotspots on the green, for clean keying. The
+subject is cleanly separated from the backdrop with NO green spill on skin, hair, glasses or
+clothing. Keep clear headroom and even space around the subject for later background compositing.
+One soft frontal key light plus gentle fill on the subject, natural soft shadow under the jaw (keep
+the shadow on the subject, not on the green backdrop).
 
 Photographed on a full-frame camera, natural skin texture with visible pores and slight natural
 facial asymmetry, a few flyaway hairs, unretouched, no beauty-filter gloss, true-to-life adult
@@ -273,10 +284,12 @@ Preserve exactly the Neezplus Grain Free Tuna & Salmon bag held in both hands �
 legible, front face toward camera. Do not warp, redesign, or relabel the bag. Hands stay natural
 with five fingers, no extra fingers.
 [ENVIRONMENT_LOCK]
-Preserve the solid light sky-blue seamless studio backdrop and the empty upper-left negative space.
-Do not add objects or text.
+Preserve the solid chroma-key green screen backdrop from the reference image — flat, bright, evenly
+lit for clean keying. Do not add objects, text, furniture, or background elements. Keep the green
+backdrop clean and uniform with no green spill onto the subject.
 [ATMOSPHERE_LOCK]
-Maintain identical soft frontal key lighting, gentle fill, sky-blue color grading and mood.
+Maintain identical soft frontal key lighting, gentle fill, neutral color grading, no colored cast on
+the subject, backdrop stays even chroma green.
 [IDENTITY_PERSISTENCE]
 Same person throughout. No identity drift, no face morphing, no age or hairstyle changes. The final
 frame must match the first frame.
@@ -338,9 +351,12 @@ gesture not yet at full extension). Expression: confident and emphatic but warm 
 raised, engaged focused eyes behind the glasses, lips parted mid-word as if stating a number. Head
 level, gaze into the lens.
 
-Background: a clean, evenly-lit SOLID light sky-blue studio backdrop, smooth and seamless, slightly
-darker toward the edges; empty negative space in the upper-left for a later on-screen text
-highlight. One soft frontal key light plus gentle fill, natural soft shadow under the jaw.
+Background: a solid, evenly-lit chroma-key GREEN SCREEN backdrop — bright pure chroma green, smooth
+and seamless, flat and uniformly lit with no shadows or hotspots on the green, for clean keying. The
+subject is cleanly separated from the backdrop with NO green spill on skin, hair, glasses or
+clothing. Keep clear headroom and even space around the subject for later background compositing.
+One soft frontal key light plus gentle fill on the subject, natural soft shadow under the jaw (keep
+the shadow on the subject, not on the green backdrop).
 
 Photographed on a full-frame camera, natural skin texture with visible pores and slight natural
 facial asymmetry, a few flyaway hairs, unretouched, no beauty-filter gloss, true-to-life adult
@@ -373,10 +389,12 @@ Preserve exactly the Neezplus Grain Free Tuna & Salmon bag — sky-blue front, "
 "TUNA & SALMON" panel, fisherman illustration. Keep bag artwork stable and legible, front to
 camera. Do not warp or relabel. Hands natural, five fingers, no extra fingers.
 [ENVIRONMENT_LOCK]
-Preserve the solid light sky-blue seamless backdrop and empty upper-left negative space. No added
-objects or text.
+Preserve the solid chroma-key green screen backdrop from the reference image — flat, bright, evenly
+lit for clean keying. Do not add objects, text, furniture, or background elements. Keep the green
+backdrop clean and uniform with no green spill onto the subject.
 [ATMOSPHERE_LOCK]
-Maintain identical soft frontal key lighting, gentle fill, sky-blue color grading and mood.
+Maintain identical soft frontal key lighting, gentle fill, neutral color grading, no colored cast on
+the subject, backdrop stays even chroma green.
 [IDENTITY_PERSISTENCE]
 Same person throughout. No drift, no morphing, no age or hairstyle change. Final frame matches first.
 [FRAME_CONSISTENCY]
@@ -436,9 +454,12 @@ mid-chest height, presented gently forward with its sky-blue front toward camera
 friendly closing smile, eyes slightly narrowed with genuine warmth behind the glasses, lips just
 parting to begin the closing line. Head level, gaze into the lens.
 
-Background: a clean, evenly-lit SOLID light sky-blue studio backdrop, smooth and seamless, slightly
-darker toward the edges; empty negative space in the upper-left for a later on-screen text
-highlight. One soft frontal key light plus gentle fill, natural soft shadow under the jaw.
+Background: a solid, evenly-lit chroma-key GREEN SCREEN backdrop — bright pure chroma green, smooth
+and seamless, flat and uniformly lit with no shadows or hotspots on the green, for clean keying. The
+subject is cleanly separated from the backdrop with NO green spill on skin, hair, glasses or
+clothing. Keep clear headroom and even space around the subject for later background compositing.
+One soft frontal key light plus gentle fill on the subject, natural soft shadow under the jaw (keep
+the shadow on the subject, not on the green backdrop).
 
 Photographed on a full-frame camera, natural skin texture with visible pores and slight natural
 facial asymmetry, a few flyaway hairs, unretouched, no beauty-filter gloss, true-to-life adult
@@ -475,10 +496,12 @@ Preserve exactly the Neezplus Grain Free Tuna & Salmon bag held in both hands �
 "NEEZ+" mark, "TUNA & SALMON" panel, fisherman illustration. Keep bag artwork stable and legible,
 front to camera. Do not warp or relabel. Hands natural, five fingers, no extra fingers.
 [ENVIRONMENT_LOCK]
-Preserve the solid light sky-blue seamless backdrop and empty upper-left negative space. No added
-objects or text.
+Preserve the solid chroma-key green screen backdrop from the reference image — flat, bright, evenly
+lit for clean keying. Do not add objects, text, furniture, or background elements. Keep the green
+backdrop clean and uniform with no green spill onto the subject.
 [ATMOSPHERE_LOCK]
-Maintain identical soft frontal key lighting, gentle fill, sky-blue color grading and warm mood.
+Maintain identical soft frontal key lighting, gentle fill, neutral color grading, no colored cast on
+the subject, backdrop stays even chroma green.
 [IDENTITY_PERSISTENCE]
 Same person throughout. No drift, no morphing, no age or hairstyle change. Final frame matches first.
 [FRAME_CONSISTENCY]
@@ -513,8 +536,9 @@ Product pack-shot, 9:16 vertical. The Neezplus Grain Free Tuna & Salmon 1kg cat-
 @Image3 — sky-blue front with the "NEEZ+" mark top-left, a large "TUNA & SALMON" panel and a
 fisherman illustration — reproduce the bag artwork faithfully and keep all printed text crisp and
 legible. The bag stands upright, front face square to camera, slightly hero-lit from the upper
-left, on a clean solid light sky-blue seamless studio backdrop with a soft contact shadow beneath
-it and empty negative space in the upper-left for a later on-screen text highlight.
+left, on a clean solid chroma-key GREEN SCREEN backdrop — bright pure chroma green, flat and evenly
+lit for clean keying, with a soft contact shadow beneath the bag kept on the surface not on the
+green; keep even space around the bag for later background compositing.
 
 Photographed on a full-frame camera, soft studio product lighting, subtle realistic sheen on the
 foil bag, natural soft shadow, no beauty-filter gloss. no text, no captions, no logos, no
@@ -530,7 +554,7 @@ watermarks anywhere in the image except the product bag's own printed artwork.
 - First-frame discipline: true starting pose (lips just parting; gestures pre-peak), spatial not temporal, expression = literal muscle state (brows/eyes/lips). ✔
 - No temporal/motion words inside the IMAGE prompts (motion lives only in Veo `[ACTION]`/`[SPEECH]`). ✔
 - No-text tail on every image prompt (bag-artwork exception stated where the bag is held). ✔
-- BG = solid light sky-blue on every SB01 presenter frame; upper-left negative space reserved for text highlight (คนบังได้). ✔
+- BG = chroma-key green screen on every SB01 presenter frame; formula-colour BG + text highlight (คนบังได้) composited in post after keying. ✔
 - Module distinction: Scene 1 = tight concerned CU (no bag) vs Scenes 3/5/6 = medium, bag-in-hand, distinct beats (recommend / spec / warm close). ✔
 - Chest logo kept as blank white box for post-comp; product bag reproduced from @Image3. ✔
 - Veo prompts follow the lock-tag master template + Thai VO pacing (finish 5–6s) + company-rep tone (warm/credible, not hard-sell). ✔
@@ -543,8 +567,9 @@ watermarks anywhere in the image except the product bag's own printed artwork.
 
 ## ⚠ ASK (Mirko / client)
 
-1. **Sky-blue BG confirm** — derived from the real bag; confirm the client is happy with a solid
-   light sky-blue backdrop for the whole SB01 clip (kit §7 ASK #1 was still open).
+1. **Post-composite formula colour confirm** — BG is now shot as chroma-key green screen; confirm
+   the client is happy with the sky-blue (derived from the real bag) as the composited formula-colour
+   BG for the whole SB01 clip (kit §7 ASK #1 was still open).
 2. **Scene 6 final script** — pick the compliant line vs the conservative alt, and get client
    sign-off on the `[รีวิวเพียบ]` on-screen tag before any lip-sync render (regulation proof).
 3. **Scene 5 pacing** — confirm delivering the full protein/fat line in ~6s is acceptable, or use

@@ -30,6 +30,7 @@ updated: "2026-07-10"
 - **แว่นกลม กรอบโลหะดำบาง** (round thin metal frame)
 - **เสื้อยืดคอกลมดำ oversized** โลโก้ที่อกซ้าย = กล่องขาว "NEEZ+" + ข้างล่าง "neezplus."
 - ref: `/Volumes/WONYOUNG/Neezplus/ChatGPT Image Jul 6, 2026, 05_49_12 PM.png` (หน้า) + `Screenshot 2569-07-08 at 09.25.41.png` (เสื้อ/wardrobe)
+- **BG = green screen ทุกเฟรม presenter** → composite สีสูตร + text post (สีสูตร TBD ไม่ block การเจนแล้ว)
 
 ## ล็อกแล้ว ห้ามเปลี่ยน
 ratio 9:16 · 30 วิ/คลิป · presenter คนเดียวตลอด 12 คลิป (สเปกด้านบน) · BG solid สีล้อสูตร · โทน = ตัวแทนบริษัท (ไม่ใช่ user review)
