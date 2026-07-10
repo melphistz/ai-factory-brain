@@ -19,9 +19,8 @@ One line per memory, grouped by section. Add new entries under the matching sect
 - [Story Ideas — แนวเต๋อ นวพล](story-ideas-nawapol.md) — idea bank 10 เรื่อง ภาพล้วนไม่มีบทพูด สำหรับตั้งโปรเจกต์ถัดไป (ก๊อป projects/_template)
 - [AI UGC Ad Factory Workflow](ai-ugc-ad-factory-workflow.md) — ACTIVE · **MODE v2 (07-05): prompt-first/manual-gen** (Ploy reset, no MCP gen, flow 5 ขั้นใน AGENT_OPS.md, ถ้า OK ค่อยต่อยอด) · โครงเดิม: 8 concept × 3 hook hook-swap
 - [FF Factory — Live Session State](FF_SESSION_STATE.md) — symlink → Desktop/Ads/FF_factory/SESSION_STATE.md (volatile task-state, edit at source)
-- [Valenshield Walking-Pad TIFU (vid03)](valenshield-walkingpad-tifu-vid03.md) — ACTIVE Valenshield campaign 3 = **vid03** (เคยเรียก vid02 ผิด, แยกแล้ว 07-06): cute walking-pad + TIFU-flip (หกใส่ตัว→ผ้าสะท้อนน้ำเซฟ), 20s 9:16 new model. sheet + 9-beat keyframe grid DONE (ใน `vid03/`), next=แตก keyframe เดี่ยว→animate. Has grid direction-lock + sheet-render pipeline
-- [Valenshield Macro ASMR Ad](valenshield-macro-asmr-ad.md) — ACTIVE Valenshield campaign 2: 4-clip no-person WHITE fabric macro ASMR; Clip 2 defined (water-repellent bead demo)
-- [Valenshield Nurse Ad Project](valenshield-nurse-ad-project.md) — ACTIVE project (campaign 1): LAVENDER nurse-uniform HERO ad w/ model, 5 clips, Seedance pipeline
+- [Valenshield Dokkaew Styling (vid04)](valenshield-dokkaew-styling-vid04.md) — **ACTIVE (เดียวที่เหลือ)** Valenshield camp 4 = magic-wardrobe floating-catalog swipe-to-wear fashion montage, 3 ลุค (ปกบัว/ปกเทเลอ/ปกปีกนก), **มี VO ไทย**, 20s 9:16. board ล็อก, **สี=ลาเวนเดอร์** (board เขียนขาว แต่ใช้ของจริง 07-10). next=gen char 3 ลุค. ⚠️ outfit-swap+catalog=CapCut/AE ไม่ใช่ Seedance
+- [Valenshield vid01-03 — DONE](valenshield-nurse-ad-project.md) — ✅ ปิดหมด 07-10: vid01 editorial HERO ([[valenshield-nurse-ad-project]]) · vid02 macro ASMR ([[valenshield-macro-asmr-ad]]) · vid03 walking-pad TIFU ([[valenshield-walkingpad-tifu-vid03]]). เก็บ prompt/บทเรียนไว้ reuse
 
 ## Session State (volatile — archive when done)
 
