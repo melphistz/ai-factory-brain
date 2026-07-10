@@ -63,18 +63,22 @@ gen still ต่อลุค (ChatGPT/Nano Banana, char sheet ref + lock lavende
 - มี: scene plate ห้อง mid-century + `wow_look{N}` + `tap_look{N}` stills ×3 (first/last frame) + Seedance i2v ×3 + continuity ledger (identity block verbatim + wardrobe 3 ทรง + button count L1=5/L2,3=4) + gen order + QA hooks
 - โครง: 1 คลิป/ลุค = ว้าว reaction (first) → โพส → กดจิ้มอากาศ (last) · เปลี่ยนชุด = hard cut CapCut · floating item + super = AE
 
-## STORYBOARD PROMPT (10 ก.ค.) ✅
-- ไฟล์: `/Volumes/WONYOUNG/Dokkeaw/vid04/STORYBOARD-PROMPT-vid04.md` — grid prompt **3×3 = 9 panel** (3 ลุค × ว้าว/โพส/จิ้ม) paste-ready, แนบ 4 ref (char sheet 3 + ห้อง), gen แค่ภาพ ไม่มี text · มีตาราง caption+SFX ต่อ panel (แปะ CapCut) + fallback 3 mini-grid ถ้าสี/หน้าเพี้ยน
-- สไตล์อ้าง AIRism contact-sheet (ref ที่ Mirko โชว์) แต่ 9 ช่องพอ ไม่เยอะเท่า
+## STORYBOARD PROMPT — v4 ล่าสุด (10 ก.ค.) ✅
+- ไฟล์: `/Volumes/WONYOUNG/Dokkeaw/vid04/STORYBOARD-PROMPT-vid04.md` (grid 3×3 = 9 panel, paste-ready, gen แค่ภาพ ไม่มี text; มีตาราง caption+SFX + fallback mini-grid)
+- **flow v4 (narrative, ไม่ใช่โพสเรียงช่อง — ดู [[feedback-storyboard-narrative-not-flat]]):** 1 POV ในตู้ปิด · 2 ตู้เปิด (**ชุด casual**) ว้าว · 3 ปัด+จิ้มเลือก · 4-5 JUMP ลุค1 โพส 2 · 6-7 JUMP ลุค2 โพส 2 · 8 JUMP ลุค3 หมุนตัว · 9 ยืน hero จบ
+- **evolution:** v1/v2 = โพสเรียงช่อง (Mirko ตีกลับ "แห้งแล้ง/ยืนทื่อ") → v3 = เพิ่ม narrative POV เปิดตู้ → **v4 = intro v3 + โพส v2 (ที่ชอบ) + เปิดตู้ใส่ชุด casual + ฉากโทนขาว** (เดิม cream/ไม้)
+- **ล็อกใหม่ v4:** (1) intro เปิดตู้ = ชุดธรรมดา (casual) ค่อย jump เป็นชุดพยาบาล (2) **ฉาก = โทนขาว high-key** ไม่ใช่ cream/ไม้
 
 ## Assets gen แล้ว (folder vid04/)
-- ✅ ห้อง scene plate = `ChatGPT Image Jul 10, 2026, 06_00_43 PM.png` (941×1672, ตรง prompt: cream mid-century + โคมโค้ง + สตูลโครัล + accent ลาเวนเดอร์)
-- ✅ char sheet 3 ลุค (ดูด้านบน)
-- ยังไม่ gen: storyboard grid, `wow`/`tap` stills ต่อลุค
+- char sheet 3 ลุค ✅ (ดูด้านบน)
+- ห้อง cream เดิม `06_00_43 PM.png` — **ทิ้ง** (เปลี่ยนเป็นโทนขาว)
+- storyboard test gens: v2 `06_29_13` (โพสดี), v3 `06_29_09` (intro ดี) — ยังไม่ final, กำลังจะ gen v4
 
-## ขั้นต่อไป
-- [ ] gen storyboard grid (STORYBOARD-PROMPT-vid04.md) ให้ Mirko ดู flow
-- [ ] gen `wow`+`tap` stills ต่อลุค (PROMPT-KIT-vid04.md, attach char sheet + ห้อง/wow ref) → audit identity+สี+มือ
+## ขั้นต่อไป (ทำต่อที่บ้าน)
+- [ ] gen storyboard v4 (STORYBOARD-PROMPT-vid04.md) → ดู flow+โทนขาว+โพส ผ่านไหม
+- [ ] regen **scene plate ห้องขาว** (โทนใหม่) + char sheet **ชุด casual** คนเดิม
+- [ ] อัพ PROMPT-KIT-vid04.md ให้เป็นห้องขาว → gen `wow`+`tap` stills ต่อลุค → audit identity/สี/มือ
+- [ ] Seedance i2v → AE (ของลอย+ปัด+จิ้ม) → CapCut (jump-cut+caption+เพลง+logo)
 - [ ] gen รูป "ใส่เสร็จโพส" ต่อลุค (last-frame ของ flash swap)
 - [ ] wardrobe/closet scene bg (นางแบบยืนหน้าตู้เปิด)
 - [ ] Seedance: ท่าปัด + flash swap + posing ต่อลุค
