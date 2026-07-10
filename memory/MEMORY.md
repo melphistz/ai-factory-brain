@@ -7,6 +7,7 @@ One line per memory, grouped by section. Add new entries under the matching sect
 - [Model/Effort Strategy](feedback-model-effort-strategy.md) — FEEDBACK: intelligence-asset (freeze ยาว) = โมเดลฉลาดสุด+ultracode+verify 2 เลนส์ · build/production = Opus/Sonnet+high ถูกกว่าทำได้เท่ากัน · effort สูง=ช้าลงไม่ใช่เร็ว · build ช้าเพราะ subprocess ไม่ใช่โมเดล
 - [Always Full Prompt](feedback-always-full-prompt.md) — FEEDBACK: คุยเรื่อง prompt สร้างภาพ/วิดีโอ = จบด้วย full paste-ready prompt เสมอ ทุกครั้ง (อธิบายที่เพิ่มได้ แต่ต้องมี full)
 - [Drama Character Casting Feedback](feedback-drama-character-casting.md) — FEEDBACK: ตัวละคร drama ทุกตัว (เอก+นางร้าย) ต้องสวย/หล่อหมด แต่ไม่ over ต้องสมจริง · validated recipe → [[drama-dramabox-tier-portrait-recipe]]
+- [Storyboard Narrative Not Flat](feedback-storyboard-narrative-not-flat.md) — FEEDBACK: storyboard/ซีน ต้องคิดเป็น flow หนัง (มุมกล้อง/reveal/movement/jump/arc) ทุก panel dynamic + สลับ framing · ห้ามยืนโพสตรงๆ สุ่มๆ แบนๆ · ref = อ่านเป็น template ของ FLOW ไม่ใช่แค่ mood (จาก vid04 ตีกลับ 3 รอบ)
 - [Thai Lyric Craft Feedback](feedback-thai-lyric-craft.md) — FEEDBACK: เนื้อเพลง/กวีไทยต้องวางสัมผัส (นอก+ใน) ตั้งแต่ร่างแรก + โชว์ rhyme map · หลักอยู่ thai-lyric-writing
 - [Vault Structure](vault-structure.md) — reorg 2026-07-03: 9-section index + entry rule, rename log (ai-influencer-image-prompt), backup location
 - [Log Updates to Obsidian](log-updates-to-obsidian.md) — RULE: record every new thing/update in the vault, each time
