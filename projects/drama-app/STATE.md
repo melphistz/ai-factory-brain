@@ -85,7 +85,7 @@ Mirko: "ถ้า 1 จบ รัน 2-5 แล้ว 7-9 เลย · คุม
 - **⚠️ ค้าง (งานเดียวกับ UI redesign ข้อ 6):** แอปยังไม่ inject `genre_pack` เข้า envelope → pack ทั้ง 6 อยู่ใน prompts/ แต่ยังไม่ถูกเรียกจริง · ต้อง wire ตอนทำ UI redesign
 - teardown validation ชั้น 3 = section ล่าง (จะเสริม/ทับด้วยข้อมูลจริงจาก bilibili.tv ทีหลัง)
 
-## 🔜 PENDING: teardown ละคร revenge จริง → validate/เสริม pack (07-10 — รอ Mirko ส่งคลิป)
+## 🔜 teardown ละคร revenge จริง → empirical pack (07-11: 3 เรื่อง DONE+converged+fed · batch-2 n=7 วางแผนล็อก รอ overnight run)
 
 **บริบท:** Mirko ถาม "วิธีการเล่า" ใน 09-genre-packs มาจากไหน — ตอบตรง: pack แบ่ง 3 ชั้นความแข็ง (1) โครงกระดูก 5 ช่วง+hook 4 ประเภท = hard source `vertical-drama-basics-dramy` (Dramy.ai) · (2) craft การเจน = hard source `seedance-knowledge` (validated จากเจนจริง) · (3) **"วิธีเล่าเฉพาะแนว" (เช่น revenge = cruelty→humiliation→triumphant reveal) = informed synthesis** จาก LLM dramatic-convention (archetype Monte Cristo/Cinderella-flip) + market observation (ReelShort/DramaBox/ผกาแก้ว×ขจรเดช) — **ยังไม่ผ่าน systematic teardown เชิงประจักษ์** (ต่างจาก `ads-50-teardown` ที่แกะโฆษณาจริง 50 ตัว) = gap ที่ยอมรับ
 
@@ -102,19 +102,21 @@ Mirko: "ถ้า 1 จบ รัน 2-5 แล้ว 7-9 เลย · คุม
 - ✅ **yt-dlp ติดตั้งแล้ว** (v2026.07.04) — เรียกผ่าน `python -m yt_dlp` (ไม่อยู่ใน bash PATH ตรงๆ) · เครื่องมี python 3.10 + node v24
 - ✅ **ffmpeg + faster-whisper ติดตั้งแล้ว (07-11)** — `pip install imageio-ffmpeg` (binary v7.1) + `faster-whisper` (ctranslate2 4.8.1) · **GPU RTX 3060 ใช้ได้** (CUDA 1 device, large-v3 int8_float16 fit 6GB) · yt-dlp merge ผ่าน --ffmpeg-location
 
-**🔄 teardown เฟส 1 กำลังรัน (07-11, วิธี 1 บน C: scratchpad — D: เต็ม 8.5GB):** เริ่ม 3 เรื่องกลุ่ม A
-- story01 #1 เทพแกล้งคนไร้ค่า (68นาที) · story02 #17 ลำนำแค้นธิดาเทพ (65นาที) · story03 #4 เกิดใหม่เป็นบอส (84นาที) — โหลด+contact sheet ครบ (4/4/5 sheets), whisper GPU ทีละเรื่อง (story01 รันก่อน กัน OOM)
+**✅ teardown batch-1 DONE (07-11): 3 เรื่องกลุ่ม A** — story01 #1 เทพแกล้งคนไร้ค่า (68น) · story02 #17 ลำนำแค้นธิดาเทพ (65น) · story03 #4 เกิดใหม่เป็นบอส (84น) — transcript+sheet ครบ (`D:\90-Assets\teardown\`), **converged 7 pattern + 2 divergence** (`teardown-results.md`) → synthesis → **fed revenge pack empirical** (`eedb5f4`)
+- ⚠️ **note (แก้ 07-11):** #1 = Mirko ชอบสุด "ตลก" — แกะแล้ว **แต่เอา revenge mechanic** (สั่ง "เอาลำดับ ไม่เอาโทนตลก") → comedy-timing ยังไม่ถูกสกัด (comedy pack ยัง synthesis)
 - **หมายเหตุ res:** yt-dlp filter `height<=720` แนวตั้ง → ได้ 360×640 (~360p, ไม่ใช่ 720p เพราะ 720p แนวตั้ง height=1280) — พอสำหรับ teardown อ่าน blocking/beat (sheet scale 180px) ไม่ต้อง HD · ถ้าอยาก 720p จริง = filter `height<=1280`
 - work dir: `scratchpad/teardown/` (C:) · เก็บ transcript+sheet, ลบ video หลังแกะเฟส 2 · next: whisper story02/03 → dispatch teardown-analyst (Sonnet) แกะลำดับการเล่า
 - ✅ **แหล่ง = bilibili.tv (international, /th/) ยืนยันโหลดได้จริง** — probe URL ตัวอย่าง `https://www.bilibili.tv/th/video/4800046393334784` ผ่าน BiliIntl extractor: ไม่ติด login, ไม่ติด geo, ได้ถึง **720×1280 (720P 9:16 แนวตั้ง)** ตรง format · ต่างจาก bilibili.com จีน (ตัวนั้น geo-block บาง OGV) — .tv เป็น global platform มี sub ไทย เหมาะกว่า
 - ⚠️ python 3.10 = yt-dlp เตือน deprecated (ยังใช้ได้) — ควรอัพ 3.11+ อนาคต
 - **ค้าง:** ติดตั้ง ffmpeg + test download 1 คลิปเต็ม (merge จริง res ไหน) — ทำตอนเริ่ม teardown จริง
 
-**ต้องการจาก Mirko:** คลิปละคร revenge จริง 8-15 ตัว (ReelShort/DramaBox free eps / viral compilation YouTube-TikTok / ผกาแก้ว×ขจรเดช) — โหลด mp4 ไว้ `Desktop/Ads/` แล้วบอก path หรือส่ง link · ไม่ต้อง 50 (revenge สูตรตายตัว 10 เรื่องเห็นโครงซ้ำ)
-
-**ข้อจำกัด:** ReelShort/DramaBox มี paywall → ผมดึงจาก app เองไม่ได้ · ฟรีจริง = viral compilation + ตอนแรกปลดฟรี · ละครไทย YouTube/TikTok โหลดง่ายกว่า
-
-**สถานะ:** ยังไม่เริ่ม — Mirko "เอาทีละส่วน" ขอเซฟเข้าแผนก่อน · pack synthesis (ด้านบน) พอสำหรับตอนนี้ teardown เสริมทีหลังตอนมีคลิป (ทับ/เสริมชั้น 3 ของ pack ด้วยข้อมูลจริง)
+### 🔒 BATCH-2 PLAN (ล็อก 07-11 · Mirko "รันเครื่องนี้ overnight คราวหน้า" — ยังไม่รัน)
+**เป้า:** ไม่ใช่ยืนยัน 7 pattern ซ้ำ (เปลืองเปล่า) — แต่ได้ **distribution + taxonomy** ที่ n=3 ให้ไม่ได้ = ทำ revenge pack เลิก "เดาเลข" เป็นเชิงประจักษ์จริง · revenge/ขาวดำ = **money genre** (Mirko: "คนชอบดูแนวนี้แหละ")
+- **Sample: revenge core n=7** (รวมเดิม = n=10): group A เหลือ 4 (#8 werewolf rejected-mate, #9 hidden-power เสเพล, #10 glow-up, #16 rebirth power-up) + B revenge-leaning 3 (#6 ราชาผีคืนชีพ, #15 vampire-revenge, #5 forced-marriage) · ตัด group C (off-genre)
+- **Analyst คืน structured schema 8 มิติ** (ไม่ใช่ prose) → synthesis คำนวณ distribution ข้ามกอง: (1) humiliation-stack count+spacing% (2) hook technique freq (3) **cliffhanger device taxonomy** (4) **polarity setup — ตัวร้ายถูกตีตรา "เลวกู้ไม่ได้" ใน 60วิแรกด้วยอะไร** = engine ขาวดำ (5) punishment mode ratio (6) mid-reveal undercut freq+timing% (7) pacing lines/min+snap-interval (8) seed-hook-end + world tag
+- **Pipeline:** P1 GPU queue (3060, resumable done-log, **ลบวิดีโอหลัง transcribe** — disk D: เหลือ 24G) → P2 Sonnet analyst ขนาน (vision อ่าน sheet) → P3 Opus+ultracode synthesis+verify 2 เลนส์ → เขียนทับ revenge pack + อัป `teardown-results.md` เป็น dataset · reuse 3 เดิม ไม่ถอดซ้ำ · GPU ~3-4 ชม (overnight)
+- **Mac Mini M1 8GB verdict:** เดี่ยว **ไม่ดีกว่า** 3060 (faster-whisper=CPU-only บน M1 · whisper.cpp+CoreML เร็วแต่ 8GB ตึง large-v3 → อาจต้องลด model = dataset ไม่ consistent) · ดีเฉพาะเป็น **worker คู่ขนาน** (2 เครื่อง = throughput 2× ตี serial bottleneck) แต่ n=7 setup ไม่คุ้ม — เก็บไว้ตอนสเกลใหญ่ (สิบๆ clip)
+- **ข้อจำกัดแหล่ง:** bilibili.tv (/th/, BiliIntl extractor) ยืนยันโหลดได้ ไม่ติด login/geo · ReelShort/DramaBox paywall ดึงเองไม่ได้
 - **07-10 scope ตัดสิน:** teardown แกะเฉพาะ **ลำดับการเล่า** (structural beats+timing, world-agnostic) — Mirko: "แนว=แค่ style เปลี่ยนได้ โฟกัสลำดับการเล่า" · 17 links = proven winners (ยอดวิวหลายแสน bilibili) แกะได้ทุกเรื่องไม่ต้องกรอง flavor · ราย link+กลุ่ม = `teardown-sources.md`
 
 ## 🌙🌙 AUTONOMOUS FULL RUN (07-11 — Mirko "รันทั้งหมด ยิงยาวๆ ไม่อยู่บ้าน · เลือกโมเดลเหมาะงาน · อย่าเวอร์เหมือน Fable")
