@@ -100,7 +100,12 @@ Mirko: "ถ้า 1 จบ รัน 2-5 แล้ว 7-9 เลย · คุม
 
 **Tooling setup (07-10 — เตรียมเฟส 1, ยังไม่เสร็จ):**
 - ✅ **yt-dlp ติดตั้งแล้ว** (v2026.07.04) — เรียกผ่าน `python -m yt_dlp` (ไม่อยู่ใน bash PATH ตรงๆ) · เครื่องมี python 3.10 + node v24
-- ❌ **ffmpeg ยังไม่ติดตั้ง** — ต้องทำก่อน download (bilibili แยก video/audio stream ต้อง merge) + ก่อน contact sheet เฟส 1 · ทางง่ายสุด = `pip install imageio-ffmpeg` (ได้ binary bundled, ไม่ต้อง winget/PATH) หรือ winget install ffmpeg
+- ✅ **ffmpeg + faster-whisper ติดตั้งแล้ว (07-11)** — `pip install imageio-ffmpeg` (binary v7.1) + `faster-whisper` (ctranslate2 4.8.1) · **GPU RTX 3060 ใช้ได้** (CUDA 1 device, large-v3 int8_float16 fit 6GB) · yt-dlp merge ผ่าน --ffmpeg-location
+
+**🔄 teardown เฟส 1 กำลังรัน (07-11, วิธี 1 บน C: scratchpad — D: เต็ม 8.5GB):** เริ่ม 3 เรื่องกลุ่ม A
+- story01 #1 เทพแกล้งคนไร้ค่า (68นาที) · story02 #17 ลำนำแค้นธิดาเทพ (65นาที) · story03 #4 เกิดใหม่เป็นบอส (84นาที) — โหลด+contact sheet ครบ (4/4/5 sheets), whisper GPU ทีละเรื่อง (story01 รันก่อน กัน OOM)
+- **หมายเหตุ res:** yt-dlp filter `height<=720` แนวตั้ง → ได้ 360×640 (~360p, ไม่ใช่ 720p เพราะ 720p แนวตั้ง height=1280) — พอสำหรับ teardown อ่าน blocking/beat (sheet scale 180px) ไม่ต้อง HD · ถ้าอยาก 720p จริง = filter `height<=1280`
+- work dir: `scratchpad/teardown/` (C:) · เก็บ transcript+sheet, ลบ video หลังแกะเฟส 2 · next: whisper story02/03 → dispatch teardown-analyst (Sonnet) แกะลำดับการเล่า
 - ✅ **แหล่ง = bilibili.tv (international, /th/) ยืนยันโหลดได้จริง** — probe URL ตัวอย่าง `https://www.bilibili.tv/th/video/4800046393334784` ผ่าน BiliIntl extractor: ไม่ติด login, ไม่ติด geo, ได้ถึง **720×1280 (720P 9:16 แนวตั้ง)** ตรง format · ต่างจาก bilibili.com จีน (ตัวนั้น geo-block บาง OGV) — .tv เป็น global platform มี sub ไทย เหมาะกว่า
 - ⚠️ python 3.10 = yt-dlp เตือน deprecated (ยังใช้ได้) — ควรอัพ 3.11+ อนาคต
 - **ค้าง:** ติดตั้ง ffmpeg + test download 1 คลิปเต็ม (merge จริง res ไหน) — ทำตอนเริ่ม teardown จริง
@@ -111,6 +116,17 @@ Mirko: "ถ้า 1 จบ รัน 2-5 แล้ว 7-9 เลย · คุม
 
 **สถานะ:** ยังไม่เริ่ม — Mirko "เอาทีละส่วน" ขอเซฟเข้าแผนก่อน · pack synthesis (ด้านบน) พอสำหรับตอนนี้ teardown เสริมทีหลังตอนมีคลิป (ทับ/เสริมชั้น 3 ของ pack ด้วยข้อมูลจริง)
 - **07-10 scope ตัดสิน:** teardown แกะเฉพาะ **ลำดับการเล่า** (structural beats+timing, world-agnostic) — Mirko: "แนว=แค่ style เปลี่ยนได้ โฟกัสลำดับการเล่า" · 17 links = proven winners (ยอดวิวหลายแสน bilibili) แกะได้ทุกเรื่องไม่ต้องกรอง flavor · ราย link+กลุ่ม = `teardown-sources.md`
+
+## 🌙🌙 AUTONOMOUS FULL RUN (07-11 — Mirko "รันทั้งหมด ยิงยาวๆ ไม่อยู่บ้าน · เลือกโมเดลเหมาะงาน · อย่าเวอร์เหมือน Fable")
+**คุม cost:** verify 2 เลนส์ (ไม่ใช่ 5) · effort high default, xhigh เฉพาะ acceptance-gate · Opus เฉพาะ asset จุดจริง · Sonnet ทุก build/wire · **ไม่ fan-out ซ้ำซ้อน · ไม่ teardown +14 เรื่อง (3 พอแล้ว)** · commit checkpoint + เช็ค diff เองทุกขั้น (บทเรียน UI ข้อ7 drift)
+
+**ลำดับ (dependency-ordered):**
+1. 🔄 **teardown synthesis** (w9ad0u62o, Opus running) → เช็ค diff → **deploy revenge pack (empirical)** ทับ 09 + commit + sync
+2. **migration A — asset (Opus+ultracode, effort high · xhigh เฉพาะ STEP6):** carve 5 แนวที่เหลือ (romance/comedy/thriller/action/family) → slim-genre + default-setting · เขียน 5 setting anchor (real-urban/home/minimal/dim/gritty) [high-society ทำแล้วใน smoke test = template] · acceptance test ทั้ง 6 แนว (ของไม่หาย) — **input = revenge pack หลัง synthesis (empirical)**
+3. **migration B — asset (Opus+ultracode):** STEP7 เขียน 3 โลกใหม่ (rural-poor / fantasy 2-register / **period=xianxia จีนวังหลวง**) + verify
+4. **migration C — build (Sonnet+build gate):** STEP8 wire 2 dropdown (แนว×โลก) = **รวม UI ข้อ 6** + contracts §1.1/§1.7/§3/§5/§6 + lint gate (genre=0 ชื่อหลอด) + deploy 09ผอม+10ใหม่+00 เข้า D:/drama-app/prompts/ + build/smoke
+5. **save+sync** ทั้งหมด (brain push + drama-app local)
+**doc อ้างอิง:** `genre-setting-design.md` (STEP รายละเอียด) · `smoke-test-result.md` (revenge×high-society = carve template) · `teardown-results.md` (empirical สูตร)
 
 ## 🔜 DECISION PENDING: แยกสถาปัตยกรรม genre × setting (07-10 — Mirko ชี้, รอ commit)
 
