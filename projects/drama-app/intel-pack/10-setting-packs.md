@@ -329,7 +329,7 @@ striking pale aristocratic beauty tier ทุกตัว — pale porcelain ski
 - เขา/เขี้ยว/ปีกค้างคาว/ตาเรือง morph → identity_anchor ใส่ marker รูปธรรม + คุม medium/close
 
 ### SETTING: period-xianxia — โลกจีนวังหลวง/เซียนเซีย (net-new · ไม่มี default genre ผูก)
-> flavor layer เท่านั้น — ห้าม override schema §1 / budget §3 / หลักการร่วม §6 ของ 00-contracts · inject setting ก่อน (BASE) → genre ทับ (MODULATION) · trace: [GEM]=seedance · [CAST]=casting · [TD]=teardown (story01/02 xianxia)
+> flavor layer เท่านั้น — ห้าม override §1/§3/§6 · inject setting (BASE) → genre (MODULATION) · trace [GEM][CAST][TD story01/02 xianxia]
 
 **S1 — สีพื้น + อารมณ์** (base grade)
 lantern-glow amber · ink-wash mist · silk sheen · jade-and-gold palette · incense smoke haze · fine film grain · warm candlelit interior vs cool moonlit courtyard · โทนโลก = วังหลวงจีนโบราณ สง่างาม จารีตเข้ม [TD] · lacquered/pond reflection = complexity ฟรี [GEM]
@@ -364,4 +364,4 @@ classical East-Asian drama-tier beauty ทุกตัว (พระเอก/�
 - VFX เซียน (glow เทพ/พลังกระบี่/มังกร) ไม่คงเส้น → ล็อกสี/ทิศ/ปริมาณเข้า ledger + copy verbatim ในซีนเดียว [TD]
 - แดดเที่ยงลานหิน/คบเพลิงต่อเนื่อง: มุมแดด/เงา drift → copy lighting_anchor verbatim ทุกช็อตในซีน
 
-> Sources: `intel-pack/00-contracts.md` · `intel-pack/09-genre-packs.md` · `memory/seedance-knowledge.md` · `memory/director-styles-knowledge.md` · `memory/mv-directors-knowledge.md` · `memory/thai-localization-image-prompts.md` · `memory/feedback-drama-character-casting.md` · `projects/drama-app/genre-setting-design.md` · `projects/drama-app/teardown-results.md`
+> Sources: 00-contracts · 09-genre-packs · memory: seedance/director-styles/mv-directors/thai-localization/drama-casting · genre-setting-design · teardown-results

@@ -120,13 +120,15 @@ Mirko: "ถ้า 1 จบ รัน 2-5 แล้ว 7-9 เลย · คุม
 ## 🌙🌙 AUTONOMOUS FULL RUN (07-11 — Mirko "รันทั้งหมด ยิงยาวๆ ไม่อยู่บ้าน · เลือกโมเดลเหมาะงาน · อย่าเวอร์เหมือน Fable")
 **คุม cost:** verify 2 เลนส์ (ไม่ใช่ 5) · effort high default, xhigh เฉพาะ acceptance-gate · Opus เฉพาะ asset จุดจริง · Sonnet ทุก build/wire · **ไม่ fan-out ซ้ำซ้อน · ไม่ teardown +14 เรื่อง (3 พอแล้ว)** · commit checkpoint + เช็ค diff เองทุกขั้น (บทเรียน UI ข้อ7 drift)
 
-**ลำดับ (dependency-ordered):**
-1. 🔄 **teardown synthesis** (w9ad0u62o, Opus running) → เช็ค diff → **deploy revenge pack (empirical)** ทับ 09 + commit + sync
-2. **migration A — asset (Opus+ultracode, effort high · xhigh เฉพาะ STEP6):** carve 5 แนวที่เหลือ (romance/comedy/thriller/action/family) → slim-genre + default-setting · เขียน 5 setting anchor (real-urban/home/minimal/dim/gritty) [high-society ทำแล้วใน smoke test = template] · acceptance test ทั้ง 6 แนว (ของไม่หาย) — **input = revenge pack หลัง synthesis (empirical)**
-3. **migration B — asset (Opus+ultracode):** STEP7 เขียน 3 โลกใหม่ (rural-poor / fantasy 2-register / **period=xianxia จีนวังหลวง**) + verify
-4. **migration C — build (Sonnet+build gate):** STEP8 wire 2 dropdown (แนว×โลก) = **รวม UI ข้อ 6** + contracts §1.1/§1.7/§3/§5/§6 + lint gate (genre=0 ชื่อหลอด) + deploy 09ผอม+10ใหม่+00 เข้า D:/drama-app/prompts/ + build/smoke
-5. **save+sync** ทั้งหมด (brain push + drama-app local)
-**doc อ้างอิง:** `genre-setting-design.md` (STEP รายละเอียด) · `smoke-test-result.md` (revenge×high-society = carve template) · `teardown-results.md` (empirical สูตร)
+**ลำดับ (dependency-ordered):** — ✅✅ **ครบทุกขั้น (07-11)**
+1. ✅ **teardown synthesis** (Opus) → deploy revenge pack empirical ทับ 09 → commit `eedb5f4` (drama-app) / `2cd4922` (brain)
+2. ✅ **migration A — carve 6 แนว** (Opus+ultracode): 09-slim (6 genre, 0 fixture) + 10 (6 setting default) · acceptance PASS ทั้ง 6 (comedy REVISE→re-verify PASS, 5 minor non-block) → commit `c068b66` / `6127863`
+3. ✅ **migration B — 3 โลกใหม่** (Opus): rural-poor / fantasy แยก 2 (celestial+gothic) / period-xianxia = **10 โลกครบ** · verify PASS → commit `8b3c520` / `e710821`
+4. ✅ **migration C — wire 2-axis** (ทำเอง main direct, ไม่ fan-out — workflow เฟล StructuredOutput cap แต่ working tree clean = ไม่มีงานค้าง): contracts (Genre/Setting enum + resolve + optional fields) · packs.ts loader (block-by-slug) · inject endpoint 01+02 (setting BASE→genre MODULATION) · BriefForm 2 dropdown (auto-fill default = UI ข้อ 6) · lint:packs (genre=0 fixture, slug↔enum, budget) → **build PASS + lint PASS + smoke 4 case PASS** (inject/backward-compat/normalize/02) → commit `732c032` (drama-app)
+5. 🔄 **save+sync** — drama-app local commit ✅ · brain push (batch A/B/C + STATE) = ขั้นนี้
+
+**retrospective (คุม cost ตามสั่ง "อย่าเวอร์เหมือน Fable"):** Opus เฉพาะ 3 asset จุด (synthesis/carve/net-new) · Sonnet ทุก build · migration C **ทำเอง main loop** หลัง workflow เฟล (single Sonnet agent + strict schema ตายตอน report ไม่ใช่ implementation — เหมือน UI ข้อ 2) แทน fan-out ซ้ำ = ถูกกว่า+คุมได้ · เช็ค diff เอง + build/smoke gate ทุก commit · แก้จริงระหว่างทาง: revenge(4786)/xianxia(3774) เกิน budget → trim metadata (footer/trace) เก็บ empirical ครบ → 4500/3480 · lint จับ 0 fixture violation (carve สะอาด)
+**doc อ้างอิง:** `genre-setting-design.md` (STEP) · `smoke-test-result.md` (carve template) · `teardown-results.md` (empirical สูตร)
 
 ## 🔜 DECISION PENDING: แยกสถาปัตยกรรม genre × setting (07-10 — Mirko ชี้, รอ commit)
 

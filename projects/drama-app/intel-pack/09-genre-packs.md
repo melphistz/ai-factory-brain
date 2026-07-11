@@ -308,7 +308,7 @@ deadpan ใช้เฉพาะ punchline/twist beat (หน้านิ่ง+
 - duration bias: hook 5–6s (ดึงอารมณ์โดยไม่กระชาก) · setup 8–10s (อยู่กับ routine ได้นาน) · conflict 6–8s/shot · twist 4–6s (เฉลยเงียบสั้นคม) · cliffhanger 6–8s (hold ท่าค้าง)
 
 ### GENRE: revenge-vindication — แก้แค้น/พลิกสะใจ (ผอม)
-> flavor เท่านั้น — ห้าม override §1/§3/§6 · genre="วิธีเล่า" · ประกบ setting→genre · **0 ชื่อหลอด/วัสดุ/สีพื้น=lint gate** · trace [DRM][GEM][DIR][CAST][TD teardown]
+> flavor เท่านั้น — ห้าม override §1/§3/§6 · genre="วิธีเล่า" · 0 ชื่อหลอด/วัสดุ/สีพื้น=lint gate · trace [DRM][GEM][DIR][CAST][TD]
 
 #### a) HOOK WEIGHTING
 | hook [DRM] | weight | เหตุผล |
@@ -318,7 +318,7 @@ deadpan ใช้เฉพาะ punchline/twist beat (หน้านิ่ง+
 | curiosity | กลาง | ตัวตนซ่อน=ปมรอ status-flip |
 | visual | ต่ำ | ภาพขัดสถานะเปิด, เก็บ flip เป็น payoff (slot=ล่าง) |
 
-engine [TD] = **audience-ahead/dramatic irony** — คนดูรู้ความลับ/ปลายทางก่อนตัวละคร → humiliation ทนดูได้+รอสะใจ · ขาว-ดำสุดขั้ว ตัวร้ายเลวไร้ backstory · weight=bias [DRM]
+engine [TD] = **audience-ahead/dramatic irony** — คนดูรู้ความลับ/ปลายทางก่อนตัวละคร → humiliation ทนดูได้+รอสะใจ · ขาว-ดำสุดขั้ว ตัวร้ายเลวไร้ backstory [DRM]
 - **hook slot** `status-contradiction` (พันธุ์ B ขัดสถานะสังคม §3) → S5 ทาผิว "ชุดโทรม/งานหรู" · ไม่มีพันธุ์ A
 - **stack 2-3 hook/นาทีแรก** [TD] resolve premise เร็ว · เปิด (=คนดูรู้ก่อน): cold-open โชว์พลัง / flash-forward จุดจบ / news+ภาพขัดสถานะ
 
@@ -327,7 +327,7 @@ engine [TD] = **audience-ahead/dramatic irony** — คนดูรู้คว�
 - setup: สถานะต่ำ + ตัวร้ายเลวเชิงสัมพันธ์ (แม่เลี้ยง/แม่สามี/คู่แข่ง) · ซ่อน "ตัวตนจริง" ใน [plot-device: กลไกพลิกสถานะ·ผิว=S6] = ระเบิดเวลา
 - conflict: **กดก่อนพลิก** [TD] humiliation stack หลายครั้งก่อน payoff แรก — ห้ามชนะหลังโดนครั้งแรก (ยิ่งกด=ยิ่งเพิ่ม payoff)
 - twist: status-flip reveal **แต่ undercut ตั้งใจ** [TD] mid-win downgrade (รู้บางตัว/"ถูกใช้") กันสะใจเร็ว → full payoff = **cascading 3-4 sub-reveal** · **ลงโทษ 2 โหมด**: สะท้อนเหยียบคืน (ดราม่า) vs legal/institutional
-- cliffhanger: ตัวร้ายเพิ่งรู้/เหยียบกลับยังไม่ land · **arc จบ = seed hook ใหม่ทันที** [TD] (ตัว/ภัยใหม่=continuation)
+- cliffhanger: ตัวร้ายเพิ่งรู้/เหยียบกลับยังไม่ land · **arc จบ = seed hook ใหม่ทันที** [TD]
 
 #### c) ACTING GRAMMAR (variant ของ under-direct [GEM ACTING])
 2 register: humiliation "กลั้น" ไม่โต้กลับ → reveal "นิ่งเย็นทวงคืน" ไม่ตะโกน · ตัวร้ายเย็นชา ห้ามสั่ง "evil/sneer"
@@ -363,4 +363,4 @@ engine [TD] = **audience-ahead/dramatic irony** — คนดูรู้คว�
 จังหวะ [TD] = **2 ระดับ**: mid-reveal snap ถี่ <60วิ (จบในฉาก ไม่มีฉากว่าง) ซ้อน **finale-tier ยืด rug-pull ตัวเดียว** — slow-burn เฉพาะ reveal สุดท้าย (=ช้าสุด cascading) · **escalation = tier ไม่ใช่ intensity** [TD]: ยกระดับ family→สถาบัน→อำนาจใหญ่ ทันทีที่ tier เดิมเก็บ
 สัดส่วน: hook 10–15%/5–6s · setup 20%/6–8s · conflict 30%/6–8s · twist 20%/10–12s (reveal ท้าย≤15s) · cliffhanger 10–15%/4–5s
 
-> Sources: `intel-pack/00-contracts.md` · `intel-pack/10-setting-packs.md` · `memory/vertical-drama-basics-dramy.md` · `memory/seedance-knowledge.md` · `memory/director-styles-knowledge.md` · `memory/mv-directors-knowledge.md` · `memory/ai-video-realism-hierarchy.md` · `memory/feedback-drama-character-casting.md` · `projects/drama-app/teardown-results.md`
+> Sources: 00-contracts · 10-setting-packs · memory: dramy/seedance/director-styles/mv-directors/realism-hierarchy/drama-casting · teardown-results
