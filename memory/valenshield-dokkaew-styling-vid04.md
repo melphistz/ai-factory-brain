@@ -28,9 +28,17 @@ metadata:
 
 ## 3 ลุค (mix & match — ผ้าดอกแก้ว/วาเลนชีลด์เดียวกัน คนละทรง) — char sheet DONE
 โฟลเดอร์ `/Volumes/WONYOUNG/Dokkeaw/vid04/`
-1. **ปกบัวแขนสั้น + กระโปรง** (look 1) ✅ = `ChatGPT Image Jul 10, 2026, 04_56_04 PM.png`
-2. **ปกเทเลอแหลมแขนยาว + กางเกง** (look 2, ทางการ) ✅ = `ChatGPT Image Jul 10, 2026, 12_03_35 PM.png`
-3. **ปกปีกนก (pointed lapel) แขนสั้น + กางเกง** (look 3) ✅ = `ChatGPT Image Jul 10, 2026, 05_28_40 PM.png` (regen 10 ก.ค. — เรียก "เสื้อปีกนก+กางเกง"; ล็อกตามนี้ ไม่ใช่กระโปรงตาม board เดิม)
+1. **ปกบัวแขนสั้น + กระโปรง** (look 1) ✅ = `ChatGPT Image Jul 10, 2026, 04_56_04 PM.png` · 5 กระดุม, ballet flats
+2. **ปกเทเลอแหลมแขนยาว + กางเกง** (look 2, ทางการ) ✅ = `ChatGPT Image Jul 10, 2026, 12_03_35 PM.png` · 4 กระดุม, sneakers
+3. **ปกปีกนกแขนสั้น + กางเกง** (look 3) ✅ = `ChatGPT Image Jul 10, 2026, 05_28_40 PM.png` · 4 กระดุม, sneakers (ไม่ใช่กระโปรงตาม board เดิม)
+
+### ⚠️ COLLAR DISCRIMINATION (บั๊กจริง 13 ก.ค. — L2/L3 gen ออกมาปกเหมือนกัน)
+ยืนยันจากรูปสินค้าจริง (3 หุ่น) — 3 ปกต้องต่างกันชัด:
+- **L1 ปกบัว** = กลม แบน **ปิดคอสูง ไม่มี V ไม่มี lapel** + piping ขอบโค้ง
+- **L2 ปกเทเลอ** = เปิด V กว้าง, lapel กว้างมน **ปลายชี้ลง-ออก**, notch ชัด (classic revere)
+- **L3 ปกปีกนก** = V แคบ-สูงกว่า, ปลายปก **ยาว แคบ แหลม เชิดขึ้น-ออกเหมือนปีก** (ห้ามชี้ลง), notch สูง, topstitch
+- **negative บังคับทุก prompt:** `the three collars must be clearly distinguishable; do NOT give Look 2 and Look 3 the same collar`
+- **ref ดีสุด = รูปสินค้าจริง 3 หุ่น** (แนบคู่ char sheet ตอน gen)
 - มิกซ์รวม = **1 กระโปรง (look1) + 2 กางเกง (look2,3)** · ทั้ง 3 char sheet = 4 มุม (Front/¾/Back/Half-body) ลาเวนเดอร์เฉดเดียว หน้า identity ตรงทั้ง 3 ✓ (โมเดล vid03)
 - slogan จบ: **"ดอกแก้ว ผ้าวาเลนชีลด์ ชิลทุกที่ที่มีเรา"**
 - end card = ดอกแก้ว + ผ้าวาเลนชีลด์ + สโลแกน (CapCut hard cut)
