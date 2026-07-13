@@ -190,3 +190,51 @@ Avoid: identity drift, warped face, melting or morphing fabric, in-clip outfit c
 - AE: floating items (garment/accessory/UI) tapped into being on the fixed tap-plane · product supers if wanted
 - CapCut: intro card "Dokkaew Workday Styling" · hard-cut swaps (tap→cut→wow) · fast montage 16-20s · music + SFX (tap click, whoosh) · hard-cut end logo (ดอกแก้ว + ผ้าวาเลนชีลด์ + "ชิลทุกที่ที่มีเรา")
 - NO VO anywhere.
+
+---
+
+# ⭐ MARCO FREESTYLE — posing clips (13 ก.ค., แทน per-clip แบบสั่งละเอียด)
+
+หลัก = [[seedance-marco-freestyle-method]] — **set the RULES not the SHOTS**. สั่ง shot-by-shot ละเอียด = "the AI tell" (ช้า แข็ง). ปล่อยให้ Seedance เลือกมุม/ท่าเอง → ธรรมชาติ + ได้มุมแปลกที่เราไม่เขียนเอง.
+- ใช้กับ **ช่วงใส่ชุดแล้วโพส (ลุค 1-3)** เท่านั้น — 10 วิ/ลุค, Seedance แตกหลายช็อต/หลายมุมเองใน gen เดียว → ตัดเลือกใน CapCut
+- ❌ **ห้ามใช้กับ** ช่วงเปิดตู้ / ปัด / กดจิ้ม — AE ต้อง track จุดจิ้ม ต้องล็อกมือ+เฟรม (ใช้ i2v first+last แบบเดิม)
+- **ไม่ over-specify** (ไม่ต้องบอกว่าหน้าคนอยู่ช่องไหน ฯลฯ) — โมเดลฉลาดพอ
+
+## CHAR SHEET ใหม่ (erase-face — sheet = garment ref, ไม่แย่ง identity)
+| ไฟล์ | ปก | ล่าง | ลุค |
+|---|---|---|---|
+| `Bua.jpg` | ปกบัว (กลม ปิดคอ ไม่มี V) | กระโปรง | Look 1 |
+| `Pointy.jpg` | ปกเทเลอแหลม (V กว้าง ปลายชี้ลง) | กางเกง, **แขนยาว** | Look 2 |
+| `Nok.jpg` | ปกปีกนก (V แคบ ปลายแหลมเชิดขึ้น) | กางเกง, แขนสั้น | Look 3 |
+
+## PROMPT (2 ref: char sheet + ห้อง) — สลับ Image 1 ต่อลุค ไม่ต้องแก้อย่างอื่น
+```
+FORMAT
+10-second video, 9:16 vertical.
+
+REFERENCE ROLES
+Image 1 = the woman and the uniform she wears; full identity from this image, and she wears exactly this piece throughout — collar, cut and colorway from this image.
+Image 2 = the room; every shot takes place here.
+
+CAMERA
+Handheld on an iPhone 15 Pro, imperfections are present.
+
+AMBIENCE
+A bright quiet styling room in late-morning light, soft daylight through sheer curtains. Calm, airy, lived-in.
+AMBIENCE SOUNDS
+Environment sound only, no music.
+
+SHOTS
+Several shots showing the uniform on the woman, both close details and full looks. She poses freely, alive and pleased with what she is wearing.
+Rare camera angles.
+```
+> ทางเลือก CAMERA ถ้าอยากคลีนแบบ commercial: `Clean commercial camera, mostly locked and observational; you choose the framing.`
+
+## SCENE PLATE — ห้องโทนขาว (แทนห้อง cream เดิม) — gen ใบเดียว ไม่ต้องแนบ ref
+```
+Photorealistic interior photograph of a bright, clean, WHITE-toned modern styling room, completely empty with NO people. Crisp white walls, white sheer curtains drifting over a large window at screen-LEFT with soft diffused daylight pouring in, and a pale near-white washed-oak floor with a faint soft reflection. Generous open centre floor left clear for a person to stand full-length.
+Minimal light furniture arranged toward the edges: a sculptural curved wavy-arc floor lamp in matte white, a small soft stool in a muted pale lavender, a low glass coffee table, a light open shelf holding a few white and pale-lavender ceramic vases and stacked books, a large soft-pastel abstract artwork on the wall in white and lavender tones, and a leafy potted plant in a corner.
+Palette: white on white, with subtle soft-lavender accents only — no warm wood tones, no coral, no strong colour. Airy, luminous, high-key, calm upmarket editorial fashion mood.
+Vertical 9:16, eye-level camera, wide clean composition, natural realistic lighting and materials — real matte paint, real fabric, real ceramic, no CGI look, no plastic sheen.
+No brand marks, no signage, no screens. no text, no captions, no logos, no watermarks anywhere in the image.
+```

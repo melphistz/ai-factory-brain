@@ -77,6 +77,21 @@ gen still ต่อลุค (ChatGPT/Nano Banana, char sheet ref + lock lavende
 - **evolution:** v1/v2 = โพสเรียงช่อง (Mirko ตีกลับ "แห้งแล้ง/ยืนทื่อ") → v3 = เพิ่ม narrative POV เปิดตู้ → **v4 = intro v3 + โพส v2 (ที่ชอบ) + เปิดตู้ใส่ชุด casual + ฉากโทนขาว** (เดิม cream/ไม้)
 - **ล็อกใหม่ v4:** (1) intro เปิดตู้ = ชุดธรรมดา (casual) ค่อย jump เป็นชุดพยาบาล (2) **ฉาก = โทนขาว high-key** ไม่ใช่ cream/ไม้
 
+## ⭐ MARCO FREESTYLE สำหรับช่วงโพส (13 ก.ค.)
+- ช่วง **ใส่ชุดแล้วโพส (ลุค 1-3)** = ใช้ [[seedance-marco-freestyle-method]] — **set the RULES not the SHOTS**, ปล่อยโมเดลเลือกมุม/ท่าเอง (สั่งละเอียด = "the AI tell" ช้า แข็ง)
+- 10 วิ/ลุค → Seedance แตกหลายช็อต/หลายมุมเองใน gen เดียว → ตัดเลือก CapCut · **2 ref เท่านั้น: char sheet + ห้อง**
+- ❌ **ห้ามใช้ Marco กับ** เปิดตู้/ปัด/กดจิ้ม — AE ต้อง track จุดจิ้ม ต้องล็อก (i2v first+last เดิม)
+- **ไม่ over-specify** (ไม่ต้องบอกว่าหน้าอยู่ช่องไหน) — โมเดลฉลาดพอ (Mirko เตือน: over-specify = ผิดหลัก Marco เอง)
+- prompt เต็ม = `PROMPT-KIT-vid04.md` §MARCO FREESTYLE
+
+## CHAR SHEET ใหม่ (erase-face — 13 ก.ค., sheet = garment ref ไม่แย่ง identity)
+| ไฟล์ | ปก | ล่าง | ลุค |
+|---|---|---|---|
+| `Bua.jpg` | ปกบัว (กลม ปิดคอ ไม่มี V) | กระโปรง | Look 1 |
+| `Pointy.jpg` | ปกเทเลอแหลม (V กว้าง ปลายชี้ลง) | กางเกง **แขนยาว** | Look 2 |
+| `Nok.jpg` | ปกปีกนก (V แคบ ปลายแหลมเชิดขึ้น) | กางเกง แขนสั้น | Look 3 |
+> ใช้แทน sheet เก่า (`04_56_04`/`12_03_35`/`05_28_40`) · เทคนิค erase-face จาก [[higgsfield-3step-ai-ad-workflow]]
+
 ## Assets gen แล้ว (folder vid04/)
 - char sheet 3 ลุค ✅ (ดูด้านบน)
 - ห้อง cream เดิม `06_00_43 PM.png` — **ทิ้ง** (เปลี่ยนเป็นโทนขาว)
