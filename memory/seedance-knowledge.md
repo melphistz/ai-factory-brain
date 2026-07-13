@@ -191,6 +191,14 @@ Timed segments สำหรับ animation: `0–3s: WIDE SHOT...`, `3–6s: ..
 
 **resource repos:** EvoLinkAI community repo (164 prompts) · GitHub 160+ curated prompts · [[seedance-prompt-repository]]
 
+## ⭐ Marco freestyle method — set the RULES not the SHOTS
+> ต้นฉบับเต็ม + template = [[seedance-marco-freestyle-method]] ([@MarcoBorinEdit](https://x.com/MarcoBorinEdit/status/2068075513206174081))
+- **prompt ละเอียด shot-by-shot + สั่งมูฟกล้องทุกช็อต = "the AI tell"** (ช้า ฝันๆ แข็ง) — ยืนยันจากการลองจริงของ Marco
+- ถอดเหลือแค่ **กฎ** (FORMAT / REFERENCE ROLES / CAMERA / AMBIENCE / SOUND / SHOTS 1-2 บรรทัด) → มีชีวิตทันที
+- **`Rare camera angles.` + ปล่อยให้มันเลือก** = ปลดล็อกมุมที่เราไม่มีวันเขียนเอง (over-under ผิวน้ำ / ground-level / macro)
+- **CAMERA = อุปกรณ์/เท็กซ์เจอร์** (`iPhone 14 Pro, imperfections are present`) ไม่ใช่มูฟกล้อง
+- ❌ ไม่ใช้กับบีตที่ต้องล็อกเป๊ะ (first+last frame, จุดจิ้มที่ AE ต้อง track, punchline reveal)
+
 ## 🎯 Input mode: reference vs first-frame vs first+last (เลือกก่อนเขียน — จากการลองจริง Valenshield)
 > ตัดสินใจ **โหมด** ก่อนเขียน prompt — เลือกผิด = ผลพัง ไม่ว่า prompt ดีแค่ไหน
 - **Reference image** = anchor identity/look แล้วให้ Seedance **generate action เอง** → เห็น action **ก่อน**ถึง pose ได้ (เช่น "วิ่งมาก่อนกระโดด"). lever = **prompt บรรยาย action arc ให้ชัด** (model สร้างตาม)
