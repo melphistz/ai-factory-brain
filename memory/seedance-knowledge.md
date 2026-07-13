@@ -191,6 +191,27 @@ Timed segments สำหรับ animation: `0–3s: WIDE SHOT...`, `3–6s: ..
 
 **resource repos:** EvoLinkAI community repo (164 prompts) · GitHub 160+ curated prompts · [[seedance-prompt-repository]]
 
+## 📐 Resolution 480/720/1080/4K — ทำให้โมเดล "ฉลาด" ขึ้นไหม? (deep-research 13 ก.ค. 2026, verify 3-vote)
+> **สรุป: ไม่ทำให้ฉลาดขึ้น แต่ก็ไม่ใช่แค่ "pixel เยอะขึ้น"** — res = fidelity/cost lever ไม่ใช่ intelligence lever
+
+**สถาปัตยกรรม = cascade** (Seedance 1.0 tech report, [arXiv 2506.09113](https://arxiv.org/abs/2506.09113), primary):
+> base DiT เจน **480p ก่อน** → 720p/1080p มาจาก **learned diffusion refiner แยกตัว** (init จาก base model, conditioned บน LR video ที่ upsample แล้ว + concat noise, มี RLHF ของตัวเอง) หน้าที่ = *"enhance visual details and textures"*
+- → **composition / motion / semantics ตัดสินที่ base res แล้ว res สูงรับช่วงมาเติมดีเทล** = ความฉลาดไม่เพิ่ม
+
+**Seedance 2.0** ([arXiv 2604.14148](https://arxiv.org/pdf/2604.14148)): **native output = 480p + 720p เท่านั้น** — **1080p/4K ไม่ใช่ native tier ที่มีเอกสาร** · เคลม "4K native ไม่ใช่ upscale" = **vendor marketing** (ถูก refute)
+- ByteDance เองบอก res ≠ quality: **720p ติด #1 Elo ทั้ง T2V/I2V** (1450/1449) ชนะคู่แข่ง 1080p — *"motion dynamics and visual coherence are more perceptually significant than resolution alone"*
+
+**prompt adherence / physics / มือ / identity ต่างกันตาม res ไหม → UNKNOWN** — tech report **ไม่มี resolution ablation เลย** (ทุก metric แยกตาม model ไม่ใช่ตาม res). ไม่ใช่ "พิสูจน์แล้วว่าเท่ากัน"
+
+**BytePlus API** ([docs](https://docs.byteplus.com/en/docs/ModelArk/1520757)): res = enum บน endpoint เดียว **gate ตาม model variant** — `4k` เฉพาะ Seedance 2.0 เต็ม · `1080p` ไม่รองรับบน **Fast/Mini** · default = 720p · `4k` = 10-bit + H.265
+- ⚠️ **`480p` ผูกกับ "draft" inference mode ที่ feature ลดลง** — ไม่ใช่แค่ภาพเล็กลง
+
+### ⚠️⚠️ ที่กระทบ workflow เราตรงๆ: **Seedance 2.0 ไม่มี seed**
+- → **ล็อก take ดีจาก low-res แล้ว re-roll ที่ high-res ให้เหมือนเดิม = ทำไม่ได้** (re-roll = คนละคลิป)
+- คำแนะนำ "iterate ถูกๆ ที่ res ต่ำ แล้ว final ค่อย res สูง" (ByteDance/fal/Higgsfield พูดเอง) **ใช้กับ 2.0 ไม่ได้จริง**
+- ✅ **กฎเรา: เจน 4-6 รอบเลือกอันเนียน = ต้องเจนที่ res สุดท้ายเลย** · iterate ถูกๆ ได้แค่ระดับ **prompt/direction** (ดูว่าทางถูกไหม) พอ direction นิ่ง → เจนจริงที่ res สูงหลายรอบ
+- **อย่าใช้ 480p ตัดสิน motion/quality** (draft mode) → ใช้ **720p** เป็น baseline ประเมิน
+
 ## ⭐ Marco freestyle method — set the RULES not the SHOTS
 > ต้นฉบับเต็ม + template = [[seedance-marco-freestyle-method]] ([@MarcoBorinEdit](https://x.com/MarcoBorinEdit/status/2068075513206174081))
 - **prompt ละเอียด shot-by-shot + สั่งมูฟกล้องทุกช็อต = "the AI tell"** (ช้า ฝันๆ แข็ง) — ยืนยันจากการลองจริงของ Marco

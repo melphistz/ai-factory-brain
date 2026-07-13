@@ -217,17 +217,18 @@ Image 1 = the woman and the uniform she wears; full identity from this image, an
 Image 2 = the room; every shot takes place here.
 
 CAMERA
-Handheld on an iPhone 15 Pro, imperfections are present.
+Handheld on an iPhone 15 Pro, imperfections are present. The camera moves with her, quick and kinetic.
 
 AMBIENCE
-A bright quiet styling room in late-morning light, soft daylight through sheer curtains. Calm, airy, lived-in.
+A bright styling room in late-morning light. Upbeat, playful, full of life.
 AMBIENCE SOUNDS
-Environment sound only, no music.
+Environment sound only, no music — quick footsteps, fabric swishing, a small delighted laugh.
 
 SHOTS
-Several shots showing the uniform on the woman, both close details and full looks. She poses freely, alive and pleased with what she is wearing.
+Several shots showing the uniform on the woman, both close details and full looks. She is having fun with it — giddy with joy about what she just put on, bouncing, twirling, playing up to the camera, barely still for a second. Snappy pacing, quick bursts of movement. Nothing slow, nothing dreamy.
 Rare camera angles.
 ```
+> **v2 (13 ก.ค.) — JOY/ENERGY fix:** v1 ออกมา **อืด** (AMBIENCE "calm, airy" + SHOTS passive "poses freely" → โมเดลเนิบ). แก้โดย **ใส่พลังเป็น "กฎ" ไม่ใช่ choreograph ท่า**: AMBIENCE → upbeat/playful · CAMERA → moves with her, quick and kinetic · SHOTS → giddy with joy/bouncing/twirling + `Snappy pacing` + **`Nothing slow, nothing dreamy.`** (ตัด AI-tell ตรงๆ ตามที่ Marco เตือน) · ห้ามใช้ "fast" (= jitter) → ใช้ snappy/quick bursts/kinetic
 > ทางเลือก CAMERA ถ้าอยากคลีนแบบ commercial: `Clean commercial camera, mostly locked and observational; you choose the framing.`
 
 ## SCENE PLATE — ห้องโทนขาว (แทนห้อง cream เดิม) — gen ใบเดียว ไม่ต้องแนบ ref
