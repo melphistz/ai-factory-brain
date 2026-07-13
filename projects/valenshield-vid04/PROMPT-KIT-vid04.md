@@ -239,3 +239,58 @@ Palette: white on white, with subtle soft-lavender accents only — no warm wood
 Vertical 9:16, eye-level camera, wide clean composition, natural realistic lighting and materials — real matte paint, real fabric, real ceramic, no CGI look, no plastic sheen.
 No brand marks, no signage, no screens. no text, no captions, no logos, no watermarks anywhere in the image.
 ```
+
+---
+
+## 🎚️ MARCO PROMPT — TONE LADDER (เก็บทุกเวอร์ชัน อย่าลบ)
+
+ปรับ "พลัง" ของ Marco prompt = แตะแค่ **AMBIENCE + CAMERA + SHOTS** (ไม่แตะ REFERENCE ROLES / FORMAT)
+
+| ver | tone ที่สั่ง | ผลจริง |
+|---|---|---|
+| **v1** | `Calm, airy, lived-in` + `poses freely` | ❌ **อืด** เนิบ ไม่มีพลัง |
+| **v2** | `upbeat, playful, full of life` + `giddy with joy, bouncing, twirling` + `Snappy pacing` | ❌ **ร่าเริงเกิน** ดูเป็นคลิปเด็ก ไม่ใช่ ads |
+| **v3** ✅ | `light, warm, effortless` + `easy confidence` + `never sluggish, never dreamy, never giddy or hyper` + **"garment is the subject"** | ✅ **ฟีล ads ขายชุด** พอดี |
+
+> บทเรียน: prompt โฆษณาเสื้อผ้า **ต้องมีบรรทัดบอกว่า "ชุดคือพระเอก"** — v1/v2 ลืม ทำให้โมเดลโฟกัสที่ตัวคน/อารมณ์แทนที่จะเป็นชุด
+> คุมพลังด้วย **balance line เดียว** (`never sluggish, never dreamy, and never giddy or hyper`) แทนการสั่งท่า — ยังอยู่ในหลัก Marco (set the rules, not the shots)
+
+### ⭐ v3 — ADS TONE (ใช้ตัวนี้)
+```
+FORMAT
+10-second video, 9:16 vertical.
+
+REFERENCE ROLES
+Image 1 = the woman and the uniform she wears; full identity from this image, and she wears exactly this piece throughout — collar, cut and colorway from this image.
+Image 2 = the room; every shot takes place here.
+
+CAMERA
+Handheld on an iPhone 15 Pro, imperfections are present. The camera stays with her and moves naturally.
+
+AMBIENCE
+A bright styling room in late-morning light. Light, warm, effortless.
+AMBIENCE SOUNDS
+Environment sound only, no music — soft footsteps, fabric moving.
+
+SHOTS
+This is a fashion advert for the uniform — the garment is the subject; its collar, buttons, fabric and cut read clearly in every shot.
+Several shots showing the uniform on the woman, both close details and full looks. She wears it with easy confidence — light on her feet, moving between poses, a natural smile, comfortable and pleased with the fit.
+Keep it alive and effortless: never sluggish, never dreamy, and never giddy or hyper.
+Rare camera angles.
+```
+
+### v1 — CALM (เก็บไว้อ้างอิง, ออกมาอืด)
+```
+CAMERA
+Handheld on an iPhone 15 Pro, imperfections are present.
+
+AMBIENCE
+A bright quiet styling room in late-morning light, soft daylight through sheer curtains. Calm, airy, lived-in.
+AMBIENCE SOUNDS
+Environment sound only, no music.
+
+SHOTS
+Several shots showing the uniform on the woman, both close details and full looks. She poses freely, alive and pleased with what she is wearing.
+Rare camera angles.
+```
+> (v2 = บล็อก MARCO FREESTYLE ด้านบน — energy สูง ร่าเริงเกินสำหรับ ads)

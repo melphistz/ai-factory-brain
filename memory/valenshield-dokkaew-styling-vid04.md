@@ -82,7 +82,16 @@ gen still ต่อลุค (ChatGPT/Nano Banana, char sheet ref + lock lavende
 - 10 วิ/ลุค → Seedance แตกหลายช็อต/หลายมุมเองใน gen เดียว → ตัดเลือก CapCut · **2 ref เท่านั้น: char sheet + ห้อง**
 - ❌ **ห้ามใช้ Marco กับ** เปิดตู้/ปัด/กดจิ้ม — AE ต้อง track จุดจิ้ม ต้องล็อก (i2v first+last เดิม)
 - **ไม่ over-specify** (ไม่ต้องบอกว่าหน้าอยู่ช่องไหน) — โมเดลฉลาดพอ (Mirko เตือน: over-specify = ผิดหลัก Marco เอง)
-- prompt เต็ม = `PROMPT-KIT-vid04.md` §MARCO FREESTYLE
+- prompt เต็ม = `PROMPT-KIT-vid04.md` §MARCO FREESTYLE + §TONE LADDER (เก็บทุก ver อย่าลบ)
+
+### 🎚️ TONE LADDER (ปรับพลัง = แตะแค่ AMBIENCE + CAMERA + SHOTS)
+| ver | สั่ง | ผล |
+|---|---|---|
+| v1 | `Calm, airy, lived-in` + `poses freely` | ❌ อืด เนิบ |
+| v2 | `upbeat, playful` + `giddy/bouncing/twirling` + `Snappy pacing` | ❌ ร่าเริงเกิน = คลิปเด็ก ไม่ใช่ ads |
+| **v3** ✅ | `light, warm, effortless` + `easy confidence` + balance line + **"garment is the subject"** | ✅ ฟีล ads ขายชุด |
+- 🔑 **โฆษณาเสื้อผ้าต้องมีบรรทัด "ชุดคือพระเอก"** (`the garment is the subject; its collar, buttons, fabric and cut read clearly in every shot`) — v1/v2 ลืม โมเดลเลยโฟกัสคน/อารมณ์แทนชุด
+- 🔑 คุมพลังด้วย **balance line เดียว** (`never sluggish, never dreamy, and never giddy or hyper`) แทนสั่งท่า — ยังอยู่ในหลัก Marco
 
 ## CHAR SHEET ใหม่ (erase-face — 13 ก.ค., sheet = garment ref ไม่แย่ง identity)
 | ไฟล์ | ปก | ล่าง | ลุค |
