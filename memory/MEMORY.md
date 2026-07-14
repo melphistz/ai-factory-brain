@@ -4,6 +4,7 @@ One line per memory, grouped by section. Add new entries under the matching sect
 
 ## Rules
 
+- [Use Installed Skills](rule-use-installed-skills.md) — RULE (Mirko 07-14): งานที่มี skill/agent ตรง → **ต้องเรียกใช้ ห้ามเขียนสดใน main** (build+audit ไป token เยอะแล้ว) · ยกเว้นแก้เล็กกลาง iteration สด · เช็ค [[skills-cheatsheet]] ตอนเริ่ม task
 - [Search Prompt-Index First](rule-search-prompt-index-first.md) — RULE: ก่อนเขียน image/video prompt ใหม่ → ค้น `~/ai-factory-brain/tools/prompt-index/` (8.7k prompts, internal ไม่ติด FDA, `search.py term1 term2`) หา reference ก่อนเสมอ · sync.py export ให้อัตโนมัติ
 - [Model/Effort Strategy](feedback-model-effort-strategy.md) — FEEDBACK: intelligence-asset (freeze ยาว) = โมเดลฉลาดสุด+ultracode+verify 2 เลนส์ · build/production = Opus/Sonnet+high ถูกกว่าทำได้เท่ากัน · effort สูง=ช้าลงไม่ใช่เร็ว · build ช้าเพราะ subprocess ไม่ใช่โมเดล
 - [Always Full Prompt](feedback-always-full-prompt.md) — FEEDBACK: คุยเรื่อง prompt สร้างภาพ/วิดีโอ = จบด้วย full paste-ready prompt เสมอ ทุกครั้ง (อธิบายที่เพิ่มได้ แต่ต้องมี full)
@@ -30,13 +31,13 @@ One line per memory, grouped by section. Add new entries under the matching sect
 
 ## Archived (resolved — kept for reference, not action items)
 
+- [Gemini Gem — ARCHIVED](gemini-gem-seedance-director.md) — เดิมทำไว้แจก เลิกแจกแล้ว (07-14) ไม่เคยติดตั้งใช้ · Instructions+knowledge pack ยังอยู่ครบถ้าจะฟื้น
 - [YouMind Scrape — DONE](youmind-scrape-session-state.md) — DONE 3 ก.ค.: merged youmind→galleries (img 6877, video 363). optional leftover: 44 img fail + youmind video undercount
 - [MeiGen Library — DONE](meigen-library-session-state.md) — CLOSED, sync ongoing periodically: 07-13 +592→**7,420** prompts (gallery 8,259 cards). FDA needs re-toggle EVERY reboot (confirmed macOS external-volume TCC bug, not MDM)
 
 ## Seedance / Video Prompting
 
 - [Vertical Drama Basics (Dramy.ai)](vertical-drama-basics-dramy.md) — โครงละครแนวตั้ง: ตอน 5 ช่วง Hook/Setup/Conflict/Twist/**Cliffhanger บังคับ**, Hook 4 ประเภท+เกณฑ์เลือก, ไอเดีย AI-friendly (ตัวละคร≤3/สถานที่≤2/30-60วิ) · Dramy.ai = ผู้เล่นไทย niche เดียวกับ smartaihub
-- [Gemini Gem — Seedance Director](gemini-gem-seedance-director.md) — Gem สำเร็จรูป "Seedance 2.0 Prompt Director" สำหรับ Gemini: Instructions EN 11.8k chars + [knowledge pack](gemini-gem-seedance-knowledge-pack.md) พร้อมอัปโหลด + วิธีติดตั้ง/ลำดับตัดถ้าเกินลิมิต (กลั่นจากคลัง Seedance ทั้งหมด 07-05)
 - [Storyboard Knowledge](storyboard-knowledge.md) — storyboard พื้นฐานสำหรับ AI video: board first render second, 3 ช็อตพื้นฐาน, จัดเฟรม, storyboard vs shot list (จาก Windows vault)
 - [AI Video Realism Hierarchy](ai-video-realism-hierarchy.md) — motion/แสง/กล้อง = ตัวคูณ realism, skin detail = แค่ gate; QA ข้อ 1 = contact physics (มือแตะของ) + case study MV ไทย AI
 - [Seedance Marco Freestyle Method](seedance-marco-freestyle-method.md) — ⭐ ORIGINAL ([@MarcoBorinEdit](https://x.com/MarcoBorinEdit/status/2068075513206174081)): **set the RULES not the SHOTS** — shot-by-shot ละเอียด = "the AI tell" (ช้า แข็ง) · ปล่อยให้โมเดล freestyle มุม + `Rare camera angles.` = คำปลดล็อก · 2 รูป + 6 บรรทัด + 1 gen · template เต็ม
