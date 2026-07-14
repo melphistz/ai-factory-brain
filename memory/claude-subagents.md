@@ -9,7 +9,7 @@ metadata:
 
 # Claude Code Subagents — fleet 9 ตัว (2026-07-05 · **Fable audit ยกระดับทั้ง fleet 07-07** · +kondomarie 07-09)
 
-> **07-14 knowledge propagation pass:** อัดความรู้ใหม่หลัง 07-09 เข้าเครื่องมือ — `storyboard-prompter` (+narrative-not-flat/ENERGY, Marco freestyle option, collar discriminator) · `asset-prompt-builder` (+search prompt-index first, collar discriminator, 2-panel sheet) · `qa-inspector` (+720p-only judging, no-seed save-immediately, garment feature check) · skills `seedance-2-pro-director` (+Marco mode, Resolution/no-seed) + `video-prompt-builder` (pointer) · ⚠️ `image-prompt-writer` ยังไม่ได้อัพ (Mirko หยุด agent กลางทาง 07-14)
+> **07-14 knowledge propagation pass:** อัดความรู้ใหม่หลัง 07-09 เข้าเครื่องมือ — `storyboard-prompter` (+narrative-not-flat/ENERGY, Marco freestyle option, collar discriminator) · `asset-prompt-builder` (+search prompt-index first, collar discriminator, 2-panel sheet) · `qa-inspector` (+720p-only judging, no-seed save-immediately, garment feature check) · skills `seedance-2-pro-director` (+Marco mode, Resolution/no-seed) + `video-prompt-builder` (pointer) + `image-prompt-writer` (+search index first, garment discriminators, 2-panel sheet) — **ครบทุกตัว**
 
 > 07-07 (วันสุดท้าย Fable): audit→revise→verify ทุกตัว + coherence ข้าม fleet — อัดความรู้ verified ล่าสุด (กฎทองมุมกล้อง, under-direct ฉบับแก้, short-lock i2v, budget 1,800, ลำดับ QA tells, hook 4 ประเภทสายละคร) เข้า agent ที่เกี่ยว · 3 skills ก็ถูกยกระดับ (shotlist-builder ถอน claude.ai deps เก็บตก) · `projects/_template` จัดโครงตรง AGENT_OPS แล้ว · diff ทั้งหมดใน git 07-07
 
