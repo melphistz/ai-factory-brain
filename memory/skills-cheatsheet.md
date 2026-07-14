@@ -7,6 +7,8 @@ metadata:
   originSessionId: 20a72bde-5cc0-43ba-90da-e06fffdbe0d2
 ---
 
+> ⚠️ บังคับใช้โดย [[rule-use-installed-skills]] (07-14): เริ่ม task ที่มี skill/agent ตรง → ต้องเปิดไฟล์นี้เลือกตัว route ห้ามเขียนสดใน main
+
 Quick "which skill for which job" map for FF factory ad work. Claude auto-picks by reading each skill's `description` vs your intent; name a skill explicitly to force it. Details per skill: [[seedance-2-pro-director-skill]], [[shotlist-builder-skill]], [[video-prompt-builder-framework]].
 
 ## 3 Seedance skills — pick by JOB SIZE
