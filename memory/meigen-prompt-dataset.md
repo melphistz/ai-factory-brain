@@ -9,6 +9,10 @@ metadata:
 
 # MeiGen — 1,446 Curated Prompt Dataset (open-source)
 
+## ⭐ INTERNAL TEXT INDEX (07-13 — ใช้อันนี้เวลาเขียน prompt)
+คลังทั้งหมด export เป็น text-only index บน internal ค้นได้เสมอไม่ติด FDA: `~/ai-factory-brain/tools/prompt-index/prompt-index.jsonl` (8,776 = meigen+youmind+seedance) + `search.py` · sync.py export ให้อัตโนมัติทุกรอบ · กฎการใช้ = [[rule-search-prompt-index-first]]
+
+
 > Site `meigen.ai` = prompt gallery ดึงจาก X (มี `[variable]` template, detail page `/prompt/{tweet_id}`).
 > เว็บ **Cloudflare-locked** (curl/WebFetch = 403 "Just a moment"). **exa (`web_fetch_exa`) ทะลุได้** สำหรับดูหน้า
 > **แต่ทางลัดจริง:** prompt library ทั้งชุดเป็น open-source → ดึงตรงไม่ต้องสู้ CF

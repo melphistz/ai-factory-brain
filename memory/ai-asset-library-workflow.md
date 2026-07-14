@@ -32,3 +32,5 @@ Demo footage ใน video เดียวกัน (ตัวอย่าง out
 - [[ai-character-identity-lock]] — หลัก identity lock เดิมที่มีอยู่ (reference sheet), ไฟล์นี้เสริมรายละเอียด 9:16/9-square/prop-turnaround/color-hex ที่ยังไม่มี
 - `asset-prompt-builder` subagent — ตัวที่ implement pipeline นี้จริงในงาน production
 - [[feedback-drama-character-casting]]
+
+> เกี่ยว: [[char-sheet-2panel-identity-garment]] — ฟอร์แมต 2-panel (close-up identity + faceless front/back garment) สาย fashion/lookbook, เสริมกับ face-3-angle/9-square ในไฟล์นี้

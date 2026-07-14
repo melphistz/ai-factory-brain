@@ -22,6 +22,7 @@ One line per memory, grouped by section. Add new entries under the matching sect
 - [Story Ideas — แนวเต๋อ นวพล](story-ideas-nawapol.md) — idea bank 10 เรื่อง ภาพล้วนไม่มีบทพูด สำหรับตั้งโปรเจกต์ถัดไป (ก๊อป projects/_template)
 - [AI UGC Ad Factory Workflow](ai-ugc-ad-factory-workflow.md) — ACTIVE · **MODE v2 (07-05): prompt-first/manual-gen** (Ploy reset, no MCP gen, flow 5 ขั้นใน AGENT_OPS.md, ถ้า OK ค่อยต่อยอด) · โครงเดิม: 8 concept × 3 hook hook-swap
 - [FF Factory — Live Session State](FF_SESSION_STATE.md) — symlink → Desktop/Ads/FF_factory/SESSION_STATE.md (volatile task-state, edit at source)
+- [Neezplus (client ad)](../projects/neezplus/STATE.md) — **ACTIVE** โฆษณาอาหารแมว NEEZ+ 12 คลิป (SB01–08 อาหาร + SB09–12 ทราย + SB13–20 showcase) · 07-10: presenter kit+sheet approved (QA Gate1 ผ่าน), **SB01 kit เสร็จ (green screen, GPT Image 2 + Veo lip-sync)** → Mirko gen ได้เลย · รอ client sign-off บท scene 6 + tag [รีวิวเพียบ] · next = prompt SB02–08 · ทุกอย่างใน `projects/neezplus/` (STATE.md เป็น source of truth)
 - [Valenshield Dokkaew Styling (vid04)](valenshield-dokkaew-styling-vid04.md) — **ACTIVE (เดียวที่เหลือ)** camp 4 = magic-wardrobe styling montage (clone UNIQLO Workday Styling), 3 ลุค, 20s 9:16, **ไม่มี VO**, สี=ลาเวนเดอร์, **ฉากโทนขาว**. mechanic = POV เปิดตู้(ชุดอยู่บ้าน)→ว้าว→ปัด/จิ้มเลือก→**jump-cut เปลี่ยนชุด**→โพส dynamic. char sheet 3 ลุค+storyboard v4 DONE · **07-13: fix ปก L2/L3 gen ซ้ำกัน** (collar discrimination: ปลายชี้ลง vs เชิดขึ้น) · next = regen storyboard 1-3 + ห้องขาว + casual sheet → stills → Seedance. ⚠️ ของลอย/jump = AE/CapCut ไม่ใช่ Seedance
 - [Valenshield vid01-03 — DONE](valenshield-nurse-ad-project.md) — ✅ ปิดหมด 07-10: vid01 editorial HERO ([[valenshield-nurse-ad-project]]) · vid02 macro ASMR ([[valenshield-macro-asmr-ad]]) · vid03 walking-pad TIFU ([[valenshield-walkingpad-tifu-vid03]]). เก็บ prompt/บทเรียนไว้ reuse
 
@@ -31,7 +32,7 @@ One line per memory, grouped by section. Add new entries under the matching sect
 
 ## Archived (resolved — kept for reference, not action items)
 
-- [Gemini Gem — ARCHIVED](gemini-gem-seedance-director.md) — เดิมทำไว้แจก เลิกแจกแล้ว (07-14) ไม่เคยติดตั้งใช้ · Instructions+knowledge pack ยังอยู่ครบถ้าจะฟื้น
+- [Gemini Gem — ARCHIVED](gemini-gem-seedance-director.md) — เดิมทำไว้แจก เลิกแจกแล้ว (07-14) ไม่เคยติดตั้งใช้ · Instructions + [knowledge pack](gemini-gem-seedance-knowledge-pack.md) ยังอยู่ครบถ้าจะฟื้น
 - [YouMind Scrape — DONE](youmind-scrape-session-state.md) — DONE 3 ก.ค.: merged youmind→galleries (img 6877, video 363). optional leftover: 44 img fail + youmind video undercount
 - [MeiGen Library — DONE](meigen-library-session-state.md) — CLOSED, sync ongoing periodically: 07-13 +592→**7,420** prompts (gallery 8,259 cards). FDA needs re-toggle EVERY reboot (confirmed macOS external-volume TCC bug, not MDM)
 
@@ -101,6 +102,6 @@ One line per memory, grouped by section. Add new entries under the matching sect
 - [Legacy Vault D:\Claude](legacy-vault-d-claude.md) — vault เก่าบน Windows เกษียณ 2026-07-05: เหลือ 90-Assets (ไฟล์หนัก) + _archive · ความรู้ตัวจริงอยู่ repo
 - [Grok Media Saver — Project](grok-media-saver-project.md) — extension โหลดรูป Grok Imagine ที่ D:\Downloads (Windows), v6.1.1 ใช้ได้จริง · เครื่อง Windows มี Node v24 แล้ว (07-07, refresh PATH ก่อนใช้)
 - [Grok Media Saver — Knowledge](grok-media-saver-knowledge.md) — คู่มือใช้งาน + ความรู้เชิงลึก extension (ย้ายจาก vault เก่า)
-- [Claude Subagents](claude-subagents.md) — MODEL POLICY: main=orchestrate เท่านั้น · fleet 8 (opus: storyboard-prompter/asset-prompt-builder/script-hook-writer/deep-reasoner · sonnet: qa-inspector/teardown-analyst/timeline-builder/fast-worker) · playbook = FF_factory/AGENT_OPS.md · **ทั้ง fleet+3 skills ผ่าน Fable audit 07-07**
+- [Claude Subagents](claude-subagents.md) — MODEL POLICY: main=orchestrate เท่านั้น · **fleet 9** (opus: storyboard-prompter/asset-prompt-builder/script-hook-writer/deep-reasoner · sonnet: qa-inspector/teardown-analyst/timeline-builder/fast-worker/**kondomarie**) · playbook = FF_factory/AGENT_OPS.md · fleet ผ่าน Fable audit 07-07 (+kondomarie 07-09) · **skills 6 ตัวมี audit record ครบ** (3× 07-07, 3× 07-09) · kondomarie cloud routine รันเองทุกวันที่ 1+16
 - [Exa MCP Setup](exa-mcp-setup.md) — Exa search via curl/MCP (free); Reddit+X unavailable, general web works; read_x.py for single tweets
 - [Claude Plugins Installed](claude-plugins-installed.md) — 07-08: `pordee@pordee` จาก marketplace `kerlos/pordee` (GitHub) — ติดตั้งแล้ว ยังไม่ได้สำรวจว่าทำอะไร
