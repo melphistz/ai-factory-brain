@@ -22,9 +22,12 @@ metadata:
 1. **FDA ผ่าน** — tool อ่าน/เขียน external ตรงได้. เคล็ด: ถ้าติด `Operation not permitted` ทั้งที่ toggle เปิด → toggle Terminal.app ปิด→เปิด + Cmd+Q Terminal เปิดใหม่
 2. **sync 07-06 สำเร็จ**: +481 ใหม่ → meigen 6,519 · gallery 7,358 cards (รวม youmind 839)
 
-## ✅ sync 2026-07-08
-- +309 ใหม่ → **meigen 6,828** · gallery **7,667 cards** (รวม youmind 839) · thumb ok 309/309
+## ✅ sync 2026-07-13 (ล่าสุด)
+- +592 ใหม่ → **meigen 7,420** · gallery **8,259 cards** (รวม youmind 839) · thumb ok 592/592 · 7 categories
 - คำสั่ง: `cd "/Volumes/PS Catches/prompt-library/" && python3 sync.py` (run_in_background เสมอ)
+
+## sync 2026-07-08
+- +309 ใหม่ → meigen 6,828 · gallery 7,667 cards
 
 ## ไม่มีอะไรค้าง
 - orphan Desktop/Documents ลบไปแล้ว (ยืนยัน 07-06) — โปรเจกต์นี้ปิดสมบูรณ์ ใช้ต่อแค่ sync เป็นระยะ

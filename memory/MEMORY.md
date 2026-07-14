@@ -30,7 +30,7 @@ One line per memory, grouped by section. Add new entries under the matching sect
 ## Archived (resolved — kept for reference, not action items)
 
 - [YouMind Scrape — DONE](youmind-scrape-session-state.md) — DONE 3 ก.ค.: merged youmind→galleries (img 6877, video 363). optional leftover: 44 img fail + youmind video undercount
-- [MeiGen Library — DONE](meigen-library-session-state.md) — CLOSED, sync ongoing periodically: 07-08 +309→6,828 prompts. FDA needs re-toggle EVERY reboot (confirmed macOS external-volume TCC bug, not MDM)
+- [MeiGen Library — DONE](meigen-library-session-state.md) — CLOSED, sync ongoing periodically: 07-13 +592→**7,420** prompts (gallery 8,259 cards). FDA needs re-toggle EVERY reboot (confirmed macOS external-volume TCC bug, not MDM)
 
 ## Seedance / Video Prompting
 
