@@ -4,6 +4,7 @@ One line per memory, grouped by section. Add new entries under the matching sect
 
 ## Rules
 
+- [Search Prompt-Index First](rule-search-prompt-index-first.md) — RULE: ก่อนเขียน image/video prompt ใหม่ → ค้น `~/ai-factory-brain/tools/prompt-index/` (8.7k prompts, internal ไม่ติด FDA, `search.py term1 term2`) หา reference ก่อนเสมอ · sync.py export ให้อัตโนมัติ
 - [Model/Effort Strategy](feedback-model-effort-strategy.md) — FEEDBACK: intelligence-asset (freeze ยาว) = โมเดลฉลาดสุด+ultracode+verify 2 เลนส์ · build/production = Opus/Sonnet+high ถูกกว่าทำได้เท่ากัน · effort สูง=ช้าลงไม่ใช่เร็ว · build ช้าเพราะ subprocess ไม่ใช่โมเดล
 - [Always Full Prompt](feedback-always-full-prompt.md) — FEEDBACK: คุยเรื่อง prompt สร้างภาพ/วิดีโอ = จบด้วย full paste-ready prompt เสมอ ทุกครั้ง (อธิบายที่เพิ่มได้ แต่ต้องมี full)
 - [Drama Character Casting Feedback](feedback-drama-character-casting.md) — FEEDBACK: ตัวละคร drama ทุกตัว (เอก+นางร้าย) ต้องสวย/หล่อหมด แต่ไม่ over ต้องสมจริง · validated recipe → [[drama-dramabox-tier-portrait-recipe]]
@@ -69,7 +70,7 @@ One line per memory, grouped by section. Add new entries under the matching sect
 ## Prompt Libraries
 
 - [Batch Image-Gen Pipeline Pattern](batch-image-gen-pipeline-pattern.md) — reusable resumable-batch pattern (JSONL queue + shared done-log dedup + parallel workers on disjoint slices) + known gotchas (timeouts, worker-kill, dedup hygiene, cost-approval), from AI Video Skool team's skill (07-09); reference-for-later, repo still prompt-first/manual-gen · prompt-craft half merged into `image-prompt-writer` skill (aesthetic A/B, one-change-at-a-time, originality rule, Higgsfield engine params, identity anchor kit, Real-Reference method, camera-angle vocab)
-- [MeiGen Prompt Dataset](meigen-prompt-dataset.md) — FULL 6,828 prompts pulled via open /api/search (no auth, bypasses CF) → local gallery.html; +1,446 curated open-source JSON; query/filter + ad formulas
+- [MeiGen Prompt Dataset](meigen-prompt-dataset.md) — FULL 7,420 prompts via open /api/search → gallery.html (external) + **text index บน internal `tools/prompt-index/` ค้นได้เสมอ** ([[rule-search-prompt-index-first]]); +1,446 curated; ad formulas
 - [MeiGen Top Prompts](meigen-top-prompts.md) — full copy-paste text of top brand-ad/product/editorial/food prompts (Act as + PHASE formula, JSON identity-lock, [BRAND NAME] vars)
 - [YouMind Prompt Pack](youmind-prompt-pack.md) — 8 full copy-paste GPT Image 2 prompts (editorial/UGC/product/food) + {argument} template + 10 restyle presets
 - [YouMind GPT Image 2 Prompt Library](youmind-gpt-image-prompt-library.md) — filterable prompt gallery; use Photography×Influencer/Model / Product / Storyboard filters (skills subsite = academic, skip)

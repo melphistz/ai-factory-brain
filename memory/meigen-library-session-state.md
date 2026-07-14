@@ -26,6 +26,11 @@ metadata:
 - +592 ใหม่ → **meigen 7,420** · gallery **8,259 cards** (รวม youmind 839) · thumb ok 592/592 · 7 categories
 - คำสั่ง: `cd "/Volumes/PS Catches/prompt-library/" && python3 sync.py` (run_in_background เสมอ)
 
+## ✅ INTERNAL TEXT INDEX (13 ก.ค. — แก้ปัญหา "คลังไม่ถูกใช้")
+- `sync.py` ต่อท้ายด้วย `export_index.py` แล้ว → ทุก sync จะ export **index text-only** ไป `~/ai-factory-brain/tools/prompt-index/prompt-index.jsonl` อัตโนมัติ (8,776 prompts = meigen+youmind+seedance, ~16MB, เข้า git)
+- **ค้นได้เสมอไม่ติด FDA:** `search.py term1 term2` — กฎการใช้ = [[rule-search-prompt-index-first]]
+- อัพที่เดียว (รัน sync.py) ได้ 2 ที่ (gallery external + index internal) · ความสด = `index-meta.json`
+
 ## sync 2026-07-08
 - +309 ใหม่ → meigen 6,828 · gallery 7,667 cards
 
