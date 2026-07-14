@@ -142,6 +142,19 @@ This golden rule governs per-beat angles inside a timed sequence. A single conti
 
 ---
 
+## Marco freestyle mode (alternative to full blocking)
+
+For mood, fashion, or product shots where a lively, surprising frame matters more than exact beat control, offer this alternative instead of a fully blocked prompt: **set the rules, not the shots.**
+
+- Reference image(s) lock identity/product; the prompt sets FORMAT / REFERENCE ROLES / CAMERA (device + texture — e.g. `Shots on an iPhone 14 Pro, imperfections are present`, never a move) / AMBIENCE (+ sound) / SHOTS (1-2 lines on what must be seen — no shot list, no timecodes, no angle calls).
+- Detailed shot-by-shot camera direction is itself an AI tell here — it renders slow, dreamy, stiff. Stripping to rules and letting the model invent framing makes it livelier.
+- `Rare camera angles.` is the unlock line — it invites framing you would never write yourself (over-under at the waterline, ground-level pass, macro texture).
+- Full template + worked example: `seedance-marco-freestyle-method.md`.
+
+**Do not use this for this skill's core lane** — a single precisely blocked shot with character anchors, screen-position locks, first+last frame control, an AE-tracked gesture point, or a punchline reveal. Those need the full spatial-blocking / character-anchor system in this file, not freestyle.
+
+---
+
 ## Reference discipline
 
 If the user provides references, every reference must be assigned a clear role.
@@ -695,11 +708,20 @@ Post-generation QA order: contact physics FIRST (zoom in wherever hands touch ob
 
 ---
 
+## Resolution & iteration (Seedance 2.0 has no seed)
+
+- Native output tiers = 480p and 720p only. Resolution is a fidelity/cost lever, not an intelligence lever — composition, motion, and semantics are decided at base resolution; higher tiers just add detail on top.
+- Seedance 2.0 has no seed parameter, so a good low-res take cannot be locked and re-rolled identically at high res (a re-roll is a different clip). Iterate direction/prompt cheaply at low res if needed, but run the real selection generations — the 4-6 takes you'll actually choose from — at the final resolution.
+- Never judge motion or quality at 480p — it's draft-inference mode with reduced features. 720p is the evaluation baseline.
+
+---
+
 ## Deeper knowledge (read from the brain vault at runtime)
 
 Vault paths — mac: `/Users/working/ai-factory-brain/memory/` · Windows: `D:\ai-factory-brain\memory\`
 
-- `seedance-knowledge.md` — full theory: formula, camera, timeline golden rule, under-direct acting, input-mode decision tree, host specs.
+- `seedance-knowledge.md` — full theory: formula, camera, timeline golden rule, under-direct acting, input-mode decision tree, host specs, resolution/no-seed research.
+- `seedance-marco-freestyle-method.md` — full Marco rules-not-shots template + worked example (paste-ready).
 - `seedance-prompt-repository.md` — real prompt examples, reusable style stacks, UGC templates, 14 camera techniques, on-product text rules.
 - `ai-video-realism-hierarchy.md` — realism hierarchy case studies + post-gen QA tells (contact physics, wardrobe re-roll, ECU detail inconsistency).
 - `gemini-gem-seedance-director.md` — the distilled director instruction set (same system, condensed for Gemini Gem).

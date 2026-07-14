@@ -29,6 +29,16 @@ Always write the final prompt in English. Explanations to the user can be in any
 
 ---
 
+## Before you start — search the prompt index
+
+Before drafting any prompt, search the local prompt index for a close reference first — pull structure/wording/technique from something that already worked instead of writing cold every time:
+```
+cd ~/ai-factory-brain/tools/prompt-index && python3 search.py [-n N] [-f] [-s meigen|youmind|seedance] term1 term2
+```
+8.7k real prompts (meigen + youmind + seedance), AND-matched terms, ranked by frequency/likes. Use it for a fresh prompt, a style stack, or a niche technique (macro, product, UGC, fashion...). Pull the structure, don't copy verbatim — same originality rule as the identity-lock section below.
+
+---
+
 ## Core prompt formula
 
 Build every prompt from this backbone (skip fields that don't apply, but check each one):
@@ -200,6 +210,24 @@ Append when the user wants a clean, bright, commercial-cinematic look:
 ultra-cinematic cinematography style, clean white tone TVC, highkey commercial, shallow depth of field, soft blurry background with creamy bokeh, subject in sharp focus, anamorphic lens, realistic film style, film lighting and shadow, movie still quality, professional cinema camera.
 ```
 
+### 7. Garment/fashion — feature discriminators + energy control
+For clothing/lookbook/wardrobe prompts, three levers keep the garment (not the mood) as the actual subject:
+- **Garment-is-the-subject line** — without it the model drifts toward the person/emotion instead of the clothes:
+```
+the garment is the subject; its collar, buttons, fabric and cut read clearly in every shot
+```
+- **Feature discriminators for near-identical garments** — when a set of outfits differs only by one feature (e.g. collar shape across 3 looks), spell out SHARP physical differences per garment instead of a vague label, plus an explicit negative:
+```
+Look 2 collar: wide V, broad rounded lapel points angling DOWN.
+Look 3 collar: narrow higher V, long sharp points sweeping UP like wings.
+Negative: the collars must be clearly distinguishable; do NOT give Look 2 and Look 3 the same collar.
+```
+Attach a real product photo as a feature reference when one exists — text alone under-specifies it and the model will collapse near-identical garments to the same shape.
+- **Energy control with one balance line** instead of choreographing individual poses:
+```
+never sluggish, never dreamy, and never giddy or hyper
+```
+
 ---
 
 ## Identity-lock technique (recurring character across many images)
@@ -224,6 +252,8 @@ The model pattern-matches against a **visual reference**, not a text description
 **One change at a time.** When iterating on an existing reference (sheet or photo), edit only one thing per generation — pose, OR outfit, OR expression, not several at once. Stacking multiple changes in a single edit makes the model "reimagine" more of the image instead of surgically modifying it, and that's where identity drift creeps in.
 
 **Alternative — identity anchor kit (4-shot, stronger for heavy multi-scene series):** instead of a single 2-view sheet, generate 4 separate reference images and attach ALL 4 to every new scene: (1) front neutral — face-on, neutral expression, flat lighting, (2) side profile neutral — pure profile, gives the model jaw/nose/ears, (3) front expressive — full smile with teeth + expression wrinkles, (4) full body — whole figure for body proportions. Without all 4 anchors the model "guesses" missing traits (a sheet alone under-specifies profile bone structure and body proportions) — that guessing is where inconsistency creeps in across a long scene series. Use the single-sheet method above for a short 2-3 scene job; switch to the 4-shot anchor kit once a character needs to hold up across many scenes/emotions. Nano Banana Pro is the best fit for this (holds multiple labeled references natively); fall back to GPT Image 2 if it blocks on filters.
+
+**2-panel char sheet (identity + faceless garment) — for garment/lookbook jobs:** one image, split into two panels on the same seamless grey backdrop. LEFT (~45%) = beauty close-up, face fully visible and sharp — this is the IDENTITY panel, and the garment's collar/neckline is visible below the chin for a free fabric/collar reference. RIGHT (~55%) = full-body FRONT + BACK lookbook shots of the same outfit, side by side, with the face MASKED to a plain flat grey oval — hair still renders normally around it. This separates identity from garment in one sheet so the model doesn't confuse which face is real; complements, does not replace, the 4-view/turnaround sheet. Trap: you must spell out **"plain flat grey oval with no features"** explicitly, or the model half-blurs the face into a ghost instead of masking it cleanly. Full paste-ready prompt: `char-sheet-2panel-identity-garment.md`.
 
 **Real-Reference method (maximum photorealism, separate from character identity-lock):** when the priority is raw photorealism rather than a consistent original character, start from a REAL photo (owned/licensed) as the base and ask for a minimal edit (e.g. "put this character on this armchair") instead of generating the scene from scratch — grain, real light, and real imperfections come "free" from the source photo. Rules: use a clean non-AI-generated reference photo, change ONE thing at a time (same discipline as above), and never use a reference photo you don't hold the rights to.
 
@@ -295,6 +325,7 @@ Vault paths — mac: `/Users/working/ai-factory-brain/memory/` · Windows: `D:\a
 
 - `ai-influencer-image-prompt.md` — full realism framework, model benchmark, all realism-tier presets (clean iPhone / Y2K digicam / elevated European / "unaware" candid tier).
 - `ai-character-identity-lock.md` — full identity-lock method, tool tiers, two-tool workflow.
+- `char-sheet-2panel-identity-garment.md` — full 2-panel identity+garment char-sheet prompt (paste-ready), for garment/lookbook jobs.
 - `cute-face-charm-recipe.md` — full cute-face breakdown + full paste-ready cherryhikiko-style prompt.
 - `kpop-idol-visual-prompt.md` — full K-pop visual prompt + doll-visual archetype variant.
 - `image-prompt-suffixes-techniques.md` — TVC suffix, pose-transfer, character-swap, upscale prompt techniques.

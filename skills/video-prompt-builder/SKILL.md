@@ -17,7 +17,8 @@ Build a whole-ad, shot-by-shot effects plan from a creative brief. Every output 
 
 - ONE precise character-blocked shot → `seedance-2-pro-director` skill (single-shot lane). Uploaded screenplay → multi-scene shotlist → `shotlist-builder`.
 - Factory pipeline (`projects/FF_factory/AGENT_OPS.md`): this plan feeds the brief/concept stage. Per-shot video prompts are written by the **storyboard-prompter** agent (step 4, from real storyboard frames); the effects map feeds edit/timeline cues (**timeline-builder**, step 5 fx markers) — not the Seedance prompt itself.
-- Vault sources, readable at runtime on both OS (mac `/Users/working/ai-factory-brain/` · Windows `D:/ai-factory-brain/`): `memory/video-prompt-builder-framework.md` (this framework + scope rule) · `memory/seedance-knowledge.md` (per-clip prompt craft, "1 prompt = 1 clip").
+- For an individual shot where freestyle liveliness matters more than exact control (mood/fashion/product feel), the per-clip prompt can use the Marco "rules, not shots" pattern instead of full blocking — see `memory/seedance-marco-freestyle-method.md`. This is a per-clip prompting choice made at the hand-off stage, not part of this plan's four sections.
+- Vault sources, readable at runtime on both OS (mac `/Users/working/ai-factory-brain/` · Windows `D:/ai-factory-brain/`): `memory/video-prompt-builder-framework.md` (this framework + scope rule) · `memory/seedance-knowledge.md` (per-clip prompt craft, "1 prompt = 1 clip", resolution/no-seed notes) · `memory/seedance-marco-freestyle-method.md` (rules-not-shots alternative).
 
 ## How this skill works
 
