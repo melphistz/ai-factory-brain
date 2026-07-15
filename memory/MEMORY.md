@@ -4,6 +4,7 @@ One line per memory, grouped by section. Add new entries under the matching sect
 
 ## Rules
 
+- [Address User Politely](feedback-address-user-politely.md) — FEEDBACK (07-15): เรียก user = "คุณ/เรา" เสมอ · **ห้ามใช้มึง/กู/คำหยาบเด็ดขาด** แม้ pordee mode (pordee ตัดแค่ particle ไม่แตะสรรพนาม) · เคยเผลอหลายรอบจน user สั่งลบพฤติกรรม
 - [Use Installed Skills](rule-use-installed-skills.md) — RULE (Mirko 07-14): งานที่มี skill/agent ตรง → **ต้องเรียกใช้ ห้ามเขียนสดใน main** (build+audit ไป token เยอะแล้ว) · ยกเว้นแก้เล็กกลาง iteration สด · เช็ค [[skills-cheatsheet]] ตอนเริ่ม task
 - [Search Prompt-Index First](rule-search-prompt-index-first.md) — RULE: ก่อนเขียน image/video prompt ใหม่ → ค้น `~/ai-factory-brain/tools/prompt-index/` (8.7k prompts, internal ไม่ติด FDA, `search.py term1 term2`) หา reference ก่อนเสมอ · sync.py export ให้อัตโนมัติ
 - [Model/Effort Strategy](feedback-model-effort-strategy.md) — FEEDBACK: intelligence-asset (freeze ยาว) = โมเดลฉลาดสุด+ultracode+verify 2 เลนส์ · build/production = Opus/Sonnet+high ถูกกว่าทำได้เท่ากัน · effort สูง=ช้าลงไม่ใช่เร็ว · build ช้าเพราะ subprocess ไม่ใช่โมเดล
