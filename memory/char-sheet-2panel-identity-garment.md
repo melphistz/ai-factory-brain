@@ -29,6 +29,18 @@ metadata:
 - ✅ คู่กับ [[seedance-marco-freestyle-method]] (Image 1 = sheet นี้, Image 2 = ห้อง)
 - ❌ ถ้าต้องการมุม 3/4 หรือ turnaround ครบสำหรับ animate/3D → ใช้ 4-view/9-square เดิม ([[ai-asset-library-workflow]])
 
+## ⚠️ VERDICT ฟอร์แมตนี้ (deep-research 07-15, 21 sources / 25 claims verify)
+**16:9 sheet นี้ไม่ผิด แต่ sub-optimal** สำหรับ identity lock:
+- **กลไกจริง (confidence สูง, OpenAI docs):** โมเดลย่อ reference เป็น patch grid ที่ resolution เพดานคงที่ (gpt-image-1 ย่อด้านสั้น→512px) แล้วนับ token สม่ำเสมอทั้งเฟรม → **หน้ากินพื้นที่น้อย = token น้อย = identity signal อ่อน** (เรขาคณิตตรงๆ)
+- **token budget ไม่ face-aware** — โมเดลถ่วงทั้งเฟรมเท่ากัน ไม่รู้ตรงไหนหน้า (GPT high-input-fidelity เพิ่ม token แบบ flat ตาม aspect ratio ไม่ใช่ตามตำแหน่งหน้า) → นี่คือเหตุผลที่หน้าเล็กในชีต 16:9 กว้างเสียเปรียบ
+- **ที่ดีกว่า:** anchor **แนวตั้ง/close-up-dominant** (หน้ากินเฟรมเยอะ) + **แยกหน้ากับ full-body/ชุดเป็น 2 ภาพ ref แยก** ไม่ยัดใบเดียว — ภาพแยกได้ native (GPT รับ 1,500 ภาพ, Nano Banana 14 ref/6 high-fidelity, Seedream 3-5 มุม)
+- **anchor ควรเป็น** close-up frontal/3-4 คมชัด ไม่มี occlusion/เมคอัพหนัก (glam ไปอยู่ที่ output ไม่ใช่ที่ ref)
+- **grey-oval mask:** ไม่มีหลักฐานทั้งช่วย+ทำร้าย → low-risk เก็บได้ถ้าช่วยคุมชุด แต่อย่าคาดหวังว่ามัน "isolate identity"
+- **ถูก REFUTE หมด (0-3, blog คุณภาพต่ำ):** "หน้าต้อง 30-50% เฟรม" · "ref ต้อง ≥1024px" · "<512px พัง" · "collage ทำโมเดลสับสน" — **อย่าอ้างตัวเลขพวกนี้เป็นกฎ**
+- **caveat:** หลักฐาน 32px-patch/ViT มาจาก vision-**understanding** encoder — generative reference pathway ของ gpt-image-1/Nano/Seedance ไม่มี doc ยืนยัน tokenization เป๊ะแบบเดียวกัน = inference หนักแน่นแต่ไม่ใช่ proof
+- **dedicated pipeline (InstantID):** ดึง identity จาก face embedding ที่ **crop** มา ไม่ใช่ raw full-image pixel — ถ้า target model ทำแบบนี้ pixel-share หน้าจะสำคัญน้อยลง (แต่ไม่พิสูจน์ว่า 3 โมเดลนี้ทำ)
+- **A/B ที่ควรลองเอง:** (1) 2 ภาพแยก vs ชีตรวม (2) mask vs ไม่ mask — ไม่มี source ตอบตรงๆ ต้องเทสเอง
+
 ## PROMPT (paste-ready) — สร้าง sheet ฟอร์แมตนี้
 ```
 Create ONE image, 16:9 landscape, split into two panels by a thin vertical divider, everything on the same seamless light-grey studio backdrop with even soft studio lighting.
