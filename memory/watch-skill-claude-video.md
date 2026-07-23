@@ -5,7 +5,7 @@ metadata:
   node_type: memory
   type: reference
   originSessionId: 3ccb8148-4343-4f76-98a3-4d73df154e2a
-  modified: 2026-07-23T02:41:27.841Z
+  modified: 2026-07-23T11:09:59.397Z
 ---
 
 `/watch` skill = repo [bradautomates/claude-video](https://github.com/bradautomates/claude-video) — ติดตั้งแล้ว (`watch:watch`). ให้ Claude ดูวิดีโอ: `yt-dlp` โหลด+caption → `ffmpeg` แตะเฟรม → Whisper (Groq/OpenAI) fallback ถ้าไม่มี caption → ส่งเฟรม+transcript ให้ Claude ตอบ. zero-config (auto-install ffmpeg/yt-dlp). รองรับ YouTube/TikTok/Loom/Vimeo/100+ platform + local file.
@@ -19,5 +19,7 @@ metadata:
 **Flags เด็ด:** `--start T`/`--end T` = เฟรมถี่ขึ้นเฉพาะช่วงโฟกัส · `--timestamps T1,T2,..` = จับจุดเจาะจง (เช่น presenter cue) · `--max-frames N` = override cap · `--no-whisper` = เฟรมล้วนไม่ transcribe.
 
 **Token:** ~197 tokens/เฟรม (512px width บน 720p ≈ w×h/750). แม่นสุด = วิดีโอ <10 นาที. Whisper key ตั้งที่ `~/.config/watch/.env` (Groq ถูกกว่า).
+
+**Gotchas (เจอจริง 07-23):** yt-dlp เก่า (>90วัน) เจอ YouTube SABR streaming → download fail "The page needs to be reloaded". แก้ = `brew upgrade yt-dlp` (script ใช้ brew binary จาก PATH ไม่ใช่ pip). · Groq Whisper key ใน `~/.config/watch/.env` เคย 401 Invalid (หมดอายุ) — คลิปไม่มีเสียงไม่กระทบ แต่คลิปมีคนพูดถอดเสียงไม่ได้จนเปลี่ยน key. · re-run focused ช่วงเดิม ให้ชี้ script ไปที่ไฟล์ `download/video.mp4` ที่โหลดแล้ว จะไม่โหลดซ้ำ. · 2fps = เพดาน (`--fps` เกินไม่ได้) — อยากทุกเฟรมจริงต้อง bypass ffmpeg เอง.
 
 ใช้กับ [[ads-contact-sheet-pipeline]]: watch = teardown ad คู่แข่งเร็ว (dedup+transcript อัตโนมัติ) · contact-sheet = จัดกริดเฟรมเองคุมได้ละเอียดกว่า. คู่กับ [[teardown-analyst]] agent สำหรับแกะโครง hook-body-CTA.
