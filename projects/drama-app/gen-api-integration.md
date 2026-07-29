@@ -1,5 +1,18 @@
 # drama-app — kie.ai Gen API Integration (spec + paste-ready code)
 
+## ▶️ WINDOWS HANDOFF — เริ่มตรงนี้ (07-29)
+สเปก+โค้ดครบ ยืนยันกับ docs จริงแล้ว (image+credits 100% · เหลือ verify video/veo shape). ทำตามลำดับ:
+1. เอา key: https://kie.ai/api-key → เติมเงิน → ใส่ `.env.local`: `KIE_API_KEY=...` + `GEN_ENABLED=1` (เช็ค `.gitignore` มี `.env*` แล้ว)
+2. **smoke เช็ค key** (1 คำสั่ง): `curl -H "Authorization: Bearer <KEY>" https://api.kie.ai/api/v1/chat/credit` → เห็นตัวเลข balance = key ใช้ได้
+3. **smoke สร้างภาพจริง 1 ครั้ง** (§8 ข้อ 2) → ยืนยัน image flow
+4. ก๊อปโค้ด: `lib/gen/models.ts` `lib/gen/kie.ts` `lib/gen/jobs.ts` (§2-4) + `app/api/gen/create|status|credits/route.ts` (§5) + refactor upload-back เป็น `lib/upload.ts` (§5c)
+5. verify video (veo) shape ตอนต่อ scope วิดีโอ (§8 ข้อ 3)
+6. UI opt-in + cost guard (§7)
+> ก่อนก๊อป: `cd D:\drama-app` → refresh PATH (คำสั่งอยู่ STATE.md §วิธีรัน) → `git pull` ก่อน (ให้ทันเครื่อง mac)
+
+---
+
+
 > **สร้าง 2026-07-29.** ที่นี่ mac แตะ `D:\drama-app` (Windows) ไม่ได้ → เอกสารนี้ = spec + โค้ดพร้อมก๊อป ไปวาง+รัน+ทดสอบบน Windows.
 > **Decision reversal:** STATE เดิม (07-08) ตัดสินใจ "ไม่ต่อ gen API". พลิก 07-29 — แต่เฉพาะ **official paid API (ถูก ToS)** + **opt-in ต่อการกด (ไม่ auto, prompt-first ยัง default)**. เหตุผลที่ปฏิเสธเดิมข้อ 2 (OAuth-token hack) ไม่เกี่ยวกับ path นี้; ข้อ 1 (เสียเงินต่อการกด) แก้ด้วย cost-guard + GEN_ENABLED opt-in.
 
