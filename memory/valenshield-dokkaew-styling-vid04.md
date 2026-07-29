@@ -1,6 +1,6 @@
 ---
 name: valenshield-dokkaew-styling-vid04
-description: "Active — Valenshield vid04 'Dokkaew Workday Styling': magic-wardrobe floating-catalog swipe-to-wear fashion montage, 3 looks, VO Thai, 20s 9:16. Board locked; color = LAVENDER. Next = asset gen."
+description: "DONE (07-29) — Valenshield vid04 'Dokkaew Workday Styling': magic-wardrobe floating-catalog swipe-to-wear fashion montage, 3 looks, no VO, 20s 9:16, LAVENDER. Closed with vid01-03. Reference only."
 metadata:
   node_type: memory
   type: project

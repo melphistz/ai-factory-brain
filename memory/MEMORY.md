@@ -25,8 +25,7 @@ One line per memory, grouped by section. Add new entries under the matching sect
 - [AI UGC Ad Factory Workflow](ai-ugc-ad-factory-workflow.md) — ACTIVE · MODE v2 prompt-first/manual-gen (flow 5 ขั้นใน AGENT_OPS.md) · 8 concept × 3 hook
 - [FF Factory — Live Session State](FF_SESSION_STATE.md) — symlink → Desktop/Ads/FF_factory/SESSION_STATE.md (volatile, edit at source)
 - [Neezplus (client ad)](../projects/neezplus/STATE.md) — **ACTIVE** โฆษณาอาหารแมว NEEZ+ 12 คลิป · SB01 kit เสร็จ (green screen, GPT Image 2 + Veo) · next = prompt SB02–08 · STATE.md = source of truth
-- [Valenshield Styling vid04](valenshield-dokkaew-styling-vid04.md) — **ACTIVE** magic-wardrobe styling montage, 3 ลุค, 20s 9:16, ไม่มี VO, โทนขาว · char sheet+storyboard v4 DONE · next = regen storyboard 1-3 + stills → Seedance · ⚠️ jump/ของลอย = AE/CapCut
-- [Valenshield vid01-03 — DONE](valenshield-nurse-ad-project.md) — ✅ ปิด 07-10: [[valenshield-nurse-ad-project]] · [[valenshield-macro-asmr-ad]] · [[valenshield-walkingpad-tifu-vid03]]
+- [Valenshield vid01-04 — DONE](valenshield-nurse-ad-project.md) — ✅ ปิดครบ: vid01-03 (07-10) + vid04 styling montage (07-29) · [[valenshield-nurse-ad-project]] · [[valenshield-macro-asmr-ad]] · [[valenshield-walkingpad-tifu-vid03]] · [[valenshield-dokkaew-styling-vid04]]
 
 ## Session State (volatile — archive when done)
 
