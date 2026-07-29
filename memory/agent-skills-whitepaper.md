@@ -43,3 +43,10 @@ Folder with `SKILL.md` (required: `name` + `description` frontmatter) + optional
 
 ## What we did with it (07-29)
 Wired the eval lessons into our own audit: added **Step 4e — skill/agent description-quality lint** to the `[[factory-self-audit-skill-plan|factory-audit]]` skill (missing-"when", one-skill-one-job "and"-split, trigger collision vs [[skills-cheatsheet]], over-length/ALL-CAPS shouting). See [[rule-use-installed-skills]] for our force-use rule and [[skills-cheatsheet]] for the manual force-pick table that a trigger-collision lint should eventually make unnecessary.
+
+**Dogfood run #1 (07-29)** — ran 4e against all 6 skills + 9 agents; lint worked (caught real issues, no false positives — the video-prompt cluster overlap it flagged matched exactly what skills-cheatsheet already force-picks). Fixes applied to descriptions:
+- `asset-prompt-builder` — added the missing reciprocal boundary "NOT for a single ad-hoc image (use image-prompt-writer)"; the image skill guarded this one-way only.
+- `storyboard-prompter` — added boundary vs `asset-prompt-builder` (base asset kit / @ref storyboard-frame prompts).
+- `teardown-analyst` — reframed from "teardown + performance analyst" (read as two jobs) to one ad-intelligence job with two inputs; both feed the same pattern library. NOT split into a separate agent — that would touch fleet roster/CLAUDE.md/AGENT_OPS, deferred pending a real need.
+- `image-prompt-writer` — trimmed ~1150 → 933 chars (under the 1024 cap).
+Gold-standard pair to copy for reciprocal boundaries: `thai-lyric-writer` ↔ `script-hook-writer`.

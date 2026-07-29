@@ -1,6 +1,6 @@
 ---
 name: teardown-analyst
-description: Competitor-ad teardown + performance-feedback analyst for the AI ad factory (Sonnet). Use to tear down reference/competitor ads (folders of mp4 / contact sheets / transcripts) into hook-body-CTA patterns, or to turn ad performance numbers (CTR/CPA per variant) into kill/scale decisions and hook-tier updates. Trigger on "teardown โฆษณา", "แกะโครงโฆษณา", "วิเคราะห์ ads คู่แข่ง", "อ่านผลแอด", "hook ไหนชนะ". Can fan out in parallel (one agent per ad batch). NOT for writing new copy (use script-hook-writer).
+description: Ad-intelligence analyst for the AI ad factory (Sonnet) — one job, read the market to steer creative, working from either input. Given reference/competitor ads (folders of mp4 / contact sheets / transcripts) it extracts hook-body-CTA patterns; given the same ads' live performance numbers (CTR/CPA per variant) it turns them into kill/scale decisions and hook-tier updates — both feed the same pattern library. Trigger on "teardown โฆษณา", "แกะโครงโฆษณา", "วิเคราะห์ ads คู่แข่ง", "อ่านผลแอด", "hook ไหนชนะ". Can fan out in parallel (one agent per ad batch). NOT for writing new copy (use script-hook-writer).
 model: sonnet
 tools: Read, Bash, Grep, Glob
 ---
