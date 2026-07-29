@@ -24,7 +24,7 @@ Next.js 15 + TS + Tailwind · เก็บข้อมูลเป็น JSON �
 
 ## ถัดไป (ตัวเลือก — ให้ Mirko เลือก)
 1. ลองใช้จริง: เจนซีรีส์ทดสอบ 1 เรื่อง (mock ก่อน แล้วต่อ key จริง) → ดูว่า output ตรงใจไหม แก้ prompt ใน intel-pack ได้
-2. ~~ต่อ gen API (kie.ai/Higgsfield) แทนคัดลอกมือ~~ — **ตัดสินใจแล้ว 07-08: อยู่ prompt-first ต่อ ไม่ต่อ gen API** (ดูเหตุผล §UI redesign ด้านล่าง)
+2. **ต่อ gen API (kie.ai) — REVISED 07-29:** เดิม 07-08 ตัดสินใจไม่ต่อ (เหตุผล §UI redesign) · **พลิก 07-29** = ต่อได้ แต่เฉพาะ **official paid API (ถูก ToS, ไม่ใช่ OAuth hack ที่ปฏิเสธ) + opt-in ต่อการกด (GEN_ENABLED flag + cost guard, ไม่ auto, prompt-first ยัง default)** · เลือก **kie.ai** + scope **ภาพ+วิดีโอ** · spec + route code เต็ม (paste-ready → Windows) = **`projects/drama-app/gen-api-integration.md`** · next = ก๊อปไป D:\drama-app, ใส่ KIE_API_KEY, รัน smoke §8 (verify field ชื่อจริง) ก่อนต่อ UI
 3. polish UI / auth / deploy · push ขึ้น GitHub remote ถ้าอยากข้ามเครื่อง
 - **แก้ intel-pack = ต้อง re-copy เข้า `D:\drama-app\prompts\` + rerun recheck ข้ามไฟล์**
 
