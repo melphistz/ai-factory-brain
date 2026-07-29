@@ -19,10 +19,10 @@
   ```
   → `{ "code":200, "msg":"success", "data": { "taskId":"task_..." } }`
   200 = **สร้างสำเร็จเท่านั้น ไม่ใช่เสร็จ**
-- **query (unified):** `GET /api/v1/jobs/recordInfo?taskId=<id>` → data มี `successFlag` (0=generating,1=success,2/3=failed) + `resultUrls` (JSON string array) + `resultJson`/`response` แล้วแต่ model. ⚠️ endpoint/field ชื่ออาจต่างเล็กน้อยตาม model — ต้อง verify ด้วย key จริง (ดู §6 smoke).
-- **Veo (dedicated, ถ้าใช้):** `POST /api/v1/veo/generate` + `GET /api/v1/veo/record-info?taskId=` → `successFlag` + `resultUrls`
-- Rate limit: 20 task ใหม่ / 10 วิ (429 ถ้าเกิน)
-- error codes: 401 auth · 422 validation · 429 rate · 501 generation failed
+- **query (jobs):** `GET /api/v1/jobs/recordInfo?taskId=<id>` → `data.state` = `"waiting"|"success"|"fail"` · `data.resultJson` = **JSON string** → `JSON.parse` ได้ `{resultUrls:[url]}` (มีค่าเมื่อ success) · `data.failCode`/`data.failMsg` เมื่อ fail (ยืนยันจาก docs กpt-image-2 07-29)
+- **Veo (dedicated, ถ้าใช้ video):** `POST /api/v1/veo/generate` + `GET /api/v1/veo/record-info?taskId=` → **คนละ shape**: `successFlag` (0/1/2/3) + `resultUrls` (string array). ⚠️ verify shape จริงตอน smoke video
+- Rate limit: 20 task ใหม่ / 10 วิ (429)
+- error codes: 401 auth · **402 balance ไม่พอ** · 422 validation · 429 rate · 500 server
 
 ## 2. Model map (แก้ทีหลังได้ — อยู่ไฟล์เดียว)
 `lib/gen/models.ts`
@@ -38,16 +38,18 @@ export interface GenModel {
   defaults: Record<string, unknown>;
 }
 export const GEN_MODELS: Record<string, GenModel> = {
+  // input fields ยืนยันจาก playground JSON tab (expected 3): prompt / aspect_ratio / resolution
+  // ⚠️ ไม่มี field "quality" — อย่าใส่. output = { resultUrls: [url] } (ตรง ไม่ nested)
+  // aspect_ratio รับ "auto"|"9:16"|1:1|3:2|2:3|4:3|3:4|16:9... · resolution "1K"|"2K"|"4K"
+  // ⚠️ 2K/4K ห้าม ratio 5:4,4:5,3:1,1:3,9:21 — 9:16 ปลอดภัยทุก res
   "img-gpt": {
-    id: "gpt-image/1.5-text-to-image", kind: "image", label: "GPT Image (t2i)",
+    id: "gpt-image-2-text-to-image", kind: "image", label: "GPT Image 2 (t2i)",
     approxCredits: 6, endpoint: "jobs",
-    // playground ยืนยัน gpt-image kie รับ 9:16 แท้ + resolution 1K/2K/4K
-    // ⚠️ 2K/4K ห้าม ratio: 5:4,4:5,3:1,1:3,9:21 — 9:16 ปลอดภัยทุก res
-    defaults: { aspect_ratio: "9:16", resolution: "2K", quality: "high" },
+    defaults: { aspect_ratio: "9:16", resolution: "2K" },
   },
   "img2img-gpt": {
-    id: "gpt-image/1.5-image-to-image", kind: "image", label: "GPT Image (i2i)",
-    approxCredits: 6, endpoint: "jobs", defaults: { aspect_ratio: "9:16", resolution: "2K", quality: "high" },
+    id: "gpt-image-2-image-to-image", kind: "image", label: "GPT Image 2 (i2i)", // verify id i2i จาก market
+    approxCredits: 6, endpoint: "jobs", defaults: { aspect_ratio: "9:16", resolution: "2K" },
   },
   "vid-veo": {
     id: "veo3", kind: "video", label: "Veo 3 (image→video)",
@@ -91,16 +93,26 @@ export async function createTask(endpoint: "jobs"|"veo", model: string, input: R
   return b.data.taskId as string;
 }
 // query → normalize เป็น {done, failed, urls}
+// ⚠️ jobs กับ veo คนละ shape:
+//   jobs  → data.state ("waiting"|"success"|"fail") + data.resultJson (JSON string → {resultUrls})
+//   veo   → data.successFlag (0/1/2/3) + data.resultUrls (JSON string array)
 export async function queryTask(endpoint: "jobs"|"veo", taskId: string) {
-  const path = endpoint === "veo"
-    ? `/api/v1/veo/record-info?taskId=${encodeURIComponent(taskId)}`
-    : `/api/v1/jobs/recordInfo?taskId=${encodeURIComponent(taskId)}`;
-  const b = await kie(path, { method: "GET" });
+  if (endpoint === "veo") {
+    const b = await kie(`/api/v1/veo/record-info?taskId=${encodeURIComponent(taskId)}`, { method: "GET" });
+    const d = b.data || {};
+    const urls = typeof d.resultUrls === "string" ? JSON.parse(d.resultUrls || "[]") : (d.resultUrls || []);
+    return { done: d.successFlag === 1, failed: d.successFlag === 2 || d.successFlag === 3, urls, raw: d };
+  }
+  const b = await kie(`/api/v1/jobs/recordInfo?taskId=${encodeURIComponent(taskId)}`, { method: "GET" });
   const d = b.data || {};
-  const flag = d.successFlag;
-  const urlsRaw = d.resultUrls ?? d.response?.resultUrls ?? "[]";
-  const urls = typeof urlsRaw === "string" ? JSON.parse(urlsRaw || "[]") : (urlsRaw || []);
-  return { done: flag === 1, failed: flag === 2 || flag === 3, urls: urls as string[], raw: d };
+  const result = d.resultJson ? JSON.parse(d.resultJson) : {};
+  return {
+    done: d.state === "success",
+    failed: d.state === "fail",
+    urls: (result.resultUrls || []) as string[],
+    error: d.failMsg || undefined,
+    raw: d,
+  };
 }
 export async function credits() {
   const b = await kie("/api/v1/common/credits", { method: "GET" }); // verify path จริง
@@ -166,7 +178,7 @@ export async function GET(req: NextRequest) {
   const m = GEN_MODELS[job.modelKey];
   try {
     const r = await queryTask(m.endpoint, job.taskId);
-    if (r.failed) return NextResponse.json(await updateJob(seriesId, jobId, { status:"failed", error:"generation failed" }));
+    if (r.failed) return NextResponse.json(await updateJob(seriesId, jobId, { status:"failed", error: r.error || "generation failed" }));
     if (!r.done)  return NextResponse.json({ ...job, status:"pending" }); // ยังไม่เสร็จ — client poll ต่อ
     // เสร็จ: ดาวน์โหลด result → แปะเป็น thumbnail ผ่าน upload-back เดิม
     const localUrl = await attachImageFromUrl(seriesId, job.target, r.urls[0]);
@@ -199,9 +211,10 @@ LLM_MOCK=                  # เดิม (ว่าง = LLM จริง)
 - โชว์ balance จาก /api/gen/credits ที่ header
 
 ## 8. Smoke test (Windows, key จริง — ทำก่อนต่อ UI)
-1. `curl -H "Authorization: Bearer $KEY" https://api.kie.ai/api/v1/common/credits` → ยืนยัน path credits จริง + เห็น balance
-2. createTask image จริง 1 ครั้ง → เก็บ taskId → recordInfo จน successFlag=1 → **verify field ชื่อจริง** (`resultUrls` vs `response.resultUrls`) แล้วแก้ `queryTask` ให้ตรง
-3. veo image→video 1 ครั้ง (cost สูง — ครั้งเดียว) → ยืนยัน record-info shape
+- **image shape ยืนยันแล้วจาก docs gpt-image-2 (07-29):** model `gpt-image-2-text-to-image` · input {prompt,aspect_ratio,resolution} · query `state`+`resultJson`. code ตรงแล้ว — smoke แค่กัน typo/balance
+1. `curl -H "Authorization: Bearer $KEY" https://api.kie.ai/api/v1/common/credits` → ยืนยัน **path credits จริง** (เดายังไม่ยืนยัน) + เห็น balance
+2. createTask image จริง 1 ครั้ง → recordInfo วนจน `state:"success"` → parse resultJson → เห็น url ✅
+3. **verify model id i2i** (`gpt-image-2-image-to-image`?) + video (veo) shape จริง — cost สูง ยิงครั้งเดียว
 4. ค่อยต่อ route + UI
 
 ## 9. งานเหลือ / ความเสี่ยง
