@@ -114,10 +114,12 @@ export async function queryTask(endpoint: "jobs"|"veo", taskId: string) {
     raw: d,
   };
 }
-export async function credits() {
-  const b = await kie("/api/v1/common/credits", { method: "GET" }); // verify path จริง
-  return b.data;
+// ยืนยัน docs 07-29: GET /api/v1/chat/credit → {code,msg,data:<number>} · data = credit คงเหลือ (int ตรงๆ)
+export async function credits(): Promise<number> {
+  const b = await kie("/api/v1/chat/credit", { method: "GET" });
+  return b.data as number;
 }
+// bonus: /api/v1/common/download-url (POST {url}) → temp download link ถ้า static URL หมดอายุ
 ```
 
 ## 4. Job store (reuse pattern data/<id>.json + mutex เดิม)
@@ -212,9 +214,9 @@ LLM_MOCK=                  # เดิม (ว่าง = LLM จริง)
 
 ## 8. Smoke test (Windows, key จริง — ทำก่อนต่อ UI)
 - **image shape ยืนยันแล้วจาก docs gpt-image-2 (07-29):** model `gpt-image-2-text-to-image` · input {prompt,aspect_ratio,resolution} · query `state`+`resultJson`. code ตรงแล้ว — smoke แค่กัน typo/balance
-1. `curl -H "Authorization: Bearer $KEY" https://api.kie.ai/api/v1/common/credits` → ยืนยัน **path credits จริง** (เดายังไม่ยืนยัน) + เห็น balance
+1. `curl -H "Authorization: Bearer $KEY" https://api.kie.ai/api/v1/chat/credit` → เห็น balance (ยืนยัน key ใช้ได้) ✅ path ยืนยันแล้ว
 2. createTask image จริง 1 ครั้ง → recordInfo วนจน `state:"success"` → parse resultJson → เห็น url ✅
-3. **verify model id i2i** (`gpt-image-2-image-to-image`?) + video (veo) shape จริง — cost สูง ยิงครั้งเดียว
+3. **verify แค่ video (veo) shape** จริง — cost สูง ยิงครั้งเดียว (i2i id `gpt-image-2-image-to-image` = ตาม pattern t2i, มั่นใจสูง)
 4. ค่อยต่อ route + UI
 
 ## 9. งานเหลือ / ความเสี่ยง
