@@ -39,13 +39,15 @@ export interface GenModel {
 }
 export const GEN_MODELS: Record<string, GenModel> = {
   "img-gpt": {
-    id: "gpt-image/1.5-text-to-image", kind: "image", label: "GPT Image 1.5",
+    id: "gpt-image/1.5-text-to-image", kind: "image", label: "GPT Image (t2i)",
     approxCredits: 6, endpoint: "jobs",
-    defaults: { aspect_ratio: "2:3", quality: "high" }, // 9:16 ดราม่าแนวตั้ง → 2:3 ใกล้สุดที่ model รับ
+    // playground ยืนยัน gpt-image kie รับ 9:16 แท้ + resolution 1K/2K/4K
+    // ⚠️ 2K/4K ห้าม ratio: 5:4,4:5,3:1,1:3,9:21 — 9:16 ปลอดภัยทุก res
+    defaults: { aspect_ratio: "9:16", resolution: "2K", quality: "high" },
   },
   "img2img-gpt": {
-    id: "gpt-image/1.5-image-to-image", kind: "image", label: "GPT Image 1.5 (i2i)",
-    approxCredits: 6, endpoint: "jobs", defaults: { quality: "high" },
+    id: "gpt-image/1.5-image-to-image", kind: "image", label: "GPT Image (i2i)",
+    approxCredits: 6, endpoint: "jobs", defaults: { aspect_ratio: "9:16", resolution: "2K", quality: "high" },
   },
   "vid-veo": {
     id: "veo3", kind: "video", label: "Veo 3 (image→video)",
@@ -203,7 +205,7 @@ LLM_MOCK=                  # เดิม (ว่าง = LLM จริง)
 4. ค่อยต่อ route + UI
 
 ## 9. งานเหลือ / ความเสี่ยง
-- **field/endpoint ชื่อจริงต้อง verify กับ key** (docs market แต่ละ model ต่างเล็กน้อย) — §8 ก่อน hardcode
-- 9:16 แท้: gpt-image รับแค่ 1:1/2:3/3:2 → ได้ 2:3 แล้ว crop/expand เอง หรือใช้ model อื่นใน market ที่รับ 9:16
-- poll ยาว (video 1-3 นาที) → client ต้องกัน tab ปิด / เก็บ job ใน store แล้ว resume ได้ (job อยู่ไฟล์แล้ว = resume ได้)
-- rate 20/10s → ถ้า bulk ทั้งตอน ต้อง throttle
+- **field/endpoint + ชื่อ param ต้อง verify กับ playground JSON tab / key จริง** (docs market แต่ละ model ต่างเล็กน้อย) — §8 ก่อน hardcode. โดยเฉพาะ **model id + ชื่อ param resolution/aspect_ratio** (playground แสดงเป็น UI — ต้องเช็คว่า JSON body ใช้ key ว่าอะไร)
+- ~~9:16~~ **แก้แล้ว 07-29:** playground ยืนยัน gpt-image kie รับ 9:16 แท้ + 1K/2K/4K (2K/4K เว้น 5:4/4:5/3:1/1:3/9:21 — 9:16 ปลอดภัย). ไม่ต้อง crop เอง
+- poll ยาว (video 1-3 นาที) → client กัน tab ปิด / job อยู่ไฟล์แล้ว = resume ได้
+- rate 20/10s → bulk ทั้งตอนต้อง throttle
