@@ -40,4 +40,6 @@ Skill เดียว (ไม่ใช่หลายไฟล์แบบ intel
 **Sonnet พอ ไม่ต้อง Fable/ultracode** เพราะเป็นการเขียนไฟล์เดียว (skill markdown ~200-500 บรรทัด) + ทดลองรันจริง 1 รอบ ไม่ใช่ของที่ freeze ใช้ผลิตซ้ำเป็นพันครั้งแบบ intel-pack เลยไม่ต้อง adversarial-verify 2 เลนส์ (ดู [[feedback-model-effort-strategy]]) — ประเมิน **~50-150K tokens** ถูกกว่างาน UI redesign ของ drama-app อีก ทำเป็น Agent เดียวจบได้ ไม่ต้องเปิด Workflow เต็มรูปแบบ
 
 ## สถานะ
-ยังไม่เริ่มทำ — เซฟไว้รอคิว (Mirko ขอ save ไว้ก่อน 07-08) ไม่ผูกกับ drama-app หรือ Fable quota ใดๆ เริ่มได้ทันทีเมื่อพร้อม
+**DONE 07-09** — สร้างแล้วที่ `skills/factory-audit/SKILL.md` (hardlink → `~/.claude/skills/`). แผนเดิมเขียน "ยังไม่เริ่ม" ตั้งแต่ 07-08, แก้ให้ตรงจริง 07-29.
+
+**Update 07-29:** เพิ่ม **Step 4e — skill/agent description-quality lint** (missing-"when" / one-skill-one-job "and"-split / trigger collision vs [[skills-cheatsheet]] / over-length+ALL-CAPS) อิงหลัก [[agent-skills-whitepaper]] (Kaggle/Google eval + "descriptions are the interface").

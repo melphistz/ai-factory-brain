@@ -1,6 +1,6 @@
 ---
 name: factory-audit
-description: Score the health of the ai-factory-brain repo itself (not a video/ad project) and produce a scored report. Use whenever the user asks to audit, health-check, or lint the brain/vault/memory system — trigger on phrasings like "/factory-audit", "audit the brain", "check ai-factory-brain health", "how healthy is the vault", "lint the memory", "find stale memory", "is the fleet/skills up to date", "check sync status", or "find orphan files/links in the vault". Runs two check groups: an AIS-OS-style 4-dimension score (Context/Connections/Capabilities/Cadence) with leverage-ranked fixes, and a Karpathy-style wiki Lint (orphan links, orphan files, contradictions, missing back-links). Do NOT use for auditing a specific ad/video project's quality (that's qa-inspector or teardown-analyst) — this skill audits the knowledge system itself.
+description: Score the health of the ai-factory-brain repo itself (not a video/ad project) and produce a scored report. Use whenever the user asks to audit, health-check, or lint the brain/vault/memory system — trigger on phrasings like "/factory-audit", "audit the brain", "check ai-factory-brain health", "how healthy is the vault", "lint the memory", "find stale memory", "is the fleet/skills up to date", "check sync status", or "find orphan files/links in the vault". Runs two check groups: an AIS-OS-style 4-dimension score (Context/Connections/Capabilities/Cadence) with leverage-ranked fixes, and a Karpathy-style wiki Lint (orphan links, orphan files, contradictions, missing back-links, plus skill/agent description quality — trigger on "lint skill descriptions", "check skill triggers", "do my skills fire right", "any skills doing too much"). Do NOT use for auditing a specific ad/video project's quality (that's qa-inspector or teardown-analyst) — this skill audits the knowledge system itself.
 ---
 
 # Factory Audit
@@ -104,6 +104,21 @@ Anything printed is a file with no index entry — dead weight or a logged-and-f
 **4d. Missing back-links** — heuristic, not exact:
 - From the wikilink dump in 4a, look for A→B links where B's file, read or grepped, never links back to A despite being about the closely related content (same project, same skill, direct feedback-to-subject relationship). Flag the clearest 3-5 cases only — this is a heuristic nudge, not an exhaustive grammar check.
 
+**4e. Skill/agent description quality** — the `description` frontmatter is the interface the router matches against, so a vague or overloaded one makes the wrong skill fire (or the right one never fire). This lint is grounded in the Agent Skills whitepaper (Kaggle/Google, 2026) — see [[agent-skills-whitepaper]]. Dump every description first:
+```
+cd /Users/working/ai-factory-brain && for f in skills/*/SKILL.md agents/*.md; do
+  echo "=== $f ==="; awk '/^name:/{n=$0} /^description:/{d=$0} /^---/{c++; if(c==2){print n; print d; exit}}' "$f"
+done
+```
+Then flag each of these patterns (cite the file for every finding):
+
+- **Missing "when"** — a description that says *what* the skill does but never *when* to use it (no trigger phrases / example user requests). The router needs both. Whitepaper rule: "descriptions are the interface — spend more time here than the body." Flag any description with no concrete trigger examples.
+- **Doing too much ("one skill, one job")** — a description whose *what* clause joins two unrelated jobs with "and" (e.g. "writes ad copy **and** builds shotlists"). Related sub-steps of one workflow are fine; two jobs that would trigger on totally different requests are a split signal. Flag it and name the suggested split.
+- **Trigger collision (co-load ambiguity)** — the highest-value check here. Compare trigger phrases/keywords across ALL skills + agents. Two entries whose triggers overlap enough that the router could pick the wrong one on the same request = a collision. This is exactly the failure that forces a manual `[[skills-cheatsheet]]` "force-pick" table — so cross-check findings against that file: every collision the cheatsheet already disambiguates confirms a real overlap that should ideally be fixed in the descriptions themselves (add explicit "NOT for X (use Y)" boundary lines), not just papered over by the cheatsheet.
+- **Over-length / capitalized shouting** — description over ~1024 chars, or leaning on ALL-CAPS "ALWAYS DO X" imperatives (the whitepaper notes models tend to ignore those; deterministic musts belong in `scripts/`, not shouted in prose). Flag as a minor cleanup.
+
+Scoring: a missing-"when" or a trigger collision on a skill used in an ACTIVE project is a **Capabilities** deduction (−10 each, impact ×2–3 — a mis-fire wastes a whole dispatch). "Doing too much" and over-length are −5 cosmetic (impact ×1) unless they cause a real collision.
+
 ---
 
 ## Step 5 — Sync status
@@ -144,6 +159,8 @@ Overall: X/100 (average)
 ...
 ### Missing back-links
 ...
+### Skill/agent description quality
+(missing-"when", doing-too-much, trigger collisions, over-length — cite file; note collisions the skills-cheatsheet already works around)
 
 ## Sync status
 ...
