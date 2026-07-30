@@ -88,7 +88,7 @@ One line per memory, grouped by section. Add new entries under the matching sect
 
 ## Skills & Workflows
 
-- [ZenityX Interview Workflow](zenityx-interview-scene-workflow.md) — AI podcast/interview 3 ขั้น: 4-block image (identity lock+mirror trick) → Thai talking video (Grok Imagine, ~4 ประโยค/15s) → Kling two-shot closing
+- [Podcast Skill](zenityx-interview-scene-workflow.md) — INSTALLED `podcast` (07-30): interview scene kit 3 part — still host+guest (identity lock+mirror trick) → Thai talking video (~4 ประโยค/15s) → silent two-shot closing · source note ในไฟล์
 
 - [Agent Skills Whitepaper](agent-skills-whitepaper.md) — REFERENCE (Kaggle/Google 2026): craft standard for skills · 5 rules (desc=interface, one-skill-one-job) + eval (co-load, never in isolation) · wired into [[factory-self-audit-skill-plan]] Step 4e
 - [Watch Skill (claude-video)](watch-skill-claude-video.md) — INSTALLED `watch:watch` (bradautomates): ให้ Claude ดูวิดีโอ · detail modes · flags `--start/--end`/`--timestamps` · gotcha: brew upgrade yt-dlp (SABR), Groq key expiry · คู่ [[ads-contact-sheet-pipeline]]

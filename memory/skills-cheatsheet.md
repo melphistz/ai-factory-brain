@@ -5,6 +5,7 @@ metadata:
   node_type: memory
   type: reference
   originSessionId: 20a72bde-5cc0-43ba-90da-e06fffdbe0d2
+  modified: 2026-07-30T01:27:01.937Z
 ---
 
 > ⚠️ บังคับใช้โดย [[rule-use-installed-skills]] (07-14): เริ่ม task ที่มี skill/agent ตรง → ต้องเปิดไฟล์นี้เลือกตัว route ห้ามเขียนสดใน main
@@ -17,6 +18,7 @@ Quick "which skill for which job" map for FF factory ad work. Claude auto-picks 
 | **1 shot เป๊ะ** (character lock, ตำแหน่งเฟรม, blocking) | "เขียน Seedance prompt: Ploy ถือมือถือ ล็อกซ้าย 9:16" | `seedance-2-pro-director` |
 | **คลิปทั้งตัว จาก brief** (effects + จังหวะ + energy arc) | "อยากได้ ad 15 วิ เรื่อง X ใส่ effect ปังๆ" | `video-prompt-builder` |
 | **script ยาว → หลาย scene** (แนบไฟล์) | แนบ script + "build shotlist scene 1-5" | `shotlist-builder` |
+| **ฉากสัมภาษณ์/podcast 2 คน** (host+guest คุยไทย) | "ทำ podcast สัมภาษณ์รีวิว X" | `podcast` |
 
 ตัวแยก: 1 shot → director · ทั้งคลิปจาก brief → video-prompt-builder · script file หลาย scene → shotlist-builder.
 
@@ -24,6 +26,7 @@ Quick "which skill for which job" map for FF factory ad work. Claude auto-picks 
 - **`seedance-2-pro-director`** — prompt อังกฤษ 1 shot: character anchor (x/y%, thirds, depth, gaze, contact points), state lock, camera plan, final frame, QA 12 ข้อ. (= Cannes 28-tips system prompt.)
 - **`video-prompt-builder`** — 4 section: shot-by-shot effects timeline / effects inventory / density map / 3-act energy arc. คลิปโฆษณาทั้งตัวจาก concept.
 - **`shotlist-builder`** ⚠️ — HTML shotlist หลาย scene, prompt **จีน**, default **21:9** (UGC สั่ง 9:16). stateful 4-phase (read→asset→blocking→HTML). output `~/Desktop/Ads/FF_factory/shotlists/`. patched for Claude Code.
+- **`podcast`** — prompt kit ฉากสัมภาษณ์ 3 part: still host+guest (identity lock + mirror trick), talking video ไทย (~4 ประโยค/15s), closing two-shot เงียบ (Kling). ที่มา = [[zenityx-interview-scene-workflow]].
 
 ## บังคับ / คุมเอง
 - พิมพ์ชื่อตรงๆ ("ใช้ shotlist-builder ...") → ข้ามการเดา
