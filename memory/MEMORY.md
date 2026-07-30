@@ -88,6 +88,8 @@ One line per memory, grouped by section. Add new entries under the matching sect
 
 ## Skills & Workflows
 
+- [ZenityX Interview Workflow](zenityx-interview-scene-workflow.md) — AI podcast/interview 3 ขั้น: 4-block image (identity lock+mirror trick) → Thai talking video (Grok Imagine, ~4 ประโยค/15s) → Kling two-shot closing
+
 - [Agent Skills Whitepaper](agent-skills-whitepaper.md) — REFERENCE (Kaggle/Google 2026): craft standard for skills · 5 rules (desc=interface, one-skill-one-job) + eval (co-load, never in isolation) · wired into [[factory-self-audit-skill-plan]] Step 4e
 - [Watch Skill (claude-video)](watch-skill-claude-video.md) — INSTALLED `watch:watch` (bradautomates): ให้ Claude ดูวิดีโอ · detail modes · flags `--start/--end`/`--timestamps` · gotcha: brew upgrade yt-dlp (SABR), Groq key expiry · คู่ [[ads-contact-sheet-pipeline]]
 - [Factory Audit Skill](factory-self-audit-skill-plan.md) — DONE 07-09: `/factory-audit` scores brain health + wiki-lint (orphan/contradiction/back-link) · +07-29 Step 4e desc-quality lint ([[agent-skills-whitepaper]])
