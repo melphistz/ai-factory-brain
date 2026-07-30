@@ -24,5 +24,16 @@ metadata:
 
 **ไฟล์ต้นทางที่จะป้อนเข้า:** `thai-lyric-writing.md` · `feedback-thai-lyric-craft.md`
 
-## สถานะ
+## Update 07-30 — merge จาก prompt-director.skill
+
+ประเมิน third-party skill `prompt-director.skill` (Fox AI Academy course companion, 88 บรรทัด) → **ไม่ติดตั้ง**: description กว้างเกิน (ครอบ image+video+5 โมเดล ไม่มี negative boundary) ชน trigger กับ image-prompt-writer / seedance-2-pro-director / video-prompt-builder, และส่วน video สอน 7-block shot-by-shot ซึ่งขัด [[seedance-marco-freestyle-method]] ("set the RULES not the SHOTS")
+
+ขูด 3 ชิ้นที่ดีจริงเข้า `image-prompt-writer` แทน (333 → 364 บรรทัด):
+1. **`Locked:` / `Assumed:` output block** + กฎ *write the prompt first, never interrogate first* — user เห็นว่าเราเติมอะไรให้ = รู้ว่าหมุน dial ไหนได้ ไม่ต้อง reverse-engineer prompt
+2. **Iteration section** — วินิจฉัยว่า block ไหนพัง 1 บรรทัด → คืน prompt เต็ม **ห้ามคืนเศษให้แปะ** (เศษ = user re-assemble มือ แล้ว prompt พังเงียบ) + ตาราง model-typical failure 8 อาการ→counter-instruction
+3. **Reference-image rule** — ref attached แล้วห้าม re-describe สิ่งที่ ref ล็อกอยู่แล้ว (words vs pixels แข่งกัน → model averaging = drift) · corollary: identity เพี้ยนทั้งที่มี ref → **ลบ** face description ไม่ใช่เพิ่ม · เข้าคู่ [[char-sheet-2panel-identity-garment]] / [[outfit-swap-wichcraft-prompt]]
+
+description เพิ่ม trigger ตอนเอาผลเสียกลับมา ("ภาพออกมาหน้าเพี้ยน แก้ prompt ให้") · Final QA เพิ่มข้อ 8 (ref attached แต่ยังบรรยายหน้า → strip)
+
+## สถานะ (เดิม)
 ยังไม่เริ่มทำทั้งคู่ — เซฟไว้รอคิว ไม่ผูกกับ Fable/drama-app แต่ใช้ตรรกะ model/cost เดียวกับ [[factory-self-audit-skill-plan]] (skill เดียว งาน production tier ใช้ Sonnet พอ ไม่ต้อง ultracode)

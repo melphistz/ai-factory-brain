@@ -93,7 +93,7 @@ One line per memory, grouped by section. Add new entries under the matching sect
 - [Agent Skills Whitepaper](agent-skills-whitepaper.md) — REFERENCE (Kaggle/Google 2026): craft standard for skills · 5 rules (desc=interface, one-skill-one-job) + eval (co-load, never in isolation) · wired into [[factory-self-audit-skill-plan]] Step 4e
 - [Watch Skill (claude-video)](watch-skill-claude-video.md) — INSTALLED `watch:watch` (bradautomates): ให้ Claude ดูวิดีโอ · detail modes · flags `--start/--end`/`--timestamps` · gotcha: brew upgrade yt-dlp (SABR), Groq key expiry · คู่ [[ads-contact-sheet-pipeline]]
 - [Factory Audit Skill](factory-self-audit-skill-plan.md) — DONE 07-09: `/factory-audit` scores brain health + wiki-lint (orphan/contradiction/back-link) · +07-29 Step 4e desc-quality lint ([[agent-skills-whitepaper]])
-- [Image Prompt Writer Skill](skill-candidates-image-lyrics.md) — DONE 07-09: ad-hoc single-image (GPT Image 2/Nano Banana) · audited: 0 critical, 4 minor fixed
+- [Image Prompt Writer Skill](skill-candidates-image-lyrics.md) — DONE 07-09 · +07-30 merge จาก prompt-director: Locked/Assumed block, iteration+failure table, ref-image no-re-describe
 - [Thai Lyric Writer Skill](skill-candidates-image-lyrics.md) — DONE 07-09: mandatory 3-phase rhyme-map · audited: 1 critical + 3 minor fixed
 - [Skills Cheat Sheet](skills-cheatsheet.md) — which skill runs for which ad task + how to force-pick
 - [Seedance 2 Pro Director Skill](seedance-2-pro-director-skill.md) — INSTALLED: elite single-shot Seedance director · companion = shotlist-builder · Fable audit 07-07

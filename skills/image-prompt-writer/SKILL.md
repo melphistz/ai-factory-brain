@@ -1,6 +1,6 @@
 ---
 name: image-prompt-writer
-description: Ad-hoc single-image prompt writer for GPT Image 2 / Nano Banana (and FLUX/Imagen when raw skin quality matters) — one production-ready, paste-ready image prompt from a quick request. Trigger on phrasings like "write me a prompt for a K-pop idol portrait", "make an identity-locked character sheet prompt", "UGC selfie prompt for X", "write an image prompt for [scene/character]", "I need a portrait prompt", or any one-off still-image prompt request outside a running production job. Do NOT use for video prompts — a single Seedance shot is `seedance-2-pro-director`, a whole multi-shot ad video plan is `video-prompt-builder`, a full screenplay-to-shotlist breakdown is `shotlist-builder`. Do NOT use for the asset-prompt-builder pipeline (multi-character/multi-scene, dependency-ordered prompt kits for a running FF_factory job) — this skill is the ad-hoc tool for one quick image, reached for directly outside that pipeline.
+description: Ad-hoc single-image prompt writer for GPT Image 2 / Nano Banana (and FLUX/Imagen when raw skin quality matters) — one production-ready, paste-ready image prompt from a quick request. Trigger on phrasings like "write me a prompt for a K-pop idol portrait", "make an identity-locked character sheet prompt", "UGC selfie prompt for X", "write an image prompt for [scene/character]", "I need a portrait prompt", or any one-off still-image prompt request outside a running production job. Also use when the user brings back a generated still that came out wrong and wants the prompt diagnosed and rewritten — "ภาพออกมาหน้าเพี้ยน แก้ prompt ให้", "this came out looking like AI, fix the prompt", "แสงไม่เหมือนที่สั่ง". Do NOT use for video prompts — a single Seedance shot is `seedance-2-pro-director`, a whole multi-shot ad video plan is `video-prompt-builder`, a full screenplay-to-shotlist breakdown is `shotlist-builder`. Do NOT use for the asset-prompt-builder pipeline (multi-character/multi-scene, dependency-ordered prompt kits for a running FF_factory job) — this skill is the ad-hoc tool for one quick image, reached for directly outside that pipeline.
 ---
 
 # Image Prompt Writer
@@ -234,6 +234,8 @@ never sluggish, never dreamy, and never giddy or hyper
 
 The model pattern-matches against a **visual reference**, not a text description — the more you describe a face in words, the more it drifts. Use a named reference sheet instead of re-describing the face every time.
 
+**When a reference image is attached, never re-describe what the reference already locks.** Words and pixels compete: a face already carried by the reference, re-specified in text ("almond eyes, V-line jaw, fair skin"), gives the model two identity sources to average between — and the averaging *is* the drift. Write the prompt *relative* to the reference (`the woman from the reference image`, `the man in image 1`) and spend the prompt only on what the reference does NOT carry: action, setting, light, camera, wardrobe changes. Same rule for garment references — with a real product photo attached, describe fit and how it's worn, not the collar shape the photo already shows. Corollary: if the identity comes out wrong with a reference attached, the fix is usually *deleting* face description, not adding more.
+
 **Originality boundary:** identity-lock is for holding a consistent *original* character across scenes — never use someone else's real photo/artwork as a reference to produce a near-identical copy of it. Always generate from a prompt that describes the CONCEPT (subject, composition, mood), not a copy target.
 
 **Method (GPT Image 2, works similarly on Nano Banana Pro):**
@@ -295,12 +297,15 @@ There is no published rulebook for the gray zone — the same prompt can pass or
 
 ## Output format
 
+**Write the prompt first, never interrogate first.** However thin the request, draft a complete prompt from sensible defaults and hand it over — then expose your guesses so the user can correct them. Questions come *after* a usable prompt exists, never instead of one, and never more than 2–3 of them.
+
 For every request, deliver:
 
 1. **Model pick** — which model this prompt targets and why (one line, skip if the user already specified).
 2. **The prompt** — paste-ready, English, labeled sub-blocks if dense.
 3. **Negative prompt** — as its own line/block if the target model uses one.
-4. **One-line note** if you made a lane choice (candid vs editorial), a nationality choice, or an identity-lock decision the user didn't specify.
+4. **`Locked:` / `Assumed:`** — two short bullet lists. `Locked` = what the user actually specified (subject, action, setting, outfit...). `Assumed` = every dial you turned for them: camera/shot type, lighting, lane (candid vs editorial), nationality specifics, mood, aspect ratio, identity-lock decision. This is the deliverable's second half — it tells the user exactly which knobs are theirs to change instead of making them reverse-engineer the prompt. Keep each bullet to a few words.
+5. **Up to 3 optional questions or variations**, drawn from the `Assumed` list — offered, not blocking.
 
 Don't pad the answer with process narration. If the request is a recurring character, mention the identity-lock method briefly and offer to write the Face Sheet prompt too.
 
@@ -315,7 +320,32 @@ Don't pad the answer with process narration. If the request is a recurring chara
 5. Recurring character but no identity-lock plan? Add one (sheet or identity-lock block).
 6. Hands/body visible? Add the hands block and, if a body is in frame, the anatomy negative.
 7. Revealing clothing requested? Check against the content-limit table before finalizing.
-8. Does the prompt read as ONE image, not an implied multi-asset kit? If it's actually a full character-kit request, hand off to `asset-prompt-builder`.
+8. Reference image attached, but the prompt still describes the face/garment in words? Strip the re-description.
+9. Does the prompt read as ONE image, not an implied multi-asset kit? If it's actually a full character-kit request, hand off to `asset-prompt-builder`.
+
+---
+
+## Iteration — when a result comes back wrong
+
+The user shows or describes a bad gen ("หน้าเพี้ยน", "แสงไม่เหมือนที่สั่ง", "ดูเป็น AI"). Two rules:
+
+1. **Name the block that failed, in one line** — FACE / SKIN / HAIR / STYLING / LIGHT / SETTING / CAMERA / STYLE / negative. Diagnose the prompt, not the idea; a bad gen is almost always an under-specified block or two competing levers, not a bad concept.
+2. **Return the FULL rewritten prompt** — the complete revised version, paste-ready, never a fragment to splice in. A snippet forces the user to re-assemble by hand and that's where prompts quietly break. Restate the `Locked:` / `Assumed:` lists too if anything moved between them.
+
+Then change ONE block per iteration (same discipline as the identity-lock section) so the next result tells you whether the diagnosis was right.
+
+**Model-typical failures — apply the standard counter-instruction instead of rewriting the concept:**
+
+| Symptom | Cause | Fix |
+|---|---|---|
+| Mangled/extra fingers, broken grip | hands under-specified | add the hands block + `no warped hands or fingers, no extra fingers` |
+| Garbled text, warped signage, character's name printed in-frame | model tries to render text | add `no text in the image, no logo, no watermark` |
+| Melted/duplicate faces in the background | crowd left unspecified | make background people explicit (`blurred out-of-focus figures`) or negative them out |
+| Plastic/waxy skin | no texture descriptor, or over-airbrush language | add the skin block; strip `flawless, perfect, smooth` |
+| Looks staged / "too AI" | zero imperfections, dead-centre symmetry | 2–3 imperfections + `off-centre composition, natural asymmetry` |
+| Face drifted from previous image | text competing with the reference, or chat context accumulated | strip face description, attach the sheet only, start a fresh conversation |
+| Pose/angle ignored | camera angle omitted on a pose transfer | state the shot type + angle explicitly |
+| Look reads "average", not the intended charm/glam | imperfection stack too heavy for the target look | lighten to `fine pores + faint peach fuzz`, lead with the styling token stack |
 
 ---
 
