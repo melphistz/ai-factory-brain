@@ -35,7 +35,7 @@ One line per memory, grouped by section. Add new entries under the matching sect
 
 - [Gemini Gem — ARCHIVED](gemini-gem-seedance-director.md) — เลิกแจก 07-14 · Instructions + [knowledge pack](gemini-gem-seedance-knowledge-pack.md) ยังอยู่ถ้าจะฟื้น
 - [YouMind Scrape — DONE](youmind-scrape-session-state.md) — DONE 07-03: merged youmind→galleries (img 6877, video 363)
-- [MeiGen Library — DONE](meigen-library-session-state.md) — 07-13 +592→7,420 prompts · FDA re-toggle EVERY reboot (macOS external-volume TCC bug)
+- [MeiGen Library — DONE](meigen-library-session-state.md) — 07-30 +1,209→8,629 prompts (index 9,985) · FDA re-toggle EVERY reboot (macOS external-volume TCC bug)
 
 ## Seedance / Video Prompting
 
@@ -74,7 +74,7 @@ One line per memory, grouped by section. Add new entries under the matching sect
 ## Prompt Libraries
 
 - [Batch Image-Gen Pipeline Pattern](batch-image-gen-pipeline-pattern.md) — resumable-batch (JSONL queue + done-log dedup + parallel workers) + gotchas · prompt-craft half merged เข้า image-prompt-writer
-- [MeiGen Prompt Dataset](meigen-prompt-dataset.md) — 7,420 prompts via /api/search → gallery + text index บน internal tools/prompt-index/ ([[rule-search-prompt-index-first]])
+- [MeiGen Prompt Dataset](meigen-prompt-dataset.md) — 8,629 prompts via /api/search → gallery + text index บน internal tools/prompt-index/ ([[rule-search-prompt-index-first]])
 - [MeiGen Top Prompts](meigen-top-prompts.md) — full text top brand-ad/product/editorial/food (Act as + PHASE, JSON identity-lock, [BRAND] vars)
 - [YouMind Prompt Pack](youmind-prompt-pack.md) — 8 full GPT Image 2 prompts + {argument} template + 10 restyle presets
 - [YouMind GPT Image 2 Library](youmind-gpt-image-prompt-library.md) — filterable gallery; Photography×Influencer/Product/Storyboard filters

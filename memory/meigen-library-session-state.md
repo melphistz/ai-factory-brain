@@ -1,10 +1,11 @@
 ---
 name: meigen-library-session-state
-description: "DONE — FDA works (needs re-toggle after every reboot, known macOS external-volume TCC bug), sync.py runs direct on external. Latest sync 2026-07-08: 6,828 prompts."
+description: "DONE — FDA works (needs re-toggle after every reboot, known macOS external-volume TCC bug), sync.py runs direct on external. Latest sync 2026-07-30: meigen 8,629 · index 9,985."
 metadata: 
   node_type: memory
   type: project
   originSessionId: 1700360a-211b-4395-855f-9773306fc7ed
+  modified: 2026-07-30T01:15:48.257Z
 ---
 
 # MeiGen Library — Session Resume State (2026-07-02)
@@ -22,7 +23,12 @@ metadata:
 1. **FDA ผ่าน** — tool อ่าน/เขียน external ตรงได้. เคล็ด: ถ้าติด `Operation not permitted` ทั้งที่ toggle เปิด → toggle Terminal.app ปิด→เปิด + Cmd+Q Terminal เปิดใหม่
 2. **sync 07-06 สำเร็จ**: +481 ใหม่ → meigen 6,519 · gallery 7,358 cards (รวม youmind 839)
 
-## ✅ sync 2026-07-13 (ล่าสุด)
+## ✅ sync 2026-07-30 (ล่าสุด)
+- +1,209 ใหม่ → **meigen 8,629** · gallery **9,468 cards** (รวม youmind 839) · thumb ok 1208/1209 · 7 categories
+- index export → `prompt-index.jsonl` **9,985 prompts** (meigen 8,629 + youmind 993 + seedance 363), 18.2 MB
+- FDA ยังผ่าน ไม่ต้อง re-toggle รอบนี้
+
+## ✅ sync 2026-07-13
 - +592 ใหม่ → **meigen 7,420** · gallery **8,259 cards** (รวม youmind 839) · thumb ok 592/592 · 7 categories
 - คำสั่ง: `cd "/Volumes/PS Catches/prompt-library/" && python3 sync.py` (run_in_background เสมอ)
 
