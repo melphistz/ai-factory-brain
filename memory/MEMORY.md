@@ -88,6 +88,7 @@ One line per memory, grouped by section. Add new entries under the matching sect
 
 ## Skills & Workflows
 
+- [Joey Cinema Skills Pack](joey-cinema-skills-pack.md) — INSTALLED 08-03: 4 skills — `character-builder` (face lock+3-panel sheet) · `banana-pro-director-30` (Higgsfield stills 6 โหมด) · `cinema-director` (Seedance multi-shot house format) · `story-bible-builder` (canon→skill) · routing ใน [[skills-cheatsheet]]
 - [Podcast Skill](zenityx-interview-scene-workflow.md) — INSTALLED `podcast` (07-30): interview scene kit 3 part — still host+guest (identity lock+mirror trick) → Thai talking video (~4 ประโยค/15s) → silent two-shot closing · source note ในไฟล์
 
 - [Agent Skills Whitepaper](agent-skills-whitepaper.md) — REFERENCE (Kaggle/Google 2026): craft standard for skills · 5 rules (desc=interface, one-skill-one-job) + eval (co-load, never in isolation) · wired into [[factory-self-audit-skill-plan]] Step 4e
