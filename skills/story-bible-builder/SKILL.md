@@ -1,13 +1,13 @@
 ---
 name: story-bible-builder
-description: "Interview-driven skill that helps AI filmmakers, worldbuilders, and storytellers turn their story into a single dense canon document — the story's bible. Output is a ready-to-install SKILL.md the user drops into Claude as their own custom skill, so every future prompt (image, video, music, dialogue, scene) automatically knows the world, characters, voices, tone, plot, and production rules without eating into the user's 30 memory slots. Covers premise, thesis, timeline, factions, locations, characters with voice and movement locks, ensemble dynamics, plot engines, and production rules. Use whenever a user wants to build a story bible, lock in character consistency, capture their world, define character personality and voice, stop prompt drift, or turn a loose idea into an installable canon skill. Trigger on 'build a bible', 'story bible', 'lock my characters', 'character bible', 'canon doc', 'turn my story into a skill', or any close variant."
+description: "Interview-driven skill that helps AI filmmakers, worldbuilders, and storytellers turn their story into a single dense canon document — the story's bible. Output is a project canon file the user loads on demand, so every future prompt automatically knows the world without re-explaining it. Covers premise, thesis, timeline, factions, locations, characters with voice and movement locks, ensemble dynamics, plot engines, and production rules. Use whenever a user wants to build a story bible, lock in character consistency, capture their world, define character personality and voice, stop prompt drift, or turn a loose idea into a canon doc. Trigger on 'build a bible', 'story bible', 'lock my characters', 'character bible', 'canon doc', 'turn my story into a skill', or any close variant. Do NOT use for building a character's image references or face lock — that is character-builder; this skill produces the written canon, not prompts."
 ---
 
 # Story Bible Builder
 
-An interview-driven skill for building a **single dense canon document** — a story's bible — that ships as an installable SKILL.md the user can drop into Claude as their own custom skill.
+An interview-driven skill for building a **single dense canon document** — a story's bible — saved as a project canon file at `projects/<slug>/00-bible.md`.
 
-The point: instead of burning memory slots on world context, or re-explaining the story every chat, the user gets one file that lives as a skill and auto-loads every time they work on their world.
+The point: instead of re-explaining the story every chat, the user gets one file that lives inside the project folder and is loaded on demand via the project's `STATE.md` (CLAUDE.md already mandates reading `STATE.md` first when resuming a project). This is deliberately **not** installed as a Claude skill in this repo — per-project installed skills pollute the always-on router; a project canon file loaded on demand does not.
 
 The output is a locked, opinionated, prompt-ready canon doc. Not a template. Not a workbook. A **bible**.
 
@@ -15,9 +15,9 @@ The output is a locked, opinionated, prompt-ready canon doc. Not a template. Not
 
 ## WHAT THIS SKILL IS FOR
 
-Users bring a story world they're building — a film, a series, a game, an album, an AI-generated universe. This skill interviews them across every dimension of that world and assembles it into a single `SKILL.md` file matching the structure below. They install that file as a skill. Future Claude sessions read it and know their world.
+Users bring a story world they're building — a film, a series, a game, an album, an AI-generated universe. This skill interviews them across every dimension of that world and assembles it into a single `00-bible.md` file matching the structure below, saved into that project's folder. `STATE.md` points to it. Future Claude sessions read it on demand and know their world.
 
-**The output is one file.** Not modular. Not multi-file. One dense, canon SKILL.md — because that's what installs cleanly as a skill and stays under 500 lines.
+**The output is one file.** Not modular. Not multi-file. One dense, canon `00-bible.md` — kept under 500 lines. Cap at 3-4 deep characters per bible file; split a second file if the cast grows.
 
 ---
 
@@ -33,7 +33,7 @@ For this mode, the bible needs to be **dense, opinionated, and self-contained** 
 
 ### Mode 2 — Context source for a video prompt director skill
 
-Many users pair the bible with a video prompt director skill (like `cinema-worldbuilder-pro-20` or similar). In this pairing, the director skill handles the cinematography grammar, mode selection, frame composition, and prompt syntax. The bible provides the identity, voice, movement, aesthetic era locks, and canon that the director skill can't get from a reference image alone.
+Many users pair the bible with a video prompt director skill (like `cinema-director` or similar). In this pairing, the director skill handles the cinematography grammar, mode selection, frame composition, and prompt syntax. The bible provides the identity, voice, movement, aesthetic era locks, and canon that the director skill can't get from a reference image alone.
 
 The director skill reads uploaded reference images for wardrobe, hair, and identity. It cannot read *voice*, *movement quality*, *stillness*, *what era's aesthetic applies*, or *what production rules are locked for this world*. Those come from the bible.
 
@@ -138,16 +138,16 @@ List each engine with a one-line description. Note that engines stack (a heist c
 Ask: "What are the rules you've hard-earned about your own work? The stuff that only works in a specific way. Prompt rules, naming rules, canon lock rules, aesthetic rules that can't be broken."
 
 Bake in these defaults for AI-filmmaker users unless the user overrides:
-- No character names in image/video/music prompts (models drift on names) — refer by visual description
+- No character names in image/video/music prompts (models drift on names) — refer by visual description. Scoped to Higgsfield/Seedance prompt output; on GPT Image 2 the named reference sheet is the validated house method.
 - Every prompt is standalone (no "matching the previous scene")
 - Output prompts in code blocks, no aspect ratio in the prompt body
 - Any locked physical traits get restated verbatim in every prompt
 
 Add anything the user has learned from their own prompt work. Copy their exact phrasing where possible — this is a doc of their rules.
 
-### Step 7 — Assembly and "when this skill is active" (section 12)
+### Step 7 — Assembly and "when this bible is loaded" (section 12)
 
-Assistant now assembles the full SKILL.md. The final section — "When this skill is active" — must instruct future Claude how to use the bible in **both modes**:
+Assistant now assembles the full `00-bible.md`. The final section — "When this bible is loaded" — must instruct future Claude how to use the bible in **both modes**:
 
 **Standalone mode:**
 1. When the user asks for anything in this world (scene, dialogue, character beat, outfit, lyric, prompt, treatment), pull relevant character/world context from the bible and use it
@@ -156,16 +156,14 @@ Assistant now assembles the full SKILL.md. The final section — "When this skil
 4. Use the quoted Speech/Movement/Stillness descriptors verbatim when writing prompts
 
 **Paired-with-director-skill mode:**
-1. If a video prompt director skill is also active in the session (e.g., `cinema-worldbuilder-pro-20` or similar), the director skill handles cinematography, mode selection, frame composition, and prompt syntax
+1. If a video prompt director skill is also active in the session (e.g., `cinema-director` or similar), the director skill handles cinematography, mode selection, frame composition, and prompt syntax
 2. The bible feeds the director skill: character voice → Sound Bed; movement/stillness → Subject Lock; aesthetic era locks → World Plate / grade; production rules → cross-frame rules and locked traits
 3. When the user asks for a video prompt in this world, pull the relevant character's voice, movement, and stillness lines and the correct aesthetic era block, and hand them to the director skill's prompt structure
 4. Named canonical character references (uploaded reference images the user always attaches) get called out here so the director skill knows to expect them
 
 Ask the user what production companion skills they use (if any) and name them explicitly in this closing section so future Claude knows the paired workflow.
 
-Ship the file with the YAML frontmatter (name + pushy description) and the full canon body. Save to `/mnt/user-data/outputs/[working-title-slug].md` and present.
-
-Offer to zip it as an installable `.skill` file if the user wants that packaging.
+Ship the full canon body. Save to `projects/<slug>/00-bible.md` inside the ai-factory-brain repo (create the project folder first per CLAUDE.md onboarding if it does not exist) and present.
 
 ---
 

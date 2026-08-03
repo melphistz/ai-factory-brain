@@ -1,6 +1,6 @@
 ---
 name: character-builder
-description: "Character and outfit builder for Higgsfield image generation. Three workflows: (1) BUILD FROM SCRATCH — photoreal humans via a Higgsfield Soul face test followed by a detailed 3:4 chest-up lock in Nano Banana Pro or Higgsfield GPT-2, or anime/cel-shaded characters built directly in Banana Pro with a full cel render stack; (2) ADDITIONS TO AN EXISTING CHARACTER — hair changes, makeup registers, piercings, tattoos, scars, expression sets, and re-locks that extend a character without breaking identity; (3) OUTFIT BUILDER — wardrobe proposals, direct 9:16 builds on the locked character, invisible-mannequin garment plates for complex looks, and 3-panel character sheets. Covers the flat 18% gray plate, the flattering-realism ceiling, the cel-shade render stack, identity-marker locking, and reference reading. Use for building a new character, locking a face, changing a character's hair or markings, designing an outfit, generating a character sheet, or any character reference still."
+description: "Character and outfit builder for Higgsfield image generation. Three workflows: (1) BUILD FROM SCRATCH — photoreal humans via a Higgsfield Soul face test followed by a detailed 3:4 chest-up lock in Nano Banana Pro or Higgsfield GPT-2, or anime/cel-shaded characters built directly in Banana Pro with a full cel render stack; (2) ADDITIONS TO AN EXISTING CHARACTER — hair changes, makeup registers, piercings, tattoos, scars, expression sets, and re-locks that extend a character without breaking identity; (3) OUTFIT BUILDER — wardrobe proposals, direct 9:16 builds on the locked character, invisible-mannequin garment plates for complex looks, and 3-panel character sheets. Covers the flat 18% gray plate, the flattering-realism ceiling, the cel-shade render stack, identity-marker locking, and reference reading. Use for building a new character, locking a face, changing a character's hair or markings, designing an outfit, generating a character sheet, or any character reference still. Do NOT use for scene/environment plates or for swapping a face onto an outfit already worn in a photo — that is banana-pro-director-3.0. Do NOT use for a one-off GPT Image 2 still outside the Higgsfield pipeline — that is image-prompt-writer."
 ---
 
 # Character Builder — Higgsfield Character & Outfit Grammar
@@ -16,6 +16,16 @@ Three workflows:
 | **Part 3 — OUTFIT BUILDER** | The character is locked. A new fit is being designed and put on them. |
 
 Never skip forward. An outfit cannot be built on a character whose face isn't locked. An addition cannot be made to a character who doesn't exist yet.
+
+---
+
+## HOUSE OVERRIDES (ai-factory-brain) — these beat any rule below
+
+- Age-blind rule scoped: adult age + nationality tokens are REQUIRED in our casting lanes ("Thai woman in her late twenties, natural Thai facial features, medium skin tone" — see memory/thai-localization-image-prompts.md; prevents generic Western-Asian drift). Only minor-coded words stay banned.
+- No-names rule scoped to Higgsfield only: on GPT Image 2 the validated house method IS the named reference sheet (memory/ai-character-identity-lock.md).
+- Grain: this skill bans film grain on plates; our validated wichcraft templates ship WITH "gentle film grain… Photographed, not illustrated" and held identity across 3+ outfits. Do not rewrite validated house templates to match this skill.
+- Iris detail: the "iris color variation + limbal ring" mandate is conditional — for dark-brown Thai/Asian eyes skip intra-iris variation language (known nudge toward hazel drift).
+- Reference economy: the "fewer references" rule targets DUPLICATE face sources; it does not ban the validated 5-ref wichcraft Variant C stack.
 
 ---
 
@@ -38,6 +48,8 @@ The two get tangled constantly because "photorealistic" sounds like it means bot
 ### The flattering-realism ceiling — LOCKED, every face, every mode
 
 Full skin realism is always on: visible pore texture, peach fuzz, subsurface scattering, hair flyaways, the matte finish that carries the anti-plastic look. But realism never means unflattering. No acne, no blemishes, no prominent spots, no scarring the user didn't ask for, no enlarged or cratered pores, no rough bumpy texture, no aggressive detail that reads clinical. The texture is fine, soft, even, and natural. Matte is the anti-plastic lever; fine-and-even is the flattering lever. Both run together. Where they conflict, resolve toward flattering — a face should always look good.
+
+**House bridge:** the flat lock plate is a REFERENCE, never a deliverable portrait. Beauty geometry is injected at the Stage-1 text spec (FACE block from memory/cute-face-charm-recipe.md or the DramaBox CHARACTER block). Hero/drama portraits are relit via memory/drama-dramabox-tier-portrait-recipe.md — a lock plate shipped as a portrait will read flat and dead (no catchlights by design).
 
 ### Cel-shaded characters
 

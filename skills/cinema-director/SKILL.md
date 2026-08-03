@@ -1,6 +1,6 @@
 ---
 name: cinema-director
-description: "Cinema director for Seedance and Higgsfield video prompts. Writes production-grade multi-shot prompts in a locked house format — shot/duration header, capture cadence block, ALL-CAPS CRITICAL directive blocks, per-subject Subject Locks with wardrobe restated, Corps/Crew/Prop Locks, World Plate, Atmosphere, timecoded SHOT blocks, Cross-Frame Rules, Last Frame, Sound Bed, and a merged Camera & Capture Realism closer. Covers cinema film capture (24fps, 180-degree shutter, anamorphic, 35mm grain) and phone/BTS capture (30fps, rolling shutter, HDR-flat). Includes the lipsync bilabial closure protocol, strobe grammar, still-haze atmosphere language, an FOV degree lens anchor, skin protection, and diegetic-only audio rules. Use whenever the user wants a Seedance or Higgsfield video prompt, a music video shot, a behind-the-scenes clip, a performance or lipsync sequence, an action or atmospheric sequence, or asks to break a scene into shots for video generation."
+description: "Cinema director for Seedance and Higgsfield video prompts. Writes production-grade multi-shot prompts in a locked house format — shot/duration header, capture cadence block, ALL-CAPS CRITICAL directive blocks, per-subject Subject Locks with wardrobe restated, Corps/Crew/Prop Locks, World Plate, Atmosphere, timecoded SHOT blocks, Cross-Frame Rules, Last Frame, Sound Bed, and a merged Camera & Capture Realism closer. Covers cinema film capture (24fps, 180-degree shutter, anamorphic, 35mm grain) and phone/BTS capture (30fps, rolling shutter, HDR-flat). Includes the lipsync bilabial closure protocol, strobe grammar, still-haze atmosphere language, an FOV degree lens anchor, skin protection, and diegetic-only audio rules. Use for multi-shot cinematic sequences where drift is the enemy — 3+ subjects, a corps/crew, wardrobe that must survive hard cuts, MV/contest work, strobe or performance sequences, or lipsync to an attached music track. Do NOT use for a single blocked shot — that is seedance-2-pro-director. Do NOT use for Thai dialogue or talking-head clips — that is seedance-2-pro-director plus the Veo VO-pacing rule. Do NOT use for mood/fashion/product clips where liveliness beats beat-control — use the Marco freestyle method (set the rules, not the shots). Do NOT use for planning a whole ad from a brief — that is video-prompt-builder."
 ---
 
 # Cinema Director — Seedance / Higgsfield Video Prompt Grammar
@@ -20,6 +20,18 @@ Every frame reads as captured on a real camera operated by a real body. Film-emu
 **A great prompt is a production document, not a beautiful sentence.** If a word doesn't produce a visible pixel or an audible sound, cut it.
 
 **Length discipline.** A four-shot sequence with four Subject Locks should land around 1,000–1,600 words. Longer than that and the directive blocks start losing weight against the descriptive body. Every line must be a lock, not a flourish.
+
+---
+
+## BUDGET GATE — READ FIRST (house rule)
+
+Hosts: Higgsfield UI Seedance prompt box = 2,000 characters hard limit; kie.ai API = 20,000. On Higgsfield UI the TOTAL prompt must be ≤1,800 characters. The full house format below lands near 10,000 characters — it only fits on the API path. When over budget, cut in this order: (1) replace the capture-cadence block with one line: "smooth continuous filmic motion with real motion blur, no stutter, no frame interpolation, no frame blending" (~90 chars buys the same signal — Seedance 2.0 is 24fps fixed; reciting fps/shutter/exposure is a no-op and our house knowledge says rhythmic words beat technical spec); (2) realism tail max 6 items; (3) Cross-Frame Rules only for things that can actually drift between THESE cuts; (4) atmosphere battery max 5 items; (5) split into two prompts.
+
+---
+
+## HOUSE PHILOSOPHY NOTE (ai-factory-brain)
+
+House golden rule: ORDER + ACTION are always stated; CAMERA ANGLE stays free except on meaning-bearing beats. This skill's per-shot angle/height/cant locks are the EXCEPTION, justified only when 3+ bodies must not swap or wardrobe/staging must survive hard cuts. For 1-2 subjects with identity locked by reference, over-specifying every angle produces the "AI tell" — slow, dreamy, stiff. When in doubt, lock less.
 
 ---
 
@@ -60,7 +72,7 @@ Every prompt is written in one. The user picks; don't switch mid-prompt unless t
 Native 24 fps, true 180-degree shutter, real 1/48 second exposure on every frame. Genuine photographic motion blur. Vintage 2x anamorphic character at a wide aperture — oval bokeh, horizontal streak flares, halation bloom. Shallow depth of field. Color-negative rendition with fine 35mm grain. Handheld with real operator body weight unless locked-off is requested.
 
 ### Family B — PHONE / BTS CAPTURE
-Native 30 fps, fast electronic shutter — motion crisp and slightly clipped, not softly blurred. Digitally sharp with heavy edge sharpening and high micro-contrast. Deep phone depth of field. Visible rolling-shutter skew on whips, vertical lines leaning and springing back. Aggressive automatic exposure that visibly hunts and pumps. Automatic white balance shifting between zones. Phone HDR tone-mapping — lifted milky shadows, compressed highlights, no deep blacks. Slightly overcooked saturation. Fine digital luminance noise, **not** film grain. Hard clean digital flare with tight star points. Stepped digital zoom when magnifying.
+Phone-video look (the model renders 24fps; describe the look, not the rate), fast electronic shutter — motion crisp and slightly clipped, not softly blurred. Digitally sharp with heavy edge sharpening and high micro-contrast. Deep phone depth of field. Visible rolling-shutter skew on whips, vertical lines leaning and springing back. Aggressive automatic exposure that visibly hunts and pumps. Automatic white balance shifting between zones. Phone HDR tone-mapping — lifted milky shadows, compressed highlights, no deep blacks. Slightly overcooked saturation. Fine digital luminance noise, **not** film grain. Hard clean digital flare with tight star points. Stepped digital zoom when magnifying.
 
 **Phone capture must explicitly kill the film grammar.** Every phone prompt carries: *no anamorphic character, no oval bokeh, no horizontal streak flares, no 35mm grain, no color-negative rendition, no cinema camera look, no 24fps cadence, no 180-degree shutter blur, no shallow cinema focus, no cinematic grade.* Without it the model splits the difference and returns something that reads as neither.
 
@@ -393,6 +405,8 @@ Last Frame describes composition only. Nothing else.
 
 **Default: diegetic only.** Specific physical sounds tied to specific surfaces and materials — footsteps naming the surface, fabric by type, hardware, breath, room tone, environmental ambient. Close with *"No music, no lyrics, no dialogue, no singing."*
 
+House note: this default is for non-dialogue sequences only — for any dialogue/talking clip, state the spoken line and drop "no dialogue."
+
 Never write song references, lyrics, track-tied dialogue, or phone-filtered vocal lines. Music is uploaded separately as an audio reference.
 
 **Lipsync exception — HARD LOCK.** When an audio or video track is attached, it is the sole and complete audio source:
@@ -433,13 +447,16 @@ Six parts, in order:
 
 Tune the tail to the scene. Phone prompts invert several items (*no cinematic grade, no film grain, no anamorphic look*).
 
+- Contact physics is the #1 realism multiplier and #1 QA tell: state contact points explicitly — feet planted on, hands gripping, weight pressing, inertia and settle.
+- Hand fix: include "exactly two arms, five fingers per hand" on any shot with visible hands (verified ~70% artifact reduction).
+
 **Never state aspect ratio.** Aspect is set in the platform UI.
 
 ---
 
 ## FOV DEGREE TABLE (LENS ANCHOR)
 
-The model latches onto **FOV in degrees** as a snap value — degrees read as instruction, millimeters read as suggestion. Write the degree first with mm in parentheses. Pick from the anchor steps; never write an off-ladder value like 23°.
+mm focal length is verified to register; degree-FOV phrasing is optional flavor, unproven as a stronger anchor. Write the degree first with mm in parentheses. Pick from the anchor steps; never write an off-ladder value like 23°.
 
 | FOV | mm equiv | Feel | Use for |
 |---|---|---|---|
@@ -504,6 +521,12 @@ Do not invent or impose any internal timing on the singing — the attached clip
 Prefer one continuous take. If cutting, cut between lyric lines or in breaths, never mid-word, and state that in the shot header.
 
 **Strobe fights lipsync.** Hard flash-to-black eats roughly half the closures. When both are wanted, flag it and soften the strobe on the singer only — a fast bright flicker that never drops her face fully to black — while background bodies keep the full treatment. Say so in both THE LIGHT and Cross-Frame Rules.
+
+### Thai dialogue override (house)
+
+- Thai final stops are unreleased — the "held before releasing" bilabial mechanic teaches a foreign-accent artifact. For Thai lines, skip per-word closure mechanics entirely; with an attached @audio clip the waveform owns the mouth timing (this skill already states the attached clip owns timing — that is the whole protocol for Thai).
+- Thai VO pacing: the speaker must FINISH the line within 5-6s of an 8s clip, or speech gets cut (memory/veo-google-flow-knowledge.md).
+- Dialogue lines in Thai are allowed VERBATIM inside the code block — the "English only inside the code block" rule applies to direction prose, not to quoted dialogue.
 
 ---
 

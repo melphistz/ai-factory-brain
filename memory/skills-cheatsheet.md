@@ -16,7 +16,7 @@ Quick "which skill for which job" map for FF factory ad work. Claude auto-picks 
 | อยากได้ | พิมพ์แบบนี้ | skill |
 |---|---|---|
 | **1 shot เป๊ะ** (character lock, ตำแหน่งเฟรม, blocking) | "เขียน Seedance prompt: Ploy ถือมือถือ ล็อกซ้าย 9:16" | `seedance-2-pro-director` |
-| **multi-shot cinematic 15s** (หนัง/MV/contest, hard cuts, CRITICAL blocks) | "เขียน prompt 3 shots 15 วิ เรื่อง X แบบหนัง" | `cinema-director` |
+| **multi-shot cinematic 15s** (3+ ตัวละคร/corps/wardrobe ข้าม cuts/MV/strobe) | "เขียน prompt 3 shots 15 วิ เรื่อง X แบบหนัง" | `cinema-director` ⚠️ |
 | **คลิปทั้งตัว จาก brief** (effects + จังหวะ + energy arc) | "อยากได้ ad 15 วิ เรื่อง X ใส่ effect ปังๆ" | `video-prompt-builder` |
 | **script ยาว → หลาย scene** (แนบไฟล์) | แนบ script + "build shotlist scene 1-5" | `shotlist-builder` |
 | **ฉากสัมภาษณ์/podcast 2 คน** (host+guest คุยไทย) | "ทำ podcast สัมภาษณ์รีวิว X" | `podcast` |
@@ -38,7 +38,7 @@ Quick "which skill for which job" map for FF factory ad work. Claude auto-picks 
 - **`video-prompt-builder`** — 4 section: shot-by-shot effects timeline / effects inventory / density map / 3-act energy arc. คลิปโฆษณาทั้งตัวจาก concept.
 - **`shotlist-builder`** ⚠️ — HTML shotlist หลาย scene, prompt **จีน**, default **21:9** (UGC สั่ง 9:16). stateful 4-phase (read→asset→blocking→HTML). output `~/Desktop/Ads/FF_factory/shotlists/`. patched for Claude Code.
 - **`podcast`** — prompt kit ฉากสัมภาษณ์ 3 part: still host+guest (identity lock + mirror trick), talking video ไทย (~4 ประโยค/15s), closing two-shot เงียบ (Kling). ที่มา = [[zenityx-interview-scene-workflow]].
-- **`cinema-director`** — Joey pack: multi-shot Seedance/Higgsfield ใน prompt เดียว, house format (CRITICAL blocks, Subject/Prop Locks, World Plate, Cross-Frame Rules, Last Frame, Sound Bed, lipsync bilabial protocol). ใช้กับงานหนัง/MV/ซีเควนซ์ cinematic.
+- **`cinema-director`** ⚠️ — Joey pack (audited+patched 08-03): multi-shot house format (CRITICAL blocks, Subject/Prop Locks, Cross-Frame Rules, Last Frame, Sound Bed). ใช้เมื่อศัตรูคือ **drift**: 3+ ตัวละคร, corps, wardrobe ต้องรอด hard cuts, MV/strobe/lipsync-to-track. **ห้ามใช้**: คลิปพูดไทย/talking-head (→ seedance-2-pro-director + Veo pacing) · งาน mood/fashion 1-2 คน (→ marco freestyle) · full format ~10k chars แต่ช่อง Higgsfield รับ 2,000 — ใช้ BUDGET GATE ในตัว skill (≤1,800)
 - **`character-builder`** — Joey pack: face lock → additions (ผม/makeup/tattoo/expression) → outfit + 3-panel sheet (headless front / rear / tight face). 18% gray flat plate, flattering-realism ceiling, มี cel-shade path ด้วย.
 - **`banana-pro-director-30`** — Joey pack: still ทุกชนิดฝั่ง Higgsfield (Banana Pro/Soul Cinema/GPT-2) 6 โหมด — face lock, outfit, sheet, scene plate, detail shot, outfit replacement.
 - **`story-bible-builder`** — Joey pack: interview → canon SKILL.md ติดตั้งเป็น skill ของโปรเจกต์ ทุก prompt ต่อไปรู้จักโลก/ตัวละครเอง.

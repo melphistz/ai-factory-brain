@@ -71,6 +71,8 @@ Then write it up as one quoted string. Format:
 
 That's the format. Copy-pasteable into Seedance dialogue prompts and ElevenLabs voice casts.
 
+**Thai speech register (required for Thai characters):** politeness particles (ครับ/ค่ะ/นะ or none), pronoun tier (ผม/ฉัน/หนู vs กู/มึง), formality register and when it breaks, Thai↔English code-switching habits.
+
 ---
 
 ## 6. Movement

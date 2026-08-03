@@ -30,3 +30,14 @@ metadata:
 - **"Relight from scratch overriding any reference lighting"** block + "Photographed not generated" + background เป็น flat color field (no floor, no wall, no plane) — ก้อน copy ได้เลย
 - **Contest prompt template** (3 ตัวเต็มใน scratchpad/notion_page.md + skill): negative แบบไล่ทุก synonym, timing เป็นวินาที, contradiction เป็นเนื้อหาช็อต, scale เทียบในเฟรมเดียว, anime split cadence (ตัวละคร on twos/threes, BG on ones)
 - **HF T&C (July 31, 2026)**: Joey ยืนยันกับทีม — user own outputs, commercial OK, HF ไม่ claim ownership; update คือเรื่อง product ใหม่ + rewrite ภาษาเก่า (private stays private, license = run service เท่านั้น)
+
+## AUDIT + PATCH (08-03) — ใช้เวอร์ชัน patched เท่านั้น
+
+Audit 3 deep-reasoner (เทียบ recipe validated ของเรา) → ของจริงแต่ใช้ดิบไม่ได้ → patch ครบทั้ง 4:
+
+- **banana-pro**: ปิด code fence bug (L386 เดิม ทำ prompt ครึ่งไฟล์สลับใน/นอก block) · ลบ Rule 8 ที่ขัด Rule 12 (cinema stack บน character plate) · Mode 5 scope เฉพาะ outfit worn-in-photo + hand-off ไป [[outfit-swap-wichcraft-prompt]] สำหรับ flat-lay · เพิ่ม HOUSE OVERRIDES (@img tags OK, aspect ratio OK, age+nationality บังคับ, GPT-2 Higgsfield ≠ GPT Image 2) · trim 1117→~680 บรรทัด ส่วนใหญ่ย้ายไป `references/` 4 ไฟล์
+- **cinema-director**: description เลิก catch-all (เดิมจะแย่งทุกงาน Seedance) · BUDGET GATE: full format ~10k chars แต่ช่อง Higgsfield รับ 2,000 → ≤1,800 + ลำดับตัด · Thai dialogue override (บ/ป/พ ไทย unreleased — ข้าม bilabial mechanics, ใช้ @audio timing + Veo pacing จบใน 5-6s/8s) · HOUSE PHILOSOPHY NOTE (กฎทอง order+action stated / camera free — per-shot lock = ข้อยกเว้นเมื่อ 3+ ตัว) · เพิ่ม contact physics + five-fingers levers
+- **character-builder**: HOUSE OVERRIDES (age/no-names scope Higgsfield only, grain อย่าไปแก้ template validated, iris variation ข้ามตาไทยสีเข้ม) · bridge: lock plate = reference ห้ามส่งเป็น portrait — hero ต้อง relight ผ่าน [[drama-dramabox-tier-portrait-recipe]]
+- **story-bible-builder**: output → `projects/<slug>/00-bible.md` โหลดผ่าน STATE.md (เลิก install เป็น skill — กัน router pollution) · `/mnt/` path + "30 memory slots" ลบ · cinema-worldbuilder → cinema-director · Thai speech register block ใน interview (particles/pronoun tier/code-switch) · stub ใน `projects/_template/`
+
+Backport เข้า house: [[char-sheet-2panel-identity-garment]] รับ 3:4 face lock anchor + headless ghost-mannequin (ดีกว่า grey-oval mask) · routing ทั้งหมดอยู่ [[skills-cheatsheet]]
