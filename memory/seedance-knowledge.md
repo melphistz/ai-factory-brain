@@ -53,6 +53,7 @@ Seedance 2.0 = AI text/image-to-video model ของ ByteDance. ทำวิด
 - **ของใหม่:** region-level edit (แก้เฉพาะจุดไม่ต้อง regen ทั้งคลิป), native audio pass เดียว, direct control selector (era/genre/lighting/physics) เป็นทางเลือกแทน text prompt, prompt adherence ดีขึ้น ~20%
 - **ราคา (Higgsfield):** 10s@720p ≈ 65cr (~$3.25) · 480p ≈ 30cr · 1080p ≈ 90cr → scale ตาม duration ตรงๆ
 - **Prompt structure หลัก (subject/action/camera/light/sound/timing/constraints) ยังใช้ได้เหมือน 2.0** — clip ยาวขึ้นแค่ต้องวาง timed-beat ชัดกว่าเดิม (30s คิดเป็น sequence ไม่ใช่ moment เดียว)
+- **Draft mode (verify Higgsfield API 2026-10-02):** `draft: true` = เจน 480p ก่อน แล้ว finalize เป็น 1080p ได้ภายใน 7 วัน (`draft_job_id`) → ทดสอบช็อตเสี่ยงถูก · modes: `t2v` / `omni_reference` / `video_edit` / `video_extension` (forward/backward)
 - **char cap ต่อ prompt:** ยังไม่ยืนยันตัวเลขจริงของ 2.5 (2.0 = 2000 chars) — งานที่ทำไปยังไม่เจอ error ที่ ~2000 chars
 
 **⚠️ บทเรียน (28-08-2026):** ตอน verify ว่า Higgsfield มี 2.5 ให้ใช้หรือยัง — WebSearch แรกไปเชื่อสรุปจาก reapi.ai (คู่แข่งขาย API) ที่บอกว่า "ยังไม่มีบน Higgsfield" ทั้งที่ลิงก์ higgsfield.ai/blog เองอยู่ในผลค้นหาเดียวกันแล้วไม่ได้เปิดอ่าน → **เช็ค availability เฉพาะแพลตฟอร์ม ต้องเปิด official source ของแพลตฟอร์มนั้นตรงๆ เสมอ อย่าเชื่อ third-party aggregator/คู่แข่งที่พูดถึงแพลตฟอร์มอื่น**

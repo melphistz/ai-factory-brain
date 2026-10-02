@@ -10,6 +10,7 @@ One line per memory, grouped by section. Add new entries under the matching sect
 - [Model/Effort Strategy](feedback-model-effort-strategy.md) — FEEDBACK: intelligence-asset = ฉลาดสุด+ultracode+verify 2 เลนส์ · build/production = Opus/Sonnet+high · effort สูง=ช้าลง
 - [Always Full Prompt](feedback-always-full-prompt.md) — FEEDBACK: คุยเรื่อง prompt ภาพ/วิดีโอ = จบด้วย full paste-ready prompt เสมอทุกครั้ง
 - [Drama Character Casting](feedback-drama-character-casting.md) — FEEDBACK: ตัวละคร drama ทุกตัวต้องสวย/หล่อ แต่สมจริงไม่ over · recipe → [[drama-dramabox-tier-portrait-recipe]]
+- [Animals Act on Instinct](feedback-animals-act-on-instinct.md) — FEEDBACK (10-02): ตัวละครสัตว์ = สัญชาตญาณจริงเท่านั้น ห้ามคิด/วางแผนแบบคน ("แมวคือแมว") · ใช้พฤติกรรมจริงแทน
 - [Storyboard Narrative Not Flat](feedback-storyboard-narrative-not-flat.md) — FEEDBACK: storyboard คิดเป็น flow หนัง (มุม/reveal/movement/arc) ทุก panel dynamic · ห้ามแบน
 - [Thai Lyric Craft](feedback-thai-lyric-craft.md) — FEEDBACK: เนื้อเพลงไทยวางสัมผัส (นอก+ใน) ตั้งแต่ร่างแรก + โชว์ rhyme map · หลัก = [[thai-lyric-writing]]
 - [Vault Structure](vault-structure.md) — reorg 07-03: 9-section index + entry rule, rename log, backup location
@@ -17,7 +18,7 @@ One line per memory, grouped by section. Add new entries under the matching sect
 
 ## Active Projects
 
-- [คาบ (Still Warm)](still-warm-project.md) — **NEW 10-02** คลิปประกวดซอมบี้: แม่แมวซอมบี้ช่วยลูก แบบ Flow · treatment+shotlist 26 ช็อต DONE · `projects/Dreamproject/Zombie/` · next = assets ขาด + prompt
+- [คาบ (Still Warm)](still-warm-project.md) — **NEW 10-02** คลิปประกวดซอมบี้ (**ส่ง 6 ต.ค. 23:59**): แม่แมวซอมบี้ช่วยลูก แบบ Flow · treatment+shotlist v3 30 ช็อต 2:11 cliffhanger · `projects/Dreamproject/Zombie/` · next = assets ขาด + prompt
 - [SEC Car Transport](sec-car-transport-project.md) — **NEW 07-23** งานลูกค้า AGV valet parking robot VMR-CR5300GAW2 (จับล้อยกลอย, split-modular, Laser SLAM, 3000kg). DONE = เอกสารคำอธิบาย 7 ขั้น + 16 loading frames. ไฟล์ที่ `/Volumes/WONYOUNG/SEC Car Transport/`
 - [Drama App (ของเราเอง)](smartaihub-drama-series.md) — ระบบซีรีส์แนวตั้งเอง · v1 BUILT+VERIFIED · prompt-first (ปฏิเสธ auto-gen ขัด ToS) · UI redesign 8/8 DONE + genre×setting 2-axis wire แล้ว (build+lint+smoke PASS, commit `732c032`) · **detail เต็ม = `projects/drama-app/STATE.md`** · retrospective = [[drama-app-fable-ultracode-retrospective]]
 - [แค่วันนี้ (Just Today MV)](kae-wan-nee-project.md) — MV รักสองสาว+อุกกาบาต · Guadagnino×Malick×Melancholia · projects/kae-wan-nee/ · next = gen เพลง + character sheet
