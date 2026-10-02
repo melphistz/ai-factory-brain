@@ -40,6 +40,7 @@ One line per memory, grouped by section. Add new entries under the matching sect
 
 ## Seedance / Video Prompting
 
+- [Melies Cinematic Techniques](melies-cinematic-techniques.md) — **NEW 10-02** library 424 เทคนิค 13 หมวด · prompt แบบ Melies: 1 เทคนิค/ช็อต + ล็อก invariants + ห้าม failure mode โดยชื่อ · prompt ตัวอย่าง verbatim
 - [CINEDANCE V4 System](cinedance-v4-seedance-system.md) — alt Seedance director (จาก SEC Car Transport vid ref) · เทียบกับ seedance-2-pro-director แล้ว 08-05 (เก็บผลเทียบในไฟล์) · ยังไม่ merge เข้า skill จริง
 - [Vertical Drama Basics (Dramy.ai)](vertical-drama-basics-dramy.md) — ตอน 5 ช่วง Hook/Setup/Conflict/Twist/Cliffhanger บังคับ · Hook 4 ประเภท · AI-friendly (ตัวละคร≤3/สถานที่≤2/30-60วิ)
 - [Storyboard Knowledge](storyboard-knowledge.md) — พื้นฐาน AI video: board first render second, 3 ช็อตพื้นฐาน, storyboard vs shot list
