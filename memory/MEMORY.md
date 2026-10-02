@@ -17,6 +17,7 @@ One line per memory, grouped by section. Add new entries under the matching sect
 
 ## Active Projects
 
+- [คาบ (Still Warm)](still-warm-project.md) — **NEW 10-02** คลิปประกวดซอมบี้: แม่แมวซอมบี้ช่วยลูก แบบ Flow · treatment+shotlist 26 ช็อต DONE · `projects/Dreamproject/Zombie/` · next = assets ขาด + prompt
 - [SEC Car Transport](sec-car-transport-project.md) — **NEW 07-23** งานลูกค้า AGV valet parking robot VMR-CR5300GAW2 (จับล้อยกลอย, split-modular, Laser SLAM, 3000kg). DONE = เอกสารคำอธิบาย 7 ขั้น + 16 loading frames. ไฟล์ที่ `/Volumes/WONYOUNG/SEC Car Transport/`
 - [Drama App (ของเราเอง)](smartaihub-drama-series.md) — ระบบซีรีส์แนวตั้งเอง · v1 BUILT+VERIFIED · prompt-first (ปฏิเสธ auto-gen ขัด ToS) · UI redesign 8/8 DONE + genre×setting 2-axis wire แล้ว (build+lint+smoke PASS, commit `732c032`) · **detail เต็ม = `projects/drama-app/STATE.md`** · retrospective = [[drama-app-fable-ultracode-retrospective]]
 - [แค่วันนี้ (Just Today MV)](kae-wan-nee-project.md) — MV รักสองสาว+อุกกาบาต · Guadagnino×Malick×Melancholia · projects/kae-wan-nee/ · next = gen เพลง + character sheet
