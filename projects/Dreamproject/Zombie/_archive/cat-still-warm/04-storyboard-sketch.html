@@ -1,0 +1,374 @@
+<title>Storyboard คาบ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans+Thai:wght@400;600&family=Noto+Serif+Thai:wght@600;800&display=swap">
+<style>
+/* Layout: screening-room contact sheet. Sequences stacked; each a responsive grid of 16:9 frame cards. Single dark world by choice. */
+:root{
+  color-scheme: dark;
+  --bg:#111418;
+  --panel:#191e24;
+  --line:#2a3139;
+  --ink:#e7e2d7;
+  --muted:#8e979f;
+  --accent:#e2893a;   /* kitten orange: the only warm thing in the dawn */
+  --gold:#e8c07a;
+  --dawn:#8fa3b3;
+  --display:"Noto Serif Thai", Georgia, serif;
+  --body:"IBM Plex Sans Thai", "Noto Sans Thai", system-ui, sans-serif;
+  --mono:"IBM Plex Mono", ui-monospace, Menlo, monospace;
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.6;margin:0;padding-inline:clamp(16px,4vw,48px);padding-block:40px 80px}
+.wrap{max-width:1280px;margin:0 auto}
+header{display:grid;gap:10px;margin-bottom:28px}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+h1{font-family:var(--display);font-weight:800;font-size:clamp(40px,7vw,72px);line-height:1.05;margin:0;text-wrap:balance}
+h1 span{color:var(--accent)}
+.lede{max-width:66ch;color:var(--muted);margin:0}
+.specs{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
+.spec{font-family:var(--mono);font-size:12px;padding:4px 10px;border:1px solid var(--line);border-radius:999px;color:var(--ink);font-variant-numeric:tabular-nums}
+.spec.warn{border-color:#7a4a2a;color:var(--gold)}
+
+.strip{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:16px 16px 8px;margin-bottom:22px}
+.strip h2,.legend h2{font-size:13px;font-family:var(--mono);font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:0 0 8px}
+.strip-scroll{overflow-x:auto}
+.strip svg{display:block;width:100%;min-width:640px;height:auto}
+
+.legend{display:flex;flex-wrap:wrap;gap:10px 22px;align-items:center;margin-bottom:34px;font-size:13px;color:var(--muted)}
+.legend h2{margin:0;width:100%}
+.lg{display:flex;align-items:center;gap:8px}
+.lg svg{flex:none}
+
+section.seq{margin-bottom:44px}
+.seq-head{display:grid;grid-template-columns:auto 1fr;gap:4px 14px;align-items:baseline;border-top:1px solid var(--line);padding-top:14px;margin-bottom:16px}
+.seq-no{font-family:var(--mono);font-size:13px;color:var(--muted);font-variant-numeric:tabular-nums}
+.seq-head h3{font-family:var(--display);font-weight:600;font-size:26px;margin:0;line-height:1.2}
+.seq-rule{grid-column:2;color:var(--muted);font-size:14px;margin:0}
+.seq-swatch{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:6px;vertical-align:middle}
+.proposed-tag{font-family:var(--mono);font-size:11px;color:#1a1208;background:var(--gold);padding:2px 7px;border-radius:4px;margin-left:8px;vertical-align:middle;letter-spacing:.04em}
+
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:18px}
+.card{display:grid;gap:8px}
+.frame{position:relative;border-radius:6px;overflow:hidden;background:#000;outline:1px solid var(--line)}
+.frame svg{display:block;width:100%;height:auto;aspect-ratio:16/9}
+.card.proposed .frame{outline:2px dashed var(--gold);outline-offset:2px}
+.meta{display:flex;flex-wrap:wrap;gap:4px 10px;align-items:baseline;font-family:var(--mono);font-size:12px;color:var(--muted);font-variant-numeric:tabular-nums}
+.meta b{color:var(--ink);font-weight:500;font-size:13px}
+.meta .tech{color:var(--accent)}
+.cap{margin:0;font-size:14px;line-height:1.55}
+.cut-note{font-family:var(--mono);font-size:11px;color:var(--gold)}
+footer{border-top:1px solid var(--line);padding-top:16px;color:var(--muted);font-size:13px}
+@media (prefers-reduced-motion: reduce){*{scroll-behavior:auto}}
+</style>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <linearGradient id="sky-dawn" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#7f93a3"/><stop offset="1" stop-color="#c7d1d8"/></linearGradient>
+    <linearGradient id="sky-sun" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#b9a47c"/><stop offset=".6" stop-color="#efd39b"/><stop offset="1" stop-color="#f6e2b4"/></linearGradient>
+    <linearGradient id="sky-flat" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#959ca1"/><stop offset="1" stop-color="#b6babd"/></linearGradient>
+    <linearGradient id="sky-amber" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#5e3418"/><stop offset="1" stop-color="#c3843f"/></linearGradient>
+    <linearGradient id="fog" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity="0"/><stop offset=".55" stop-color="#eef2f4" stop-opacity=".9"/><stop offset="1" stop-color="#eef2f4" stop-opacity=".25"/></linearGradient>
+    <linearGradient id="toBlack" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#000" stop-opacity="0"/><stop offset="1" stop-color="#000"/></linearGradient>
+    <filter id="b2"><feGaussianBlur stdDeviation="1.6"/></filter>
+    <filter id="b3"><feGaussianBlur stdDeviation="2.6"/></filter>
+    <filter id="b4"><feGaussianBlur stdDeviation="4"/></filter>
+    <filter id="glow" x="-200%" y="-200%" width="500%" height="500%"><feGaussianBlur stdDeviation="1.6" result="g"/><feMerge><feMergeNode in="g"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    <marker id="arrA" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 Z" fill="#e2893a"/></marker>
+    <marker id="arrW" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 Z" fill="#ffffff"/></marker>
+  </defs>
+</svg>
+
+<div class="wrap">
+  <header>
+    <div class="eyebrow">Dream Party · Zombie Week · หมวดหนังสั้น</div>
+    <h1>คาบ <span>Storyboard</span></h1>
+    <p class="lede">เฟรมร่างทุกช็อตตาม shot list v3 รวม warmth beat ที่เสนอเพิ่ม เฟรมบอกตำแหน่ง มุมกล้อง ทิศการเดิน และโทนแสงเท่านั้น ลุคจริงเป็น painterly 3D แบบ Flow</p>
+    <div class="specs">
+      <span class="spec">16:9</span><span class="spec">34 ช็อต</span><span class="spec">2:21</span><span class="spec">Seedance 2.5</span><span class="spec">ไม่มีบทพูด · ไม่มีดนตรี</span><span class="spec warn">ส่ง 6 ต.ค. 23:59</span>
+    </div>
+  </header>
+
+  <div class="strip">
+    <h2>ความตึงตามเวลา (0–10)</h2>
+    <div class="strip-scroll"><svg id="tension" viewBox="0 0 1000 150" role="img" aria-label="กราฟความตึงของเรื่องตามเวลา"></svg></div>
+  </div>
+
+  <div class="legend">
+    <h2>อ่านเฟรม</h2>
+    <span class="lg"><svg width="26" height="18" viewBox="0 0 26 18"><polygon points="4,16 9,2 14,14" fill="#d98a3d"/></svg>หูส้มเข้ากล้อง = ซีกปกติ (ก่อนเฉลย)</span>
+    <span class="lg"><svg width="26" height="18" viewBox="0 0 26 18"><polygon points="4,16 9,2 14,14" fill="#2b2a2e" stroke="#777" stroke-width=".6"/><circle cx="19" cy="11" r="3" fill="#e3e8e6"/></svg>หูดำ + ตาขุ่น = ซีกที่ตาย</span>
+    <span class="lg"><svg width="34" height="10" viewBox="0 0 34 10"><line x1="2" y1="5" x2="28" y2="5" stroke="#e2893a" stroke-width="2" stroke-dasharray="4 3" marker-end="url(#arrA)"/></svg>กล้องเคลื่อน</span>
+    <span class="lg"><svg width="34" height="10" viewBox="0 0 34 10"><line x1="2" y1="5" x2="28" y2="5" stroke="#fff" stroke-width="1.4" marker-end="url(#arrW)"/></svg>ทิศตัวละคร/ฝูง</span>
+    <span class="lg"><svg width="22" height="16" viewBox="0 0 22 16"><circle cx="6" cy="10" r="3" fill="#fff" opacity=".6"/><circle cx="12" cy="7" r="4" fill="#fff" opacity=".5"/><circle cx="18" cy="5" r="3" fill="#fff" opacity=".4"/></svg>ไอหายใจ = มีชีวิต</span>
+    <span class="lg"><svg width="26" height="16" viewBox="0 0 26 16"><rect x="1" y="1" width="24" height="14" fill="none" stroke="#e8c07a" stroke-width="1.6" stroke-dasharray="3 2"/></svg>ช็อตที่เสนอเพิ่ม (ยังไม่ล็อก)</span>
+  </div>
+
+  <main id="board"></main>
+
+  <footer>ไฟล์ต้นทาง: <code>projects/Dreamproject/Zombie/03-shotlist.md</code> (v3) · warmth beat W1–W4 รอยืนยันก่อนเพิ่มลงบท</footer>
+</div>
+
+<script>
+(function(){
+const P={mom:'#efe6d6',momOr:'#d98a3d',momBk:'#2b2a2e',kit:'#d9823a',kitW:'#f3e8d8',grey:'#8a8f94',greyDk:'#5a5f64',sil:'#1c2229',leg:'#2a3138',legFar:'#5a6570',eyeY:'#c9c45a',milky:'#e3e8e6',rim:'#f0d9a6',pink:'#e7a3a0'};
+let uid=0;
+const F=n=>Math.round(n*10)/10;
+
+function rng(seed){return function(){seed|=0;seed=seed+0x6D2B79F5|0;let t=Math.imul(seed^seed>>>15,1|seed);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296;}}
+
+function bg(kind,hy){hy=hy==null?100:hy;
+  const m={dawn:['url(#sky-dawn)','#55626d'],sun:['url(#sky-sun)','#6b604a'],flat:['url(#sky-flat)','#5a6066'],amber:['url(#sky-amber)','#4a2e1b'],night:['#0d1013','#0d1013'],door:['#1d2228','#2a2622']}[kind];
+  return `<rect width="320" height="180" fill="${m[0]}"/><rect y="${hy}" width="320" height="${180-hy}" fill="${m[1]}"/><line x1="0" x2="320" y1="${hy}" y2="${hy}" stroke="#fff" stroke-opacity=".12"/>`;}
+function fog(op){return `<rect width="320" height="180" fill="url(#fog)" opacity="${op==null?.45:op}"/>`;}
+function dim(op,c){return `<rect width="320" height="180" fill="${c||'#000'}" opacity="${op}"/>`;}
+function leg(x,feet,w,top,fill,op,blur){op=op==null?1:op;const f=blur?` filter="url(#b${blur})"`:'';
+  return `<g opacity="${op}"${f}><rect x="${F(x)}" y="${F(top)}" width="${F(w)}" height="${F(feet-top)}" rx="${F(w*.3)}" fill="${fill}"/><ellipse cx="${F(x+w*.65)}" cy="${F(feet)}" rx="${F(w*.8)}" ry="${F(w*.3)}" fill="${fill}"/></g>`;}
+function pair(x,feet,w,op,blur){const fill=w>13?P.leg:P.legFar;const top=w>13?-6:Math.max(-6,feet-w*10);
+  return leg(x,feet,w,top,fill,op,blur)+leg(x+w*1.55,feet-w*.12,w,top,fill,op,blur);}
+function crowd(seed,n,fMin,fMax,wMin,wMax,xMin,xMax,blur){xMin=xMin==null?0:xMin;xMax=xMax==null?320:xMax;const r=rng(seed);const a=[];
+  for(let i=0;i<n;i++){const t=r();a.push({f:fMin+(fMax-fMin)*t,w:wMin+(wMax-wMin)*t,x:xMin+(xMax-xMin)*r()});}
+  a.sort((p,q)=>p.f-q.f);const body=a.map(p=>pair(p.x,p.f,p.w,.92)).join('');
+  return blur?`<g filter="url(#b${blur})">${body}</g>`:body;}
+function camArrow(x1,y1,x2,y2){return `<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke="#e2893a" stroke-width="2.2" stroke-dasharray="6 4" marker-end="url(#arrA)"/>`;}
+function subjArrow(x1,y1,x2,y2){return `<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke="#fff" stroke-width="1.6" stroke-opacity=".9" marker-end="url(#arrW)"/>`;}
+function pushIn(){const c='#e2893a';return [[14,14,1,1],[306,14,-1,1],[14,166,1,-1],[306,166,-1,-1]].map(([x,y,a,b])=>`<path d="M${x},${y+18*b} L${x},${y} L${x+18*a},${y}" stroke="${c}" stroke-width="2.2" fill="none"/><line x1="${x+4*a}" y1="${y+4*b}" x2="${x+14*a}" y2="${y+14*b}" stroke="${c}" stroke-width="1.6" marker-end="url(#arrA)"/>`).join('');}
+function breath(x,y,n,s){n=n||3;s=s||5;let o='';for(let i=0;i<n;i++){o+=`<circle cx="${F(x+i*s*1.3)}" cy="${F(y-i*s*.7)}" r="${F(s*(.8+i*.35))}" fill="#fff" opacity="${F(.62-i*.13)}"/>`;}return `<g filter="url(#b2)">${o}</g>`;}
+function soundArcs(x,y){return [8,14,20].map((r,i)=>`<path d="M${x+r*.6},${y-r*.8} Q${x+r},${y} ${x+r*.6},${y+r*.8}" stroke="#fff" stroke-width="1.4" fill="none" opacity="${.85-i*.22}"/>`).join('');}
+
+function cat(o){
+  const x=o.x,y=o.y,s=o.s||1,dir=o.dir||'R',kind=o.kind||'mom',side=o.side||'orange';
+  const sil=!!o.sil;
+  const base=sil?P.sil:kind==='mom'?P.mom:kind==='kit'?P.kit:P.grey;
+  const tailC=sil?P.sil:kind==='mom'?P.momBk:kind==='kit'?P.kit:P.greyDk;
+  let g='';
+  g+=`<path d="M${F(x-24*s)},${F(y-22*s)} Q${F(x-40*s)},${F(y-28*s)} ${F(x-41*s)},${F(y-44*s)}" stroke="${tailC}" stroke-width="${F(3.6*s)}" fill="none" stroke-linecap="round"/>`;
+  if(kind==='kit'&&!sil) g+=`<circle cx="${F(x-41*s)}" cy="${F(y-44*s)}" r="${F(2.1*s)}" fill="${P.kitW}"/>`;
+  [-18,-12,12,18].forEach(lx=>{g+=`<rect x="${F(x+lx*s-1.8*s)}" y="${F(y-14*s)}" width="${F(3.6*s)}" height="${F(14*s)}" rx="${F(1.5*s)}" fill="${base}"/>`;});
+  g+=`<ellipse cx="${x}" cy="${F(y-20*s)}" rx="${F(26*s)}" ry="${F(10.5*s)}" fill="${base}"/>`;
+  if(!sil&&kind==='mom'){g+=`<ellipse cx="${F(x+2*s)}" cy="${F(y-24*s)}" rx="${F(10*s)}" ry="${F(6*s)}" fill="${P.momOr}"/><ellipse cx="${F(x-15*s)}" cy="${F(y-23*s)}" rx="${F(8*s)}" ry="${F(7*s)}" fill="${P.momBk}"/>`;}
+  if(!sil&&kind==='kit'){g+=`<ellipse cx="${F(x+19*s)}" cy="${F(y-16*s)}" rx="${F(5*s)}" ry="${F(5*s)}" fill="${P.kitW}"/>`;[-10,-3,4].forEach(d=>{g+=`<path d="M${F(x+d*s)},${F(y-30*s)} q${F(2*s)},${F(5*s)} 0,${F(9*s)}" stroke="#b9682a" stroke-width="${F(1.6*s)}" fill="none"/>`;});}
+  if(!sil&&kind==='grey'){[-12,-4,4].forEach(d=>{g+=`<path d="M${F(x+d*s)},${F(y-30*s)} q${F(2*s)},${F(5*s)} 0,${F(9*s)}" stroke="${P.greyDk}" stroke-width="${F(1.8*s)}" fill="none"/>`;});}
+  const hx=x+27*s,hy=y-(o.headDown?16:o.noseUp?35:30)*s;
+  const near=sil?P.sil:kind==='mom'?(side==='orange'?P.momOr:P.momBk):base;
+  const far=sil?P.sil:kind==='mom'?(side==='orange'?'#3a3236':'#c47a35'):base;
+  g+=`<polygon points="${F(hx+1*s)},${F(hy-7*s)} ${F(hx+6*s)},${F(hy-15*s)} ${F(hx+8.5*s)},${F(hy-4*s)}" fill="${far}"/>`;
+  g+=`<circle cx="${F(hx)}" cy="${F(hy)}" r="${F(9.5*s)}" fill="${base}"/><ellipse cx="${F(hx+7*s)}" cy="${F(hy+3*s)}" rx="${F(4.6*s)}" ry="${F(3.6*s)}" fill="${base}"/>`;
+  if(!sil&&kind==='mom'&&side==='black') g+=`<circle cx="${F(hx+.5*s)}" cy="${F(hy-1.5*s)}" r="${F(6.8*s)}" fill="${P.momBk}"/>`;
+  if(!sil&&kind==='kit') g+=`<ellipse cx="${F(hx+7*s)}" cy="${F(hy+4*s)}" rx="${F(3.6*s)}" ry="${F(2.6*s)}" fill="${P.kitW}"/>`;
+  g+=`<polygon points="${F(hx-6*s)},${F(hy-5*s)} ${F(hx-3*s)},${F(hy-15.5*s)} ${F(hx+2*s)},${F(hy-7*s)}" fill="${near}"/>`;
+  if(!sil){
+    const eyeC=o.milky?P.milky:kind==='kit'?'#e0a33a':kind==='grey'?'#9bc46b':P.eyeY;
+    g+=`<circle cx="${F(hx+3*s)}" cy="${F(hy-1*s)}" r="${F(1.8*s)}" fill="${eyeC}"${o.milky?` stroke="#9aa3a0" stroke-width="${F(.4*s)}"`:''}/>`;
+    if(!o.milky) g+=`<ellipse cx="${F(hx+3.2*s)}" cy="${F(hy-1*s)}" rx="${F(.5*s)}" ry="${F(1.4*s)}" fill="#111"/>`;
+    g+=`<circle cx="${F(hx+11.2*s)}" cy="${F(hy+2.4*s)}" r="${F(1.1*s)}" fill="${P.pink}"/>`;
+  }
+  if(o.glow) g+=`<circle cx="${F(hx+3*s)}" cy="${F(hy-1*s)}" r="${F(2*s)}" fill="#f6eeb0" filter="url(#glow)"/>`;
+  if(o.rim) g+=`<ellipse cx="${x}" cy="${F(y-20.6*s)}" rx="${F(26*s)}" ry="${F(10.5*s)}" fill="none" stroke="${P.rim}" stroke-width="${F(.9*s)}" opacity=".75"/><circle cx="${F(hx)}" cy="${F(hy-.6*s)}" r="${F(9.5*s)}" fill="none" stroke="${P.rim}" stroke-width="${F(.9*s)}" opacity=".75"/>`;
+  if(o.carry){const kx=hx+9*s,ky=hy+4*s,kc=sil?P.sil:P.kit;
+    g+=`<ellipse cx="${F(kx)}" cy="${F(ky+11*s)}" rx="${F(3.6*s)}" ry="${F(6.6*s)}" fill="${kc}"/><circle cx="${F(kx)}" cy="${F(ky+3*s)}" r="${F(3.8*s)}" fill="${kc}"/><polygon points="${F(kx-3*s)},${F(ky+1*s)} ${F(kx-2*s)},${F(ky-3.5*s)} ${F(kx)},${F(ky)}" fill="${kc}"/><polygon points="${F(kx+3*s)},${F(ky+1*s)} ${F(kx+2*s)},${F(ky-3.5*s)} ${F(kx)},${F(ky)}" fill="${kc}"/>`;
+    if(!sil) g+=`<circle cx="${F(kx)}" cy="${F(ky+18*s)}" r="${F(1.4*s)}" fill="${P.kitW}"/>`;}
+  if(o.lick) g+=`<ellipse cx="${F(hx+11*s)}" cy="${F(hy+6*s)}" rx="${F(1.6*s)}" ry="${F(2.6*s)}" fill="${P.pink}"/>`;
+  if(o.sniff) g+=[0,1,2].map(i=>`<line x1="${F(hx+14*s+i*2*s)}" y1="${F(hy-2*s-i*3*s)}" x2="${F(hx+20*s+i*2*s)}" y2="${F(hy-5*s-i*3*s)}" stroke="#fff" stroke-width="${F(.7*s)}" opacity=".7"/>`).join('');
+  let out=`<g${o.blur?` filter="url(#b${o.blur})"`:''}>${g}</g>`;
+  if(o.rot) out=`<g transform="rotate(${o.rot} ${x} ${F(y-20*s)})">${out}</g>`;
+  if(dir==='L') out=`<g transform="translate(${2*x},0) scale(-1,1)">${out}</g>`;
+  return out;}
+
+function catFront(o){
+  const x=o.x,y=o.y,s=o.s||1,kind=o.kind||'mom',sil=!!o.sil,back=!!o.back;
+  const base=sil?P.sil:kind==='mom'?P.mom:kind==='kit'?P.kit:P.grey;
+  let g='';
+  g+=`<path d="M${F(x+7*s)},${F(y-5*s)} Q${F(x+24*s)},${F(y-10*s)} ${F(x+21*s)},${F(y-32*s)}" stroke="${sil?P.sil:kind==='mom'?P.momBk:base}" stroke-width="${F(3.6*s)}" fill="none" stroke-linecap="round"/>`;
+  g+=`<ellipse cx="${x}" cy="${F(y-15*s)}" rx="${F(11.5*s)}" ry="${F(15*s)}" fill="${base}"/>`;
+  [-6,2.5].forEach(d=>{g+=`<rect x="${F(x+d*s)}" y="${F(y-9*s)}" width="${F(3.8*s)}" height="${F(9*s)}" rx="${F(1.5*s)}" fill="${base}"/>`;});
+  const hy=y-32*s;
+  let eL=base,eR=base;
+  if(!sil&&kind==='mom'){ if(back){eL=P.momOr;eR=P.momBk;} else {eL=P.momBk;eR=P.momOr;} }
+  g+=`<polygon points="${F(x-9*s)},${F(hy-2*s)} ${F(x-7.5*s)},${F(hy-14*s)} ${F(x-1.5*s)},${F(hy-7*s)}" fill="${eL}"/><polygon points="${F(x+9*s)},${F(hy-2*s)} ${F(x+7.5*s)},${F(hy-14*s)} ${F(x+1.5*s)},${F(hy-7*s)}" fill="${eR}"/>`;
+  g+=`<circle cx="${x}" cy="${F(hy)}" r="${F(9.5*s)}" fill="${base}"/>`;
+  if(!sil&&kind==='mom'&&!back) g+=`<circle cx="${F(x-4*s)}" cy="${F(hy-1.5*s)}" r="${F(5.5*s)}" fill="${P.momBk}"/>`;
+  if(!back&&!sil){g+=`<circle cx="${F(x-3.6*s)}" cy="${F(hy-1*s)}" r="${F(1.7*s)}" fill="${kind==='kit'?'#e0a33a':P.eyeY}"/><circle cx="${F(x+3.6*s)}" cy="${F(hy-1*s)}" r="${F(1.7*s)}" fill="${kind==='kit'?'#e0a33a':P.eyeY}"/><circle cx="${x}" cy="${F(hy+3*s)}" r="${F(1*s)}" fill="${P.pink}"/>`;}
+  if(o.glow) g+=`<circle cx="${F(x+3.6*s)}" cy="${F(hy-1*s)}" r="${F(1.9*s)}" fill="#f6eeb0" filter="url(#glow)"/>`;
+  if(o.carry){const kc=P.kit,ky=y-5*s;
+    g+=`<circle cx="${x}" cy="${F(ky)}" r="${F(5*s)}" fill="${kc}"/><polygon points="${F(x-4.4*s)},${F(ky-2*s)} ${F(x-3.4*s)},${F(ky-8*s)} ${F(x-.6*s)},${F(ky-4*s)}" fill="${kc}"/><polygon points="${F(x+4.4*s)},${F(ky-2*s)} ${F(x+3.4*s)},${F(ky-8*s)} ${F(x+.6*s)},${F(ky-4*s)}" fill="${kc}"/><ellipse cx="${x}" cy="${F(ky+2.2*s)}" rx="${F(2.4*s)}" ry="${F(1.6*s)}" fill="${P.kitW}"/>`;
+    g+=`<circle cx="${F(x-1.9*s)}" cy="${F(ky-1.6*s)}" r="${F(1.1*s)}" fill="#e0a33a"/><circle cx="${F(x+1.9*s)}" cy="${F(ky-1.6*s)}" r="${F(1.1*s)}" fill="#e0a33a"/><circle cx="${F(x-1.9*s)}" cy="${F(ky-2.1*s)}" r="${F(.5*s)}" fill="#111"/><circle cx="${F(x+1.9*s)}" cy="${F(ky-2.1*s)}" r="${F(.5*s)}" fill="#111"/>`;}
+  return `<g${o.blur?` filter="url(#b${o.blur})"`:''}>${g}</g>`;}
+
+function face(o){
+  const x=o.x,y=o.y,r=o.r||40,kind=o.kind||'kit';
+  const base=kind==='mom'?P.mom:kind==='kit'?P.kit:P.grey;
+  let g='';
+  const eb=o.earsBack?.55:1;
+  const earC=kind==='mom'?P.momBk:base;const earC2=kind==='mom'?P.momOr:base;
+  g+=`<polygon points="${F(x-r*.95)},${F(y-r*.25)} ${F(x-r*(.95-.15*(1-eb)))},${F(y-r*(.25+.95*eb))} ${F(x-r*.25)},${F(y-r*.8)}" fill="${earC}"/>`;
+  g+=`<polygon points="${F(x+r*.95)},${F(y-r*.25)} ${F(x+r*(.95-.15*(1-eb)))},${F(y-r*(.25+.95*eb))} ${F(x+r*.25)},${F(y-r*.8)}" fill="${earC2}"/>`;
+  g+=`<ellipse cx="${x}" cy="${y}" rx="${r}" ry="${F(r*.88)}" fill="${base}"/>`;
+  if(kind==='mom'&&o.side==='black') g+=`<path d="M${x},${F(y-r*.88)} A${r},${F(r*.88)} 0 0 0 ${F(x-r)},${y} Q${F(x-r*.4)},${F(y+r*.1)} ${F(x-r*.08)},${F(y-r*.2)} Z" fill="${P.momBk}"/>`;
+  if(kind==='kit') [-.3,0,.3].forEach(d=>{g+=`<path d="M${F(x+d*r)},${F(y-r*.85)} q${F(r*.05)},${F(r*.22)} 0,${F(r*.36)}" stroke="#b9682a" stroke-width="${F(r*.05)}" fill="none"/>`;});
+  g+=`<ellipse cx="${x}" cy="${F(y+r*.36)}" rx="${F(r*.46)}" ry="${F(r*.3)}" fill="${kind==='grey'?'#a7abaf':P.kitW}"/>`;
+  const ex=r*.38,ey=y-r*.06;
+  [-1,1].forEach(sd=>{const cx=x+sd*ex;
+    const milky=o.milky&&sd===-1;
+    const eyeC=milky?P.milky:kind==='kit'?'#e0a33a':kind==='grey'?'#9bc46b':P.eyeY;
+    if(o.eyes==='shut'){g+=`<path d="M${F(cx-r*.15)},${F(ey)} Q${cx},${F(ey+r*.1)} ${F(cx+r*.15)},${F(ey)}" stroke="#2a1d14" stroke-width="${F(r*.045)}" fill="none"/>`;}
+    else{g+=`<ellipse cx="${F(cx)}" cy="${F(ey)}" rx="${F(r*.16)}" ry="${F(r*.14)}" fill="${eyeC}"${milky?` stroke="#9aa3a0" stroke-width="${F(r*.015)}"`:''}/>`;
+      if(!milky){const py=o.look==='up'?ey-r*.05:ey;const pr=o.slit?r*.02:r*.06;g+=`<ellipse cx="${F(cx)}" cy="${F(py)}" rx="${F(pr)}" ry="${F(r*.11)}" fill="#141414"/>`;}
+      if(o.eyes==='half') g+=`<rect x="${F(cx-r*.18)}" y="${F(ey-r*.16)}" width="${F(r*.36)}" height="${F(r*.12)}" fill="${base}"/>`;}
+  });
+  g+=`<path d="M${F(x-r*.07)},${F(y+r*.2)} L${F(x+r*.07)},${F(y+r*.2)} L${x},${F(y+r*.28)} Z" fill="${P.pink}"/>`;
+  if(o.mouth==='hiss'){g+=`<path d="M${F(x-r*.24)},${F(y+r*.4)} Q${x},${F(y+r*.72)} ${F(x+r*.24)},${F(y+r*.4)} Q${x},${F(y+r*.47)} ${F(x-r*.24)},${F(y+r*.4)} Z" fill="#3a1414"/><polygon points="${F(x-r*.16)},${F(y+r*.42)} ${F(x-r*.12)},${F(y+r*.53)} ${F(x-r*.08)},${F(y+r*.43)}" fill="#fff"/><polygon points="${F(x+r*.16)},${F(y+r*.42)} ${F(x+r*.12)},${F(y+r*.53)} ${F(x+r*.08)},${F(y+r*.43)}" fill="#fff"/>`;}
+  else if(o.mouth==='mew'){g+=`<ellipse cx="${x}" cy="${F(y+r*.45)}" rx="${F(r*.09)}" ry="${F(r*.11)}" fill="#3a1414"/>`;}
+  else{g+=`<path d="M${F(x-r*.1)},${F(y+r*.34)} Q${F(x-r*.05)},${F(y+r*.4)} ${x},${F(y+r*.3)} Q${F(x+r*.05)},${F(y+r*.4)} ${F(x+r*.1)},${F(y+r*.34)}" stroke="#4a2a20" stroke-width="${F(r*.025)}" fill="none"/>`;}
+  [-1,1].forEach(sd=>{[0,1,2].forEach(i=>{g+=`<line x1="${F(x+sd*r*.3)}" y1="${F(y+r*(.3+i*.06))}" x2="${F(x+sd*r*1.15)}" y2="${F(y+r*(.18+i*.12))}" stroke="#fff" stroke-width="${F(r*.012)}" opacity=".7"/>`;});});
+  return `<g${o.blur?` filter="url(#b${o.blur})"`:''}>${g}</g>`;}
+
+function muzzle(x,open){
+  let g=`<path d="M${x-80},-6 L${x-80},38 Q${x-62},86 ${x},94 Q${x+62},86 ${x+80},38 L${x+80},-6 Z" fill="${P.mom}"/><path d="M${x-80},-6 L${x-80},30 Q${x-70},50 ${x-40},44 L${x-30},-6 Z" fill="${P.momOr}" opacity=".85"/>`;
+  if(open){g+=`<path d="M${x-36},70 Q${x},108 ${x+36},70 Q${x},86 ${x-36},70 Z" fill="#2a1414"/><polygon points="${x-26},72 ${x-21},86 ${x-16},74" fill="#fff"/><polygon points="${x+26},72 ${x+21},86 ${x+16},74" fill="#fff"/>`;}
+  else{g+=`<path d="M${x-34},76 Q${x},90 ${x+34},76" stroke="#3a2420" stroke-width="2.4" fill="none"/><polygon points="${x-22},78 ${x-18},92 ${x-14},80" fill="#fff"/><polygon points="${x+22},78 ${x+18},92 ${x+14},80" fill="#fff"/>`;}
+  [-1,1].forEach(sd=>{[0,1,2].forEach(i=>{g+=`<line x1="${x+sd*40}" y1="${56+i*7}" x2="${x+sd*(120+i*6)}" y2="${46+i*14}" stroke="#fff" stroke-width="1" opacity=".75"/>`;});});
+  return g;}
+function scruff(){return `<path d="M-10,182 Q40,92 168,98 Q280,104 332,182 Z" fill="${P.kit}"/>`+[70,120,170,220,262].map(x=>`<path d="M${x},110 q8,22 0,52" stroke="#b9682a" stroke-width="5" fill="none" opacity=".8"/>`).join('');}
+
+function stroller(x,y,s){
+  return `<ellipse cx="${x}" cy="${y}" rx="${46*s}" ry="${7*s}" fill="#000" opacity=".35"/><g transform="rotate(-16 ${x} ${y})"><path d="M${x-32*s},${y-26*s} Q${x-38*s},${y-60*s} ${x+2*s},${y-54*s} L${x-2*s},${y-26*s} Z" fill="#46515c"/><rect x="${x-32*s}" y="${y-28*s}" width="${62*s}" height="${22*s}" rx="${6*s}" fill="#3a434d"/><line x1="${x+30*s}" y1="${y-26*s}" x2="${x+48*s}" y2="${y-48*s}" stroke="#2a3138" stroke-width="${3*s}"/></g><circle cx="${x-28*s}" cy="${y-48*s}" r="${6*s}" fill="none" stroke="#1b1f24" stroke-width="${2.4*s}"/><circle cx="${x+20*s}" cy="${y-56*s}" r="${6*s}" fill="none" stroke="#1b1f24" stroke-width="${2.4*s}"/><ellipse cx="${x-6*s}" cy="${y-5*s}" rx="${24*s}" ry="${7*s}" fill="#0c0f12"/>`;}
+function shopWindow(x,y,w,h,inner){const id='cw'+(++uid);
+  const cx=x+w*.62,cy=y+h*.4;
+  const cracks=[[-.5,-.4],[.4,-.45],[.45,.3],[-.35,.45],[-.6,.05],[.1,.55]].map(([a,b])=>`<line x1="${cx}" y1="${cy}" x2="${F(cx+a*w*.7)}" y2="${F(cy+b*h*.9)}" stroke="#d7dde2" stroke-width=".8" opacity=".6"/>`).join('');
+  return `<clipPath id="${id}"><rect x="${x}" y="${y}" width="${w}" height="${h}"/></clipPath><rect x="${x}" y="${y}" width="${w}" height="${h}" fill="#14171b"/><g clip-path="url(#${id})">${inner||''}<polygon points="${x},${y+h} ${x+w*.3},${y} ${x+w*.45},${y} ${x+w*.15},${y+h}" fill="#fff" opacity=".06"/>${cracks}</g><rect x="${x}" y="${y}" width="${w}" height="${h}" fill="none" stroke="#2c3238" stroke-width="5"/>`;}
+function car(x,y,s,o){o=o||{};
+  let g=`<path d="M${x-70*s},${y-10*s} L${x-70*s},${y-34*s} Q${x-64*s},${y-40*s} ${x-50*s},${y-42*s} L${x-36*s},${y-64*s} Q${x-30*s},${y-70*s} ${x-18*s},${y-70*s} L${x+30*s},${y-70*s} Q${x+40*s},${y-70*s} ${x+46*s},${y-62*s} L${x+58*s},${y-42*s} Q${x+70*s},${y-40*s} ${x+72*s},${y-30*s} L${x+72*s},${y-10*s} Z" fill="#5c7676"/>`;
+  const fogC=o.fog?'#e6ecef':'#20282e',fo=o.fog?.82:1;
+  g+=`<path d="M${x-31*s},${y-44*s} L${x-21*s},${y-63*s} L${x+4*s},${y-63*s} L${x+4*s},${y-44*s} Z" fill="${fogC}" opacity="${fo}"/><path d="M${x+8*s},${y-44*s} L${x+8*s},${y-63*s} L${x+30*s},${y-63*s} L${x+42*s},${y-44*s} Z" fill="${fogC}" opacity="${fo}"/>`;
+  if(o.gap) g+=`<rect x="${x-21*s}" y="${y-63.5*s}" width="${25*s}" height="${3.4*s}" fill="#0b0d10"/>`;
+  g+=`<circle cx="${x-44*s}" cy="${y-10*s}" r="${11*s}" fill="#1b2025"/><circle cx="${x+46*s}" cy="${y-10*s}" r="${11*s}" fill="#1b2025"/><circle cx="${x-44*s}" cy="${y-10*s}" r="${4*s}" fill="#59636b"/><circle cx="${x+46*s}" cy="${y-10*s}" r="${4*s}" fill="#59636b"/>`;
+  return g;}
+function interior(o){o=o||{};
+  let g=bg('amber',180);
+  g+=`<rect x="196" y="16" width="112" height="70" rx="6" fill="#6f8697"/><rect x="196" y="16" width="112" height="70" rx="6" fill="#e6ecef" opacity=".5"/><rect x="196" y="16" width="112" height="70" rx="6" fill="none" stroke="#3a2414" stroke-width="5"/>`;
+  g+=`<path d="M-10,180 L-10,104 Q60,86 160,98 Q260,108 330,96 L330,180 Z" fill="#7a4626"/><path d="M-10,104 Q60,86 160,98 Q260,108 330,96" stroke="#9c5e33" stroke-width="3" fill="none"/>`;
+  g+=`<ellipse cx="150" cy="128" rx="62" ry="22" fill="${P.grey}"/>`+[120,140,160,180].map(xx=>`<path d="M${xx},110 q4,14 0,30" stroke="${P.greyDk}" stroke-width="4" fill="none"/>`).join('');
+  g+=o.lick?face({x:96,y:112,r:20,kind:'grey',eyes:'half'}):face({x:96,y:112,r:20,kind:'grey',eyes:o.alert?'open':'half',earsBack:!!o.alert});
+  const kits=[['#202225',150],['#7a7f84',176],['#e8e2da',198]];
+  kits.forEach(([c,xx])=>{g+=`<ellipse cx="${xx}" cy="${142}" rx="11" ry="8" fill="${c}"/><circle cx="${xx-9}" cy="${138}" r="6" fill="${c}"/>`;});
+  if(o.orange) g+=`<ellipse cx="124" cy="146" rx="11" ry="8" fill="${P.kit}"/><circle cx="114" cy="140" r="6.5" fill="${P.kit}"/>`;
+  if(o.lick) g+=`<ellipse cx="108" cy="134" rx="2.6" ry="4" fill="${P.pink}"/>`;
+  return g;}
+function rat(x,y,s){return `<path d="M${x-14*s},${y} Q${x-30*s},${y+2*s} ${x-36*s},${y-6*s}" stroke="#4a4f53" stroke-width="${1.4*s}" fill="none"/><ellipse cx="${x}" cy="${y-4*s}" rx="${13*s}" ry="${6*s}" fill="#6a6f73"/><path d="M${x+10*s},${y-8*s} L${x+21*s},${y-3*s} L${x+9*s},${y}" fill="#6a6f73"/><circle cx="${x+9*s}" cy="${y-9*s}" r="${2.6*s}" fill="#7d8286"/>`+[0,1,2].map(i=>`<line x1="${x-24*s-i*6*s}" y1="${y-10*s+i*3*s}" x2="${x-36*s-i*6*s}" y2="${y-10*s+i*3*s}" stroke="#fff" stroke-width=".8" opacity=".55"/>`).join('');}
+function zFace(x,y,r){return `<g filter="url(#b4)"><ellipse cx="${x}" cy="${y}" rx="${r*.8}" ry="${r}" fill="#7f8679"/><ellipse cx="${x-r*.3}" cy="${y-r*.1}" rx="${r*.13}" ry="${r*.09}" fill="#2a2d2a"/><ellipse cx="${x+r*.3}" cy="${y-r*.1}" rx="${r*.13}" ry="${r*.09}" fill="#2a2d2a"/><ellipse cx="${x}" cy="${y+r*.45}" rx="${r*.22}" ry="${r*.08}" fill="#3a3a36"/><path d="M${x-r*.8},${y-r*.2} Q${x},${y-r*1.4} ${x+r*.8},${y-r*.2}" fill="#3a3530"/></g>`;}
+
+/* ---------- shots ---------- */
+const SEQ=[
+ {id:'1',name:'ทวนกระแส',start:'0:00',rule:'กฎที่คนดูเชื่อ: ซอมบี้ไม่สนแมว',color:'#8fa3b3'},
+ {id:'2',name:'กฎแตก',start:'0:15',rule:'หักกฎ: ซอมบี้ฆ่าสัตว์ที่มีชีวิต แล้วทำไมไม่ทำแม่?',color:'#9db0bd'},
+ {id:'3',name:'คาบ',start:'0:25',rule:'ลูกขู่แม่ · ปากแม่ลังเลอยู่บนคอลูก',color:'#7f93a3'},
+ {id:'4',name:'เงา',start:'0:54',rule:'เฉลย: แม่ตายแล้ว (midpoint twist)',color:'#e8c07a'},
+ {id:'4b',name:'ซุกนม',start:'1:05',rule:'หัวใจของเรื่อง: ลูกหาไออุ่นจากศพแม่ → แม่ได้กลิ่นนม',color:'#c9a46a',proposed:true},
+ {id:'5',name:'ตามกระแส',start:'1:15',rule:'ความตายของแม่คือเกราะ · ลูกตัวอ่อนเงียบในปาก (transport response)',color:'#a3a9ad'},
+ {id:'6',name:'กระจก',start:'1:33',rule:'แม่ส่งลูกให้แม่ที่ยังมีชีวิต แล้วขู่ไล่ลูก · false ending',color:'#d08a45'},
+ {id:'7',name:'ลูกตามแม่',start:'2:02',rule:'ลูกร้องเรียกแม่ → ฝูงหยุด → หูแม่หมุนกลับ → ตัดดำ (cliffhanger)',color:'#e2893a'},
+];
+const S=[
+ {id:'S01',seq:'1',t:0,d:4,ten:3,lens:'ECU พื้น · macro · static',tech:'Insert',cap:'แอ่งน้ำ เท้าซอมบี้ลากผ่านซ้าย→ขวา อุ้งเท้าแมวก้าวลงแอ่งขวา→ซ้าย',
+  draw:()=>bg('dawn',36)+`<ellipse cx="160" cy="122" rx="138" ry="36" fill="#b9c6cf" opacity=".55"/>`+[[110,128,20,5],[110,128,36,9],[110,128,54,13]].map(([x,y,a,b])=>`<ellipse cx="${x}" cy="${y}" rx="${a}" ry="${b}" fill="none" stroke="#fff" stroke-opacity=".35"/>`).join('')+leg(72,128,34,-6,P.leg)+`<rect x="226" y="40" width="14" height="88" rx="5" fill="${P.mom}"/><ellipse cx="236" cy="130" rx="12" ry="6" fill="${P.mom}"/>`+[228,234,240,246].map(x=>`<circle cx="${x}" cy="126" r="2.4" fill="#e8dccb"/>`).join('')+subjArrow(40,168,130,168)+subjArrow(284,168,214,168)},
+ {id:'S02',seq:'1',t:4,d:9,ten:3,lens:'Wide · 24mm · track ขวา→ซ้าย',tech:'Parallax + Dirty frame',cap:'แม่เดินสวนป่าขา ขาใกล้กล้องพุ่งผ่านเร็ว ย้อนแสงหมอก ไม่มีไอหายใจจากใครเลย หูแม่หมุนตามเสียงลูกร้องไกลๆ',
+  draw:()=>bg('dawn',98)+crowd(2,16,104,124,4,8)+fog(.5)+cat({x:172,y:150,s:1.05,dir:'L',sil:true,rim:true})+pair(4,192,24,1,3)+pair(270,196,26,1,3)+subjArrow(120,112,200,112)+camArrow(230,172,110,172)},
+ {id:'S03',seq:'1',t:13,d:2,ten:3,lens:'Insert ต่ำ · 50mm · static',tech:'Insert',opt:true,cap:'เท้าซอมบี้ลากผ่านห่างอุ้งเท้าแม่ไม่กี่ซม. แม่ไม่ชะงัก',
+  draw:()=>bg('dawn',52)+leg(40,150,40,-6,P.leg)+[0,1,2].map(i=>`<line x1="${8-i*6}" y1="${130+i*8}" x2="${30-i*6}" y2="${130+i*8}" stroke="#fff" stroke-width="1" opacity=".5"/>`).join('')+`<rect x="226" y="58" width="13" height="94" rx="5" fill="${P.mom}"/><rect x="250" y="62" width="13" height="90" rx="5" fill="${P.mom}"/><ellipse cx="233" cy="153" rx="10" ry="5" fill="${P.mom}"/><ellipse cx="257" cy="153" rx="10" ry="5" fill="${P.mom}"/>`+subjArrow(60,168,140,168)},
+ {id:'S04',seq:'2',t:15,d:3,ten:6,lens:'Medium wide ต่ำ · 35mm · static',tech:'Foreground interest',cap:'หนูพุ่งออกจากตะแกรงท่อ วิ่งเข้าป่าขา',
+  draw:()=>bg('dawn',98)+crowd(4,12,102,120,4,8,150,320)+fog(.4)+`<rect x="16" y="140" width="96" height="26" rx="3" fill="#1f252b"/>`+[28,44,60,76,92].map(x=>`<rect x="${x}" y="144" width="6" height="18" fill="#0c0f12"/>`).join('')+rat(158,156,1.25)+subjArrow(140,174,250,174)},
+ {id:'S05',seq:'2',t:18,d:5,ten:6,lens:'MCU ซีกหูส้ม · 85mm · static',tech:'Shallow focus',cap:'แม่คมอยู่หน้าเฟรม ฉากหลังเบลอ ฝูงรุมหนูเป็นกอง เสียงหนูร้องขาดกลาง แม่ไม่หันไปดู',
+  draw:()=>bg('dawn',98)+`<g filter="url(#b4)">${crowd(5,14,104,122,6,11,170,320)}<ellipse cx="250" cy="122" rx="40" ry="10" fill="#2a3138"/></g>`+fog(.3)+cat({x:150,y:206,s:2.3,dir:'L',side:'orange'})},
+ {id:'S06',seq:'2',t:23,d:2,ten:5,lens:'Wide ต่ำ · 35mm · static',tech:'Aftermath',opt:true,cap:'ฝูงแยกย้ายเดินต่อ เหลือรอยลากบนพื้นเปียก แม่เดินต่อ',
+  draw:()=>bg('dawn',98)+crowd(6,10,102,116,4,7,180,320)+fog(.4)+`<path d="M150,150 Q200,138 260,140" stroke="#3a434b" stroke-width="5" fill="none" opacity=".7"/><path d="M150,156 Q210,146 280,147" stroke="#3a434b" stroke-width="3" fill="none" opacity=".6"/>`+cat({x:96,y:154,s:.8,dir:'L',side:'orange'})+subjArrow(130,170,60,170)},
+ {id:'S07',seq:'3',t:25,d:4,ten:5,lens:'Wide ต่ำ · 35mm · static',tech:'Negative space',cap:'รถเข็นเด็กคว่ำ จากเงามืดข้างใต้ ไอหายใจเล็กๆ ลอยออกมา ยังไม่เห็นตัวลูก',
+  draw:()=>bg('dawn',98)+crowd(7,6,102,112,3,6)+fog(.45)+stroller(176,152,1.4)+breath(150,140,3,5)},
+ {id:'S08',seq:'3',t:29,d:5,ten:5,lens:'POV ลูก · 50mm · static',tech:'Silhouette',cap:'จากใต้รถเข็น แม่เดินเข้ามาจากหมอกสว่างเป็นเงาดำ แสงสะท้อนในตาแค่ข้างเดียว',
+  draw:()=>bg('dawn',112)+fog(.75)+catFront({x:160,y:156,s:1.65,sil:true,glow:true})+`<path d="M0,0 H320 V30 Q160,86 0,30 Z" fill="#0f1215"/><rect x="0" y="0" width="22" height="180" fill="#0f1215"/><rect x="298" y="0" width="22" height="180" fill="#0f1215"/><rect x="0" y="164" width="320" height="16" fill="#0f1215"/>`},
+ {id:'S09',seq:'3',t:34,d:3,ten:5,lens:'CU ลูก · 85mm · static',tech:'Reaction shot',cap:'ไอหายใจพ่นเป็นจังหวะ หูลู่ ลูกขู่ใส่แม่ตัวเอง',
+  draw:()=>bg('dawn',130)+dim(.45,'#0d1013')+face({x:150,y:98,r:54,kind:'kit',mouth:'hiss',earsBack:true})+breath(218,118,4,7)},
+ {id:'S10',seq:'3',t:37,d:5,ten:8,lens:'ECU คอลูก · macro · push-in ช้า',tech:'Push in 1/2',cap:'ปากแม่เข้าเฟรมจากบน ขอบเฟรมตัดเหนือจมูก ฟันค่อยๆ ลงที่ท้ายทอยลูก ลูกหลับตาแน่น เสียงหายหมด',
+  draw:()=>bg('night')+scruff()+face({x:64,y:150,r:40,kind:'kit',eyes:'shut'})+muzzle(196,true)+pushIn()},
+ {id:'S11',seq:'3',t:42,d:3,ten:8,lens:'ECU เดิม · macro · static',tech:'Locked-off',cap:'ฟันงับหนังท้ายทอย ค้าง กรามสั่น แล้วคลายออก',
+  draw:()=>bg('night')+scruff()+face({x:64,y:150,r:40,kind:'kit',eyes:'shut'})+muzzle(196,false)+[0,1,2].map(i=>`<path d="M${266+i*6},${70+i*6} l6,-3" stroke="#fff" stroke-width="1.4" opacity=".7"/>`).join('')},
+ {id:'S12',seq:'3',t:45,d:4,ten:5,lens:'Medium ซีกหูส้ม · 50mm · ย้อนแสง',tech:'Profile · backlight',cap:'แม่วางลูก ถอยหนึ่งก้าว ก้มหัวนิ่ง ไอหายใจลูกอยู่หน้าเฟรม จมูกแม่ไม่มี แล้วก้มลงคาบใหม่เบากว่าเดิม',
+  draw:()=>bg('dawn',100)+fog(.35)+cat({x:206,y:152,s:1.6,dir:'L',side:'orange',rim:true,headDown:true})+cat({x:86,y:154,s:.5,dir:'R',kind:'kit'})+breath(108,132,3,4)},
+ {id:'S13',seq:'3',t:49,d:5,ten:5,lens:'Rear ต่ำ · 35mm · static',tech:'Rear · depth',cap:'แม่เดินลึกเข้าหมอก ลูกห้อยหันหน้าเข้ากล้อง ตาลูกเหลือบมองหน้าแม่ที่เรามองไม่เห็น',
+  draw:()=>bg('dawn',96)+crowd(13,6,98,108,3,5)+fog(.55)+catFront({x:160,y:152,s:1.5,back:true,carry:true})},
+ {id:'S14',seq:'4',t:54,d:7,ten:9,lens:'Medium · 50mm · locked',tech:'Rack focus + Reflections',cap:'แดดแรกตกบนตัวแม่ ในร้านมืด โฟกัสย้ายจากตัวจริง (ซีกหูส้ม เบลอ) ไปที่เงาในกระจกแตก (ซีกหูดำ คม) ตาขุ่นในแดด',
+  draw:()=>bg('sun',116)+shopWindow(146,8,168,108,cat({x:236,y:112,s:1.2,dir:'R',side:'black',milky:true,carry:true}))+`<polygon points="0,0 70,0 190,180 80,180" fill="#fff4d2" opacity=".22"/>`+cat({x:116,y:204,s:2.1,dir:'L',side:'orange',carry:true,blur:3})+`<path d="M120,120 Q170,60 222,66" stroke="#e2893a" stroke-width="2" stroke-dasharray="5 4" fill="none" marker-end="url(#arrA)"/>`},
+ {id:'S15',seq:'4',t:61,d:4,ten:9,lens:'CU เงาสะท้อน · 100mm · static',tech:'Reflections',cap:'ลมแหวกขนดำที่คอ เห็นแผลกัด แม่ไม่มองเงาตัวเอง ลูกในปากต่างหากที่จ้องตาขุ่นนั้น',
+  draw:()=>bg('sun',180)+shopWindow(0,0,320,180,`<rect width="320" height="180" fill="#2a2620"/>`+face({x:150,y:84,r:58,kind:'mom',side:'black',milky:true,slit:true})+`<path d="M104,128 q8,6 18,2" stroke="#7a3a34" stroke-width="3" fill="none"/>`+face({x:200,y:150,r:22,kind:'kit',look:'up'}))},
+ {id:'W1',seq:'4b',t:65,d:2,ten:3,lens:'Wide ต่ำ · 35mm · static',tech:'Proposed',proposed:true,cap:'ซอกประตูข้างร้าน แม่วางลูกลงบนพรมเช็ดเท้า',
+  draw:()=>bg('sun',120)+dim(.2)+`<rect x="40" y="8" width="150" height="114" fill="#1f242a"/><rect x="52" y="20" width="126" height="102" fill="#15191d"/><rect x="56" y="118" width="118" height="9" fill="#6b4b33"/>`+cat({x:104,y:128,s:1.2,dir:'R',side:'black',milky:true,headDown:true})+cat({x:162,y:128,s:.48,dir:'L',kind:'kit'})},
+ {id:'W2',seq:'4b',t:67,d:3,ten:2,lens:'CU ระดับพื้น · 85mm · static',tech:'Proposed',proposed:true,cap:'ลูกซุกหน้าเข้าท้องแม่ นวดสลับซ้ายขวา หาหัวนม แม่ยืนแข็ง ไม่ล้มตัวลงให้นม',
+  draw:()=>bg('door',180)+`<ellipse cx="160" cy="34" rx="200" ry="72" fill="${P.mom}"/><ellipse cx="220" cy="22" rx="60" ry="30" fill="${P.momOr}" opacity=".9"/><rect x="40" y="60" width="26" height="130" rx="8" fill="${P.mom}"/><rect x="258" y="60" width="26" height="130" rx="8" fill="${P.mom}"/>`+face({x:160,y:128,r:36,kind:'kit',eyes:'shut'})+`<ellipse cx="132" cy="94" rx="10" ry="7" fill="${P.kit}"/><ellipse cx="190" cy="94" rx="10" ry="7" fill="${P.kit}"/>`+[[132,82],[190,82]].map(([x,y])=>`<path d="M${x-8},${y} q8,-7 16,0" stroke="#fff" stroke-width="1.3" fill="none" opacity=".75"/>`).join('')+breath(200,104,3,4)},
+ {id:'W3',seq:'4b',t:70,d:2,ten:2,lens:'CU หน้าลูก · 85mm · static',tech:'Proposed',proposed:true,cap:'อุ้งเท้าหยุดนวด ลูกเงยหน้า ร้องเสียงเล็กแหลมครั้งเดียว',
+  draw:()=>bg('door',180)+`<ellipse cx="160" cy="-10" rx="220" ry="44" fill="${P.mom}"/>`+face({x:160,y:104,r:52,kind:'kit',mouth:'mew',look:'up'})+soundArcs(214,130)},
+ {id:'W4',seq:'4b',t:72,d:3,ten:3,lens:'Medium ด้านข้าง · 50mm · static',tech:'Proposed',proposed:true,cap:'แม่ก้มลงเลียหัวลูกครั้งเดียว แล้วเงยหัว จมูกดมลม ได้กลิ่นนมจากอีกฝั่งถนน',
+  draw:()=>bg('sun',116)+dim(.25)+cat({x:140,y:152,s:1.7,dir:'R',side:'black',milky:true,headDown:true,lick:true})+cat({x:214,y:154,s:.55,dir:'L',kind:'kit'})},
+ {id:'S16',seq:'5',t:75,d:3,ten:6,lens:'Wide ต่ำ · 24mm · static',tech:'Direction change',cap:'ฝูงไหลซ้าย→ขวา แม่ยกจมูกดมลมที่ขอบฝูง แล้วก้าวเข้าไปเดินไปกับฝูง ซีกหูดำเข้ากล้องครั้งแรก',
+  draw:()=>bg('flat',100)+crowd(16,22,104,136,4,14,90,320)+cat({x:58,y:152,s:1.05,dir:'R',side:'black',milky:true,noseUp:true,carry:true,sniff:true})+subjArrow(150,172,290,172)},
+ {id:'S17',seq:'5',t:78,d:7,ten:6,lens:'Wide ในฝูง · 24mm · track ซ้าย→ขวา',tech:'Locked-on',cap:'แม่เดินจังหวะเดียวกับฝูง ขารอบตัวแทบนิ่งในเฟรม มีแค่ตึกฉากหลังที่ไหลผ่าน',
+  draw:()=>bg('flat',96)+`<g filter="url(#b3)">`+[10,70,140,200,260].map((x,i)=>`<rect x="${x}" y="${20+i%2*10}" width="${48}" height="${76-i%2*10}" fill="#7f868b"/>`).join('')+`</g>`+[0,1,2,3].map(i=>`<line x1="20" y1="${40+i*14}" x2="300" y2="${40+i*14}" stroke="#fff" stroke-width=".8" opacity=".25"/>`).join('')+pair(30,150,9)+pair(240,148,9)+pair(110,134,6)+pair(200,132,6)+cat({x:150,y:154,s:1.1,dir:'R',side:'black',milky:true,carry:true})+pair(-10,196,24,1,2)+pair(276,196,24,1,2)+camArrow(110,172,210,172)},
+ {id:'S18',seq:'5',t:85,d:3,ten:9,lens:'Low ตรง · 35mm · static',tech:'Low angle · shallow',cap:'ขาคู่หนึ่งหยุดตรงหน้า เข่างอ หน้าซอมบี้ค่อยๆ ลดลงมาในเฟรม ครั้งเดียวในเรื่อง',
+  draw:()=>bg('flat',100)+crowd(18,8,102,114,3,6)+`<path d="M118,-6 L134,-6 L150,70 L132,150 L116,150 L130,74 Z" fill="${P.leg}"/><path d="M186,-6 L202,-6 L190,74 L206,150 L190,150 L172,72 Z" fill="${P.leg}"/>`+zFace(160,52,40)+cat({x:226,y:156,s:.8,dir:'R',side:'black',milky:true,carry:true})},
+ {id:'S19',seq:'5',t:88,d:5,ten:9,lens:'ECU two-shot · 85mm · static',tech:'Match cut ออก',cap:'จมูกซอมบี้จ่อลูก ลูกห้อยตัวอ่อน ตาปรือ เงียบ ไม่ขยับ ซอมบี้ลุกออกจากเฟรม ลูกพ่นลมหายใจเป็นก้อน ตัดแข็ง',
+  draw:()=>bg('flat',140)+dim(.25)+zFace(62,86,70)+`<path d="M160,-6 L300,-6 L300,24 Q236,52 172,30 Z" fill="${P.mom}"/>`+face({x:214,y:112,r:42,kind:'kit',eyes:'half'})+breath(258,104,4,8)},
+ {id:'S20',seq:'6',t:93,d:4,ten:4,lens:'Wide ต่ำ · 35mm · static',tech:'Match cut เข้า',cap:'กระจกรถฝ้าตรงตำแหน่งเดียวกับก้อนไอ รถคันเดียวบนถนนที่หายใจ แม่ดมตามขอบช่องกระจก',
+  draw:()=>bg('dawn',112)+fog(.35)+car(176,156,1.5,{fog:true,gap:true})+cat({x:62,y:156,s:.75,dir:'R',side:'black',milky:true,noseUp:true,sniff:true})},
+ {id:'S21',seq:'6',t:97,d:3,ten:4,lens:'POV ผ่านช่องกระจก · 50mm',tech:'Voyeur',opt:true,cap:'ข้างในแสง amber แม่เทาให้นมลูก 3 ตัว หัวแม่เทาเงยพรวด หูลู่',
+  draw:()=>interior({alert:true})+`<path fill-rule="evenodd" d="M0,0H320V180H0Z M18,64 H302 V112 H18 Z" fill="#101317"/>`},
+ {id:'S22',seq:'6',t:100,d:4,ten:4,lens:'Medium นอกรถ · 50mm · static',tech:'Action',cap:'แม่ใช้หัวดันลูกเข้าช่องกระจก แม่เทาขู่จากข้างใน แม่ไม่ตอบโต้',
+  draw:()=>bg('dawn',120)+car(170,170,1.6,{fog:true,gap:true})+face({x:142,y:84,r:10,kind:'grey',mouth:'hiss',earsBack:true})+cat({x:96,y:62,s:.8,dir:'R',side:'black',milky:true})+`<ellipse cx="140" cy="66" rx="8" ry="5" fill="${P.kit}"/>`},
+ {id:'S23',seq:'6',t:104,d:4,ten:4,lens:'CU ในรถ · 85mm · amber',tech:'Warm interior',cap:'แม่เทาดมลูกส้ม นิ่ง แล้วเลียหัว รับเข้าครอก',
+  draw:()=>interior({lick:true,orange:true})},
+ {id:'S24',seq:'6',t:108,d:4,ten:5,lens:'OTS ลูก · 85mm · static',tech:'Frame within frame',cap:'ลูกปีนกลับไปที่ช่อง หน้าแม่เต็มช่องกระจก หน้าตรงครั้งแรกในเรื่อง ตาขุ่นชัด แม่ขู่ไล่ลูก',
+  draw:()=>{const id='gp'+(++uid);return bg('amber',180)+`<rect x="150" y="14" width="160" height="96" rx="6" fill="#e6ecef" opacity=".7"/><clipPath id="${id}"><rect x="150" y="14" width="160" height="40"/></clipPath><rect x="150" y="14" width="160" height="40" fill="#6f8697"/><g clip-path="url(#${id})">${face({x:230,y:38,r:26,kind:'mom',side:'black',milky:true,mouth:'hiss',earsBack:true})}</g><rect x="150" y="14" width="160" height="96" rx="6" fill="none" stroke="#3a2414" stroke-width="5"/><line x1="150" y1="54" x2="310" y2="54" stroke="#3a2414" stroke-width="4"/>`+catFront({x:96,y:214,s:2.6,back:true,kind:'kit'});}},
+ {id:'S25',seq:'6',t:112,d:4,ten:5,lens:'Profile two-shot · 85mm · static',tech:'Across glass',cap:'สองหน้าห่างกันแค่กระจก กระจกฝ้าแค่ฝั่งลูก ฝั่งแม่ใสสนิท',
+  draw:()=>`<rect width="160" height="180" fill="url(#sky-amber)"/><rect x="160" width="160" height="180" fill="#6f8697"/>`+cat({x:40,y:186,s:3,dir:'R',kind:'kit'})+cat({x:282,y:186,s:3,dir:'L',side:'black',milky:true})+`<ellipse cx="150" cy="98" rx="13" ry="20" fill="#fff" opacity=".55" filter="url(#b2)"/><line x1="160" y1="0" x2="160" y2="180" stroke="#e6ecef" stroke-width="2" opacity=".7"/>`},
+ {id:'S26',seq:'6',t:116,d:6,ten:3,lens:'ในรถมองออก · 100mm · push-in ช้า',tech:'Push in 2/2',cap:'ผ่านวงฝ้า แม่กระโดดลง เดินจากไปในหมอก กลืนเข้าป่าขา ไม่หันกลับ (false ending)',
+  draw:()=>bg('amber',180)+`<rect x="116" y="14" width="196" height="132" rx="6" fill="#7d93a3"/>`+`<g>${crowd(26,10,120,140,3,6,130,300)}</g>`+catFront({x:226,y:138,s:.55,back:true})+`<circle cx="216" cy="84" r="34" fill="#fff" opacity=".45" filter="url(#b3)"/><rect x="116" y="14" width="196" height="132" rx="6" fill="none" stroke="#3a2414" stroke-width="5"/>`+face({x:54,y:134,r:74,kind:'kit',blur:4})+pushIn()},
+ {id:'S27',seq:'7',t:122,d:4,ten:7,lens:'Medium นอกรถ ต่ำ · 50mm · static',tech:'Rule break',cap:'ลูกมุดออกจากช่องกระจก ร่วงลงพื้นเปียก ล้มกลิ้ง แล้วลุก ในรถแม่เทาไม่ได้สนใจ',
+  draw:()=>bg('dawn',124)+fog(.3)+car(70,176,2.1,{fog:true,gap:true})+cat({x:176,y:118,s:.5,dir:'R',kind:'kit',rot:38})+`<path d="M150,88 q8,10 18,18" stroke="#fff" stroke-width="1.2" fill="none" stroke-dasharray="3 3" opacity=".7"/>`},
+ {id:'S28',seq:'7',t:126,d:6,ten:8,lens:'Wide ข้าง · 24mm · track ซ้าย→ขวา',tech:'Parallax (mirror S02)',cap:'ลูกตัวจิ๋ววิ่งตามแม่เข้าป่าขา ไอหายใจเดียวในฝูง หยุด ยืดคอ ร้องเรียกแม่ดังลั่น',
+  draw:()=>bg('dawn',100)+crowd(28,18,104,132,4,12)+fog(.4)+cat({x:160,y:156,s:.55,dir:'R',kind:'kit',noseUp:true})+breath(182,130,3,4)+soundArcs(192,136)+pair(-8,196,24,1,3)+pair(278,196,24,1,3)+camArrow(120,172,220,172)},
+ {id:'S29',seq:'7',t:132,d:4,ten:9.5,lens:'Wide ต่ำ · 24mm · static',tech:'Locked-off',cap:'ขาทุกคู่หยุดพร้อมกัน เงียบสนิท ขาคู่ที่ใกล้ที่สุดค่อยๆ หมุนปลายเท้าเข้าหาลูก',
+  draw:()=>bg('dawn',100)+crowd(29,16,104,126,4,10)+fog(.35)+`<g transform="rotate(-24 100 160)">${leg(84,160,16,-6,P.leg)}</g><g transform="rotate(20 222 160)">${leg(212,160,16,-6,P.leg)}</g>`+cat({x:160,y:158,s:.5,dir:'R',kind:'kit'})+breath(180,134,2,3)},
+ {id:'S30',seq:'7',t:136,d:5,ten:10,lens:'Long lens · 135mm · static',tech:'Silhouette · cut',cap:'ไกลในหมอก แม่หยุดเดิน หูข้างหนึ่งหมุนกลับไปทางเสียง หัวเริ่มหัน ตัดดำก่อนหันครบ',
+  draw:()=>bg('dawn',112)+crowd(30,8,108,118,2,4)+fog(.85)+cat({x:196,y:120,s:.5,dir:'R',sil:true})+`<polygon points="203,96 199,90 196,98" fill="${P.sil}"/><rect x="236" width="84" height="180" fill="url(#toBlack)"/>`},
+];
+
+function tc(sec){const m=Math.floor(sec/60),s=Math.round(sec%60);return m+':'+String(s).padStart(2,'0');}
+
+/* tension strip */
+(function(){
+  const total=141,W=1000,base=118,scale=10;
+  const col={};SEQ.forEach(q=>col[q.id]=q.color);
+  let g='';
+  [0,2,4,6,8,10].forEach(v=>{g+=`<line x1="0" x2="${W}" y1="${base-v*scale}" y2="${base-v*scale}" stroke="#2a3139" stroke-width="1"/>`;});
+  S.forEach(s=>{const x=s.t/total*W,w=Math.max(2,s.d/total*W-2),h=s.ten*scale;
+    g+=`<rect x="${F(x)}" y="${F(base-h)}" width="${F(w)}" height="${F(h)}" fill="${col[s.seq]}" opacity="${s.proposed?.55:.9}" rx="1.5"><title>${s.id} · ${tc(s.t)} · ความตึง ${s.ten}</title></rect>`;});
+  const ann=[[54,'เฉลย'],[88,'ซอมบี้ดม'],[116,'false ending'],[136,'ตัดดำ']];
+  ann.forEach(([t,l])=>{const x=t/total*W;g+=`<text x="${F(x)}" y="12" fill="#e7e2d7" font-family="IBM Plex Sans Thai, sans-serif" font-size="13">${l}</text><line x1="${F(x)}" x2="${F(x)}" y1="16" y2="${base}" stroke="#e7e2d7" stroke-opacity=".25" stroke-dasharray="2 3"/>`;});
+  [0,30,60,90,120,141].forEach(t=>{const x=Math.min(W-24,t/total*W);g+=`<text x="${F(x)}" y="140" fill="#8e979f" font-family="IBM Plex Mono, monospace" font-size="12">${tc(t)}</text>`;});
+  document.getElementById('tension').innerHTML=g;
+})();
+
+/* board */
+const board=document.getElementById('board');
+let html='';
+SEQ.forEach(q=>{
+  const shots=S.filter(s=>s.seq===q.id);
+  html+=`<section class="seq"><div class="seq-head"><span class="seq-no">SEQ ${q.id==='4b'?'4½':q.id} · ${q.start}</span><h3><span class="seq-swatch" style="background:${q.color}"></span>${q.name}${q.proposed?'<span class="proposed-tag">เสนอเพิ่ม</span>':''}</h3><p class="seq-rule">${q.rule}</p></div><div class="grid">`;
+  shots.forEach(s=>{
+    let svg='';
+    try{svg=s.draw();}catch(e){svg=`<rect width="320" height="180" fill="#300"/><text x="10" y="20" fill="#fff" font-size="10">draw error ${s.id}</text>`;console.error(s.id,e);}
+    html+=`<article class="card${s.proposed?' proposed':''}"><div class="frame"><svg viewBox="0 0 320 180" role="img" aria-label="${s.id}: ${s.cap}">${svg}</svg></div><div class="meta"><b>${s.id}</b><span>${tc(s.t)}–${tc(s.t+s.d)}</span><span>${s.d}s</span><span class="tech">${s.tech}</span>${s.opt?'<span>◇ ตัดได้</span>':''}</div><div class="meta"><span>${s.lens}</span></div><p class="cap">${s.cap}</p>${s.id==='S30'?'<span class="cut-note">■ ตัดดำ · CLIFFHANGER</span>':''}</article>`;
+  });
+  html+=`</div></section>`;
+});
+board.innerHTML=html;
+})();
+</script>

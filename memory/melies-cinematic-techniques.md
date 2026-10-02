@@ -49,5 +49,5 @@ Source: https://melies.co/cinematic-techniques (เรียน 2026-10-02)
 - **Viral Looks (44):** สไตล์โซเชียล (Comic, Origami, Broken Mirror, Action Figure, 2000s Paparazzi ฯลฯ)
 
 ## ใช้กับโปรเจกต์
-- [[still-warm-project]] S14 (rack focus + reflection): ตัวแม่โดนแดด / ในร้านมืด → เงาอ่านออก · เขียน prompt แบบ "Locked... rack focus from X to Y... no camera move" · S08 silhouette = ยกเว้นกฎ "no visible eyes" โดยตั้งใจ (eyeshine ข้างเดียว) · S02/S17 = dirty frame + parallax ป่าขา
+- [[dreamparty-zombie-project]] S14 (rack focus + reflection): ตัวแม่โดนแดด / ในร้านมืด → เงาอ่านออก · เขียน prompt แบบ "Locked... rack focus from X to Y... no camera move" · S08 silhouette = ยกเว้นกฎ "no visible eyes" โดยตั้งใจ (eyeshine ข้างเดียว) · S02/S17 = dirty frame + parallax ป่าขา
 - เสริม [[seedance-knowledge]] · [[seedance-marco-freestyle-method]] (Marco = ตั้งกฎ ไม่ใช่ช็อต — ใช้คนละงาน: Melies = ช็อตที่ต้องคุมเทคนิคเป๊ะ) · [[director-styles-knowledge]] · [[storyboard-knowledge]]

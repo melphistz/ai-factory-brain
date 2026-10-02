@@ -1,33 +1,30 @@
 ---
-project: "คาบ (Still Warm)"
+project: "ยังอยู่ในนี้ (Still In Here) — working title"
 type: film
-stage: script
+stage: brief
 updated: "2026-10-02"
 ---
 
-# STATE — คาบ (Still Warm)
+# STATE — ยังอยู่ในนี้ (Still In Here)
 
-> stage: onboarding → brief → **script** → promptkitA → gen-assets → storyboard-prompts → gen-frames → video-prompts → gen-video → timeline → done
+> stage: onboarding → **brief** → script → promptkitA → gen-assets → storyboard-prompts → gen-frames → video-prompts → gen-video → timeline → done
 > **orchestrator: อัปเดตไฟล์นี้ทุกครั้งที่จบขั้น** · เปิดมาทำต่อ = อ่านไฟล์นี้ก่อนเสมอ
 
 ## สถานะล่าสุด
-- treatment + shotlist **v3** (30 ช็อต 2:11 · แมวคือแมว · จบ cliffhanger) เสร็จ · กำลังคุยเรื่องเพิ่มอารมณ์ (warmth beat) ก่อนล็อกบท
+- **รื้อเรื่องแมวทิ้งแล้ว** (archive: `_archive/cat-still-warm/` รวม STATE เดิม + storyboard SVG) → concept ใหม่ล็อก: ซอมบี้ที่จิตติดในร่าง เล่าผ่าน POV + VO · หักมุม: ผู้บรรยายคือความหิว (ตอนจบ ①) → `01-concept.md`
+- ไอเดียที่ไม่ได้เลือก 15 เรื่อง → `00-idea-bank.md`
 - **⏰ DEADLINE ส่งประกวด 6 ต.ค. 2026 23:59** (DREAM PARTY ZOMBIE WEEK) · โลโก้ Fortal Studio ซ้ายบน + Dream Party ขาว ขวาบน
 
 ## ขั้นถัดไป
-- ล็อกบท → asset-prompt-builder (Phase A) เขียน prompt asset ตาม `02-assets.md`
-- เทสต์ text-only ท่าคาบ (C4) ด้วย Seedance 2.5 draft 480p — prompt ทดสอบเขียนไว้ในแชท 10-02 (เขียนใน main ผิดกติกา orchestrate → ถ้าใช้จริงให้ agent ตรวจซ้ำ)
+- Mirko ตอบ 2 ข้อ: ภาษา VO (ไทย / อังกฤษ+ซับ) · จบหลัง "หิวจังเลย" (ตัดดำ / ตัวจริงทำอะไรครั้งสุดท้าย)
+- แล้ว → treatment + VO script เต็ม (ทุกประโยคผ่านกฎ 6 ข้อใน 01-concept) + shot list POV
 
 ## ล็อกแล้ว ห้ามเปลี่ยน
-- Style: painterly stylized 3D แบบ Flow · ไม่มีบทพูด · ไม่มีดนตรี · ไม่มีความเป็นไทย
-- **Style block (ใช้คำชุดนี้ทุก prompt ภาพ+วิดีโอ):**
-  `painterly 3D animation, stylized 3D with hand-painted textures, fur rendered as soft brushstroke clumps (no individual hair strands), simplified naturalistic forms, Blender EEVEE render look, realistic natural lighting, volumetric fog and light shafts, cinematic depth of field, muted naturalistic color palette, no outlines, not cel-shaded, not Pixar-style, not photorealistic`
-  · อย่าพึ่งชื่อหนัง "Flow" อย่างเดียว (โมเดลอาจไม่รู้จัก/ตีความเป็นคำทั่วไป) · ref: Flow (2024, Gints Zilbalodis) ทำใน Blender + EEVEE
-- 16:9 · Seedance 2.5 (Higgsfield omni_reference) · กล้องระดับแมวตลอดเรื่อง
-- ตัวละคร: แม่สามสี (`assets/mother-sheet-v1.png`) · ลูกส้ม (`assets/kitten-sheet-v1.png` — ต้องทำเวอร์ชันเล็ก)
-- **แมวคือแมว** — สัญชาตญาณจริงเท่านั้น ([[feedback-animals-act-on-instinct]])
-- Screen direction: ก่อนเฉลยแม่เดิน ขวา→ซ้าย / หลังเฉลย ซ้าย→ขวา · ซีกหูดำห้ามเข้ากล้องก่อน S14
+- อินเตอร์ · ไม่เป็นไทย · ไม่โหด/ไม่เศร้า โทนตลกร้าย · ไม่มีแมว
+- POV บุคคลที่หนึ่งผ่านตาซอมบี้ · VO พากย์ทีหลัง (ไม่ lip-sync)
+- ตอนจบแบบ ① ผู้บรรยาย = ความหิว · กฎ VO 6 ข้อ (ห้ามโกหก · สองความหมาย · ห้ามคำว่ารัก · ไม่เรียกชื่อแฟน · บ่นโทษร่าง · เสียงโทนเดียว)
+- Video model: Seedance 2.5 (Higgsfield) · 16:9
 
 ## รอ Mirko
-- ตัดสินใจเรื่อง warmth beat / human mirror (ดูแชท 10-02)
+- 2 การตัดสินใจข้างบน
 - โลโก้ Fortal Studio + Dream Party (ไฟล์)
