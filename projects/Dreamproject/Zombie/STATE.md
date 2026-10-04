@@ -1,31 +1,30 @@
 ---
-project: "ยังอยู่ในนี้ (Still In Here) — working title"
+project: "Cat Rescue / The Floor Is Lava — working title"
 type: film
 stage: brief
-updated: "2026-10-02"
+updated: "2026-10-04"
 ---
 
-# STATE — ยังอยู่ในนี้ (Still In Here)
+# STATE — Cat Rescue / The Floor Is Lava
 
 > stage: onboarding → **brief** → script → promptkitA → gen-assets → storyboard-prompts → gen-frames → video-prompts → gen-video → timeline → done
 > **orchestrator: อัปเดตไฟล์นี้ทุกครั้งที่จบขั้น** · เปิดมาทำต่อ = อ่านไฟล์นี้ก่อนเสมอ
 
 ## สถานะล่าสุด
-- **รื้อเรื่องแมวทิ้งแล้ว** (archive: `_archive/cat-still-warm/` รวม STATE เดิม + storyboard SVG) → concept ใหม่ล็อก: ซอมบี้ที่จิตติดในร่าง เล่าผ่าน POV + VO · หักมุม: ผู้บรรยายคือความหิว (ตอนจบ ①) → `01-concept.md`
-- ไอเดียที่ไม่ได้เลือก 21 เรื่อง → `00-idea-bank.md` (รวมรอบตีความซอมบี้ใหม่ — ผู้ใช้ "ยังไม่โดน" · ล่าสุดเสนอ "Slop" ซอมบี้คือ AI เจนพัง ยังไม่ตอบ)
-- **จบ session 2026-10-02:** concept "ยังอยู่ในนี้" ยังเป็นตัวล็อก · ถ้าวันถัดไปยังไม่ได้เรื่องที่โดนกว่า → ลุยเรื่องนี้เลย (เหลือ 4 วัน)
-- **⏰ DEADLINE ส่งประกวด 6 ต.ค. 2026 23:59** (DREAM PARTY ZOMBIE WEEK) · โลโก้ Fortal Studio ซ้ายบน + Dream Party ขาว ขวาบน
+- **2026-10-04 เปลี่ยน concept:** Mirko ส่ง bible ใหม่ → เนิร์ดข้ามตึกไปช่วยแมว แบบ "The Floor Is Lava" (พื้น = ซอมบี้) · deadpan · จบ: แมวกระโดดกลับเอง เขาค้าง → ตัดดำ → `01-concept.md` (copy ตรงจาก Desktop)
+- "ยังอยู่ในนี้" ถูก archive → `_archive/still-in-here/` (concept + STATE เดิม) · แถว #0 ใน `00-idea-bank.md`
+- **⏰ DEADLINE ส่งประกวด 6 ต.ค. 2026 23:59** (เหลือ ~2 วัน) · โลโก้ Fortal Studio ซ้ายบน + Dream Party ขาว ขวาบน
 
 ## ขั้นถัดไป
-- Mirko ตอบ 2 ข้อ: ภาษา VO (ไทย / อังกฤษ+ซับ) · จบหลัง "หิวจังเลย" (ตัดดำ / ตัวจริงทำอะไรครั้งสุดท้าย)
-- แล้ว → treatment + VO script เต็ม (ทุกประโยคผ่านกฎ 6 ข้อใน 01-concept) + shot list POV
+- ออกแบบ **geography** ทั้ง sequence (bible §23): ห้องตัวเอก · ตึกตรงข้าม + ทางเดินแมว · โซนซอมบี้ · 5–7 จุดข้าม · เส้นทางต่อเนื่อง · วาง beat "เกือบพัง" · ทุกความพังสร้างอุปสรรคถัดไป
+- แล้ว → shot list → asset kit (ตัวเอก · แมว · ฉาก)
 
 ## ล็อกแล้ว ห้ามเปลี่ยน
-- อินเตอร์ · ไม่เป็นไทย · ไม่โหด/ไม่เศร้า โทนตลกร้าย · ไม่มีแมว
-- POV บุคคลที่หนึ่งผ่านตาซอมบี้ · VO พากย์ทีหลัง (ไม่ lip-sync)
-- ตอนจบแบบ ① ผู้บรรยาย = ความหิว · กฎ VO 6 ข้อ (ห้ามโกหก · สองความหมาย · ห้ามคำว่ารัก · ไม่เรียกชื่อแฟน · บ่นโทษร่าง · เสียงโทนเดียว)
+- ดู bible §21 (Current Locked Decisions)
+- แมว = แมวธรรมดาตามสัญชาตญาณ ([[feedback-animals-act-on-instinct]])
+- ไม่โหด ไม่สยอง ซอมบี้ = สิ่งกีดขวาง/ลาวา · ไม่ต้องมีขากลับ
 - Video model: Seedance 2.5 (Higgsfield) · 16:9
 
 ## รอ Mirko
-- 2 การตัดสินใจข้างบน
+- รายการ §22 Still Open (สถาปัตยกรรม · ทางเดินแมว · ตัวเอกพูดไหม · หน้าตาตัวเอก/แมว · เวลา · เมือง · ชื่อเรื่อง · เสียง)
 - โลโก้ Fortal Studio + Dream Party (ไฟล์)
