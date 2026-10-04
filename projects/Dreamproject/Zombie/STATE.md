@@ -15,9 +15,11 @@ updated: "2026-10-04"
 - "ยังอยู่ในนี้" ถูก archive → `_archive/still-in-here/` (concept + STATE เดิม) · แถว #0 ใน `00-idea-bank.md`
 - **⏰ DEADLINE ส่งประกวด 6 ต.ค. 2026 23:59** (เหลือ ~2 วัน) · โลโก้ Fortal Studio ซ้ายบน + Dream Party ขาว ขวาบน
 
+- **2026-10-04 geography DRAFT เสร็จ** → `02-geography.md` (deep-reasoner): tong lau back lane 3.5 m · route 7 จุด · สะพาน = โต๊ะรีดผ้า · ending ใหม่ = แมวเดินย้อนสะพานเข้าห้องเขากินทูน่า · 3 plates · ~40 ช็อต (MVP ~30)
+
 ## ขั้นถัดไป
-- ออกแบบ **geography** ทั้ง sequence (bible §23): ห้องตัวเอก · ตึกตรงข้าม + ทางเดินแมว · โซนซอมบี้ · 5–7 จุดข้าม · เส้นทางต่อเนื่อง · วาง beat "เกือบพัง" · ทุกความพังสร้างอุปสรรคถัดไป
-- แล้ว → shot list → asset kit (ตัวเอก · แมว · ฉาก)
+- **รอ Mirko approve/override `02-geography.md` §6 (defaults ของ §22) + ตัดสิน ending (แบบใหม่ vs Fallback B)**
+- แล้ว → shot list (MVP 30) → asset kit Phase A (asset-prompt-builder): sheet ตัวเอก · sheet แมว · Zombie A/B · P1 · P2-M (gen ก่อน) · P2-H · P2-V · P3
 
 ## ล็อกแล้ว ห้ามเปลี่ยน
 - ดู bible §21 (Current Locked Decisions)
