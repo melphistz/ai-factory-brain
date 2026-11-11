@@ -18,6 +18,7 @@ One line per memory, grouped by section. Add new entries under the matching sect
 
 ## Active Projects
 
+- [EVIL ELLE](evil-elle-project.md) — **NEW 11-11** supervillain intro Seedance 2.5 16:9 ~85s · C1 LOCKED · C2/C3 dev v1 done (gasworks ruin + Vanishing Volunteer + The Deck Lifts) · next = plates P1–P6
 - [Dream Party Zombie](dreamparty-zombie-project.md) — **ส่ง 6 ต.ค. 23:59** · concept (10-04) "Cat Rescue / Floor Is Lava": เนิร์ดข้ามตึกช่วยแมว deadpan · "ยังอยู่ในนี้" archive แล้ว · `projects/Dreamproject/Zombie/`
 - [SEC Car Transport](sec-car-transport-project.md) — **NEW 07-23** งานลูกค้า AGV valet parking robot VMR-CR5300GAW2 (จับล้อยกลอย, split-modular, Laser SLAM, 3000kg). DONE = เอกสารคำอธิบาย 7 ขั้น + 16 loading frames. ไฟล์ที่ `/Volumes/WONYOUNG/SEC Car Transport/`
 - [Drama App (ของเราเอง)](smartaihub-drama-series.md) — ระบบซีรีส์แนวตั้งเอง · v1 BUILT+VERIFIED · prompt-first (ปฏิเสธ auto-gen ขัด ToS) · UI redesign 8/8 DONE + genre×setting 2-axis wire แล้ว (build+lint+smoke PASS, commit `732c032`) · **detail เต็ม = `projects/drama-app/STATE.md`** · retrospective = [[drama-app-fable-ultracode-retrospective]]
@@ -41,6 +42,7 @@ One line per memory, grouped by section. Add new entries under the matching sect
 
 ## Seedance / Video Prompting
 
+- [Buffer + Micro-Gesture](seedance-buffer-microgesture.md) — **NEW 11-11** Galatea tips: head/tail buffer 0.5–2s + motion hand-off ("ส่งอะไรเข้า/ส่งอะไรต่อ") · micro-movement/gesture/blink = secondary action · สั่ง blink ทีละช็อต
 - [Melies Cinematic Techniques](melies-cinematic-techniques.md) — **NEW 10-02** library 424 เทคนิค 13 หมวด · prompt แบบ Melies: 1 เทคนิค/ช็อต + ล็อก invariants + ห้าม failure mode โดยชื่อ · prompt ตัวอย่าง verbatim
 - [CINEDANCE V4 System](cinedance-v4-seedance-system.md) — alt Seedance director (จาก SEC Car Transport vid ref) · เทียบกับ seedance-2-pro-director แล้ว 08-05 (เก็บผลเทียบในไฟล์) · ยังไม่ merge เข้า skill จริง
 - [Vertical Drama Basics (Dramy.ai)](vertical-drama-basics-dramy.md) — ตอน 5 ช่วง Hook/Setup/Conflict/Twist/Cliffhanger บังคับ · Hook 4 ประเภท · AI-friendly (ตัวละคร≤3/สถานที่≤2/30-60วิ)
