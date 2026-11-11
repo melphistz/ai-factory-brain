@@ -14,3 +14,5 @@ metadata:
 **Why:** user เอาไป paste เจนจริง ไม่ใช่มาไล่ประกอบเอง. ส่งแค่ท่อนแก้ = ต้องเสียเวลาต่อจิ๊กซอว์เอง.
 
 **How to apply:** อธิบายได้ว่าเพิ่ม/แก้อะไร + เพื่ออะไร (เหมือนเดิม) แต่ **สุดท้ายวาง full prompt เต็มก้อนเสมอ** พร้อม paste. ใช้กับทุกงาน prompt: [[cute-face-charm-recipe]], [[characters/zhao-yu]], [[kpop-idol-visual-prompt]], Seedance kit ฯลฯ
+
+**Exception (11-11, EVIL ELLE):** prompt ชุดใหญ่/ยาวมาก (เช่น Seedance หลายท่อนรวม >100k chars) → user สั่ง **"ไม่ต้องส่งมาในแชท เอาไว้ที่ md พอ"** · เซฟ full prompt ลงไฟล์ .md ในโฟลเดอร์โปรเจกต์ แล้วในแชทให้แค่ path + ตาราง upload order/สรุป · หลักเดิมยังอยู่: ในไฟล์ต้องเป็น full paste-ready ทุกตัว ไม่ใช่ diff · prompt เดี่ยวสั้น ๆ (ภาพ 1 ใบ) ยังวางในแชทตามปกติ

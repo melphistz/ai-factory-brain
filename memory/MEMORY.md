@@ -8,7 +8,7 @@ One line per memory, grouped by section. Add new entries under the matching sect
 - [Use Installed Skills](rule-use-installed-skills.md) — RULE: งานที่มี skill/agent ตรง → ต้องเรียกใช้ ห้ามเขียนสดใน main (ยกเว้นแก้เล็ก) · เช็ค [[skills-cheatsheet]]
 - [Search Prompt-Index First](rule-search-prompt-index-first.md) — RULE: ก่อนเขียน prompt ภาพ/วิดีโอ → ค้น `~/ai-factory-brain/tools/prompt-index/` (`search.py term1 term2`) ก่อน
 - [Model/Effort Strategy](feedback-model-effort-strategy.md) — FEEDBACK: intelligence-asset = ฉลาดสุด+ultracode+verify 2 เลนส์ · build/production = Opus/Sonnet+high · effort สูง=ช้าลง
-- [Always Full Prompt](feedback-always-full-prompt.md) — FEEDBACK: คุยเรื่อง prompt ภาพ/วิดีโอ = จบด้วย full paste-ready prompt เสมอทุกครั้ง
+- [Always Full Prompt](feedback-always-full-prompt.md) — FEEDBACK: คุยเรื่อง prompt ภาพ/วิดีโอ = จบด้วย full paste-ready prompt เสมอ · ยกเว้นชุดยาวมาก (Seedance หลายท่อน) = เก็บใน .md ส่งแค่ path
 - [Drama Character Casting](feedback-drama-character-casting.md) — FEEDBACK: ตัวละคร drama ทุกตัวต้องสวย/หล่อ แต่สมจริงไม่ over · recipe → [[drama-dramabox-tier-portrait-recipe]]
 - [Animals Act on Instinct](feedback-animals-act-on-instinct.md) — FEEDBACK (10-02): ตัวละครสัตว์ = สัญชาตญาณจริงเท่านั้น ห้ามคิด/วางแผนแบบคน ("แมวคือแมว") · ใช้พฤติกรรมจริงแทน
 - [Storyboard Narrative Not Flat](feedback-storyboard-narrative-not-flat.md) — FEEDBACK: storyboard คิดเป็น flow หนัง (มุม/reveal/movement/arc) ทุก panel dynamic · ห้ามแบน
