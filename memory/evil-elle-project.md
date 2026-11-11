@@ -5,10 +5,12 @@ metadata:
   node_type: memory
   type: project
   originSessionId: da198558-bb0f-47e0-bfa8-41092563b0aa
-  modified: 2026-11-11T07:10:10.702Z
+  modified: 2026-11-11T14:08:50.834Z
 ---
 
 # EVIL ELLE — The Greatest Illusion (seen 2026-11-11)
+
+**Drive path:** mac `/Volumes/PS Catches/Adventure/` = Windows `E:\Adventure\` (same drive, confirmed 11-11)
 
 **Files:** prompts `/Volumes/PS Catches/Adventure/03_prompts/SEEDANCE_C1_C2_C3_v2.md` (Script v5) · concept `~/Desktop/EVIL_ELLE_Latest_Story_Concept.md` (latest, Thai, not a prompt) · bible+identity lock `00_bible/` (evil_elle_identity_lock.md = character lock, script_v5_EN.md) · refs in `01_character/` (elle_normal_sheet, evil_elle_sheet, vlogger_sheet) + `02_location/` (elle_room, amusement_park)
 
@@ -41,6 +43,9 @@ metadata:
 - **Assets selected (11-11):** `02_location/park_ground_v1.png` (gold balcony up on the carousel, garbled signs) · `park_aerial_v1.png` · `ruin_ground_v1.png` (excellent) · `ruin_aerial_v0_needs_edit.png` (layout ~80%, missing the beam + island, EXIT in the wrong place → NBP edit) · `05_props/card_sheet_v1.png` (back = burgundy/black lattice + gold mask in an oval medallion, with dots instead of suits · face = **Ace of Spades** with "A♠" indices + jester in a gold old-man mask; it came out different from the prompt; I recommended using it — awaiting user confirmation → when finalizing, describe the card to match the real image)
 
 - **✅ FINAL prompts (11-11):** `03_prompts/SEEDANCE_C2_C3_v3_final.md` (184k chars, 8 prompts, every [PLATE] resolved against the real images) · ruin = a full-width trench + hopscotch beam, the crowd on the far slab · ruin aerial not attached (if the edited one arrives it goes last: C3-G2→@image7, C3-G3/G4B→@image5) · still open: the sun is on opposite sides in park_ground and ruin_ground · C1's card must match the A♠ · draft the vlogger high-angle shot + the pump-house doorway at 480p first · user wants long prompts kept in the md only, not pasted in chat
+- **✅ v3.3 = CURRENT (11-11):** `03_prompts/SEEDANCE_C2_C3_v3.3_final.md` — shot-size ladder after the audit (`AUDIT_shot_coverage_v3.2.md`): real ECUs (A♠ card 18°, card-flick hand 12°, end push-in to Elle's eyes+mouth ECU on "Your move… hero.") · MCU reverse on the vlogger for "Me?" · "Shh." at 18° · C2-G2 now 8 shots (CU on frozen faces, new cut at 27.5s on the C2 timeline) · C3-G3 front-high so the vlogger's face reads during the dissolve · **EXIT man cut** → CU on 4 front-row faces (same 4 as in C2-G2) · C3-G4 #10 no longer optional · bible v1.1 not updated
+- **v3.2 (11-11, superseded):** `03_prompts/SEEDANCE_C2_C3_v3.2_final.md` — user felt the C2 opening was lonely → **real crowd ~80 (60–100)**, all real (only attendant + vendor are illusions), all stranded on the far slab in C3 · nobody rides anything (wheel/carousel = illusion, can't bear weight) · anti clone/thinning lines + "no real person dissolves with the illusion" in C3-G2 · draft C2-G1 shot 1 + C3-G2 at 480p first · bible v1.1 still says 18–22 (not updated)
+- **v3.1 (11-11, superseded by v3.2):** `03_prompts/SEEDANCE_C2_C3_v3.1_final.md` — the vlogger films on a **smartphone held in landscape** (pastel pink case, pink beaded wrist strap, never held vertical) instead of the vlogging camera with a fluffy mic · Elle's line is now "You! With the phone!" · prose label "the woman with the phone" · audio is the phone's built-in mic · v3_final kept as a backup (dev v1.1 bible still says camera; not updated)
 
 **Power rules (core of the story):** Elle controls perception only — an illusion cannot bear weight, so anyone up high must be standing on a real structure that was there from the start · real harm comes from victims acting on false information, never from purple light pushing anyone · cause and effect must be readable on screen
 **Touchstone:** Joker (attitude/unpredictability, not copying scenes) · North star: "she builds a park that never existed so people walk into a ruin, then raises the curtain, laughing, and leaves them for the heroes"
