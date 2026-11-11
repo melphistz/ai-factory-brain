@@ -1,6 +1,6 @@
 ---
 name: "shotcaller-v2"
-description: "Shotcaller v2 (Joey, Nov 2026; replaces cinema-director), house-patched multi-shot Seedance 2.0/2.5 director. Use for multi-shot sequences where drift is the enemy: 3+ subjects, wardrobe or staging that must survive hard cuts, scripted multi-speaker dialogue scenes, MV performance and lipsync to an attached track, strobe, extending an existing clip, Element-handle tagging and video character reference sheets (look + voice + performance). Enforces a 1,800-char Higgsfield budget gate by default. Do NOT use for: a single blocked shot (seedance-2-pro-director); a Thai talking-head clip (seedance-2-pro-director + Veo pacing); mood/fashion/product clips with 1-2 people (Marco freestyle method); planning a whole ad from a brief (video-prompt-builder); Genjutsu motion transfer (motiondojo-v1); characters or still plates (castkit-v1 / scenecraft-v1)."
+description: "Shotcaller v2 (Joey, Nov 2026; replaces cinema-director), house-patched multi-shot Seedance 2.0/2.5 director. Use for multi-shot sequences where drift is the enemy: 3+ subjects, wardrobe or staging that must survive hard cuts, scripted multi-speaker dialogue scenes, MV performance and lipsync to an attached track, strobe, extending an existing clip, Element-handle tagging and video character reference sheets (look + voice + performance). Full-length by default (user cap 50k chars); 1,800-char box mode on request. Do NOT use for: a single blocked shot (seedance-2-pro-director); a Thai talking-head clip (seedance-2-pro-director + Veo pacing); mood/fashion/product clips with 1-2 people (Marco freestyle method); planning a whole ad from a brief (video-prompt-builder); Genjutsu motion transfer (motiondojo-v1); characters or still plates (castkit-v1 / scenecraft-v1)."
 ---
 
 # Shotcaller v2 — Seedance Cinema Director
@@ -31,7 +31,7 @@ These win wherever they conflict with Joey's text below. Inline notes tagged `Ho
 
 **H1 — Routing.** This skill = multi-shot Seedance sequences where drift is the enemy. Route elsewhere: single blocked shot → `seedance-2-pro-director` · Thai talking-head → `seedance-2-pro-director` + Veo pacing (H4) · mood/fashion/product with 1–2 people → Marco freestyle (set the rules, not the shots) · whole ad from a brief → `video-prompt-builder` · Genjutsu motion transfer → `motiondojo-v1` · characters → `castkit-v1` · still plates → `scenecraft-v1`.
 
-**H2 — BUDGET GATE (read first).** Default = **BOX mode**: the Higgsfield Seedance prompt box takes 2,000 characters, so the whole code block must be **≤1,800 characters**. **FULL mode** (Joey's full spine, ~900–1,400 words) only when the user says the target is the API / kie.ai. Unverified: memory `seedance-knowledge.md` lists the model-native prompt max as 2,000 chars for both hosts, while the 08-03 gate assumed kie.ai takes 20,000, and the 2.5 cap is unconfirmed; treat FULL mode as a user-confirmed exception and say so on delivery. BOX-mode compaction order:
+**H2 — BUDGET GATE (read first).** Default = **FULL mode**: the user confirmed (2026-11-11) that their Seedance 2.5 prompt cap is **50,000 characters**, so length is not a constraint — write Joey's full spine and never compress for length (stay under 50k; Joey's own "past ~1,200 words a dialogue prompt drowns" is a quality note, not a cap). **BOX mode (≤1,800 characters)** only when the user says the target is a 2,000-character box (e.g. an older Higgsfield field). BOX-mode compaction order:
 1. Style Prefix + Technical → one line: `Photoreal film capture, organic grain, matte skin with real pore texture. Smooth continuous filmic motion with real motion blur, no stutter, no frame interpolation, no frame blending.` (Seedance renders 24fps fixed; reciting fps/shutter/exposure buys nothing here.)
 2. NO ON-SCREEN TEXT stays third, shortened: `NO ON-SCREEN TEXT — CRITICAL: no captions, subtitles, burned-in dialogue, titles, logos, watermarks, or overlays at any point.` Still no carve-out.
 3. Skin protection + closing tail → max 6 items.
@@ -39,7 +39,7 @@ These win wherever they conflict with Joey's text below. Inline notes tagged `Ho
 5. Dialogue → verbatim in THE SCRIPT and Audio only; Action Timing writes `@image1 says line 1` (two appearances instead of three; UNVERIFIED — A/B at 480p draft).
 6. Apply H3.
 7. Still over → split into two prompts. Never cut or paraphrase a scripted line to make it fit.
-State the count in one line under the title: `Chars: 1,742 / 1,800 (box mode)`.
+In BOX mode, state the count in one line under the title: `Chars: 1,742 / 1,800 (box mode)`.
 
 **H3 — Lock less for 1–2 subjects.** House golden rule: ORDER + ACTION are always stated; CAMERA ANGLE stays free except on meaning-bearing beats. Full Geometry Map and per-shot lens locks are the exception, justified when 3+ bodies must not swap or staging/wardrobe must survive hard cuts. For 1–2 subjects locked by reference: Geometry Map only if a relationship can invert, one lens lock for the whole prompt, no per-shot angle locks. Over-specifying every angle is the "AI tell" (slow, dreamy, stiff). When in doubt, lock less.
 
@@ -746,7 +746,7 @@ Choppy output with a per-beat light pulse: soften to a slow swell first, then go
 - [ ] No song titles, artist references, or music descriptions anywhere; lyrics only inside THE SINGING block for a lipsync section
 - [ ] Locks as a positive chain, skin protection and tail close the prompt
 - [ ] No names, no aspect ratio, no tool names, no negative block
-- [ ] **House:** mode set (BOX ≤1,800 chars counted and stated, or user confirmed API/kie.ai); 1–2 subjects locked less (H3); Thai = LANGUAGE block + 5–6s/8s pacing (H4); five fingers on visible hands (H9); UNVERIFIED items flagged to the user
+- [ ] **House:** mode set (FULL by default, cap 50k; BOX ≤1,800 counted and stated only when the user names a 2,000-char box); 1–2 subjects locked less (H3); Thai = LANGUAGE block + 5–6s/8s pacing (H4); five fingers on visible hands (H9); UNVERIFIED items flagged to the user
 
 ## REPAIR PASS
 

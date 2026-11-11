@@ -44,6 +44,8 @@ Pipeline ของ Joey: build world (bible) → lock cast (Castkit) → set sce
 
 **Motiondojo** (Genjutsu): 3 form — Body Copy / Camera Copy / Body Copy New Camera · วิดีโอ motion ไม่ tag ใน prompt, ref อื่นเป็น `<<<image_N>>>` · scope sentence: "The attached motion transfer video controls body movement only — its camera is ignored completely..." · mouth lock: "HARD LOCK: nobody in this video speaks, sings, mouths or forms a single word..." · role ตามตำแหน่งเริ่ม (LEFT/RIGHT) "never swap" · ให้แต่ละคน movement quality ต่างกัน "The silhouettes never match at the same moment" · population block นับหัวคน · physics เขียนใหม่ตามพื้นผิวใหม่
 
+> **11-11 update:** user ยืนยัน Seedance 2.5 cap = **50k chars** → `shotcaller-v2` H2 เปลี่ยน default เป็น FULL mode (box ≤1,800 เฉพาะเมื่อสั่ง) · Motiondojo H1 (Genjutsu) ยังคง core ≤1,800 — limit Genjutsu แยกต่างหาก ยังไม่ verify
+
 ## Patch list (APPLIED 11-11 — ตัวดิบไม่มี house override 08-03 เลย)
 - **ทุกตัว**: description ใส่ "Do NOT use for…" (Scenecraft/Castkit แย่ง image-prompt-writer/podcast; Shotcaller เขียน "any Seedance prompt"; Motiondojo แย่ง Kling motion_control)
 - **Shotcaller**: BUDGET GATE ≤1,800 chars (boilerplate บังคับเองก็ ~2,222 แล้ว, ตัวอย่างของ Joey 11k) · house philosophy (1–2 คนตัด geometry map/lens per shot) · Thai: ท้ายคำ บ/ป/พ/ม = ปิดปากค้าง ไม่มี pop (A/B ที่ 480p ก่อน) · Thai pacing นับพยางค์ + จบพูดใน 5–6s/8s · LANGUAGE block ไทย · คืน Family B phone/BTS (มี dangling ref L84) · คืน five-fingers + brand-naming rule · CRITICAL cap 5 สำหรับ 2 คนพูด · bible path → `projects/<slug>/00-bible.md` · ข้ามคำถาม version/Elements ถ้า STATE.md บอกแล้ว
