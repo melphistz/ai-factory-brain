@@ -7,6 +7,8 @@ metadata:
 
 # Joey Cinema Skills Pack (installed 2026-08-03)
 
+> ⚠️ 11-11: Joey ออก v2 แล้ว (rename + split) → ดู [[joey-skills-v2-nov2026]] ก่อนใช้ไฟล์นี้
+
 ที่มา: Notion doc ของ Joey (YouTuber AI filmmaking) — "Everything You Need to Start Building Your AI Cinematic World" + Dropbox skill files. ติดตั้งจาก `~/Desktop/Joey's Cinema Skill Files/` → `skills/` (hardlink เข้า `~/.claude/skills/` ตาม convention)
 
 ## 4 skills — stack กัน

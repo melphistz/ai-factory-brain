@@ -42,7 +42,7 @@ metadata:
 - **A/B ที่ควรลองเอง:** (1) 2 ภาพแยก vs ชีตรวม (2) mask vs ไม่ mask — ไม่มี source ตอบตรงๆ ต้องเทสเอง
 
 ## 🔄 BACKPORT จาก Joey pack (08-03) — upgrade 2 จุด
-- **anchor step ใหม่ = 3:4 chest-up face lock เดี่ยว** (character-builder skill): ภาพเดียวมีแต่หน้า, 18% gray flat ไร้เงา, black camisole/tank, neutral — ตรงกับ verdict ข้างบน (แนวตั้ง/close-up-dominant + แยกหน้าออกจาก garment) เป๊ะ · lock = original, sheet = working copy
+- **anchor step ใหม่ = 3:4 chest-up face lock เดี่ยว** (character-builder skill → ตอนนี้ `castkit-v1`): ภาพเดียวมีแต่หน้า, 18% gray flat ไร้เงา, black camisole/tank, neutral — ตรงกับ verdict ข้างบน (แนวตั้ง/close-up-dominant + แยกหน้าออกจาก garment) เป๊ะ · lock = original, sheet = working copy
 - **garment panel: headless ghost-mannequin ดีกว่า grey-oval mask** — ตัดหัว/คอออกทั้งดุ้น คอเสื้อเป็น hollow เห็นด้านในผ้า ("like a headless dress-form mannequin") = ลบ identity ออกจริง ไม่ใช่แค่บัง (grey oval เราเองก็บันทึกไว้ว่าไม่มีหลักฐาน isolate identity) · สูตรอยู่ใน `skills/character-builder/SKILL.md` + [[outfit-swap-wichcraft-prompt]] Variant B
 - sheet 3-panel ของ Joey (headless front / rear+head / tight face) ใช้เป็น **garment/fit deliverable** — แต่ anchor ที่ feed downstream ยังต้องเป็น face lock เดี่ยว ห้ามให้ sheet แทน
 

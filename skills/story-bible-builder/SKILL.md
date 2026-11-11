@@ -1,6 +1,6 @@
 ---
 name: story-bible-builder
-description: "Interview-driven skill that helps AI filmmakers, worldbuilders, and storytellers turn their story into a single dense canon document — the story's bible. Output is a project canon file the user loads on demand, so every future prompt automatically knows the world without re-explaining it. Covers premise, thesis, timeline, factions, locations, characters with voice and movement locks, ensemble dynamics, plot engines, and production rules. Use whenever a user wants to build a story bible, lock in character consistency, capture their world, define character personality and voice, stop prompt drift, or turn a loose idea into a canon doc. Trigger on 'build a bible', 'story bible', 'lock my characters', 'character bible', 'canon doc', 'turn my story into a skill', or any close variant. Do NOT use for building a character's image references or face lock — that is character-builder; this skill produces the written canon, not prompts."
+description: "Interview-driven skill that helps AI filmmakers, worldbuilders, and storytellers turn their story into a single dense canon document — the story's bible. Output is a project canon file the user loads on demand, so every future prompt automatically knows the world without re-explaining it. Covers premise, thesis, timeline, factions, locations, characters with voice and movement locks, ensemble dynamics, plot engines, and production rules. Use whenever a user wants to build a story bible, lock in character consistency, capture their world, define character personality and voice, stop prompt drift, or turn a loose idea into a canon doc. Trigger on 'build a bible', 'story bible', 'lock my characters', 'character bible', 'canon doc', 'turn my story into a skill', or any close variant. Do NOT use for building a character's image references or face lock — that is castkit-v1; this skill produces the written canon, not prompts."
 ---
 
 # Story Bible Builder
@@ -33,7 +33,7 @@ For this mode, the bible needs to be **dense, opinionated, and self-contained** 
 
 ### Mode 2 — Context source for a video prompt director skill
 
-Many users pair the bible with a video prompt director skill (like `cinema-director` or similar). In this pairing, the director skill handles the cinematography grammar, mode selection, frame composition, and prompt syntax. The bible provides the identity, voice, movement, aesthetic era locks, and canon that the director skill can't get from a reference image alone.
+Many users pair the bible with a video prompt director skill (like `shotcaller-v2` or similar). In this pairing, the director skill handles the cinematography grammar, mode selection, frame composition, and prompt syntax. The bible provides the identity, voice, movement, aesthetic era locks, and canon that the director skill can't get from a reference image alone.
 
 The director skill reads uploaded reference images for wardrobe, hair, and identity. It cannot read *voice*, *movement quality*, *stillness*, *what era's aesthetic applies*, or *what production rules are locked for this world*. Those come from the bible.
 
@@ -156,7 +156,7 @@ Assistant now assembles the full `00-bible.md`. The final section — "When this
 4. Use the quoted Speech/Movement/Stillness descriptors verbatim when writing prompts
 
 **Paired-with-director-skill mode:**
-1. If a video prompt director skill is also active in the session (e.g., `cinema-director` or similar), the director skill handles cinematography, mode selection, frame composition, and prompt syntax
+1. If a video prompt director skill is also active in the session (e.g., `shotcaller-v2` or similar), the director skill handles cinematography, mode selection, frame composition, and prompt syntax
 2. The bible feeds the director skill: character voice → Sound Bed; movement/stillness → Subject Lock; aesthetic era locks → World Plate / grade; production rules → cross-frame rules and locked traits
 3. When the user asks for a video prompt in this world, pull the relevant character's voice, movement, and stillness lines and the correct aesthetic era block, and hand them to the director skill's prompt structure
 4. Named canonical character references (uploaded reference images the user always attaches) get called out here so the director skill knows to expect them

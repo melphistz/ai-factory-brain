@@ -74,6 +74,12 @@ wichcraft family เดียวกัน (2-ref img1=identity / img2=wardrobe) 
 - **หมวกโชว์แยก** เพราะ front ไม่มีหัวใส่ไม่ได้ (rule: accessory ที่ต้องมีหัว → วาง prop ข้างตัว)
 - **"infer only functional rear seams, no unrelated decoration"** = กันโมเดลมั่วลายหลัง
 
+## Backport จาก castkit-v1 (11-11) — ใช้คู่กับเทมเพลตด้านล่าง
+- **Neckline test (เลือกวิธีตัดหัว):** เสื้อมีช่องคอจริงที่ตาคาดว่าคอจะโผล่ออกมาไหม? **มี** (crew, mock/turtle, shirt/jacket/club/notched collar, hood, ribbed tank, keyhole, zip ถึงคอ — เช่น **ชุดพยาบาลมีปก**) → เปลี่ยน LEFT PANEL จาก clean neck cut เป็น ghost-mannequin hollow: `no head, no neck, and no hair… The [specific collar, named exactly] holds its own three-dimensional shape and its opening is an empty dark hollow looking down into the inside of the garment, with the inner back of the fabric faintly visible.` · **ไม่มี** (strapless, halter, spaghetti strap, camisole, wide scoop, plunge) → ใช้ clean neck cut เดิม · ก้ำกึ่ง (มีปก + ไหล่เปลือย) → hollow (collar wins)
+- **Orientation lock — แปะเพิ่มใน LEFT PANEL:** `The body faces the camera dead-on — shoulders and hips both square to the lens and level, both sides of the figure equally visible, feet planted parallel and pointing straight at camera, weight even across both feet. This is a flat frontal view regardless of how the figure stands in the reference: no three-quarter turn, no rotation of the torso or hips away from the lens, no twist at the waist, no contrapposto, no weight shifted onto one hip, no shoulder dropped or pushed forward, no foot turned out.`
+- **แปะเพิ่มใน CENTER PANEL:** `seen dead-on from directly behind — shoulders and hips square to the lens and level, the spine centered in the panel, feet parallel, weight even. This is a flat rear view: no three-quarter turn, no rotation, no twist at the waist, no weight shifted onto one hip, no glance back over the shoulder.`
+- ยังไม่ได้ A/B บนเทมเพลตนี้ — ที่มา [[joey-skills-v2-nov2026]]
+
 ## เทมเพลต Variant B (paste-ready — สั่งโมเดลเรียนโครงก่อน)
 ```
 Create one photorealistic three-panel character reference sheet as a single horizontal frame, three equal vertical panels side by side with thin clean separators. Same woman and same coordinated outfit consistent across all three panels.
