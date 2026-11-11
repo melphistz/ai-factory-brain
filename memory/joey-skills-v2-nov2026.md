@@ -10,7 +10,7 @@ metadata:
 
 # Joey Skills v2 (blog อัปเดต 2026-11-06/09) — ✅ INSTALLED 2026-11-11 (house-patched)
 
-**สถานะ:** `shotcaller-v2` · `castkit-v1` · `scenecraft-v1` · `motiondojo-v1` อยู่ใน `skills/` แล้ว — ทุกตัวมี section `## HOUSE OVERRIDES (ai-factory-brain, 2026-11)` ต้นไฟล์ (patch list ด้านล่าง = ที่ apply ไปแล้ว) · ของเก่า `cinema-director` / `character-builder` / `banana-pro-director-30` ย้ายไป `skills-archive/joey-v1-2026-08/` (ไม่โหลดแล้ว) · story-bible-builder ใช้ของเราต่อ (แก้ชื่อ ref → shotcaller-v2/castkit-v1) · ไฟล์ดิบ Joey ยังอยู่ที่ Desktop
+**สถานะ:** `shotcaller-v2` · `castkit-v1` · `scenecraft-v1` · `motiondojo-v1` อยู่ใน `skills/` แล้ว — ทุกตัวมี section `## HOUSE OVERRIDES (ai-factory-brain, 2026-11)` ต้นไฟล์ (patch list ด้านล่าง = ที่ apply ไปแล้ว) · ของเก่า `cinema-director` / `character-builder` / `banana-pro-director-30` + `shotcaller-v1` (ดิบ ไม่ patch, เข้ามาจากเครื่อง MELPHIST 11-07) ย้ายไป `skills-archive/joey-v1-2026-08/` (ไม่โหลดแล้ว) · story-bible-builder ใช้ของเราต่อ (แก้ชื่อ ref → shotcaller-v2/castkit-v1) · ไฟล์ดิบ Joey ยังอยู่ที่ Desktop
 
 ที่มา: https://higgsfield.ai/@joeysnoisygroup/blogs/all-my-claude-skills-for-better-prompting (หน้าเป็น JS → content จริงอยู่ที่ `contentUrl` .bin บน cdn.higgsfield.ai = Yjs/Lexical doc, decode ด้วย `yjs`; zip links อยู่ใน .bin)
 ไฟล์ทั้งหมด + blog text: `~/Desktop/Joey Skills v2 (2026-11)/`
